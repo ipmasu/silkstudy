@@ -1,0 +1,207 @@
+{
+  "generatedAt": "2026-06-06T11:26:34.470Z",
+  "reviewedGateOverrides": 9,
+  "totalDirectorySchools": 273,
+  "candidates": [
+    {
+      "name": "Anhui Agricultural University",
+      "slug": "anhui-agricultural-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Anhui Medical University",
+      "slug": "anhui-medical-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Anhui Normal University",
+      "slug": "anhui-normal-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Anhui University",
+      "slug": "anhui-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Anshan Normal University",
+      "slug": "anshan-normal-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beihua University",
+      "slug": "beihua-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Film Academy",
+      "slug": "beijing-film-academy",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Foreign Studies University",
+      "slug": "beijing-foreign-studies-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Forestry University",
+      "slug": "beijing-forestry-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Institute of Technology",
+      "slug": "beijing-institute-of-technology",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing International Studies University",
+      "slug": "beijing-international-studies-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Jiaotong University",
+      "slug": "beijing-jiaotong-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Language and Culture University",
+      "slug": "beijing-language-and-culture-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Normal University",
+      "slug": "beijing-normal-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Sport University",
+      "slug": "beijing-sport-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing Technology and Business University",
+      "slug": "beijing-technology-and-business-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing University of Chemical Technology",
+      "slug": "beijing-university-of-chemical-technology",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing University of Chinese Medicine",
+      "slug": "beijing-university-of-chinese-medicine",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing University of Posts and Telecommunications",
+      "slug": "beijing-university-of-posts-and-telecommunications",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Beijing University of Technology",
+      "slug": "beijing-university-of-technology",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Bohai University",
+      "slug": "bohai-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Capital Institute of Physical Education",
+      "slug": "capital-institute-of-physical-education",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Capital Medical University",
+      "slug": "capital-medical-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Capital Normal University",
+      "slug": "capital-normal-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Capital University of Economics and Business",
+      "slug": "capital-university-of-economics-and-business",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Central Academy of Fine Arts",
+      "slug": "central-academy-of-fine-arts",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Central China Normal University",
+      "slug": "central-china-normal-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Central Conservatory of Music",
+      "slug": "central-conservatory-of-music",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Central South University",
+      "slug": "central-south-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Central University of Finance and Economics",
+      "slug": "central-university-of-finance-and-economics",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Chang'an University",
+      "slug": "chang-an-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Changchun University",
+      "slug": "changchun-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Changchun University of Chinese Medicine",
+      "slug": "changchun-university-of-chinese-medicine",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Changchun University of Science and Technology",
+      "slug": "changchun-university-of-science-and-technology",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Changsha University of Science and Technology",
+      "slug": "changsha-university-of-science-and-technology",
+      "error": "fetch failed"
+    },
+    {
+      "name": "Chengdu University of Traditional Chinese Medicine",
+      "slug": "chengdu-university-of-traditional-chinese-medicine",
+      "error": "fetch failed"
+    },
+    {
+      "name": "China Academy of Art",
+      "slug": "china-academy-of-art",
+      "error": "fetch failed"
+    },
+    {
+      "name": "China Agricultural University",
+      "slug": "china-agricultural-university",
+      "error": "fetch failed"
+    },
+    {
+      "name": "China Conservatory of Music",
+      "slug": "china-conservatory-of-music",
+      "error": "fetch failed"
+    },
+    {
+      "name": "China Foreign Affairs University",
+      "slug": "china-foreign-affairs-university",
+      "error": "fetch failed"
+    }
+  ]
+}

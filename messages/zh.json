@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "首页",
+    "universities": "大学",
+    "provinces": "省份",
+    "cities": "城市",
+    "map": "地图",
+    "majors": "专业",
+    "scholarships": "奖学金",
+    "consultation": "留学咨询",
+    "freeConsultation": "免费咨询",
+    "exploreChina": "探索中国",
+    "studentLife": "学生生活",
+    "life": "故事与生活",
+    "planJourney": "规划我的旅程",
+    "community": "交流社区"
+  },
+  "homepage": {
+    "eyebrow": "来中国学习，也来经历一个更大的世界。",
+    "heroTitle": "你的中国故事，从这里开始。",
+    "heroSubtitle": "找到适合你的大学，也找到一座愿意生活的城市，在中国学习、旅行、交朋友并参与未来。",
+    "browseUniversities": "浏览大学",
+    "exploreMap": "探索地图",
+    "applyNow": "立即申请",
+    "mapEyebrow": "互动地图",
+    "mapTitle": "在互动中国地图上探索目的地",
+    "mapDescription": "悬停每个中国目的地，预览代表图片、代表学校、城市生活、旅行文化和申请方向。",
+    "popularSchoolsEyebrow": "热门学校",
+    "popularSchoolsTitle": "精选中国大学",
+    "popularSchoolsDescription": "比较排名、学费、城市、专业、奖学金和校园生活信息。",
+    "popularMajorsEyebrow": "热门专业",
+    "popularMajorsTitle": "按领域查找项目",
+    "ctaTitle": "准备规划你的中国留学路径？",
+    "ctaDescription": "告诉我们你的目标学位、预算、专业和偏好城市，我们会协助筛选适合的学校、城市和奖学金方向。"
+  }
+}

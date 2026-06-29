@@ -1,0 +1,531 @@
+﻿app\cities\[slug]\page.tsx:102:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "学生城市指南" : "Student city guide"}</p>
+app\cities\[slug]\page.tsx:103:            <h1 className="mt-3 text-5xl font-bold tracking-tight">{isZh ? `在${name}留学` : `Study in ${city.name}`}</h1>
+app\cities\[slug]\page.tsx:104:            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">{isZh ? city.zhSummary : city.summary}</p>
+app\cities\[slug]\page.tsx:113:              <ButtonLink href={`${prefix}/universities?city=${city.slug}`}>{isZh ? "查看本市学校" : "View Local Schools"}</ButtonLink>
+app\cities\[slug]\page.tsx:114:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "获取城市建议" : "Get City Advice"}</ButtonLink>
+app\cities\[slug]\page.tsx:120:              <img src={city.image} alt={isZh ? city.zhImageAlt : city.imageAlt} className="h-full w-full object-cover" />
+app\cities\[slug]\page.tsx:127:                <p className="mt-2 text-2xl font-bold">{isZh ? city.zhTourism : city.tourism}</p>
+app\cities\[slug]\page.tsx:132:                [cityUniversities.length, isZh ? "所学校" : "schools"],
+app\cities\[slug]\page.tsx:133:                [isZh ? city.zhLivingCost : city.livingCost, isZh ? "生活成本" : "living cost"],
+app\cities\[slug]\page.tsx:134:                [majors.length || 3, isZh ? "专业方向" : "major areas"]
+app\cities\[slug]\page.tsx:149:            <p className="font-bold text-ink">{isZh ? "城市关键指标" : "City signals"}</p>
+app\cities\[slug]\page.tsx:151:              <p className="flex gap-3"><WalletCards size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhLivingCost : city.livingCost}</p>
+app\cities\[slug]\page.tsx:152:              <p className="flex gap-3"><CloudSun size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhClimate : city.climate}</p>
+app\cities\[slug]\page.tsx:153:              <p className="flex gap-3"><Landmark size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhVisaConvenience : city.visaConvenience}</p>
+app\cities\[slug]\page.tsx:154:              <p className="flex gap-3"><ShieldCheck size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? "安全、住宿和交通信息会继续按学校校区补全。" : "Safety, housing, and transport will continue to be enriched by campus."}</p>
+app\cities\[slug]\page.tsx:157:              <ButtonLink href={`${prefix}/consultation`}>{isZh ? "匹配城市和学校" : "Match City and Schools"}</ButtonLink>
+app\cities\[slug]\page.tsx:163:              eyebrow={isZh ? "当地大学" : "Local universities"}
+app\cities\[slug]\page.tsx:164:              title={isZh ? `${name}大学列表` : `Universities in ${city.name}`}
+app\cities\[slug]\page.tsx:165:              description={isZh ? "以下学校来自当前国际学生高校目录。打开学校页可继续查看学费、奖学金、专业、评论和生活信息。" : "These schools come from the international-student university catalog. Open profiles for tuition, scholarships, majors, reviews, and campus-life context."}
+app\cities\[slug]\page.tsx:176:                <p className="mt-4 font-bold text-ink">{isZh ? "学校资料待补全" : "School data pending enrichment"}</p>
+app\cities\[slug]\page.tsx:182:                eyebrow={isZh ? "旅行与文化" : "Travel and culture"}
+app\cities\[slug]\page.tsx:183:                title={isZh ? `${name}为什么吸引年轻人` : `Why ${city.name} attracts young people`}
+app\cities\[slug]\page.tsx:184:                description={isZh ? city.zhTourism : city.tourism}
+app\cities\[slug]\page.tsx:192:                      {isZh ? "城市吸引力会影响学生是否愿意留下、分享和推荐中国留学。" : "City appeal influences whether students want to stay, share, and recommend studying in China."}
+app\cities\[slug]\page.tsx:201:                eyebrow={isZh ? "实习就业" : "Internships and careers"}
+app\cities\[slug]\page.tsx:202:                title={isZh ? `${name}职业机会怎么判断` : `How to judge career access in ${city.name}`}
+app\cities\[slug]\page.tsx:203:                description={isZh ? city.zhInternships : city.internships}
+app\cities\[slug]\page.tsx:206:                {careerCards(isZh).map(({ Icon, title, description }) => (
+app\cities\[slug]\page.tsx:218:                eyebrow={isZh ? "学生评价" : "Student reviews"}
+app\cities\[slug]\page.tsx:219:                title={isZh ? "学生通常会关心什么" : "What students usually care about"}
+app\cities\[slug]\page.tsx:220:                description={isZh ? "正式评论区后续会接入合规的数据导入、审核和来源标注。这里先展示城市评价维度。" : "The formal review system will later use compliant imports, moderation, and source attribution. This section shows review dimensions first."}
+app\cities\[slug]\page.tsx:235:                eyebrow={isZh ? "专业入口" : "Program entry"}
+app\cities\[slug]\page.tsx:236:                title={isZh ? "从城市进入专业筛选" : "Filter programs from the city"}
+app\cities\[slug]\page.tsx:237:                description={isZh ? "根据本市学校目录自动汇总热门方向。" : "Popular directions are summarized from the local school catalog."}
+app\cities\[slug]\page.tsx:254:            <h2 className="text-3xl font-bold">{isZh ? `想知道${name}适不适合你？` : `Want to know if ${city.name} fits you?`}</h2>
+app\cities\[slug]\page.tsx:256:              {isZh ? "我们会结合预算、专业、城市偏好和申请时间线，帮你把城市和学校缩小到可执行清单。" : "We combine budget, major, city preference, and application timeline to narrow your city and school list into an actionable plan."}
+app\cities\[slug]\page.tsx:259:          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+app\cities\[slug]\page.tsx:38:function careerCards(isZh: boolean): { Icon: LucideIcon; title: string; description: string }[] {
+app\cities\[slug]\page.tsx:42:      title: isZh ? "产业匹配" : "Industry fit",
+app\cities\[slug]\page.tsx:43:      description: isZh ? "优先看城市产业是否匹配目标专业。" : "Check whether local industries match the target major."
+app\cities\[slug]\page.tsx:47:      title: isZh ? "学校合作" : "University links",
+app\cities\[slug]\page.tsx:48:      description: isZh ? "学校合作企业、实验室和医院资源非常关键。" : "Company, lab, and hospital partnerships matter."
+app\cities\[slug]\page.tsx:52:      title: isZh ? "语言能力" : "Language ability",
+app\cities\[slug]\page.tsx:53:      description: isZh ? "中文能力会显著影响实习和兼职选择。" : "Chinese ability greatly affects internship and part-time options."
+app\cities\[slug]\page.tsx:61:  const isZh = locale === "zh";
+app\cities\[slug]\page.tsx:72:  const name = isZh ? city.zhName : city.name;
+app\cities\[slug]\page.tsx:73:  const provinceName = isZh ? city.zhProvinceName : city.provinceName;
+app\cities\[slug]\page.tsx:74:  const lifestyleTags = isZh ? city.zhLifestyleTags : city.lifestyleTags;
+app\cities\[slug]\page.tsx:78:      title: isZh ? "城市节奏" : "City rhythm",
+app\cities\[slug]\page.tsx:79:      body: isZh
+app\cities\[slug]\page.tsx:84:      title: isZh ? "学习支持" : "Study support",
+app\cities\[slug]\page.tsx:85:      body: isZh
+app\cities\[slug]\page.tsx:90:      title: isZh ? "职业机会" : "Career exposure",
+app\cities\[slug]\page.tsx:91:      body: isZh
+app\cities\page.tsx:100:              const tags = isZh ? city.zhLifestyleTags : city.lifestyleTags;
+app\cities\page.tsx:106:                    <img src={city.image} alt={isZh ? city.zhImageAlt : city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+app\cities\page.tsx:117:                        {city.universityCount} {isZh ? "所学校" : "schools"}
+app\cities\page.tsx:119:                      <span className="text-xs font-semibold text-slate-500">{isZh ? city.zhLivingCost : city.livingCost}</span>
+app\cities\page.tsx:123:                      <p className="flex gap-2"><WalletCards size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhLivingCost : city.livingCost}</p>
+app\cities\page.tsx:124:                      <p className="flex gap-2"><CloudSun size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhClimate : city.climate}</p>
+app\cities\page.tsx:125:                      <p className="flex gap-2"><Landmark size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhVisaConvenience : city.visaConvenience}</p>
+app\cities\page.tsx:145:              <p className="mt-4 text-lg font-bold text-ink">{isZh ? titleZh : titleEn}</p>
+app\cities\page.tsx:146:              <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? descriptionZh : descriptionEn}</p>
+app\cities\page.tsx:154:          <p className="text-xl font-bold">{isZh ? "不确定哪座城市适合你的预算和专业？" : "Not sure which city fits your budget and major?"}</p>
+app\cities\page.tsx:155:          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "获取城市建议" : "Get City Advice"}</ButtonLink>
+app\cities\page.tsx:43:  const isZh = locale === "zh";
+app\cities\page.tsx:59:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "城市生活指南" : "City life guides"}</p>
+app\cities\page.tsx:61:              {isZh ? "选择适合你留学生活的中国城市。" : "Choose the Chinese city that fits your study life."}
+app\cities\page.tsx:64:              {isZh
+app\cities\page.tsx:69:              <ButtonLink href={`${prefix}/universities`}>{isZh ? "浏览学校" : "Browse Schools"}</ButtonLink>
+app\cities\page.tsx:70:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "获取城市建议" : "Get City Advice"}</ButtonLink>
+app\cities\page.tsx:75:              [isZh ? "学生城市" : "Student cities", cities.length],
+app\cities\page.tsx:76:              [isZh ? "目录学校" : "Catalog schools", universities.length],
+app\cities\page.tsx:77:              [isZh ? "重点城市" : "Featured cities", featuredCities.length]
+app\cities\page.tsx:91:            eyebrow={isZh ? "城市比较" : "City comparison"}
+app\cities\page.tsx:92:            title={isZh ? "从日常生活判断一座城市是否适合你。" : "Judge a city by daily life, not only rankings."}
+app\cities\page.tsx:93:            description={isZh ? "每个城市页都会展示生活成本、气候、签证便利、当地大学、旅行文化、实习就业和学生评价。" : "Each city page shows cost, climate, visa convenience, local universities, travel culture, internships, and student review context."}
+app\cities\page.tsx:97:              const name = isZh ? city.zhName : city.name;
+app\cities\page.tsx:98:              const province = isZh ? city.zhProvinceName : city.provinceName;
+app\cities\page.tsx:99:              const summary = isZh ? city.zhSummary : city.summary;
+app\community\page.tsx:17:  const isZh = locale === "zh";
+app\community\page.tsx:26:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "SilkStudy 社区" : "SilkStudy Community"}</p>
+app\community\page.tsx:28:              {isZh ? "在中国认识朋友，也让旅程彼此照亮。" : "Meet people in China. Make the journey better together."}
+app\community\page.tsx:31:              {isZh ? "为留学生、准备来中国的人和旅行者建立一个安全、友好的交流空间。寻找语言伙伴、结伴旅行、参加公开活动，或向已经生活在当地的人提问。" : "A safe, welcoming space for international students, future students, and travelers. Find language partners, travel buddies, public meetups, and local answers from people living the experience."}
+app\community\page.tsx:36:              [Users, isZh ? "按城市认识同伴" : "Meet people by city"],
+app\community\page.tsx:37:              [Globe2, isZh ? "跨语言与文化交流" : "Exchange languages and cultures"],
+app\community\page.tsx:38:              [HeartHandshake, isZh ? "互助解决真实问题" : "Help with real-life questions"],
+app\community\page.tsx:39:              [ShieldCheck, isZh ? "公开场所与先审后发" : "Public places and moderation"]
+app\consultation\page.tsx:11:  const steps = isZh
+app\consultation\page.tsx:27:  const afterSubmission: [LucideIcon, string][] = isZh
+app\consultation\page.tsx:7:  const isZh = locale === "zh";
+app\consultation\page.tsx:9:  const tx = (en: string, zh: string, vi: string) => isZh ? zh : isVi ? vi : en;
+app\dashboard\page.tsx:116:  const isZh = locale === "zh";
+app\dashboard\page.tsx:125:              {isZh ? "学生申请工作台" : "Student application dashboard"}
+app\dashboard\page.tsx:128:              {isZh ? "从选校到签证的申请进度" : "Application progress from shortlist to visa"}
+app\dashboard\page.tsx:131:              {isZh
+app\dashboard\page.tsx:137:                {isZh ? "开始免费咨询" : "Start free consultation"}
+app\dashboard\page.tsx:140:                {isZh ? "浏览学校" : "Browse schools"}
+app\dashboard\page.tsx:146:            <h2 className="mt-4 text-xl font-bold text-ink">{isZh ? "下一步" : "Next step"}</h2>
+app\dashboard\page.tsx:148:              {isZh
+app\dashboard\page.tsx:156:          {progressCards(isZh).map(({ title, body, status, Icon }) => (
+app\dashboard\page.tsx:172:            <h2 className="text-2xl font-bold text-ink">{isZh ? "申请时间线" : "Application timeline"}</h2>
+app\dashboard\page.tsx:174:              {timeline(isZh).map(([step, title, body]) => (
+app\dashboard\page.tsx:189:            <h2 className="text-2xl font-bold text-ink">{isZh ? "奖学金与选校匹配信号" : "Scholarship and school-fit signals"}</h2>
+app\dashboard\page.tsx:191:              {matchingSignals(isZh).map(([Icon, title, body]) => (
+app\dashboard\page.tsx:204:          <h2 className="mt-4 text-2xl font-bold">{isZh ? "MVP 已预留真实申请系统" : "The MVP is ready for a real application system"}</h2>
+app\dashboard\page.tsx:206:            {isZh
+app\dashboard\page.tsx:24:function progressCards(isZh: boolean): ProgressCard[] {
+app\dashboard\page.tsx:25:  return isZh
+app\dashboard\page.tsx:80:function timeline(isZh: boolean) {
+app\dashboard\page.tsx:81:  return isZh
+app\dashboard\page.tsx:98:function matchingSignals(isZh: boolean): [LucideIcon, string, string][] {
+app\dashboard\page.tsx:99:  return isZh
+app\majors\[slug]\page.tsx:100:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "专业指南" : "Major guide"}</p>
+app\majors\[slug]\page.tsx:102:            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">{isZh ? guide.zhSummary : guide.summary}</p>
+app\majors\[slug]\page.tsx:104:              <ButtonLink href={`${prefix}/universities?major=${slugifyMajor(major)}`}>{isZh ? "查看相关大学" : "View Related Schools"}</ButtonLink>
+app\majors\[slug]\page.tsx:105:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "申请专业匹配" : "Request Major Match"}</ButtonLink>
+app\majors\[slug]\page.tsx:110:              [isZh ? "相关大学" : "Related schools", relatedUniversities.length],
+app\majors\[slug]\page.tsx:111:              [isZh ? "覆盖城市" : "Cities", cityStats.length],
+app\majors\[slug]\page.tsx:112:              [isZh ? "覆盖省份" : "Provinces", provinceStats.length]
+app\majors\[slug]\page.tsx:126:            <p className="font-bold text-ink">{isZh ? "申请判断" : "Admissions signals"}</p>
+app\majors\[slug]\page.tsx:128:              {(isZh ? guide.zhAdmissionsSignals : guide.admissionsSignals).map((signal) => (
+app\majors\[slug]\page.tsx:136:              <ButtonLink href={`${prefix}/consultation`}>{isZh ? "评估申请条件" : "Assess My Fit"}</ButtonLink>
+app\majors\[slug]\page.tsx:142:              eyebrow={isZh ? "学校目录" : "School catalog"}
+app\majors\[slug]\page.tsx:143:              title={isZh ? `${display} 相关大学` : `Universities for ${major}`}
+app\majors\[slug]\page.tsx:144:              description={isZh ? "以下学校来自当前国际学生高校目录。打开学校页可查看城市生活、申请入口和数据可信状态。" : "These schools come from the international-student university catalog. Open a profile for city life, application entry, and data confidence."}
+app\majors\[slug]\page.tsx:153:                <ButtonLink href={`${prefix}/universities?major=${slugifyMajor(major)}`}>{isZh ? "查看全部相关大学" : "View All Related Schools"}</ButtonLink>
+app\majors\[slug]\page.tsx:159:                eyebrow={isZh ? "城市匹配" : "City fit"}
+app\majors\[slug]\page.tsx:160:                title={isZh ? `适合学习 ${display} 的城市` : `Cities that fit ${major}`}
+app\majors\[slug]\page.tsx:161:                description={isZh ? "城市会影响实习、生活成本、语言环境和行业资源。" : "City choice affects internships, living cost, language environment, and industry resources."}
+app\majors\[slug]\page.tsx:167:                    <p className="mt-4 text-lg font-bold text-ink">{isZh ? city.zhName : city.name}</p>
+app\majors\[slug]\page.tsx:168:                    <p className="mt-1 text-sm font-semibold text-primary">{isZh ? city.zhProvinceName : city.provinceName}</p>
+app\majors\[slug]\page.tsx:169:                    <p className="mt-3 text-sm text-slate-600">{city.count} {isZh ? "所相关大学" : "related schools"}</p>
+app\majors\[slug]\page.tsx:177:                eyebrow={isZh ? "省份方向" : "Province fit"}
+app\majors\[slug]\page.tsx:178:                title={isZh ? "按省份比较学校密度和目的地吸引力" : "Compare school density and destination appeal by province"}
+app\majors\[slug]\page.tsx:18:function applicationCards(isZh: boolean): { Icon: LucideIcon; title: string; body: string }[] {
+app\majors\[slug]\page.tsx:184:                    <p className="mt-4 text-lg font-bold text-ink">{isZh ? province.zhName : province.name}</p>
+app\majors\[slug]\page.tsx:185:                    <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? province.zhTravelSummary : province.travelSummary}</p>
+app\majors\[slug]\page.tsx:186:                    <p className="mt-3 text-sm font-semibold text-primary">{province.count} {isZh ? "所相关大学" : "related schools"}</p>
+app\majors\[slug]\page.tsx:194:                eyebrow={isZh ? "职业方向" : "Career pathways"}
+app\majors\[slug]\page.tsx:195:                title={isZh ? `${display} 的常见就业方向` : `Common career paths for ${major}`}
+app\majors\[slug]\page.tsx:196:                description={isZh ? "职业方向需要结合城市产业、语言能力、实习资源和回国规划判断。" : "Career planning should combine city industries, language ability, internship access, and home-country plans."}
+app\majors\[slug]\page.tsx:199:                {(isZh ? guide.zhCareerPaths : guide.careerPaths).map((path) => (
+app\majors\[slug]\page.tsx:204:                      {isZh ? "建议结合目标城市、学校合作资源和语言能力评估可行性。" : "Evaluate feasibility through target city, university partnerships, and language ability."}
+app\majors\[slug]\page.tsx:213:                eyebrow={isZh ? "申请路径" : "Application path"}
+app\majors\[slug]\page.tsx:214:                title={isZh ? "从专业到申请材料" : "From major choice to application documents"}
+app\majors\[slug]\page.tsx:217:                {applicationCards(isZh).map(({ Icon, title, body }) => (
+app\majors\[slug]\page.tsx:22:      title: isZh ? "确认学校层级" : "Confirm school tier",
+app\majors\[slug]\page.tsx:23:      body: isZh ? "先确定冲刺、匹配和保底学校。" : "Separate reach, match, and safer schools."
+app\majors\[slug]\page.tsx:233:            <h2 className="text-3xl font-bold">{isZh ? `想知道 ${display} 是否适合你？` : `Want to know if ${major} fits you?`}</h2>
+app\majors\[slug]\page.tsx:235:              {isZh ? "我们会结合成绩、语言、预算、城市偏好和职业方向，帮你生成可执行选校清单。" : "We combine grades, language level, budget, city preference, and career goals into an actionable shortlist."}
+app\majors\[slug]\page.tsx:238:          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+app\majors\[slug]\page.tsx:27:      title: isZh ? "确认语言路线" : "Confirm language route",
+app\majors\[slug]\page.tsx:28:      body: isZh ? "区分英文授课、中文授课和语言预科。" : "Compare English-taught, Chinese-taught, and prep routes."
+app\majors\[slug]\page.tsx:32:      title: isZh ? "确认预算奖学金" : "Budget and scholarship",
+app\majors\[slug]\page.tsx:33:      body: isZh ? "比较学费、住宿和奖学金可能性。" : "Compare tuition, housing, and scholarship options."
+app\majors\[slug]\page.tsx:37:      title: isZh ? "准备申请材料" : "Prepare documents",
+app\majors\[slug]\page.tsx:38:      body: isZh ? "整理成绩单、推荐信、学习计划和语言证明。" : "Prepare transcripts, recommendations, study plan, and language proof."
+app\majors\[slug]\page.tsx:65:  const isZh = locale === "zh";
+app\majors\page.tsx:102:                      <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? guide.zhSummary : guide.summary}</p>
+app\majors\page.tsx:109:                    <span className="rounded-md bg-surface p-3 font-semibold text-ink">{count} {isZh ? "所大学" : "schools"}</span>
+app\majors\page.tsx:110:                    <span className="rounded-md bg-surface p-3 font-semibold text-ink">{cityCount} {isZh ? "座城市" : "cities"}</span>
+app\majors\page.tsx:113:                    {(isZh ? guide.zhCareerPaths : guide.careerPaths).slice(0, 3).map((path) => (
+app\majors\page.tsx:129:              <p className="mt-4 text-lg font-bold text-ink">{isZh ? titleZh : titleEn}</p>
+app\majors\page.tsx:130:              <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? descriptionZh : descriptionEn}</p>
+app\majors\page.tsx:140:            {isZh ? "想按成绩、预算和城市偏好匹配专业？" : "Want majors matched to grades, budget, and city preference?"}
+app\majors\page.tsx:142:          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "申请专业匹配" : "Request Major Match"}</ButtonLink>
+app\majors\page.tsx:44:  const isZh = locale === "zh";
+app\majors\page.tsx:55:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "专业查找" : "Major finder"}</p>
+app\majors\page.tsx:57:              {isZh ? "按专业方向选择中国大学、城市和申请路径。" : "Choose Chinese universities, cities, and application pathways by major."}
+app\majors\page.tsx:60:              {isZh
+app\majors\page.tsx:65:              <ButtonLink href={`${prefix}/universities`}>{isZh ? "浏览大学" : "Browse Universities"}</ButtonLink>
+app\majors\page.tsx:66:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "申请专业匹配" : "Request Major Match"}</ButtonLink>
+app\majors\page.tsx:71:              [isZh ? "专业方向" : "Major directions", catalogMajors.length],
+app\majors\page.tsx:72:              [isZh ? "目录学校" : "Catalog schools", universities.length],
+app\majors\page.tsx:73:              [isZh ? "可筛选城市" : "Filterable cities", new Set(universities.map((university) => university.citySlug)).size]
+app\majors\page.tsx:87:            eyebrow={isZh ? "热门专业" : "Popular majors"}
+app\majors\page.tsx:88:            title={isZh ? "从专业进入选校，而不是只看排名。" : "Start from the major, not only rankings."}
+app\majors\page.tsx:89:            description={isZh ? "每个专业页都会展示相关学校、适合城市、申请要求、奖学金判断和职业路径。" : "Each major page shows relevant schools, suitable cities, admissions signals, scholarship judgment, and career pathways."}
+app\page.tsx:105:      title: isZh ? "走进未来产业" : "Build with the future",
+app\page.tsx:106:      description: isZh ? "在北京、深圳、杭州和上海接触人工智能、新能源、机器人与数字经济。" : "Meet AI, new energy, robotics, and the digital economy in Beijing, Shenzhen, Hangzhou, and Shanghai.",
+app\page.tsx:109:      accent: isZh ? "科技与创新" : "Technology and innovation"
+app\page.tsx:113:      title: isZh ? "生活在文明之中" : "Live inside a civilization",
+app\page.tsx:114:      description: isZh ? "从西安城墙、北京胡同到南京博物馆，让历史成为日常生活的一部分。" : "Make history part of daily life, from Xi'an's city wall and Beijing hutongs to Nanjing's museums.",
+app\page.tsx:117:      accent: isZh ? "历史与文化" : "History and culture"
+app\page.tsx:121:      title: isZh ? "周末去看更大的世界" : "Explore beyond the classroom",
+app\page.tsx:122:      description: isZh ? "乘高铁去看山川、海岸、古镇和不同地区的生活方式。" : "Take high-speed rail to mountains, coastlines, ancient towns, and radically different ways of life.",
+app\page.tsx:125:      accent: isZh ? "旅行与自然" : "Travel and nature"
+app\page.tsx:129:      title: isZh ? "连接亚洲职业机会" : "Connect with Asian careers",
+app\page.tsx:130:      description: isZh ? "在贸易、工程、医疗、教育和国际商务中积累跨文化经验。" : "Build cross-cultural experience across trade, engineering, healthcare, education, and international business.",
+app\page.tsx:133:      accent: isZh ? "实习与职业" : "Internships and careers"
+app\page.tsx:137:    { from: isZh ? "北京" : "Beijing", to: isZh ? "天津" : "Tianjin", time: isZh ? "约 30 分钟" : "about 30 min", note: isZh ? "海河、意式街区与周末城市漫步" : "River walks, architecture, and an easy weekend reset" },
+app\page.tsx:138:    { from: isZh ? "上海" : "Shanghai", to: isZh ? "杭州" : "Hangzhou", time: isZh ? "约 45 分钟" : "about 45 min", note: isZh ? "西湖、茶山与数字经济城市" : "West Lake, tea hills, and a digital-economy city" },
+app\page.tsx:139:    { from: isZh ? "成都" : "Chengdu", to: isZh ? "重庆" : "Chongqing", time: isZh ? "约 1 小时" : "about 1 hour", note: isZh ? "美食、山城夜景与两种城市性格" : "Food, hillside nights, and two distinct city personalities" }
+app\page.tsx:155:              {isZh ? "你的中国故事，从这里开始" : isVi ? "Câu chuyện Trung Quốc của bạn bắt đầu tại đây" : "Your China story starts here"}
+app\page.tsx:158:              {isZh ? "来中国学习，也来经历一个更大的世界。" : isVi ? "Học tập tại Trung Quốc. Trải nghiệm một thế giới rộng lớn hơn." : "Study in China. Live the Story."}
+app\page.tsx:161:              {isZh
+app\page.tsx:168:              <ButtonLink href="#map">{isZh ? "探索中国地图" : isVi ? "Khám phá Trung Quốc" : "Explore China"}</ButtonLink>
+app\page.tsx:170:              <ButtonLink href={localize("/consultation")} variant="ghost">{isZh ? "规划我的旅程" : isVi ? "Lập kế hoạch hành trình" : "Plan My Journey"}</ButtonLink>
+app\page.tsx:178:              [allUniversities.length, isZh ? "国际学生高校目录" : "universities"],
+app\page.tsx:179:              [provinces.length, isZh ? "中国目的地" : "destinations"],
+app\page.tsx:180:              [isZh ? "高铁连接" : "High-speed rail", isZh ? "周末探索中国" : "weekend discovery"],
+app\page.tsx:181:              [isZh ? "免费" : "Free", isZh ? "留学与旅行咨询" : "study and travel help"]
+app\page.tsx:195:            eyebrow={isZh ? "选择你的中国生活" : "Choose your China"}
+app\page.tsx:196:            title={isZh ? "你想在中国度过怎样的青春？" : "What kind of life do you want to build here?"}
+app\page.tsx:197:            description={isZh ? "专业很重要，但真正改变人的，往往是你每天生活的城市、遇见的人，以及那些课堂之外的经历。" : "Your major matters. So do the city you wake up in, the people you meet, and everything that happens beyond the classroom."}
+app\page.tsx:210:                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-white">{isZh ? "开始探索" : "Start exploring"}<ArrowRight size={16} /></span>
+app\page.tsx:223:                {isZh ? "为什么来中国留学" : isVi ? "Vì sao nên du học Trung Quốc" : "Why study in China"}
+app\page.tsx:226:                {isZh ? "把大学、城市、科技与旅行放在同一条成长路线里。" : "Put universities, cities, technology, and travel into one growth route."}
+app\page.tsx:229:                {isZh
+app\page.tsx:234:                <ButtonLink href={localize("/consultation")}>{isZh ? "免费咨询与帮助" : "Free Consultation and Help"}</ButtonLink>
+app\page.tsx:235:                <ButtonLink href="#map" variant="secondary">{isZh ? "从地图探索" : "Explore the Map"}</ButtonLink>
+app\page.tsx:270:              <p className="text-sm font-semibold uppercase tracking-wide text-primary">{isZh ? "高铁周末" : "Weekends by rail"}</p>
+app\page.tsx:272:                {isZh ? "在中国留学，一张车票就能打开另一座城市。" : "One train ticket can open a completely different China."}
+app\page.tsx:275:                {isZh ? "发达的高铁网络让大学生活不被校园边界限制。周五下课后出发，周日晚回到宿舍，你可以持续认识这个辽阔而多样的国家。" : "China's high-speed rail network makes the country part of your campus. Leave after class on Friday, return Sunday night, and keep discovering a vast and varied place."}
+app\page.tsx:33:  const isZh = locale === "zh";
+app\page.tsx:38:      title: isZh ? "安全稳定的学习生活环境" : "A safe and stable place to study",
+app\page.tsx:39:      description: isZh
+app\page.tsx:45:      title: isZh ? "热情友好，不排外" : "Warm, welcoming, and foreigner-friendly",
+app\page.tsx:46:      description: isZh
+app\page.tsx:52:      title: isZh ? "经济与科技快速发展" : "Fast-moving economy and technology",
+app\page.tsx:53:      description: isZh
+app\page.tsx:59:      title: isZh ? "不断上升的学术水平" : "Rising academic strength",
+app\page.tsx:60:      description: isZh
+app\page.tsx:66:      title: isZh ? "丰富且高额的奖学金机会" : isVi ? "Nhiều cơ hội học bổng giá trị cao" : "Generous scholarship opportunities",
+app\page.tsx:67:      description: isZh
+app\page.tsx:75:      title: isZh ? "古老文明与现代城市并存" : "Ancient civilization meets modern cities",
+app\page.tsx:76:      description: isZh
+app\page.tsx:82:      title: isZh ? "辽阔疆域，值得长期探索" : "A vast country to keep exploring",
+app\page.tsx:83:      description: isZh
+app\page.tsx:89:      title: isZh ? "全球领先的动车高铁网络" : "A world-leading high-speed rail network",
+app\page.tsx:90:      description: isZh
+app\page.tsx:96:      title: isZh ? "从语言到职业的长期价值" : "Long-term value from language to career",
+app\page.tsx:97:      description: isZh
+app\provinces\[slug]\page.tsx:104:                [provinceUniversities.length, isZh ? "所大学" : "universities"],
+app\provinces\[slug]\page.tsx:105:                [cityNames.length || 1, isZh ? "座城市" : "cities"],
+app\provinces\[slug]\page.tsx:106:                [majors.length || 3, isZh ? "热门专业" : "major areas"]
+app\provinces\[slug]\page.tsx:123:              {isZh ? "快速判断" : "Quick read"}
+app\provinces\[slug]\page.tsx:126:              <p className="flex gap-3"><MapPin size={18} className="mt-0.5 shrink-0 text-primary" /> {cityNames.length > 0 ? cityNames.join(", ") : (isZh ? "城市资料待进一步核验" : "City data pending verification")}</p>
+app\provinces\[slug]\page.tsx:127:              <p className="flex gap-3"><Utensils size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? "适合把周末旅行、饮食文化和校园生活一起考虑。" : "Good for comparing weekend travel, food culture, and campus life together."}</p>
+app\provinces\[slug]\page.tsx:129:              <p className="flex gap-3"><Wallet size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? insight.zhBudgetLevel : insight.budgetLevel}</p>
+app\provinces\[slug]\page.tsx:132:              <ButtonLink href={`${prefix}/consultation`}>{isZh ? "获取选校建议" : "Get Shortlist Advice"}</ButtonLink>
+app\provinces\[slug]\page.tsx:138:              eyebrow={isZh ? "典型学校" : "Typical schools"}
+app\provinces\[slug]\page.tsx:139:              title={isZh ? `${name}前三代表性学校` : `Representative top schools in ${province.name}`}
+app\provinces\[slug]\page.tsx:140:              description={isZh ? "这里优先展示该省最适合国际学生进一步了解的代表性高校。排名与项目细节会继续通过 CMS 和官方来源核验。" : "These are representative schools worth opening first. Rankings and program details continue to be verified through CMS and official sources."}
+app\provinces\[slug]\page.tsx:146:                  <p className="mt-4 text-lg font-bold text-ink">{isZh ? school.zhName ?? school.name : school.name}</p>
+app\provinces\[slug]\page.tsx:147:                  <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? school.zhNote : school.note}</p>
+app\provinces\[slug]\page.tsx:149:                    {isZh ? "查看" : "Open"}
+app\provinces\[slug]\page.tsx:158:                eyebrow={isZh ? "旅行与文化" : "Travel and culture"}
+app\provinces\[slug]\page.tsx:168:                      {isZh ? "把这个体验放进留学路线里，能帮助学生理解城市节奏、周末生活和文化记忆点。" : "Use this experience inside the study route to understand city rhythm, weekend life, and cultural memory points."}
+app\provinces\[slug]\page.tsx:178:                  eyebrow={isZh ? "旅行灵感素材" : "Editorial travel notes"}
+app\provinces\[slug]\page.tsx:179:                  title={isZh ? "把平台素材改写成学生能理解的目的地理由" : "Turn destination sources into student-friendly reasons to visit"}
+app\provinces\[slug]\page.tsx:180:                  description={isZh ? "这里展示的是 SilkStudy 的编辑摘要，不直接转载去哪儿、小红书或其他平台原文。" : "These are SilkStudy editorial summaries, not direct republication of Qunar, Xiaohongshu, or other platform text."}
+app\provinces\[slug]\page.tsx:185:                      <p className="text-xs font-bold uppercase tracking-wide text-primary">{isZh ? note.zhSourceType : note.sourceType}</p>
+app\provinces\[slug]\page.tsx:186:                      <h3 className="mt-3 text-xl font-bold text-ink">{isZh ? note.zhTitle : note.title}</h3>
+app\provinces\[slug]\page.tsx:187:                      <p className="mt-3 text-sm leading-6 text-slate-600">{isZh ? note.zhSummary : note.summary}</p>
+app\provinces\[slug]\page.tsx:189:                        {(isZh ? note.zhHighlights : note.highlights).map((highlight) => (
+app\provinces\[slug]\page.tsx:203:                eyebrow={isZh ? "生活、旅行与职业" : "Life, travel, and career"}
+app\provinces\[slug]\page.tsx:204:                title={isZh ? `${name}为什么值得认真考虑` : `Why ${province.name} deserves a closer look`}
+app\provinces\[slug]\page.tsx:205:                description={isZh ? "把生活成本、周末旅行、城市流动和实习产业放在一起看，学生会更容易判断这里是否适合自己。" : "A destination becomes clearer when lifestyle, weekend travel, mobility, and internship sectors are compared together."}
+app\provinces\[slug]\page.tsx:213:                    <p className="font-bold text-ink">{isZh ? "适合学生" : "Best-fit students"}</p>
+app\provinces\[slug]\page.tsx:215:                  <p className="mt-4 text-sm leading-6 text-slate-600">{isZh ? insight.zhStudentFit : insight.studentFit}</p>
+app\provinces\[slug]\page.tsx:222:                    <p className="font-bold text-ink">{isZh ? "城市生活" : "Lifestyle"}</p>
+app\provinces\[slug]\page.tsx:224:                  <p className="mt-4 text-sm leading-6 text-slate-600">{isZh ? insight.zhLifestyle : insight.lifestyle}</p>
+app\provinces\[slug]\page.tsx:231:                    <p className="font-bold text-ink">{isZh ? "实习就业方向" : "Internship sectors"}</p>
+app\provinces\[slug]\page.tsx:246:                    <p className="font-bold text-ink">{isZh ? "交通与探索" : "Mobility"}</p>
+app\provinces\[slug]\page.tsx:248:                  <p className="mt-4 text-sm leading-6 text-slate-600">{isZh ? insight.zhMobility : insight.mobility}</p>
+app\provinces\[slug]\page.tsx:254:                  <p className="font-bold">{isZh ? "代表旅行线索" : "Travel signals"}</p>
+app\provinces\[slug]\page.tsx:268:                eyebrow={isZh ? "专业方向" : "Major directions"}
+app\provinces\[slug]\page.tsx:269:                title={isZh ? "本省常见专业入口" : "Common program directions in this province"}
+app\provinces\[slug]\page.tsx:270:                description={isZh ? "根据当前高校目录自动汇总，后续会接入更精确的项目层级筛选。" : "Automatically summarized from the current university catalog; more precise program-level filtering will be added later."}
+app\provinces\[slug]\page.tsx:283:                eyebrow={isZh ? "学校目录" : "School catalog"}
+app\provinces\[slug]\page.tsx:284:                title={isZh ? `${name}学校列表` : `Universities in ${province.name}`}
+app\provinces\[slug]\page.tsx:285:                description={isZh ? "以下来自当前国际学生高校目录。基础记录会继续补充官网、学费、评论、生活和实习信息。" : "These come from the current international-student university catalog. Baseline records will continue to receive website, tuition, reviews, living, and internship details."}
+app\provinces\[slug]\page.tsx:296:                  <p className="mt-4 font-bold text-ink">{isZh ? "学校资料待核验补全" : "School data pending verification"}</p>
+app\provinces\[slug]\page.tsx:298:                    {isZh ? "这个省份先保留为真实地图目的地，后续会补入核验过的国际学生项目。" : "This province remains as a real map destination while verified international-student programs are added."}
+app\provinces\[slug]\page.tsx:304:                  <ButtonLink href={`${prefix}/universities?province=${province.slug}`}>{isZh ? "查看全部学校" : "View All Schools"}</ButtonLink>
+app\provinces\[slug]\page.tsx:315:            <h2 className="text-3xl font-bold">{isZh ? `想知道${name}是否适合你？` : `Want to know if ${province.name} fits you?`}</h2>
+app\provinces\[slug]\page.tsx:317:              {isZh ? "告诉我们你的预算、专业、语言情况和理想城市，我们会把学校、城市生活和申请路径整理成可执行方案。" : "Share your budget, major, language profile, and preferred city. We will turn schools, city life, and application steps into a practical plan."}
+app\provinces\[slug]\page.tsx:320:          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+app\provinces\[slug]\page.tsx:45:  const isZh = locale === "zh";
+app\provinces\[slug]\page.tsx:57:  const name = isZh ? province.zhName : province.name;
+app\provinces\[slug]\page.tsx:58:  const travelTitle = isZh ? province.zhTravelTitle : province.travelTitle;
+app\provinces\[slug]\page.tsx:59:  const travelSummary = isZh ? province.zhTravelSummary : province.travelSummary;
+app\provinces\[slug]\page.tsx:60:  const cultureTags = isZh ? province.zhCultureTags : province.cultureTags;
+app\provinces\[slug]\page.tsx:61:  const imageTopic = isZh ? province.zhImageTopic : province.imageTopic;
+app\provinces\[slug]\page.tsx:63:  const travelSpots = isZh ? insight.zhTravelSpots : insight.travelSpots;
+app\provinces\[slug]\page.tsx:64:  const internshipIndustries = isZh ? insight.zhInternshipIndustries : insight.internshipIndustries;
+app\provinces\[slug]\page.tsx:72:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "省份留学目的地" : "Province study destination"}</p>
+app\provinces\[slug]\page.tsx:73:            <h1 className="mt-3 text-5xl font-bold tracking-tight">{isZh ? `在${name}留学` : `Study in ${name}`}</h1>
+app\provinces\[slug]\page.tsx:83:              <ButtonLink href={`${prefix}/universities?province=${province.slug}`}>{isZh ? "查看本省学校" : "View Province Schools"}</ButtonLink>
+app\provinces\[slug]\page.tsx:84:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "规划申请" : "Plan Application"}</ButtonLink>
+app\provinces\[slug]\page.tsx:89:              <FallbackImage src={province.image} alt={isZh ? province.zhImageAlt : province.imageAlt} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+app\provinces\[slug]\page.tsx:92:                {isZh ? "代表画面" : "Visual anchor"}: {imageTopic}
+app\provinces\[slug]\page.tsx:97:                  {isZh ? province.zhRegion : province.region}
+app\provinces\page.tsx:111:            eyebrow={isZh ? "中国目的地" : "China destinations"}
+app\provinces\page.tsx:112:            title={isZh ? "从地图进入真实的留学生活。" : "Enter real study life from the map."}
+app\provinces\page.tsx:113:            description={isZh ? "每个省份页面都会连接典型学校、城市体验、旅行文化、专业方向和咨询路径。" : "Each province page connects typical schools, city experience, travel culture, majors, and the consultation pathway."}
+app\provinces\page.tsx:117:              const name = isZh ? province.zhName : province.name;
+app\provinces\page.tsx:118:              const summary = isZh ? province.zhTravelSummary : province.travelSummary;
+app\provinces\page.tsx:119:              const title = isZh ? province.zhTravelTitle : province.travelTitle;
+app\provinces\page.tsx:120:              const tags = isZh ? province.zhCultureTags : province.cultureTags;
+app\provinces\page.tsx:121:              const imageTopic = isZh ? province.zhImageTopic : province.imageTopic;
+app\provinces\page.tsx:126:                    <FallbackImage src={province.image} alt={isZh ? province.zhImageAlt : province.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" referrerPolicy="no-referrer" />
+app\provinces\page.tsx:129:                      {isZh ? "代表画面" : "Visual"}: {imageTopic}
+app\provinces\page.tsx:132:                      <p className="text-xs font-semibold uppercase tracking-wide text-secondary">{isZh ? province.zhRegion : province.region}</p>
+app\provinces\page.tsx:147:                      <span className="rounded-md bg-surface p-3 font-semibold text-ink">{province.universityCount} {isZh ? "所大学" : "universities"}</span>
+app\provinces\page.tsx:148:                      <span className="rounded-md bg-surface p-3 font-semibold text-ink">{province.cityCount || 1} {isZh ? "座城市" : "cities"}</span>
+app\provinces\page.tsx:169:            {isZh ? "需要按预算、专业和城市气质比较省份？" : "Need help comparing provinces by budget, major, and lifestyle?"}
+app\provinces\page.tsx:172:            <ButtonLink href={`${prefix}/consultation`}>{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+app\provinces\page.tsx:173:            <ButtonLink href={`${prefix}/universities`} variant="secondary">{isZh ? "查看学校" : "View Schools"}</ButtonLink>
+app\provinces\page.tsx:183:              <p className="mt-4 text-lg font-bold text-ink">{isZh ? titleZh : titleEn}</p>
+app\provinces\page.tsx:184:              <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? descriptionZh : descriptionEn}</p>
+app\provinces\page.tsx:57:  const isZh = locale === "zh";
+app\provinces\page.tsx:79:            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "省份目的地指南" : "Province destination guide"}</p>
+app\provinces\page.tsx:81:              {isZh ? "按省份探索中国留学、城市生活与旅行文化。" : "Explore China by province, campus life, and travel culture."}
+app\provinces\page.tsx:84:              {isZh
+app\provinces\page.tsx:89:              <ButtonLink href={`${prefix}/universities`}>{isZh ? "浏览大学" : "Browse Universities"}</ButtonLink>
+app\provinces\page.tsx:90:              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "规划留学" : "Plan Study"}</ButtonLink>
+app\provinces\page.tsx:95:              [isZh ? "省级目的地" : "Province-level destinations", destinations.length],
+app\provinces\page.tsx:96:              [isZh ? "目录学校" : "Catalog universities", universities.length],
+app\provinces\page.tsx:97:              [isZh ? "带旅行文化故事" : "With travel context", destinations.length]
+app\scholarships\page.tsx:17:  const isZh = locale === "zh";
+app\scholarships\page.tsx:20:  const cards: [string, string, LucideIcon][] = isZh
+app\scholarships\page.tsx:40:              {isZh ? "奖学金匹配" : "Scholarship matching"}
+app\scholarships\page.tsx:43:              {isZh ? "找到更可执行的中国留学资助路径" : "Find a practical funding path for China study"}
+app\scholarships\page.tsx:46:              {isZh
+app\scholarships\page.tsx:51:              <ButtonLink href={`${prefix}/consultation`}>{isZh ? "获取人工评估" : "Get human review"}</ButtonLink>
+app\scholarships\page.tsx:53:                {isZh ? "查看有奖学金方向的学校" : "Browse scholarship schools"}
+app\scholarships\page.tsx:59:            <h2 className="mt-4 text-xl font-bold text-ink">{isZh ? "重要提醒" : "Important note"}</h2>
+app\scholarships\page.tsx:61:              {isZh
+app\scholarships\page.tsx:74:            title={isZh ? "主要资助路径" : "Main funding paths"}
+app\scholarships\page.tsx:75:            description={isZh ? "真实方案通常是奖学金、低成本城市、合适学校和申请时间线的组合。" : "A real plan usually combines scholarships, lower-cost cities, suitable schools, and application timing."}
+app\universities\[slug]\page.tsx:101:      title: isZh ? "附近住宿与生活圈" : "Nearby housing and daily life",
+app\universities\[slug]\page.tsx:106:      title: isZh ? "饮食与日常节奏" : "Food and daily rhythm",
+app\universities\[slug]\page.tsx:111:      title: isZh ? "旅行与周末" : "Tourism and weekends",
+app\universities\[slug]\page.tsx:116:      title: isZh ? "实习与就业" : "Internships and careers",
+app\universities\[slug]\page.tsx:121:      title: isZh ? "交通与安全" : "Transport and safety",
+app\universities\[slug]\page.tsx:128:function destinationSignals(university: University, city: ReturnType<typeof getCityDestination>, isZh: boolean) {
+app\universities\[slug]\page.tsx:129:  const cityLabel = city ? (isZh ? city.zhName : city.name) : university.location;
+app\universities\[slug]\page.tsx:133:      label: isZh ? "生活成本" : "Living cost",
+app\universities\[slug]\page.tsx:134:      value: city ? (isZh ? city.zhLivingCost : city.livingCost) : (isZh ? "待核验" : "To verify"),
+app\universities\[slug]\page.tsx:135:      body: isZh
+app\universities\[slug]\page.tsx:141:      label: isZh ? "旅行吸引力" : "Travel appeal",
+app\universities\[slug]\page.tsx:142:      value: city ? (isZh ? city.zhLifestyleTags.slice(0, 2).join(" / ") : city.lifestyleTags.slice(0, 2).join(" / ")) : (isZh ? "城市体验待补全" : "City context pending"),
+app\universities\[slug]\page.tsx:144:        ? (isZh ? city.zhTourism : city.tourism)
+app\universities\[slug]\page.tsx:149:      label: isZh ? "实习就业" : "Career access",
+app\universities\[slug]\page.tsx:150:      value: university.majors.slice(0, 2).map((major) => displayMajor(major, isZh ? "zh" : "en")).join(" / "),
+app\universities\[slug]\page.tsx:152:        ? (isZh ? city.zhInternships : city.internships)
+app\universities\[slug]\page.tsx:157:      label: isZh ? "年轻人生活方式" : "Youth lifestyle",
+app\universities\[slug]\page.tsx:158:      value: city ? (isZh ? city.zhLifestyleTags.slice(0, 3).join(" / ") : city.lifestyleTags.slice(0, 3).join(" / ")) : (isZh ? "校园生活" : "Campus life"),
+app\universities\[slug]\page.tsx:159:      body: isZh
+app\universities\[slug]\page.tsx:170:  const isZh = locale === "zh";
+app\universities\[slug]\page.tsx:189:  const displayName = isZh && university.chineseName !== university.name ? university.chineseName : university.name;
+app\universities\[slug]\page.tsx:191:  const cityName = city ? (isZh ? city.zhName : city.name) : university.location;
+app\universities\[slug]\page.tsx:192:  const provinceName = province ? (isZh ? province.zhName : province.name) : university.provinceSlug;
+app\universities\[slug]\page.tsx:193:  const signals = destinationSignals(university, city, isZh);
+app\universities\[slug]\page.tsx:211:                {isZh ? dataStatus.labelZh : dataStatus.labelEn}
+app\universities\[slug]\page.tsx:217:                {verifiedRanking ? `QS #${university.qsRanking}` : (isZh ? "排名待核验" : "Ranking to verify")}
+app\universities\[slug]\page.tsx:225:                    {isZh
+app\universities\[slug]\page.tsx:242:                  <dt className="text-slate-400">{isZh ? "QS 排名" : "QS Ranking"}</dt>
+app\universities\[slug]\page.tsx:243:                  <dd className="mt-1 text-xl font-bold">{verifiedRanking ? `#${university.qsRanking}` : (isZh ? "待核验" : "To verify")}</dd>
+app\universities\[slug]\page.tsx:266:                  [isZh ? "建校年份" : "Founded Year", university.foundedYear > 0 ? university.foundedYear : (isZh ? "待核验" : "To verify")],
+app\universities\[slug]\page.tsx:267:                  [isZh ? "官网" : "Website", university.website === "#" ? (isZh ? "待核验" : "To verify") : university.website],
+app\universities\[slug]\page.tsx:268:                  [isZh ? "国际学生" : "International Students", university.internationalStudents],
+app\universities\[slug]\page.tsx:269:                  [isZh ? "所在城市" : "City", cityName]
+app\universities\[slug]\page.tsx:281:                title={isZh ? "数据可信状态" : "Data confidence"}
+app\universities\[slug]\page.tsx:282:                description={isZh ? "我们不会把待核验信息包装成确定事实。学校资料会按照排名、官网、学费、年份、评论等维度逐步核验。" : "We do not present pending data as confirmed facts. Profiles are enriched through ranking, website, tuition, founding year, and review verification."}
+app\universities\[slug]\page.tsx:286:                  [isZh ? "排名" : "Ranking", verifiedRanking],
+app\universities\[slug]\page.tsx:287:                  [isZh ? "年份" : "Founded", university.foundedYear > 0],
+app\universities\[slug]\page.tsx:288:                  [isZh ? "官网" : "Website", university.website !== "#"],
+app\universities\[slug]\page.tsx:289:                  [isZh ? "学费" : "Tuition", !university.tuition.toLowerCase().includes("contact")],
+app\universities\[slug]\page.tsx:290:                  [isZh ? "评论" : "Reviews", university.reviews.length > 0]
+app\universities\[slug]\page.tsx:295:                    <p className="mt-1 text-xs">{ok ? (isZh ? "已有" : "Available") : (isZh ? "待核验" : "Pending")}</p>
+app\universities\[slug]\page.tsx:305:                  description={isZh ? "根据学校官方本科项目申请指南整理，用于帮助学生快速判断排名、费用、语言和申请路径。" : "Structured from the university's undergraduate application guide to help students compare ranking, cost, language, and application path quickly."}
+app\universities\[slug]\page.tsx:310:                      <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{isZh ? "资料来源" : "Source"}</p>
+app\universities\[slug]\page.tsx:325:                      <p className="font-bold text-ink">{isZh ? "排名与学术亮点" : "Ranking and academic highlights"}</p>
+app\universities\[slug]\page.tsx:336:                      <p className="font-bold text-ink">{isZh ? "费用速览" : "Cost snapshot"}</p>
+app\universities\[slug]\page.tsx:353:                title={isZh ? "专业与学位项目" : "Majors and degree programs"}
+app\universities\[slug]\page.tsx:354:                description={isZh ? "本科、硕士、博士和语言项目数据会继续通过后台 CMS 扩展。" : "Bachelor, Master, PhD, and language-program data will continue to be expanded through the CMS."}
+app\universities\[slug]\page.tsx:365:                title={isZh ? "学校照片与视频" : "Campus photos and video"}
+app\universities\[slug]\page.tsx:366:                description={isZh ? "后台上传的 logo、封面、校园照片和视频会优先展示；暂无上传时使用平台兜底视觉。" : "CMS-uploaded logo, cover, campus photos, and videos appear first; platform visuals are used as fallback."}
+app\universities\[slug]\page.tsx:389:              <SectionHeading title={isZh ? "学费与生活成本" : "Tuition and living cost"} />
+app\universities\[slug]\page.tsx:391:                <div className="rounded-lg border border-slate-200 p-5"><Banknote className="text-primary" size={22} /><p className="mt-4 text-sm text-slate-500">{isZh ? "学费" : "Tuition"}</p><p className="mt-2 font-bold">{university.tuition}</p></div>
+app\universities\[slug]\page.tsx:392:                <div className="rounded-lg border border-slate-200 p-5"><Home className="text-primary" size={22} /><p className="mt-4 text-sm text-slate-500">{isZh ? "住宿费" : "Dormitory"}</p><p className="mt-2 font-bold">{isBaselineRecord ? (isZh ? "待核验" : "To verify") : "$900-$1,800/year"}</p></div>
+app\universities\[slug]\page.tsx:393:                <div className="rounded-lg border border-slate-200 p-5"><MapPinned className="text-primary" size={22} /><p className="mt-4 text-sm text-slate-500">{isZh ? "城市生活费" : "City living cost"}</p><p className="mt-2 font-bold">{city ? (isZh ? city.zhLivingCost : city.livingCost) : "$650-$1,200/month"}</p></div>
+app\universities\[slug]\page.tsx:399:                title={isZh ? "学校附近生活、旅行与就业" : "Living, travel, and careers around campus"}
+app\universities\[slug]\page.tsx:400:                description={isZh ? "从日常生活、饮食、交通、周末旅行和就业机会理解学校真实环境。" : "Understand the real environment through daily living, food, transport, weekend travel, and career access."}
+app\universities\[slug]\page.tsx:403:                {lifeItems(university, isZh).map(({ title, body, Icon }) => (
+app\universities\[slug]\page.tsx:422:                  title={isZh ? "学校附近旅行口碑摘要" : "Nearby travel review signals"}
+app\universities\[slug]\page.tsx:423:                  description={isZh ? "来自小红书、大众点评、去哪儿等目的地素材的合规改写摘要。不会直接发布未经授权的平台原评论。" : "Compliance-reviewed editorial summaries from destination sources such as Xiaohongshu, Dianping, Qunar, and tourism guides. We do not publish unapproved platform comments verbatim."}
+app\universities\[slug]\page.tsx:432:                            <span className="rounded-md bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">{isZh ? "已改写摘要" : "Editorial summary"}</span>
+app\universities\[slug]\page.tsx:438:                            {isZh ? "查看来源" : "Source"}
+app\universities\[slug]\page.tsx:451:                          <p className="text-xs font-semibold uppercase tracking-wide text-primary">{isZh ? "学生视角" : "Student angle"}</p>
+app\universities\[slug]\page.tsx:455:                          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{isZh ? "合规说明" : "Compliance"}</p>
+app\universities\[slug]\page.tsx:467:                title={isZh ? "为什么学生会选择这里" : "Why students choose this destination"}
+app\universities\[slug]\page.tsx:468:                description={isZh ? "把学校、城市、生活成本、旅行体验和职业机会放在一起看，才是真正的留学决策。" : "A real study-abroad decision combines the school, city, cost, travel experience, and career access."}
+app\universities\[slug]\page.tsx:491:                  title={isZh ? "城市与目的地背景" : "City and destination context"}
+app\universities\[slug]\page.tsx:492:                  description={isZh ? "学校选择不能只看学校本身，也要看城市是否适合学生生活、旅行和职业目标。" : "School choice is also about whether the city fits a student's lifestyle, travel interests, and career goals."}
+app\universities\[slug]\page.tsx:499:                      <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? city.zhSummary : city.summary}</p>
+app\universities\[slug]\page.tsx:501:                        {isZh ? "查看城市页" : "View city"}
+app\universities\[slug]\page.tsx:509:                      <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? province.zhTravelSummary : province.travelSummary}</p>
+app\universities\[slug]\page.tsx:511:                        {isZh ? "查看省份页" : "View province"}
+app\universities\[slug]\page.tsx:531:                {requirements(university, isZh).map(([label, body]) => (
+app\universities\[slug]\page.tsx:543:                description={isZh ? "评论区用于沉淀真实留学体验。正式外部平台评论导入会走合规导入、审核和来源标注。" : "Reviews help capture real study experience. External-platform review imports will use compliant import, moderation, and source attribution."}
+app\universities\[slug]\page.tsx:581:                    <p className="mt-3">{isZh ? "暂无已审核学生评价。欢迎分享有帮助的真实体验。" : "No approved student reviews yet. Be the first to share a helpful experience."}</p>
+app\universities\[slug]\page.tsx:604:                <p className="flex gap-2"><GraduationCap size={17} className="mt-0.5 text-primary" /> {isZh ? "确认专业和学位层级" : "Confirm major and degree level"}</p>
+app\universities\[slug]\page.tsx:605:                <p className="flex gap-2"><Languages size={17} className="mt-0.5 text-primary" /> {isZh ? "确认语言要求" : "Confirm language requirements"}</p>
+app\universities\[slug]\page.tsx:606:                <p className="flex gap-2"><Banknote size={17} className="mt-0.5 text-primary" /> {isZh ? "评估学费和奖学金" : "Review tuition and scholarships"}</p>
+app\universities\[slug]\page.tsx:607:                <p className="flex gap-2"><CalendarCheck size={17} className="mt-0.5 text-primary" /> {isZh ? "制定申请时间线" : "Build application timeline"}</p>
+app\universities\[slug]\page.tsx:71:function requirements(university: University, isZh: boolean) {
+app\universities\[slug]\page.tsx:76:      [isZh ? "申请资格" : "Eligibility", profile.eligibility.join(" ")],
+app\universities\[slug]\page.tsx:77:      [isZh ? "语言要求" : "Language", profile.languageRequirements.join(" ")],
+app\universities\[slug]\page.tsx:78:      [isZh ? "申请流程" : "Application path", profile.applicationSteps.join(" ")],
+app\universities\[slug]\page.tsx:79:      [isZh ? "项目说明" : "Program notes", profile.programNotes.join(" ")]
+app\universities\[slug]\page.tsx:83:  return isZh
+app\universities\[slug]\page.tsx:98:function lifeItems(university: University, isZh: boolean): { title: string; body: string; Icon: LucideIcon }[] {
+app\universities\page.tsx:169:  const isZh = locale === "zh";
+app\universities\page.tsx:185:      name: isZh ? item.zhName : item.name,
+app\universities\page.tsx:194:      name: isZh ? item.zhName : item.name,
+app\universities\page.tsx:195:      provinceName: isZh ? item.zhProvinceName : item.provinceName,
+app\universities\page.tsx:247:                <p>{text.sourceNote} {isZh ? "数据源核验日期" : "Source checked"}: {internationalUniversitySources[0].checkedAt}.</p>
+app\universities\page.tsx:319:              <SectionHeading title={isZh ? `找到 ${filteredUniversities.length} ${text.found}` : `${filteredUniversities.length} ${text.found}`} description={text.foundDescription} />
+app\universities\page.tsx:333:                  {isZh ? `${text.page} ${safePage} / ${totalPages} 页` : `${text.page} ${safePage} of ${totalPages}`}
+components\common\site-footer.tsx:17:            {isZh ? "帮助全球年轻人找到适合的中国大学，也发现一座愿意生活、旅行和成长的中国城市。" : isVi ? "Giúp người trẻ trên toàn thế giới tìm trường đại học phù hợp và một thành phố Trung Quốc để học tập, du lịch và trưởng thành." : "Helping young people worldwide find the right Chinese university and a city where they want to live, travel, and grow."}
+components\common\site-footer.tsx:21:          <p className="font-semibold">{isZh ? "探索中国" : isVi ? "Khám phá Trung Quốc" : "Explore China"}</p>
+components\common\site-footer.tsx:23:            <li><Link href={localize("/universities")} className="hover:text-white">{isZh ? "大学目录" : isVi ? "Danh sách trường đại học" : "Universities"}</Link></li>
+components\common\site-footer.tsx:24:            <li><Link href={localize("/provinces")} className="hover:text-white">{isZh ? "中国目的地地图" : isVi ? "Bản đồ điểm đến Trung Quốc" : "China destination map"}</Link></li>
+components\common\site-footer.tsx:25:            <li><Link href={localize("/cities")} className="hover:text-white">{isZh ? "城市与学生生活" : isVi ? "Thành phố và đời sống sinh viên" : "Cities and student life"}</Link></li>
+components\common\site-footer.tsx:26:            <li><Link href={localize("/community")} className="hover:text-white">{isZh ? "留学生与旅行者社区" : isVi ? "Cộng đồng sinh viên và du khách" : "Student and traveler community"}</Link></li>
+components\common\site-footer.tsx:30:          <p className="font-semibold">{isZh ? "开始旅程" : isVi ? "Bắt đầu hành trình" : "Start the journey"}</p>
+components\common\site-footer.tsx:32:            <li><Link href={localize("/consultation")} className="hover:text-white">{isZh ? "免费咨询" : isVi ? "Tư vấn miễn phí" : "Free consultation"}</Link></li>
+components\common\site-footer.tsx:33:            <li><Link href={localize("/scholarships")} className="hover:text-white">{isZh ? "奖学金匹配" : isVi ? "Tìm học bổng phù hợp" : "Scholarship matching"}</Link></li>
+components\common\site-footer.tsx:34:            <li><Link href={localize("/dashboard")} className="hover:text-white">{isZh ? "留学与旅行规划" : isVi ? "Kế hoạch học tập và du lịch" : "Study and travel planning"}</Link></li>
+components\common\site-footer.tsx:6:  const isZh = locale === "zh";
+components\community\community-hub.tsx:100:          <option value="all">{isZh ? "所有城市" : "All cities"}</option>
+components\community\community-hub.tsx:101:          {cities.map((city) => <option key={city.slug} value={city.slug}>{isZh ? city.zhName : city.name}</option>)}
+components\community\community-hub.tsx:108:                  <p className="text-xs font-bold uppercase tracking-wide text-primary">{typeLabels[post.type][isZh ? "zh" : "en"]}</p>
+components\community\community-hub.tsx:122:                  <span className="inline-flex items-center gap-1"><MessageCircle size={14} />{post.replyCount} {isZh ? "条回复" : "replies"}</span>
+components\community\community-hub.tsx:125:                  <button type="button" onClick={() => setReplyingTo(replyingTo === post.id ? null : post.id)} className="inline-flex items-center gap-1 hover:text-primary"><MessageCircle size={14} />{isZh ? "回复或表达兴趣" : "Reply or join"}</button>
+components\community\community-hub.tsx:126:                  <button type="button" onClick={() => reportPost(post.id)} title={isZh ? "举报不安全内容" : "Report unsafe content"} className="inline-flex items-center gap-1 hover:text-red-600"><Flag size={14} />{isZh ? "举报" : "Report"}</button>
+components\community\community-hub.tsx:131:                  <input name="authorName" required placeholder={isZh ? "显示名称" : "Display name"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:132:                  <input name="content" required minLength={4} placeholder={isZh ? "公开回复或表达参加兴趣" : "Public reply or express interest"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:133:                  <button className="rounded-md bg-primary px-4 text-sm font-semibold text-white">{isZh ? "提交审核" : "Submit"}</button>
+components\community\community-hub.tsx:139:          {posts.length === 0 ? <div className="rounded-lg border border-slate-200 bg-white p-8 text-center text-sm text-slate-600">{isZh ? "这个筛选下还没有帖子，成为第一个发起交流的人。" : "No posts match these filters yet. Start the first conversation."}</div> : null}
+components\community\community-hub.tsx:144:        <div className="flex items-center gap-2 text-primary"><Users size={20} /><h2 className="font-bold text-ink">{isZh ? "发起交流或活动" : "Start a conversation"}</h2></div>
+components\community\community-hub.tsx:145:        <p className="mt-2 text-xs leading-5 text-slate-500">{isZh ? "请勿在公开内容中发布手机号、微信号、护照或精确住址。新内容会先经过安全审核。" : "Do not publish phone numbers, private social handles, passport details, or exact home addresses. New posts are safety-reviewed."}</p>
+components\community\community-hub.tsx:147:          <select name="type" required className="h-10 rounded-md border border-slate-200 px-3 text-sm">{types.slice(1).map((type) => <option key={type} value={type}>{typeLabels[type][isZh ? "zh" : "en"]}</option>)}</select>
+components\community\community-hub.tsx:148:          <select name="citySlug" required className="h-10 rounded-md border border-slate-200 px-3 text-sm">{cities.map((city) => <option key={city.slug} value={city.slug}>{isZh ? city.zhName : city.name}</option>)}</select>
+components\community\community-hub.tsx:149:          <input name="authorName" required placeholder={isZh ? "显示名称" : "Display name"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:150:          <input name="authorCountry" placeholder={isZh ? "国家或地区" : "Country or region"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:151:          <input name="title" required minLength={8} placeholder={isZh ? "标题" : "Title"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:152:          <textarea name="content" required minLength={30} rows={5} placeholder={isZh ? "介绍活动、问题或你希望认识怎样的朋友" : "Describe the activity, question, or people you hope to meet"} className="rounded-md border border-slate-200 px-3 py-2 text-sm" />
+components\community\community-hub.tsx:153:          <input name="languages" placeholder={isZh ? "语言，用逗号分隔" : "Languages, separated by commas"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:154:          <input name="meetingArea" placeholder={isZh ? "公共会面区域，不要填写住址" : "Public meeting area, never a home address"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:156:          <input name="contactEmail" type="email" placeholder={isZh ? "联系邮箱（不会公开）" : "Contact email (kept private)"} className="h-10 rounded-md border border-slate-200 px-3 text-sm" />
+components\community\community-hub.tsx:157:          <button disabled={status === "submitting"} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-white disabled:bg-slate-400"><Send size={16} />{status === "submitting" ? (isZh ? "提交中..." : "Submitting...") : (isZh ? "提交审核" : "Submit for review")}</button>
+components\community\community-hub.tsx:160:        <div className="mt-5 flex gap-2 rounded-md bg-emerald-50 p-3 text-xs leading-5 text-emerald-800"><ShieldCheck className="shrink-0" size={17} />{isZh ? "首次线下见面请选择公共场所，告诉可信任的人行程，并自行保管证件和财物。" : "For first meetings, choose public places, tell someone you trust, and keep control of your documents and belongings."}</div>
+components\community\community-hub.tsx:20:  const isZh = locale === "zh";
+components\community\community-hub.tsx:52:      setMessage(result?.message ?? (isZh ? "发布失败，请检查内容。" : "Could not submit the post."));
+components\community\community-hub.tsx:57:    setMessage(isZh ? "已提交安全审核。审核通过后会出现在社区。" : "Submitted for safety review. It will appear after approval.");
+components\community\community-hub.tsx:70:      ? (isZh ? "回复已提交审核。" : "Reply submitted for moderation.")
+components\community\community-hub.tsx:71:      : (isZh ? "回复提交失败。" : "Could not submit reply."));
+components\community\community-hub.tsx:85:      ? (isZh ? "举报已提交，感谢你帮助保护社区。" : "Report submitted. Thank you for helping protect the community.")
+components\community\community-hub.tsx:86:      : (isZh ? "暂时无法提交举报。" : "Could not submit the report."));
+components\community\community-hub.tsx:95:              {typeLabels[type][isZh ? "zh" : "en"]}
+components\forms\consultation-form.tsx:155:            {(isZh ? degreeOptions.zh : isVi ? degreeOptions.vi : degreeOptions.en).map(([value, label]) => (
+components\forms\consultation-form.tsx:189:                  <li>{isZh ? "顾问会先判断专业、城市和预算是否匹配。" : "A counselor will first check major, city, and budget fit."}</li>
+components\forms\consultation-form.tsx:190:                  <li>{isZh ? "如果信息不足，我们会通过邮箱或电话补充确认。" : "If details are missing, we will confirm by email or phone."}</li>
+components\forms\consultation-form.tsx:191:                  <li>{isZh ? "CRM 状态已创建为 New。" : "CRM status has been created as New."}</li>
+components\forms\consultation-form.tsx:194:              {leadId ? <p className="mt-3 text-xs opacity-80">{isZh ? "线索编号" : "Lead ID"}: {leadId}</p> : null}
+components\forms\consultation-form.tsx:78:  const isZh = locale === "zh";
+components\forms\consultation-form.tsx:80:  const tx = (en: string, zh: string, vi: string) => isZh ? zh : isVi ? vi : en;
+components\map\china-svg-map.tsx:116:                    <title>{`${label} - ${isZh ? province.zhTravelTitle : province.travelTitle}`}</title>
+components\map\china-svg-map.tsx:12:  const isZh = locale === "zh";
+components\map\china-svg-map.tsx:122:              {isZh ? "示意图用于留学目的地浏览，悬停区域与内容完全对应" : "Illustrative map for study destination browsing with aligned hover content"}
+components\map\china-svg-map.tsx:133:            alt={isZh ? activeProvince.zhImageAlt : activeProvince.imageAlt}
+components\map\china-svg-map.tsx:135:            topic={isZh ? activeProvince.zhImageTopic : activeProvince.imageTopic}
+components\map\china-svg-map.tsx:140:            {isZh ? `${selectedLabel}代表画面` : `${selectedLabel} visual anchor`}: {isZh ? activeProvince.zhImageTopic : activeProvince.imageTopic}
+components\map\china-svg-map.tsx:149:              {isZh ? "画面、文化标签与学校均随当前悬停地区同步" : "Image, culture tags, and schools follow the hovered destination"}
+components\map\china-svg-map.tsx:162:              {isZh ? "图片来源：" : "Image source: "}{activeProvince.imageSourceLabel}
+components\map\china-svg-map.tsx:170:              <p className="text-lg font-bold text-ink">{isZh ? activeProvince.zhTravelTitle : activeProvince.travelTitle}</p>
+components\map\china-svg-map.tsx:172:                {isZh ? activeProvince.zhTravelSummary : activeProvince.travelSummary}
+components\map\china-svg-map.tsx:178:            {(isZh ? activeProvince.zhCultureTags : activeProvince.cultureTags).map((tag) => (
+components\map\china-svg-map.tsx:188:              {isZh ? "该地区代表性学校" : "Representative schools"}
+components\map\china-svg-map.tsx:202:                      {isZh ? school.zhName ?? school.name : school.name}
+components\map\china-svg-map.tsx:204:                    <span className="mt-1 block text-xs text-slate-500">{isZh ? school.zhNote : school.note}</span>
+components\map\china-svg-map.tsx:218:              {isZh ? "看学校" : "View schools"}
+components\map\china-svg-map.tsx:225:              {isZh ? "规划留学" : "Plan study"}
+components\map\china-svg-map.tsx:25:  const selectedLabel = activeProvince ? (isZh ? activeProvince.zhName : activeProvince.name) : "China";
+components\map\china-svg-map.tsx:26:  const selectedRegion = activeProvince ? (isZh ? activeProvince.zhRegion : activeProvince.region) : "";
+components\map\china-svg-map.tsx:34:            {isZh ? "中国目的地互动地图" : "Interactive China destination map"}
+components\map\china-svg-map.tsx:37:            {isZh ? "悬停省份，查看图片、文化与代表学校" : "Hover provinces for images, culture, and schools"}
+components\map\china-svg-map.tsx:41:          {provinceShowcases.length} {isZh ? "个中国目的地" : "China destinations"}
+components\map\china-svg-map.tsx:51:              aria-label={isZh ? "包含省份、自治区、直辖市、港澳台的中国留学与旅行互动地图" : "Interactive China map for study and travel including provinces, autonomous regions, municipalities, Hong Kong, Macao, and Taiwan"}
+components\map\china-svg-map.tsx:76:                const label = isZh ? province.zhName : province.name;
+components\reviews\review-submission-form.tsx:13:  const isZh = locale === "zh";
+components\reviews\review-submission-form.tsx:37:      setMessage(data?.message ?? (isZh ? "评价提交失败，请检查填写内容。" : "Could not submit review. Please check the fields."));
+components\reviews\review-submission-form.tsx:42:    setMessage(isZh ? "谢谢，你的评价已提交，审核后会展示。" : "Thanks. Your review was submitted and will appear after moderation.");
+components\reviews\review-submission-form.tsx:48:      <p className="font-bold text-ink">{isZh ? "分享你的留学体验" : "Share your experience"}</p>
+components\reviews\review-submission-form.tsx:51:          {isZh ? "姓名" : "Name"}
+components\reviews\review-submission-form.tsx:55:          {isZh ? "国家" : "Country"}
+components\reviews\review-submission-form.tsx:59:          {isZh ? "就读项目" : "Program"}
+components\reviews\review-submission-form.tsx:63:          {isZh ? "评分" : "Rating"}
+components\reviews\review-submission-form.tsx:65:            <option value="5">{isZh ? "5 - 很好" : "5 - Excellent"}</option>
+components\reviews\review-submission-form.tsx:66:            <option value="4">{isZh ? "4 - 不错" : "4 - Good"}</option>
+components\reviews\review-submission-form.tsx:67:            <option value="3">{isZh ? "3 - 一般" : "3 - Average"}</option>
+components\reviews\review-submission-form.tsx:68:            <option value="2">{isZh ? "2 - 有挑战" : "2 - Difficult"}</option>
+components\reviews\review-submission-form.tsx:69:            <option value="1">{isZh ? "1 - 不推荐" : "1 - Not recommended"}</option>
+components\reviews\review-submission-form.tsx:74:        {isZh ? "评价标题" : "Review title"}
+components\reviews\review-submission-form.tsx:78:        {isZh ? "评价内容" : "Review"}
+components\reviews\review-submission-form.tsx:83:          {isZh ? "优点" : "Pros"}
+components\reviews\review-submission-form.tsx:87:          {isZh ? "需要注意" : "Cons"}
+components\reviews\review-submission-form.tsx:97:        {status === "submitting" ? (isZh ? "提交中..." : "Submitting...") : (isZh ? "提交评价" : "Submit review")}
+components\scholarships\scholarship-matcher.tsx:102:              {isZh ? "匹配结果" : "Matching result"}
+components\scholarships\scholarship-matcher.tsx:105:              {isZh ? "优先考虑的奖学金方向" : "Recommended scholarship paths"}
+components\scholarships\scholarship-matcher.tsx:109:            {isZh ? "需人工核验" : "Requires verification"}
+components\scholarships\scholarship-matcher.tsx:126:                {isZh ? "该方向需要结合学校官网、招生简章、专业语言、成绩背景和申请截止日期继续核验。" : match.note}
+components\scholarships\scholarship-matcher.tsx:54:  const isZh = locale === "zh";
+components\scholarships\scholarship-matcher.tsx:62:    [isZh ? "目标学位" : "Target degree", degrees, degree, setDegree, GraduationCap],
+components\scholarships\scholarship-matcher.tsx:63:    [isZh ? "目标专业" : "Target major", majors, major, setMajor, Award],
+components\scholarships\scholarship-matcher.tsx:64:    [isZh ? "年度预算" : "Annual budget", budgets, budget, setBudget, Banknote],
+components\scholarships\scholarship-matcher.tsx:65:    [isZh ? "城市偏好" : "City preference", cityTiers, cityTier, setCityTier, MapPinned]
+components\scholarships\scholarship-matcher.tsx:72:          {isZh ? "规则型匹配 MVP" : "Rule-based matcher MVP"}
+components\scholarships\scholarship-matcher.tsx:75:          {isZh ? "输入学生背景" : "Enter student profile"}
+components\search\search-panel.tsx:100:          placeholder={isZh ? "搜索大学、专业、城市或省份" : "Search university, major, city or province"}
+components\search\search-panel.tsx:102:          aria-label={isZh ? "搜索大学、专业、城市或省份" : "Search universities, majors, cities or provinces"}
+components\search\search-panel.tsx:117:                href={isZh ? `/zh${result.href}` : result.href}
+components\search\search-panel.tsx:132:              {isLoading ? (isZh ? "搜索中..." : "Searching...") : (isZh ? "没有找到结果。试试大学、专业、城市或省份。" : "No results found. Try a university, major, city, or province.")}
+components\search\search-panel.tsx:37:  const isZh = locale === "zh";
+components\search\search-panel.tsx:84:  const labels = isZh ? typeLabels.zh : typeLabels.en;

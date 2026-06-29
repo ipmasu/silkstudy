@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Home",
+    "universities": "Universities",
+    "provinces": "Provinces",
+    "cities": "Cities",
+    "map": "Map",
+    "majors": "Majors",
+    "scholarships": "Scholarships",
+    "consultation": "Consultation",
+    "freeConsultation": "Free Consultation",
+    "exploreChina": "Explore China",
+    "studentLife": "Student Life",
+    "life": "Stories & Life",
+    "planJourney": "Plan My Journey",
+    "community": "Community"
+  },
+  "homepage": {
+    "eyebrow": "Study in China. Live the Story.",
+    "heroTitle": "Come to China for an education and a bigger world.",
+    "heroSubtitle": "Find a university, discover a city, and begin a study, travel, and life journey across China.",
+    "browseUniversities": "Browse Universities",
+    "exploreMap": "Explore Map",
+    "applyNow": "Apply Now",
+    "mapEyebrow": "Interactive map",
+    "mapTitle": "Explore China on an interactive destination map",
+    "mapDescription": "Hover each China destination to preview its signature image, representative schools, city life, travel culture, and application pathway.",
+    "popularSchoolsEyebrow": "Popular schools",
+    "popularSchoolsTitle": "Featured Chinese universities",
+    "popularSchoolsDescription": "Compare rankings, tuition, location, and scholarship options from the first MVP dataset.",
+    "popularMajorsEyebrow": "Popular majors",
+    "popularMajorsTitle": "Find programs by field",
+    "ctaTitle": "Ready to plan your China study path?",
+    "ctaDescription": "Share your target degree, budget, and preferred city. Our consultants will help shortlist options."
+  }
+}

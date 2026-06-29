@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Trang chủ",
+    "universities": "Trường đại học",
+    "provinces": "Tỉnh thành",
+    "cities": "Thành phố",
+    "map": "Bản đồ",
+    "majors": "Ngành học",
+    "scholarships": "Học bổng",
+    "consultation": "Tư vấn",
+    "freeConsultation": "Tư vấn miễn phí",
+    "exploreChina": "Khám phá Trung Quốc",
+    "studentLife": "Đời sống sinh viên",
+    "life": "Câu chuyện & đời sống",
+    "planJourney": "Lập kế hoạch",
+    "community": "Cộng đồng"
+  },
+  "homepage": {
+    "eyebrow": "Học tập tại Trung Quốc. Trải nghiệm câu chuyện.",
+    "heroTitle": "Đến Trung Quốc để học tập và khám phá một thế giới rộng lớn hơn.",
+    "heroSubtitle": "Tìm trường đại học phù hợp, khám phá thành phố và bắt đầu hành trình học tập, du lịch và trưởng thành tại Trung Quốc.",
+    "browseUniversities": "Xem các trường đại học",
+    "exploreMap": "Khám phá bản đồ",
+    "applyNow": "Đăng ký ngay",
+    "mapEyebrow": "Bản đồ tương tác",
+    "mapTitle": "Khám phá các điểm đến tại Trung Quốc",
+    "mapDescription": "Di chuột qua từng điểm đến để xem hình ảnh tiêu biểu, trường đại học, đời sống thành phố, văn hóa du lịch và lộ trình đăng ký.",
+    "popularSchoolsEyebrow": "Trường nổi bật",
+    "popularSchoolsTitle": "Các trường đại học Trung Quốc tiêu biểu",
+    "popularSchoolsDescription": "So sánh xếp hạng, học phí, địa điểm, ngành học, học bổng và đời sống trong khuôn viên.",
+    "popularMajorsEyebrow": "Ngành học phổ biến",
+    "popularMajorsTitle": "Tìm chương trình theo lĩnh vực",
+    "ctaTitle": "Sẵn sàng lập kế hoạch du học Trung Quốc?",
+    "ctaDescription": "Chia sẻ bậc học, ngân sách, ngành học và thành phố mong muốn để chúng tôi hỗ trợ lựa chọn trường và học bổng phù hợp."
+  }
+}
