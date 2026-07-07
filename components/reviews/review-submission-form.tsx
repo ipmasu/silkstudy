@@ -25,26 +25,47 @@ export function ReviewSubmissionForm({ universitySlug, locale = "en", onSubmitte
     const formData = new FormData(event.currentTarget);
     const payload = Object.fromEntries(formData.entries());
 
-    const response = await fetch(`/api/universities/${universitySlug}/reviews`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
+    try {
+      const response = await fetch(`/api/universities/${universitySlug}/reviews`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
 
-    const data = await response.json().catch(() => null);
+      const data = await response.json().catch(() => null);
 
-    if (!response.ok) {
+      if (!response.ok) {
+        setStatus("error");
+        setMessage(reviewErrorMessage(response.status, data?.message));
+        return;
+      }
+
+      setStatus("success");
+      setMessage(tx("Thanks. Your review was submitted and will appear after moderation.", "谢谢，你的评价已提交，审核后会展示。", "Cảm ơn bạn. Đánh giá đã được gửi và sẽ hiển thị sau khi kiểm duyệt."));
+      await onSubmitted?.();
+      event.currentTarget.reset();
+    } catch {
       setStatus("error");
-      setMessage(data?.message ?? tx("Could not submit review. Please check the fields.", "评价提交失败，请检查填写内容。", "Không thể gửi đánh giá. Vui lòng kiểm tra thông tin."));
-      return;
+      setMessage(tx("Could not submit review. Please try again later.", "评价暂时无法提交，请稍后再试。", "Chưa thể gửi đánh giá. Vui lòng thử lại sau."));
+    }
+  }
+
+  function reviewErrorMessage(statusCode: number, serverMessage?: string) {
+    if (statusCode === 404 || serverMessage === "University not found.") {
+      return tx("This university profile could not be found.", "没有找到这所学校页面。", "Không tìm thấy hồ sơ trường này.");
     }
 
-    setStatus("success");
-    setMessage(tx("Thanks. Your review was submitted and will appear after moderation.", "谢谢，你的评价已提交，审核后会展示。", "Cảm ơn bạn. Đánh giá đã được gửi và sẽ hiển thị sau khi kiểm duyệt."));
-    await onSubmitted?.();
-    event.currentTarget.reset();
+    if (statusCode === 400 || serverMessage === "Validation failed.") {
+      return tx(
+        "Please check the required fields. The title should be at least 3 characters and the review should be at least 20 characters.",
+        "请检查必填项：评价标题至少 3 个字，评价内容至少 20 个字。",
+        "Vui lòng kiểm tra thông tin bắt buộc. Tiêu đề cần ít nhất 3 ký tự và nội dung cần ít nhất 20 ký tự."
+      );
+    }
+
+    return tx("Could not submit review. Please try again later.", "评价暂时无法提交，请稍后再试。", "Chưa thể gửi đánh giá. Vui lòng thử lại sau.");
   }
 
   return (
