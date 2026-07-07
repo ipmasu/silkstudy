@@ -1,5 +1,8 @@
 import type { UniversityApplicationProfile } from "@/lib/site-data";
 import { bulkUndergraduateAdmissionEnrichments } from "@/lib/catalog/bulk-undergraduate-admission-enrichments";
+import { elicUndergraduateAdmissionEnrichments } from "@/lib/catalog/elic-undergraduate-admission-enrichments";
+import { officialUndergraduateAdmissionEnrichments } from "@/lib/catalog/official-undergraduate-admission-enrichments";
+import { uploadedUndergraduateAdmissionEnrichments } from "@/lib/catalog/uploaded-undergraduate-admission-enrichments";
 
 export type UniversityProfileEnrichment = {
   website: string;
@@ -10,6 +13,171 @@ export type UniversityProfileEnrichment = {
 
 export const universityProfileEnrichments: Record<string, UniversityProfileEnrichment> = {
   ...bulkUndergraduateAdmissionEnrichments,
+  ...elicUndergraduateAdmissionEnrichments,
+  ...uploadedUndergraduateAdmissionEnrichments,
+  ...officialUndergraduateAdmissionEnrichments,
+  "northwest-university": {
+    website: "https://english.nwu.edu.cn/",
+    summary: "A Xi'an comprehensive university with strengths in archaeology, geology, economics, Chinese language, literature, computer science, and Silk Road regional studies.",
+    majors: ["Archaeology", "Geosciences", "Computer Science", "Business"],
+    applicationProfile: {
+      sourceTitle: "2026 Northwest University undergraduate admission guide for international students",
+      sourceDate: "Official 2026 undergraduate guide provided in uploaded admissions materials",
+      sourceUrl: "https://sie.nwu.edu.cn/",
+      rankingHighlights: [
+        "Northwest University is a comprehensive Xi'an university known for archaeology, geology, economics, Chinese language, literature, and regional studies.",
+        "The guide states that the university has enrolled international students since 1965 and has hosted students from more than 80 countries and regions."
+      ],
+      eligibility: [
+        "Applicants should be physically and mentally healthy, with no infectious disease or condition that affects normal study.",
+        "Applicants must be no older than 30 by September 1, 2026 and must have obtained a high-school diploma by September 1, 2026.",
+        "Applicants should show good academic ability; SAT, IB, A-Level, regional high-school exam results, or other academic evidence may be considered.",
+        "Applicants must provide CSCA results for undergraduate admission; NWU accepts an April 2026 or earlier CSCA registration screenshot first, with final results due by May 20, 2026."
+      ],
+      languageRequirements: [
+        "Chinese-taught programs require HSK Level 4 with a score of 180 or above.",
+        "English-taught programs require IELTS 5.5, TOEFL 70, or above."
+      ],
+      applicationSteps: [
+        "Apply in the first round from January 1 to February 25, 2026 or the second round from March 1 to May 30, 2026.",
+        "For self-funded or non-CSC routes, submit materials through Northwest University's online application system at nwu.17gz.org.",
+        "Pay the application fee after the system sends the payment notice and monitor the application system and registered email for pre-admission, tuition payment, and final admission updates.",
+        "CSC scholarship applicants also complete the Campus China system; International Chinese Language Teachers Scholarship applicants apply through cis.chinese.cn."
+      ],
+      fees: {
+        application: "Self-funded applicants: CNY 400; scholarship applicants: CNY 600; non-refundable.",
+        insurance: "CNY 800/year.",
+        accommodation: "Accommodation deposit: CNY 1,000/person; room fee varies by arrangement.",
+        tuition: "Program-specific tuition is listed in the official guide; confirm the selected major before payment."
+      },
+      programNotes: [
+        "Scholarship routes include Chinese Government Scholarship, International Chinese Language Teachers Scholarship for Chinese International Education, Xi'an Central Asia Five Countries Scholarship, and Xi'an Belt and Road Scholarship.",
+        "Undergraduate study duration is four years.",
+        "Contact email in the guide: tonwu@nwu.edu.cn; online application: http://nwu.17gz.org."
+      ]
+    }
+  },
+  "beijing-university-of-technology": {
+    website: "https://english.bjut.edu.cn/",
+    summary: "A Beijing Double First-Class engineering university with undergraduate options across computing, software, AI, electronics, automation, materials, environment, business, design, and preparatory Chinese study.",
+    majors: ["Engineering", "Computer Science", "Architecture", "Business"],
+    applicationProfile: {
+      sourceTitle: "Beijing University of Technology preparatory and undergraduate admissions brochure",
+      sourceDate: "Uploaded undergraduate admissions brochure, current annual notice should be reconfirmed before submission",
+      sourceUrl: "https://bjut.17gz.org/",
+      rankingHighlights: [
+        "BJUT is a Beijing engineering university with strengths in computer science, software, AI, electronics, automation, materials, environment, architecture, and management.",
+        "The brochure lists a preparatory route designed to build Chinese, mathematics, physics, and academic foundations before undergraduate entry."
+      ],
+      eligibility: [
+        "Applicants should be non-Chinese citizens in good physical and mental health.",
+        "Preparatory applicants are generally 18 to 24; undergraduate applicants are generally 18 to 25.",
+        "Applicants need high-school graduation or above and must provide high-school transcripts and supporting materials."
+      ],
+      languageRequirements: [
+        "Preparatory level I has no Chinese foundation requirement; preparatory level II requires HSK 3 with 180 or above.",
+        "Direct undergraduate applicants need new HSK Level 4 or above.",
+        "The preparatory curriculum covers Chinese up to HSK 4 or HSK 5 depending on class level."
+      ],
+      applicationSteps: [
+        "Apply through BJUT's online system at bjut.17gz.org.",
+        "Prepare the system-generated application form, passport page, high-school graduation or pre-graduation proof, transcripts, resume, language proof, and other required documents.",
+        "Application period in the brochure runs from November 1 to May 31 of the following year.",
+        "Pay the application fee and monitor the system for review, scholarship, admission, visa, and registration notices."
+      ],
+      fees: {
+        application: "CNY 500.",
+        tuition: "CNY 21,000/year.",
+        accommodation: "Confirm current dormitory availability and campus arrangement before arrival."
+      },
+      programNotes: [
+        "Scholarship routes in the brochure include Chinese Government Scholarship and Beijing International Student Scholarship, including partial or full tuition support.",
+        "Preparatory scholarships may support half or full tuition, and preparatory graduates admitted to undergraduate programs may receive priority consideration for freshman scholarships.",
+        "Architecture and urban planning are five-year programs; most listed undergraduate programs are four years."
+      ]
+    }
+  },
+  "china-university-of-geosciences-wuhan": {
+    website: "https://en.cug.edu.cn/",
+    summary: "A Wuhan university known for geosciences, earth resources, environmental science, engineering, gemology, computer science, and China-focused undergraduate pathways.",
+    majors: ["Geosciences", "Engineering", "Environmental Science", "Computer Science"],
+    applicationProfile: {
+      sourceTitle: "China University of Geosciences Wuhan undergraduate admissions information for international students",
+      sourceDate: "Uploaded undergraduate admissions guide; scholarship and annual notices should be reconfirmed before submission",
+      sourceUrl: "https://admission.cug.edu.cn/member/login.do",
+      rankingHighlights: [
+        "CUG Wuhan is a specialist university for geosciences, resources, environment, engineering, and related applied fields.",
+        "The uploaded guide lists scholarship routes for undergraduate applicants including Silk Road Scholarship, bilateral CSC routes, and university president scholarship options."
+      ],
+      eligibility: [
+        "Applicants should be non-Chinese citizens with valid passports, good conduct, and respect for Chinese laws and university regulations.",
+        "Applicants should meet academic-performance requirements through high-school transcripts, national or regional high-school graduation exam results, or international standardized tests such as SAT, ACT, A-Level, AP, or IB.",
+        "Applicants should meet physical examination requirements and have no serious illness, infectious disease, or severe physical condition affecting admission."
+      ],
+      languageRequirements: [
+        "Chinese-taught applicants should provide a valid HSK certificate or equivalent Chinese-proficiency proof.",
+        "Students who do not pass HSK Level 4 before degree study may need to attend Chinese-language study at CUG Wuhan first.",
+        "English-language ability evidence such as TOEFL or IELTS may be considered for relevant programs."
+      ],
+      applicationSteps: [
+        "Register and apply through the CUG Wuhan international student application system.",
+        "Prepare passport, academic credentials, transcripts or standardized test results, physical examination, language proof, and scholarship materials where relevant.",
+        "For bilateral CSC scholarship routes, consult the Chinese embassy or dispatching authority in the applicant's country for application method and timeline.",
+        "Follow university review, scholarship assessment, admission, visa, housing, and registration instructions."
+      ],
+      fees: {
+        tuition: "Science and engineering undergraduate programs: CNY 22,000/year; humanities programs: CNY 18,000/year.",
+        accommodation: "Campus accommodation may be covered by full scholarships; self-funded applicants should confirm room fees.",
+        insurance: "Comprehensive medical insurance is included in full scholarship packages; self-funded students should confirm annual insurance rules."
+      },
+      programNotes: [
+        "The Silk Road Scholarship route is for bachelor's applicants from Belt and Road countries and may cover tuition, CNY 2,500/month living allowance, on-campus accommodation, and medical insurance when available.",
+        "CUG Wuhan President Scholarship for outstanding new undergraduate international students may cover full tuition, half tuition, 20% tuition, or 10% tuition for the first academic year.",
+        "Tuition and fees remain subject to the latest approved university charging standards."
+      ]
+    }
+  },
+  "hunan-university-of-technology": {
+    website: "https://www.hut.edu.cn/",
+    summary: "A Zhuzhou university with undergraduate options in computer science, artificial intelligence, international trade, mechanical engineering, civil engineering, biomedical engineering, music, dance, ceramics, and applied engineering fields.",
+    majors: ["Engineering", "Computer Science", "Business", "Arts"],
+    applicationProfile: {
+      sourceTitle: "2026 Application Guide to Degree Programmes for International Students, Hunan University of Technology",
+      sourceDate: "Uploaded 2026 degree-program application guide",
+      sourceUrl: "https://admission.hut.istudyedu.com/",
+      rankingHighlights: [
+        "The 2026 guide lists Chinese- and English-taught undergraduate pathways across computing, AI, international economy and trade, mechanical design, civil engineering, biomedical engineering, ceramics, music, and dance.",
+        "Zhuzhou gives students a lower-cost Hunan study base with access to manufacturing, rail transit, ceramics, and central China travel."
+      ],
+      eligibility: [
+        "Applicants submit the online application, highest academic degree certificate, transcripts, passport materials, physical examination, no-criminal-record certificate, language proof, and financial certificate as required by the guide.",
+        "Degree applicants should prepare a bank deposit certificate showing the required financial capacity; the guide lists CNY 40,000 or more for degree programs.",
+        "Original documents are reviewed during registration; false or inconsistent documents can cancel admission."
+      ],
+      languageRequirements: [
+        "Chinese-taught bachelor's applicants need HSK Level 4 with a minimum score of 180.",
+        "English-taught programs require IELTS 5.5, TOEFL 68, Duolingo 85, or equivalent accepted proof.",
+        "Applicants whose first language or official national language is Chinese or English, or who completed a degree taught in Chinese or English, may qualify for language-proof exemptions."
+      ],
+      applicationSteps: [
+        "Apply through HUT's Online Service System for International Students at admission.hut.istudyedu.com.",
+        "Submit the online form and required academic, passport, language, financial, physical-exam, and no-criminal-record documents.",
+        "Submit application materials by June 25, 2026.",
+        "Follow document review, admission, JW202, visa, housing, and registration instructions from the International Office."
+      ],
+      fees: {
+        application: "Registration fee: CNY 300.",
+        tuition: "Bachelor's programs: CNY 10,000/year for Chinese-taught programs and CNY 12,000/year for English-taught programs; the guide also lists CNY 10,000/year in a fee summary.",
+        accommodation: "On-campus double room: CNY 3,000/year; four-person room: CNY 1,200/year; electricity and water are not included.",
+        insurance: "CNY 800/year; visa or residence permit cost listed at about CNY 400-800/year."
+      },
+      programNotes: [
+        "Basic textbooks are listed at CNY 900/year and air-conditioning fee at CNY 100/year.",
+        "All degree-program students may be eligible for Freshman Scholarship covering 100% of first-year tuition; Merit Scholarship is also listed.",
+        "Contact in the guide: admission@hut.edu.cn; telephone 0086-731-22183886."
+      ]
+    }
+  },
   "tongji-university": {
     website: "https://en.tongji.edu.cn/",
     summary: "A major Shanghai research university especially known for architecture, urban planning, civil engineering, transport, design, environmental studies, and German cooperation.",
@@ -168,15 +336,35 @@ export const universityProfileEnrichments: Record<string, UniversityProfileEnric
     summary: "A specialist Beijing university known for international business, economics, finance, trade, law, and multilingual professional education.",
     majors: ["Business", "Chinese Language", "Computer Science"],
     applicationProfile: {
-      sourceTitle: "UIBE international student admissions",
-      sourceDate: "Official admissions pages, annual details to verify before submission",
+      sourceTitle: "University of International Business and Economics Chinese-taught bachelor's degree program brochure",
+      sourceDate: "Uploaded UIBE undergraduate brochure; annual examination dates should be reconfirmed before submission",
       sourceUrl: "https://sie.uibe.edu.cn/",
       rankingHighlights: ["A specialist university for international business, economics, finance, trade, and law.", "Beijing location supports access to companies, embassies, policy networks, and international organizations."],
-      eligibility: ["Applicants should be non-Chinese citizens with valid passports and appropriate academic credentials.", "Check the current UIBE guide for program-specific and nationality-document requirements."],
-      languageRequirements: ["Chinese-taught programs generally require HSK.", "English-taught business programs may require IELTS, TOEFL, or accepted equivalent proof."],
-      applicationSteps: ["Select the current international business, economics, finance, or language program.", "Prepare academic documents, passport, language proof, recommendations, and personal statement.", "Apply through UIBE's official international student channel.", "Follow admission, scholarship, visa, housing, and registration steps."],
-      fees: { tuition: "Confirm program-specific tuition from the current UIBE admission guide.", accommodation: "Confirm Beijing dormitory and housing costs before arrival." },
-      programNotes: ["Strong for international business, economics, finance, trade, law, and professional Chinese.", "Applicants should budget for Beijing while considering its unusually strong networking value."]
+      eligibility: [
+        "Applicants should prepare high-school graduation proof and transcripts, passport or identity document copy, financial guarantee materials, no-criminal-record proof, and photos.",
+        "Applicants under guardianship or with special documentation needs should confirm notarized guardian documents with the admissions and program development office.",
+        "Application materials are accepted in Chinese or English and are not returned regardless of admission result."
+      ],
+      languageRequirements: [
+        "Chinese-taught bachelor's applicants need new HSK Level 4 or above; applicants whose previous degree was fully Chinese-taught may submit proof of Chinese-medium instruction instead.",
+        "Business English applicants need IELTS 6.0, TOEFL iBT 86 or above, or other English-language proof plus a personal statement in English."
+      ],
+      applicationSteps: [
+        "Complete UIBE's online application form and prepare the listed academic, passport, financial, no-criminal-record, language, and photo documents.",
+        "Take the entrance examination normally held in May or June.",
+        "Entrance examination subjects include Chinese written test with listening, comprehensive written test including mathematics and English, and interview.",
+        "Follow admission, tuition prepayment, visa, registration, and first-year tuition payment instructions."
+      ],
+      fees: {
+        application: "CNY 660 application fee; non-refundable.",
+        tuition: "Chinese-taught bachelor's programs: CNY 24,800/year; first-year tuition is paid at registration.",
+        accommodation: "Confirm Beijing dormitory or off-campus housing arrangements before arrival."
+      },
+      programNotes: [
+        "The brochure lists a CNY 4,000 tuition prepayment collected when admission is confirmed and credited toward total tuition after enrollment.",
+        "Relevant UIBE undergraduate fields include international economics and trade, finance, accounting, insurance, law, business administration, and related business disciplines.",
+        "Admissions contact in the brochure includes degreeinchinese@163.com and sie@uibe.edu.cn."
+      ]
     }
   },
   "dalian-university-of-technology": {
@@ -584,15 +772,37 @@ export const universityProfileEnrichments: Record<string, UniversityProfileEnric
     summary: "A major Shenyang research university known for automation, control science, computer science, software, metallurgy, materials, engineering, and management.",
     majors: ["Engineering", "Computer Science", "Artificial Intelligence", "Business"],
     applicationProfile: {
-      sourceTitle: "Northeastern University China international student programs",
-      sourceDate: "Official university and international education materials, checked 2026",
-      sourceUrl: "https://sie.neu.edu.cn/",
+      sourceTitle: "Northeastern University 2026 undergraduate admissions guide for international students",
+      sourceDate: "Uploaded 2026 undergraduate guide",
+      sourceUrl: "http://studyinneu.neu.edu.cn/",
       rankingHighlights: ["A major engineering university with distinctive strengths in automation, control science, computer science, software, metallurgy, and materials.", "Shenyang provides access to Northeast China's advanced manufacturing, automotive, robotics, and industrial economy."],
-      eligibility: ["Applicants should be non-Chinese citizens with valid passports and qualifications appropriate for the chosen degree.", "Check the current NEU guide for academic, age, health, nationality-document, and program requirements."],
-      languageRequirements: ["Chinese-taught programs generally require HSK.", "English-taught programs may require IELTS, TOEFL, or accepted equivalent evidence."],
-      applicationSteps: ["Review the latest NEU international program and scholarship guide.", "Prepare passport, academic records, language proof, study plan, and required supporting documents.", "Apply through the official School of International Education channel.", "Follow assessment, admission, visa, housing, and registration instructions."],
-      fees: { tuition: "Confirm current tuition by program from NEU's official guide.", accommodation: "Confirm Shenyang campus dormitory costs before arrival." },
-      programNotes: ["Strong for automation, control, computing, software, metallurgy, materials, and industrial engineering.", "This profile refers to Northeastern University in Shenyang, China, not the similarly named US university."]
+      eligibility: [
+        "Applicants must be non-Chinese citizens, in good physical and mental health, with no criminal record.",
+        "Applicants need a high-school level graduation certificate or above and must be over 16 years old.",
+        "Applicants with Chinese nationality background must satisfy the Ministry of Education nationality and residence rules described in the guide.",
+        "All undergraduate applicants must take the CSCA; CSCA results are required review and admission materials."
+      ],
+      languageRequirements: [
+        "Chinese-taught programs require HSK Level 5 with a score of 180 or above; applicants without Chinese proficiency should apply for Chinese-language study first.",
+        "English majors and English-taught majors require native English background, official-language English background, TOEFL, IELTS, or other accepted English proficiency proof."
+      ],
+      applicationSteps: [
+        "Self-sponsored application period: December 30, 2025 to June 30, 2026.",
+        "Take the CSCA in advance and obtain the score report.",
+        "Apply through http://studyinneu.neu.edu.cn or http://neu.17gz.org using an email registration.",
+        "Track document review, entrance assessment, admission review, visa, housing, and registration; original passport, visa, academic documents, and transcripts are checked at registration."
+      ],
+      fees: {
+        application: "Self-sponsored applicant application fee: CNY 500.",
+        tuition: "CNY 18,000-21,000/year depending on undergraduate program.",
+        accommodation: "On-campus one-bed, two-bed, and three-bed rooms are listed at about CNY 32-60/person/day depending on room type.",
+        insurance: "Self-sponsored students must purchase required insurance; the guide lists at least CNY 800/year."
+      },
+      programNotes: [
+        "CSC undergraduate scholarship applicants apply through the Chinese embassy or consulate in their country; NEU states there is no Type-B bachelor route directly through the university.",
+        "CSC scholarship may cover tuition, dormitory, insurance, and a CNY 2,500/month stipend.",
+        "This profile refers to Northeastern University in Shenyang, China, not the similarly named US university."
+      ]
     }
   },
   "dalian-maritime-university": {

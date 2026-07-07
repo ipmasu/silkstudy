@@ -11,17 +11,15 @@ import {
   Home,
   Languages,
   MapPinned,
-  MessageSquareQuote,
   Plane,
   ShieldCheck,
   Sparkles,
-  Star,
   Utensils,
   type LucideIcon
 } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
 import { SectionHeading } from "@/components/common/section-heading";
-import { ReviewSubmissionForm } from "@/components/reviews/review-submission-form";
+import { LiveUniversityReviews } from "@/components/reviews/live-university-reviews";
 import { UniversityLogo } from "@/components/universities/university-logo";
 import { UniversityGateVisual } from "@/components/universities/university-gate-visual";
 import { internationalUniversitySources } from "@/lib/catalog/international-university-directory";
@@ -580,47 +578,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
                 title={tx("Student reviews", "学生评价", "Đánh giá của sinh viên")}
                 description={isZh ? "评论区用于沉淀真实留学体验。正式外部平台评论导入会走合规导入、审核和来源标注。" : "Reviews help capture real study experience. External-platform review imports will use compliant import, moderation, and source attribution."}
               />
-              <div className="mt-6 grid gap-4">
-                {university.reviews.length > 0 ? university.reviews.map((review) => (
-                  <article key={`${review.authorName}-${review.title}`} className="rounded-lg border border-slate-200 bg-white p-5">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-bold text-ink">{review.title}</h3>
-                          {review.isVerified ? (
-                            <span className="rounded bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">{tx("Verified", "已验证", "Đã xác minh")}</span>
-                          ) : null}
-                        </div>
-                        <p className="mt-1 text-sm text-slate-500">
-                          {review.authorName} - {review.authorCountry} - {review.program}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1 text-amber-500" aria-label={`${review.rating} out of 5 stars`}>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                          <Star key={index} size={16} fill={index < review.rating ? "currentColor" : "none"} aria-hidden="true" />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="mt-4 text-sm leading-6 text-slate-700">{review.content}</p>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-md bg-surface p-3">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">{tx("Pros", "优点", "Ưu điểm")}</p>
-                        <p className="mt-1 text-sm text-slate-700">{review.pros}</p>
-                      </div>
-                      <div className="rounded-md bg-surface p-3">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tx("Cons", "需要注意", "Điểm cần lưu ý")}</p>
-                        <p className="mt-1 text-sm text-slate-700">{review.cons}</p>
-                      </div>
-                    </div>
-                  </article>
-                )) : (
-                  <div className="rounded-lg border border-slate-200 bg-white p-5 text-sm text-slate-600">
-                    <MessageSquareQuote className="text-primary" size={22} aria-hidden="true" />
-                    <p className="mt-3">{isZh ? "暂无已审核学生评价。欢迎分享有帮助的真实体验。" : "No approved student reviews yet. Be the first to share a helpful experience."}</p>
-                  </div>
-                )}
-              </div>
-              <ReviewSubmissionForm universitySlug={university.slug} locale={locale} />
+              <LiveUniversityReviews universitySlug={university.slug} initialReviews={university.reviews} locale={locale} />
             </section>
           </div>
 

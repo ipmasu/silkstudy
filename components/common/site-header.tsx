@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
-import { localizePath } from "@/lib/i18n/routing";
+import { localizePath, type AppLocale } from "@/lib/i18n/routing";
 
 const navItems = [
   { href: "/provinces", key: "exploreChina" },
@@ -11,13 +10,172 @@ const navItems = [
   { href: "/cities", key: "studentLife" },
   { href: "/life", key: "life" },
   { href: "/community", key: "community" },
+  { href: "/global-checkin", key: "globalCheckin" },
   { href: "/scholarships", key: "scholarships" },
   { href: "/consultation", key: "planJourney" }
 ] as const;
 
-export async function SiteHeader() {
-  const t = await getTranslations("navigation");
-  const locale = await getLocale();
+const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>> = {
+  en: {
+    exploreChina: "Explore China",
+    universities: "Universities",
+    studentLife: "Cities",
+    life: "Life Guide",
+    community: "Community",
+    globalCheckin: "Global Check-in",
+    scholarships: "Scholarships",
+    planJourney: "Plan Journey",
+    freeConsultation: "Free consultation",
+    mobilePlan: "Plan"
+  },
+  zh: {
+    exploreChina: "探索中国",
+    universities: "大学目录",
+    studentLife: "城市",
+    life: "生活指南",
+    community: "社区",
+    globalCheckin: "全球打卡",
+    scholarships: "奖学金",
+    planJourney: "规划留学",
+    freeConsultation: "免费咨询",
+    mobilePlan: "规划"
+  },
+  vi: {
+    exploreChina: "Khám phá Trung Quốc",
+    universities: "Trường đại học",
+    studentLife: "Thành phố",
+    life: "Đời sống",
+    community: "Cộng đồng",
+    globalCheckin: "Check-in toàn cầu",
+    scholarships: "Học bổng",
+    planJourney: "Lập kế hoạch",
+    freeConsultation: "Tư vấn miễn phí",
+    mobilePlan: "Kế hoạch"
+  },
+  ko: {
+    exploreChina: "중국 탐색",
+    universities: "대학",
+    studentLife: "도시",
+    life: "생활 가이드",
+    community: "커뮤니티",
+    globalCheckin: "글로벌 체크인",
+    scholarships: "장학금",
+    planJourney: "유학 설계",
+    freeConsultation: "무료 상담",
+    mobilePlan: "상담"
+  },
+  th: {
+    exploreChina: "สำรวจจีน",
+    universities: "มหาวิทยาลัย",
+    studentLife: "เมือง",
+    life: "คู่มือชีวิต",
+    community: "ชุมชน",
+    globalCheckin: "เช็กอินทั่วโลก",
+    scholarships: "ทุนการศึกษา",
+    planJourney: "วางแผน",
+    freeConsultation: "ปรึกษาฟรี",
+    mobilePlan: "แผน"
+  },
+  id: {
+    exploreChina: "Jelajahi Tiongkok",
+    universities: "Universitas",
+    studentLife: "Kota",
+    life: "Panduan Hidup",
+    community: "Komunitas",
+    globalCheckin: "Check-in Global",
+    scholarships: "Beasiswa",
+    planJourney: "Rencana Studi",
+    freeConsultation: "Konsultasi gratis",
+    mobilePlan: "Rencana"
+  },
+  ms: {
+    exploreChina: "Terokai China",
+    universities: "Universiti",
+    studentLife: "Bandar",
+    life: "Panduan Hidup",
+    community: "Komuniti",
+    globalCheckin: "Daftar masuk global",
+    scholarships: "Biasiswa",
+    planJourney: "Rancang Pengajian",
+    freeConsultation: "Konsultasi percuma",
+    mobilePlan: "Rancang"
+  },
+  my: {
+    exploreChina: "တရုတ်ကို လေ့လာရန်",
+    universities: "တက္ကသိုလ်များ",
+    studentLife: "မြို့များ",
+    life: "နေထိုင်မှု လမ်းညွှန်",
+    community: "အသိုင်းအဝိုင်း",
+    globalCheckin: "ကမ္ဘာလုံးဆိုင်ရာ Check-in",
+    scholarships: "ပညာသင်ဆုများ",
+    planJourney: "လေ့လာရေး စီစဉ်ရန်",
+    freeConsultation: "အခမဲ့ တိုင်ပင်ရန်",
+    mobilePlan: "စီစဉ်ရန်"
+  },
+  km: {
+    exploreChina: "ស្វែងយល់ពីចិន",
+    universities: "សាកលវិទ្យាល័យ",
+    studentLife: "ទីក្រុង",
+    life: "មគ្គុទេសក៍ជីវិត",
+    community: "សហគមន៍",
+    globalCheckin: "Check-in ពិភពលោក",
+    scholarships: "អាហារូបករណ៍",
+    planJourney: "រៀបចំផែនការ",
+    freeConsultation: "ប្រឹក្សាឥតគិតថ្លៃ",
+    mobilePlan: "ផែនការ"
+  },
+  lo: {
+    exploreChina: "ສຳຫຼວດຈີນ",
+    universities: "ມະຫາວິທະຍາໄລ",
+    studentLife: "ເມືອງ",
+    life: "ຄູ່ມືຊີວິດ",
+    community: "ຊຸມຊົນ",
+    globalCheckin: "Check-in ທົ່ວໂລກ",
+    scholarships: "ທຶນການສຶກສາ",
+    planJourney: "ວາງແຜນການຮຽນ",
+    freeConsultation: "ປຶກສາຟຣີ",
+    mobilePlan: "ແຜນ"
+  },
+  tl: {
+    exploreChina: "Tuklasin ang Tsina",
+    universities: "Mga Unibersidad",
+    studentLife: "Mga Lungsod",
+    life: "Gabay sa Buhay",
+    community: "Komunidad",
+    globalCheckin: "Global Check-in",
+    scholarships: "Scholarships",
+    planJourney: "Planuhin ang Pag-aaral",
+    freeConsultation: "Libreng konsultasyon",
+    mobilePlan: "Plano"
+  },
+  ru: {
+    exploreChina: "Открыть Китай",
+    universities: "Университеты",
+    studentLife: "Города",
+    life: "Жизнь",
+    community: "Сообщество",
+    globalCheckin: "Глобальный чек-ин",
+    scholarships: "Стипендии",
+    planJourney: "План обучения",
+    freeConsultation: "Бесплатная консультация",
+    mobilePlan: "План"
+  },
+  tr: {
+    exploreChina: "Çin'i keşfet",
+    universities: "Üniversiteler",
+    studentLife: "Şehirler",
+    life: "Yaşam Rehberi",
+    community: "Topluluk",
+    globalCheckin: "Küresel Check-in",
+    scholarships: "Burslar",
+    planJourney: "Planla",
+    freeConsultation: "Ücretsiz danışmanlık",
+    mobilePlan: "Plan"
+  }
+};
+
+export function SiteHeader({ locale }: { locale: AppLocale }) {
+  const copy = navigationCopy[locale] ?? navigationCopy.en;
   const localize = (href: string) => localizePath(href, locale);
 
   return (
@@ -32,18 +190,18 @@ export async function SiteHeader() {
         <nav className="hidden items-center gap-4 text-sm font-medium text-slate-600 lg:gap-6 md:flex">
           {navItems.map((item) => (
             <Link key={item.href} href={localize(item.href)} className="hover:text-primary">
-              {t(item.key)}
+              {copy[item.key]}
             </Link>
           ))}
         </nav>
         <div className="hidden items-center gap-3 sm:flex">
           <LanguageSwitcher locale={locale} />
-          <ButtonLink href={localize("/consultation")}>{t("freeConsultation")}</ButtonLink>
+          <ButtonLink href={localize("/consultation")}>{copy.freeConsultation}</ButtonLink>
         </div>
         <div className="flex items-center gap-2 sm:hidden">
           <LanguageSwitcher locale={locale} compact />
           <Link href={localize("/consultation")} className="rounded-md bg-primary px-3 py-2 text-xs font-semibold text-white">
-            {locale === "zh" ? "规划旅程" : locale === "vi" ? "Lập kế hoạch" : "Plan"}
+            {copy.mobilePlan}
           </Link>
         </div>
       </div>

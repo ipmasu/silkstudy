@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Ana sayfa",
+    "universities": "Üniversiteler",
+    "provinces": "Eyaletler",
+    "cities": "Şehirler",
+    "map": "Harita",
+    "majors": "Bölümler",
+    "scholarships": "Burslar",
+    "consultation": "Danışmanlık",
+    "freeConsultation": "Ücretsiz danışmanlık",
+    "exploreChina": "Çin'i keşfet",
+    "studentLife": "Öğrenci hayatı",
+    "life": "Hikayeler ve yaşam",
+    "planJourney": "Plan yap",
+    "community": "Topluluk"
+  },
+  "homepage": {
+    "eyebrow": "Çin'de oku, daha büyük bir dünyayı deneyimle.",
+    "heroTitle": "Çin'de eğitim yolculuğun burada başlar.",
+    "heroSubtitle": "Sana uygun üniversiteyi, şehri ve burs yolunu bul; Çin'de öğren, seyahat et ve geliş.",
+    "browseUniversities": "Üniversitelere bak",
+    "exploreMap": "Haritayı keşfet",
+    "applyNow": "Hemen başvur",
+    "mapEyebrow": "Etkileşimli harita",
+    "mapTitle": "Çin'deki eğitim şehirlerini harita üzerinde keşfet",
+    "mapDescription": "Her destinasyonun üniversitelerini, şehir yaşamını, kültürünü ve başvuru yolunu incele.",
+    "popularSchoolsEyebrow": "Öne çıkan okullar",
+    "popularSchoolsTitle": "Seçilmiş Çin üniversiteleri",
+    "popularSchoolsDescription": "Sıralama, ücret, şehir, bölüm, burs ve kampüs yaşamını karşılaştır.",
+    "popularMajorsEyebrow": "Popüler bölümler",
+    "popularMajorsTitle": "Alanına göre program bul",
+    "ctaTitle": "Çin'de eğitim planını başlatmaya hazır mısın?",
+    "ctaDescription": "Hedef derece, bütçe, bölüm ve şehir tercihini paylaş; uygun okul ve burs rotasını birlikte netleştirelim."
+  }
+}

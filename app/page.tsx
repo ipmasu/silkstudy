@@ -1,410 +1,447 @@
 import { ButtonLink } from "@/components/common/button-link";
-import { SectionHeading } from "@/components/common/section-heading";
 import { JsonLd } from "@/components/common/json-ld";
-import { ChinaSvgMap } from "@/components/map/china-svg-map";
 import { SearchPanel } from "@/components/search/search-panel";
-import { UniversityCard } from "@/components/universities/university-card";
-import { getAllUniversitiesView, getFeaturedUniversitiesView } from "@/lib/content/universities";
-import { getCityDestinations } from "@/lib/city-destinations";
-import { displayMajor } from "@/lib/i18n/display";
+import { getAllUniversitiesView } from "@/lib/content/universities";
+import { localePrefix } from "@/lib/i18n/routing";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
-import { majors, provinces } from "@/lib/site-data";
-import { ArrowRight, Award, BookOpen, BriefcaseBusiness, Compass, Cpu, GraduationCap, HandHeart, Landmark, MapPin, Rocket, ShieldCheck, TrainFront, Trees } from "lucide-react";
+import { provinces } from "@/lib/site-data";
+import { Award, BookOpen, Building2, Globe2, Handshake, HeartHandshake, Landmark, Map, Rocket, ShieldCheck, TrainFront } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = buildMetadata({
   title: "Study in China. Live the Story.",
   description: "Find a university, discover a city, and begin a life-changing study and travel journey across China."
 });
 
+type LocaleCopy = {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  scholarshipBadge: string;
+  browse: string;
+  consult: string;
+  scholarshipCta: string;
+  searchPlaceholder: string;
+  stats: [string, string][];
+  missionTitle: string;
+  missionBody: string;
+  reasonsTitle: string;
+  reasonsBody: string;
+  reasons: { icon: LucideIcon; title: string; body: string }[];
+  scholarshipTitle: string;
+  scholarshipBody: string;
+  scholarshipPoints: string[];
+  countriesTitle: string;
+  countriesBody: string;
+  countryGroups: string[];
+  pathTitle: string;
+  pathSteps: string[];
+  finalTitle: string;
+  finalBody: string;
+  exchangeLabel: string;
+};
+
+const copy: Record<string, LocaleCopy> = {
+  en: {
+    eyebrow: "Your China story starts here",
+    title: "Study in China. Live the Story.",
+    subtitle: "Find the right university and a city you want to call home. Study, travel, make friends, and experience the future taking shape across China.",
+    scholarshipBadge: "Full or high-value scholarships may cover tuition, housing, and living allowance. Final terms must be verified by school and year.",
+    browse: "Browse universities",
+    consult: "Get free consultation",
+    scholarshipCta: "Explore scholarships",
+    searchPlaceholder: "Search university, major, city, or scholarship route",
+    stats: [["Scholarship routes", "national, provincial, city, university, and special"], ["Catalog schools", "Chinese universities for international students"], ["Languages", "built for students who want China and Chinese language"]],
+    missionTitle: "Why this site exists",
+    missionBody: "We want more young people to understand today's China directly: its universities, cities, high-speed development, technology, culture, and daily life. Study abroad is not only a degree. It is a bridge for mutual trust, language learning, and long-term cooperation.",
+    reasonsTitle: "Scholarships can open the door to China.",
+    reasonsBody: "Some scholarships can waive tuition and may include accommodation or living support. More importantly, studying here lets students share the dividend of China's fast, high-quality development while learning Chinese and building real exchange.",
+    reasons: [
+      { icon: Award, title: "Rich scholarships", body: "CSC, provincial, municipal, university, and special scholarships may reduce or fully cover study costs." },
+      { icon: Rocket, title: "Fast high-quality development", body: "China is a living classroom for AI, new energy, e-commerce, smart manufacturing, infrastructure, and modern services." },
+      { icon: BookOpen, title: "Chinese language advantage", body: "Learning Chinese in China gives students language, culture, and career advantages that are hard to copy elsewhere." },
+      { icon: ShieldCheck, title: "Stable study life", body: "Well-managed campuses, public transport, and city services help families feel safer about sending students abroad." }
+    ],
+    scholarshipTitle: "The scholarship attraction is real",
+    scholarshipBody: "For many families, the decisive point is simple: a strong Chinese university plus a scholarship can be more realistic than an expensive self-funded route elsewhere.",
+    scholarshipPoints: ["Some scholarships waive tuition.", "Some include accommodation or living allowance.", "Some city and university awards reduce first-year pressure.", "Every award must be checked against the current official notice."],
+    countriesTitle: "Priority student markets",
+    countriesBody: "Students from these regions often combine demand for affordable quality education with interest in Chinese language, China careers, trade, technology, or regional cooperation.",
+    countryGroups: ["Southeast Asia: Vietnam, Thailand, Indonesia, Malaysia, Laos", "Northeast Asia: Korea, Japan, Mongolia", "Central Asia and Eurasia: Kazakhstan, Russia, Turkey", "South Asia and Belt and Road partners: Pakistan, Bangladesh, Nepal, Sri Lanka"],
+    pathTitle: "How SilkStudy helps",
+    pathSteps: ["Match school, city, major, budget, and scholarship route.", "Verify official admission and scholarship notices.", "Prepare language, CSCA, documents, timing, and visa steps.", "Help students feel ready for life in China, not just admission."],
+    finalTitle: "Bring students to China with a real plan.",
+    finalBody: "The scholarship is the door-opener. The deeper goal is exchange: more students learning Chinese, seeing China themselves, and building friendships and cooperation.",
+    exchangeLabel: "Exchange"
+  },
+  zh: {
+    eyebrow: "你的中国故事，从这里开始",
+    title: "来中国学习，也来经历一个更大的世界。",
+    subtitle: "找到适合你的大学，也找到一座愿意生活的城市。认识真实的中国，在这里学习、旅行、交朋友，并参与正在发生的未来。",
+    scholarshipBadge: "部分全额或高额奖学金可能覆盖学费、住宿和生活费，最终以学校当年官网通知为准。",
+    browse: "浏览大学",
+    consult: "免费咨询",
+    scholarshipCta: "查看奖学金",
+    searchPlaceholder: "搜索大学、专业、城市或奖学金方向",
+    stats: [["奖学金类型", "国家、省市、学校、专项多层次"], ["学校目录", "面向国际学生的中国高校"], ["目标学生", "想来中国，也愿意学习中文的年轻人"]],
+    missionTitle: "我们做这个网站的目的",
+    missionBody: "我们希望让更多国家的年轻人直接了解今天的中国：大学、城市、高铁、科技、文化和真实生活。留学不只是拿文凭，更是增进中国与各国之间理解、信任、语言学习和长期合作的桥梁。",
+    reasonsTitle: "中国留学可以做到免学费，也有机会获得生活补助。",
+    reasonsBody: "国家、省市、学校和专项奖学金非常丰富，部分项目可覆盖学费、住宿甚至生活支持。对学生来说，这不仅是降低留学成本，更是亲身来到中国、学习中文、享受中国高速高质量发展红利的机会。",
+    reasons: [
+      { icon: Award, title: "奖学金丰富", body: "CSC、省市、学校和专项奖学金，部分项目可大幅降低成本，甚至覆盖学费和生活支持。" },
+      { icon: Rocket, title: "高速高质量发展", body: "中国是理解人工智能、新能源、电商、智能制造、基础设施和现代服务业的真实课堂。" },
+      { icon: BookOpen, title: "中文能力红利", body: "在中国学习中文，不只是语言学习，也是在获得文化理解、就业和合作优势。" },
+      { icon: ShieldCheck, title: "稳定安全的生活", body: "成熟交通、校园管理和城市服务，让家长和学生更安心地选择中国。" }
+    ],
+    scholarshipTitle: "奖学金就是最大的吸引力之一",
+    scholarshipBody: "对很多家庭来说，关键很直接：一所不错的中国大学，加上高覆盖奖学金，可能比去其他国家高额自费更现实。",
+    scholarshipPoints: ["部分奖学金可免学费。", "部分奖学金包含住宿或生活补助。", "部分省市和校级奖学金能显著降低第一年压力。", "每个奖项都必须按当年学校官网核验。"],
+    countriesTitle: "优先关注的学生市场",
+    countriesBody: "这些地区往往同时具备来华留学需求、中文学习意愿、与中国贸易/技术/区域合作的现实连接。",
+    countryGroups: ["东南亚：越南、泰国、印尼、马来西亚、老挝", "东北亚：韩国、日本、蒙古", "中亚与欧亚：哈萨克斯坦、俄罗斯、土耳其", "南亚与一带一路伙伴：巴基斯坦、孟加拉、尼泊尔、斯里兰卡"],
+    pathTitle: "SilkStudy 如何帮助学生",
+    pathSteps: ["匹配学校、城市、专业、预算和奖学金路线。", "核验学校官网招生简章和奖学金通知。", "准备语言、CSCA、材料、时间线和签证步骤。", "让学生不只是被录取，也真正准备好在中国生活。"],
+    finalTitle: "用真实方案把学生带到中国。",
+    finalBody: "奖学金是入口，更深层的目标是交流：让更多学生学习中文、亲眼看见中国，并建立长期友谊与合作。",
+    exchangeLabel: "交流"
+  },
+  vi: {
+    eyebrow: "Du học Trung Quốc, chia sẻ cơ hội phát triển",
+    title: "Học bổng có thể giúp du học Trung Quốc rất dễ tiếp cận.",
+    subtitle: "Một số học bổng chính thức có thể miễn học phí và hỗ trợ ký túc xá hoặc sinh hoạt phí. SilkStudy giúp học sinh tận dụng cơ hội này để học tiếng Trung, vào đại học Trung Quốc và kết nối với Trung Quốc thật sự.",
+    scholarshipBadge: "Một số học bổng toàn phần hoặc giá trị cao có thể gồm học phí, chỗ ở và sinh hoạt phí; cần xác minh theo thông báo từng trường.",
+    browse: "Xem trường",
+    consult: "Tư vấn miễn phí",
+    scholarshipCta: "Xem học bổng",
+    searchPlaceholder: "Tìm trường, ngành, thành phố hoặc học bổng",
+    stats: [["Loại học bổng", "quốc gia, tỉnh/thành, trường, chuyên biệt"], ["Danh mục trường", "đại học Trung Quốc cho sinh viên quốc tế"], ["Đối tượng", "học sinh muốn đến Trung Quốc và học tiếng Trung"]],
+    missionTitle: "Vì sao chúng tôi xây dựng SilkStudy",
+    missionBody: "Chúng tôi muốn nhiều bạn trẻ hiểu Trung Quốc ngày nay qua trường học, thành phố, công nghệ, văn hóa và đời sống thật. Du học không chỉ là bằng cấp, mà còn là cây cầu cho ngôn ngữ, niềm tin và hợp tác lâu dài.",
+    reasonsTitle: "Vì sao nên chọn Trung Quốc lúc này",
+    reasonsBody: "Sự phát triển chất lượng cao của Trung Quốc có thể được nhìn thấy trong tàu cao tốc, thanh toán số, AI, năng lượng mới, sản xuất thông minh, đời sống đô thị an toàn và hệ thống học bổng hấp dẫn.",
+    reasons: [
+      { icon: Award, title: "Học bổng phong phú", body: "CSC, học bổng tỉnh/thành, trường và chương trình chuyên biệt có thể giảm mạnh chi phí." },
+      { icon: Rocket, title: "Phát triển nhanh và chất lượng", body: "Trung Quốc là lớp học thực tế về AI, năng lượng mới, thương mại điện tử và hạ tầng hiện đại." },
+      { icon: BookOpen, title: "Lợi thế tiếng Trung", body: "Học tiếng Trung tại Trung Quốc tạo lợi thế về ngôn ngữ, văn hóa và nghề nghiệp." },
+      { icon: ShieldCheck, title: "Đời sống ổn định", body: "Giao thông, quản lý trường và dịch vụ đô thị giúp gia đình yên tâm hơn." }
+    ],
+    scholarshipTitle: "Học bổng là sức hút rất lớn",
+    scholarshipBody: "Với nhiều gia đình, một trường Trung Quốc tốt cộng học bổng cao có thể thực tế hơn nhiều so với tuyến tự túc đắt đỏ.",
+    scholarshipPoints: ["Có học bổng miễn học phí.", "Có học bổng hỗ trợ ký túc xá hoặc sinh hoạt.", "Học bổng địa phương/trường có thể giảm áp lực năm đầu.", "Cần kiểm tra thông báo chính thức từng năm."],
+    countriesTitle: "Thị trường học sinh ưu tiên",
+    countriesBody: "Các khu vực này thường có nhu cầu giáo dục chất lượng với chi phí hợp lý và quan tâm đến tiếng Trung, thương mại, công nghệ hoặc hợp tác khu vực.",
+    countryGroups: ["Đông Nam Á: Việt Nam, Thái Lan, Indonesia, Malaysia, Lào", "Đông Bắc Á: Hàn Quốc, Nhật Bản, Mông Cổ", "Trung Á và Á-Âu: Kazakhstan, Nga, Thổ Nhĩ Kỳ", "Nam Á và đối tác Vành đai-Con đường: Pakistan, Bangladesh, Nepal, Sri Lanka"],
+    pathTitle: "SilkStudy hỗ trợ như thế nào",
+    pathSteps: ["Ghép trường, thành phố, ngành, ngân sách và học bổng.", "Xác minh thông báo tuyển sinh và học bổng chính thức.", "Chuẩn bị ngôn ngữ, CSCA, hồ sơ, thời gian và visa.", "Giúp học sinh sẵn sàng cho đời sống tại Trung Quốc."],
+    finalTitle: "Đưa học sinh đến Trung Quốc bằng kế hoạch thật.",
+    finalBody: "Học bổng là cánh cửa. Mục tiêu sâu hơn là giao lưu: học tiếng Trung, nhìn thấy Trung Quốc bằng mắt mình và xây dựng tình bạn.",
+    exchangeLabel: "Giao lưu"
+  },
+  ko: {
+    eyebrow: "중국 유학, 중국 성장의 기회를 함께 누리다",
+    title: "중국 유학은 장학금으로 학비 부담을 크게 낮출 수 있습니다.",
+    subtitle: "일부 공식 장학금은 등록금 면제와 기숙사 또는 생활비 지원까지 포함할 수 있습니다. SilkStudy는 학생들이 중국어를 배우고 중국 대학에 진학하며 중국과 세계를 잇는 교류를 만들도록 돕습니다.",
+    scholarshipBadge: "고액 또는 전액 장학금은 등록금, 숙소, 생활비를 포함할 수 있으며 최종 조건은 매년 학교 공지를 확인해야 합니다.",
+    browse: "대학 보기",
+    consult: "무료 상담",
+    scholarshipCta: "장학금 보기",
+    searchPlaceholder: "대학, 전공, 도시 또는 장학금 검색",
+    stats: [["장학금", "국가, 지역, 학교, 특별 프로그램"], ["대학 목록", "국제학생 대상 중국 대학"], ["대상 학생", "중국과 중국어에 관심 있는 학생"]],
+    missionTitle: "SilkStudy의 목적",
+    missionBody: "더 많은 젊은이들이 오늘의 중국을 직접 이해하길 바랍니다. 대학, 도시, 기술, 문화, 생활을 경험하는 유학은 학위 이상의 일이며, 중국과 각국 사이의 신뢰와 협력을 만드는 다리입니다.",
+    reasonsTitle: "지금 중국을 선택하는 이유",
+    reasonsBody: "중국의 고속·고품질 발전은 실제 생활에서 보입니다. 고속철도, 모바일 결제, AI, 신에너지, 스마트 제조, 안전한 도시 생활과 장학금 시스템을 직접 경험할 수 있습니다.",
+    reasons: [
+      { icon: Award, title: "풍부한 장학금", body: "CSC, 지역, 학교, 특별 장학금이 학비와 생활비 부담을 크게 줄일 수 있습니다." },
+      { icon: Rocket, title: "빠른 고품질 성장", body: "중국은 AI, 신에너지, 전자상거래, 인프라를 배우는 살아있는 교실입니다." },
+      { icon: BookOpen, title: "중국어의 가치", body: "중국 현지에서 배우는 중국어는 문화와 커리어 경쟁력으로 이어집니다." },
+      { icon: ShieldCheck, title: "안정적인 생활", body: "교통, 캠퍼스 관리, 도시 서비스가 학생과 가족에게 안정감을 줍니다." }
+    ],
+    scholarshipTitle: "장학금은 가장 큰 매력입니다",
+    scholarshipBody: "좋은 중국 대학과 높은 장학금이 결합되면, 비싼 자비 유학보다 훨씬 현실적인 선택이 될 수 있습니다.",
+    scholarshipPoints: ["일부 장학금은 등록금을 면제합니다.", "일부는 숙소 또는 생활비를 지원합니다.", "지역/학교 장학금은 첫해 부담을 낮춥니다.", "모든 장학금은 최신 공식 공지를 확인해야 합니다."],
+    countriesTitle: "우선 학생 시장",
+    countriesBody: "이 지역 학생들은 합리적 비용의 고품질 교육, 중국어, 중국 커리어와 지역 협력에 관심이 높습니다.",
+    countryGroups: ["동남아: 베트남, 태국, 인도네시아, 말레이시아, 라오스", "동북아: 한국, 일본, 몽골", "중앙아시아와 유라시아: 카자흐스탄, 러시아, 튀르키예", "남아시아 및 일대일로 파트너: 파키스탄, 방글라데시, 네팔, 스리랑카"],
+    pathTitle: "SilkStudy의 지원",
+    pathSteps: ["학교, 도시, 전공, 예산, 장학금 경로를 매칭합니다.", "공식 모집요강과 장학금 공지를 확인합니다.", "언어, CSCA, 서류, 일정, 비자를 준비합니다.", "입학뿐 아니라 중국 생활 준비까지 돕습니다."],
+    finalTitle: "실제 계획으로 학생을 중국으로 연결합니다.",
+    finalBody: "장학금은 문을 여는 힘입니다. 더 깊은 목표는 중국어, 직접 경험, 우정과 협력입니다.",
+    exchangeLabel: "교류"
+  },
+  th: {
+    eyebrow: "เรียนต่อจีน และรับโอกาสจากการพัฒนาของจีน",
+    title: "ทุนจีนสามารถทำให้ค่าเรียนและค่าครองชีพลดลงอย่างมาก",
+    subtitle: "ทุนทางการบางประเภทอาจยกเว้นค่าเล่าเรียน และสนับสนุนที่พักหรือค่าครองชีพ SilkStudy ช่วยนักเรียนใช้โอกาสนี้เพื่อเรียนภาษาจีน เข้ามหาวิทยาลัยจีน และสร้างการแลกเปลี่ยนระหว่างประเทศ",
+    scholarshipBadge: "ทุนเต็มจำนวนหรือทุนมูลค่าสูงบางรายการอาจครอบคลุมค่าเรียน ที่พัก และค่าครองชีพ ต้องตรวจสอบประกาศล่าสุดของแต่ละมหาวิทยาลัย",
+    browse: "ดูมหาวิทยาลัย",
+    consult: "ปรึกษาฟรี",
+    scholarshipCta: "ดูทุนการศึกษา",
+    searchPlaceholder: "ค้นหามหาวิทยาลัย สาขา เมือง หรือทุน",
+    stats: [["เส้นทางทุน", "รัฐบาล มณฑล เมือง มหาวิทยาลัย และทุนพิเศษ"], ["รายชื่อมหาวิทยาลัย", "มหาวิทยาลัยจีนสำหรับนักศึกษาต่างชาติ"], ["นักเรียนเป้าหมาย", "ผู้ที่สนใจจีนและอยากเรียนภาษาจีน"]],
+    missionTitle: "เหตุผลที่เราทำเว็บไซต์นี้",
+    missionBody: "เราอยากให้เยาวชนจากหลายประเทศเข้าใจจีนยุคปัจจุบันโดยตรง ผ่านมหาวิทยาลัย เมือง เทคโนโลยี วัฒนธรรม และชีวิตจริง การเรียนต่อคือสะพานของภาษา ความเข้าใจ และความร่วมมือระยะยาว",
+    reasonsTitle: "ทำไมตอนนี้จีนจึงน่าสนใจ",
+    reasonsBody: "การพัฒนาคุณภาพสูงของจีนเห็นได้จากรถไฟความเร็วสูง การชำระเงินดิจิทัล AI พลังงานใหม่ การผลิตอัจฉริยะ เมืองที่ปลอดภัย และระบบทุนที่ดึงดูดนักเรียนจริงจัง",
+    reasons: [
+      { icon: Award, title: "ทุนหลากหลาย", body: "ทุนรัฐบาลจีน ทุนท้องถิ่น ทุนมหาวิทยาลัย และทุนพิเศษช่วยลดค่าใช้จ่ายได้มาก" },
+      { icon: Rocket, title: "การพัฒนาเร็วและมีคุณภาพ", body: "จีนคือห้องเรียนจริงของ AI พลังงานใหม่ อีคอมเมิร์ซ และโครงสร้างพื้นฐานสมัยใหม่" },
+      { icon: BookOpen, title: "ข้อได้เปรียบภาษาจีน", body: "การเรียนภาษาจีนในจีนช่วยเพิ่มโอกาสด้านภาษา วัฒนธรรม และอาชีพ" },
+      { icon: ShieldCheck, title: "ชีวิตที่มั่นคง", body: "ระบบขนส่ง มหาวิทยาลัย และบริการเมืองช่วยให้ครอบครัวมั่นใจมากขึ้น" }
+    ],
+    scholarshipTitle: "ทุนการศึกษาเป็นแรงดึงดูดสำคัญ",
+    scholarshipBody: "สำหรับหลายครอบครัว มหาวิทยาลัยจีนที่ดีพร้อมทุนสูงอาจเป็นทางเลือกที่เป็นจริงกว่าการเรียนต่างประเทศแบบจ่ายเองทั้งหมด",
+    scholarshipPoints: ["บางทุนยกเว้นค่าเล่าเรียน", "บางทุนรวมที่พักหรือค่าครองชีพ", "ทุนเมืองและมหาวิทยาลัยช่วยลดภาระปีแรก", "ต้องตรวจสอบประกาศล่าสุดทุกปี"],
+    countriesTitle: "ตลาดนักเรียนที่ควรให้ความสำคัญ",
+    countriesBody: "ภูมิภาคเหล่านี้มีความต้องการการศึกษาคุณภาพในราคาที่เข้าถึงได้ และสนใจภาษาจีน เทคโนโลยี การค้า หรือความร่วมมือกับจีน",
+    countryGroups: ["เอเชียตะวันออกเฉียงใต้: เวียดนาม ไทย อินโดนีเซีย มาเลเซีย ลาว", "เอเชียตะวันออกเฉียงเหนือ: เกาหลี ญี่ปุ่น มองโกเลีย", "เอเชียกลางและยูเรเชีย: คาซัคสถาน รัสเซีย ตุรกี", "เอเชียใต้และพันธมิตร BRI: ปากีสถาน บังกลาเทศ เนปาล ศรีลังกา"],
+    pathTitle: "SilkStudy ช่วยอย่างไร",
+    pathSteps: ["จับคู่มหาวิทยาลัย เมือง สาขา งบประมาณ และทุน", "ตรวจสอบประกาศทางการของมหาวิทยาลัย", "เตรียมภาษา CSCA เอกสาร เวลา และวีซ่า", "ช่วยให้นักเรียนพร้อมใช้ชีวิตในจีน"],
+    finalTitle: "พานักเรียนไปจีนด้วยแผนที่เป็นจริง",
+    finalBody: "ทุนคือประตูแรก เป้าหมายที่ลึกกว่าคือการแลกเปลี่ยน ภาษา มิตรภาพ และความร่วมมือ",
+    exchangeLabel: "การแลกเปลี่ยน"
+  },
+  id: {
+    eyebrow: "Studi di Tiongkok, ikut merasakan peluang pertumbuhannya",
+    title: "Beasiswa dapat membuat studi di Tiongkok jauh lebih terjangkau.",
+    subtitle: "Sebagian beasiswa resmi dapat membebaskan biaya kuliah dan memberi dukungan asrama atau biaya hidup. SilkStudy membantu siswa memakai peluang ini untuk belajar bahasa Mandarin, masuk universitas Tiongkok, dan membangun pertukaran nyata.",
+    scholarshipBadge: "Beasiswa penuh atau bernilai tinggi dapat mencakup kuliah, tempat tinggal, dan tunjangan hidup; syarat akhir harus dicek tiap sekolah dan tahun.",
+    browse: "Lihat universitas",
+    consult: "Konsultasi gratis",
+    scholarshipCta: "Lihat beasiswa",
+    searchPlaceholder: "Cari universitas, jurusan, kota, atau beasiswa",
+    stats: [["Jalur beasiswa", "nasional, provinsi, kota, universitas, khusus"], ["Katalog kampus", "universitas Tiongkok untuk mahasiswa internasional"], ["Target siswa", "ingin ke Tiongkok dan belajar Mandarin"]],
+    missionTitle: "Tujuan SilkStudy",
+    missionBody: "Kami ingin lebih banyak anak muda memahami Tiongkok hari ini secara langsung: universitas, kota, teknologi, budaya, dan kehidupan nyata. Studi luar negeri adalah jembatan bahasa, kepercayaan, dan kerja sama jangka panjang.",
+    reasonsTitle: "Mengapa memilih Tiongkok sekarang",
+    reasonsBody: "Perkembangan berkualitas Tiongkok terlihat dalam kereta cepat, pembayaran digital, AI, energi baru, manufaktur cerdas, kota aman, dan sistem beasiswa yang menarik.",
+    reasons: [
+      { icon: Award, title: "Beasiswa kaya pilihan", body: "CSC, beasiswa daerah, kampus, dan program khusus dapat sangat mengurangi biaya." },
+      { icon: Rocket, title: "Pertumbuhan cepat berkualitas", body: "Tiongkok adalah kelas nyata untuk AI, energi baru, e-commerce, dan infrastruktur modern." },
+      { icon: BookOpen, title: "Keunggulan Mandarin", body: "Belajar Mandarin di Tiongkok memberi keuntungan bahasa, budaya, dan karier." },
+      { icon: ShieldCheck, title: "Kehidupan stabil", body: "Transportasi, layanan kota, dan kampus yang tertata membantu keluarga merasa aman." }
+    ],
+    scholarshipTitle: "Beasiswa adalah daya tarik besar",
+    scholarshipBody: "Bagi banyak keluarga, universitas Tiongkok yang baik ditambah beasiswa besar bisa lebih realistis daripada jalur mandiri yang mahal.",
+    scholarshipPoints: ["Sebagian beasiswa membebaskan biaya kuliah.", "Sebagian mencakup asrama atau tunjangan hidup.", "Beasiswa kota/kampus mengurangi tekanan tahun pertama.", "Semua harus dicek dengan pengumuman resmi terbaru."],
+    countriesTitle: "Pasar siswa prioritas",
+    countriesBody: "Wilayah ini sering menggabungkan kebutuhan pendidikan berkualitas yang terjangkau dengan minat pada Mandarin, karier Tiongkok, perdagangan, teknologi, dan kerja sama regional.",
+    countryGroups: ["Asia Tenggara: Vietnam, Thailand, Indonesia, Malaysia, Laos", "Asia Timur Laut: Korea, Jepang, Mongolia", "Asia Tengah dan Eurasia: Kazakhstan, Rusia, Turki", "Asia Selatan dan mitra BRI: Pakistan, Bangladesh, Nepal, Sri Lanka"],
+    pathTitle: "Cara SilkStudy membantu",
+    pathSteps: ["Mencocokkan kampus, kota, jurusan, anggaran, dan beasiswa.", "Memverifikasi panduan resmi penerimaan dan beasiswa.", "Menyiapkan bahasa, CSCA, dokumen, jadwal, dan visa.", "Membantu siswa siap hidup di Tiongkok."],
+    finalTitle: "Bawa siswa ke Tiongkok dengan rencana nyata.",
+    finalBody: "Beasiswa membuka pintu. Tujuan lebih dalamnya adalah pertukaran, bahasa, persahabatan, dan kerja sama.",
+    exchangeLabel: "Pertukaran"
+  },
+  ru: {
+    eyebrow: "Учеба в Китае и участие в его развитии",
+    title: "Стипендии могут сделать учебу в Китае очень доступной.",
+    subtitle: "Некоторые официальные стипендии покрывают обучение и дают поддержку на проживание или общежитие. SilkStudy помогает студентам использовать этот шанс, изучать китайский язык и поступать в китайские университеты.",
+    scholarshipBadge: "Полные или крупные стипендии могут покрывать обучение, жилье и стипендию на жизнь. Условия нужно проверять по официальному объявлению университета.",
+    browse: "Смотреть университеты",
+    consult: "Бесплатная консультация",
+    scholarshipCta: "Смотреть стипендии",
+    searchPlaceholder: "Поиск университета, направления, города или стипендии",
+    stats: [["Типы стипендий", "государственные, региональные, городские, университетские, специальные"], ["Каталог вузов", "китайские университеты для иностранных студентов"], ["Целевая аудитория", "студенты, интересующиеся Китаем и китайским языком"]],
+    missionTitle: "Зачем мы создали SilkStudy",
+    missionBody: "Мы хотим, чтобы больше молодых людей напрямую понимали современный Китай: университеты, города, технологии, культуру и повседневную жизнь. Учеба за рубежом — это мост доверия, языка и долгосрочного сотрудничества.",
+    reasonsTitle: "Почему Китай стоит выбрать сейчас",
+    reasonsBody: "Высококачественное развитие Китая видно в скоростных поездах, цифровых платежах, ИИ, новой энергетике, умном производстве, безопасных городах и сильной системе стипендий.",
+    reasons: [
+      { icon: Award, title: "Много стипендий", body: "CSC, региональные, университетские и специальные стипендии могут значительно снизить расходы." },
+      { icon: Rocket, title: "Быстрое развитие", body: "Китай — практическая среда для ИИ, новой энергетики, электронной коммерции и инфраструктуры." },
+      { icon: BookOpen, title: "Преимущество китайского", body: "Изучение китайского в Китае дает языковое, культурное и карьерное преимущество." },
+      { icon: ShieldCheck, title: "Стабильная жизнь", body: "Транспорт, кампусы и городские сервисы делают учебу более спокойной для студентов и семей." }
+    ],
+    scholarshipTitle: "Стипендии — сильный стимул",
+    scholarshipBody: "Для многих семей хороший китайский университет плюс крупная стипендия реалистичнее, чем дорогая самостоятельная учеба в другой стране.",
+    scholarshipPoints: ["Некоторые стипендии покрывают обучение.", "Некоторые включают жилье или поддержку на жизнь.", "Городские и университетские стипендии снижают нагрузку первого года.", "Каждую стипендию нужно проверять по свежему официальному объявлению."],
+    countriesTitle: "Приоритетные рынки студентов",
+    countriesBody: "В этих регионах часто сочетаются интерес к доступному качественному образованию, китайскому языку, торговле, технологиям и сотрудничеству с Китаем.",
+    countryGroups: ["Юго-Восточная Азия: Вьетнам, Таиланд, Индонезия, Малайзия, Лаос", "Северо-Восточная Азия: Корея, Япония, Монголия", "Центральная Азия и Евразия: Казахстан, Россия, Турция", "Южная Азия и партнеры BRI: Пакистан, Бангладеш, Непал, Шри-Ланка"],
+    pathTitle: "Как помогает SilkStudy",
+    pathSteps: ["Подбираем университет, город, направление, бюджет и стипендию.", "Проверяем официальные правила приема и стипендий.", "Готовим язык, CSCA, документы, сроки и визу.", "Помогаем подготовиться к реальной жизни в Китае."],
+    finalTitle: "Привести студента в Китай с реальным планом.",
+    finalBody: "Стипендия открывает дверь. Более глубокая цель — обмен, язык, дружба и сотрудничество.",
+    exchangeLabel: "Обмен"
+  },
+  tr: {
+    eyebrow: "Çin'de oku, Çin'in gelişim fırsatlarını paylaş",
+    title: "Burslar Çin'de eğitimi şaşırtıcı derecede erişilebilir kılabilir.",
+    subtitle: "Bazı resmi burslar öğrenim ücretini kaldırabilir, yurt veya yaşam desteği sağlayabilir. SilkStudy öğrencilerin bu fırsatla Çince öğrenmesine, Çin üniversitelerine girmesine ve gerçek kültürel değişim kurmasına yardımcı olur.",
+    scholarshipBadge: "Tam veya yüksek değerli burslar öğrenim, konaklama ve yaşam desteği içerebilir. Son şartlar okul ve yıl bazında doğrulanmalıdır.",
+    browse: "Üniversitelere bak",
+    consult: "Ücretsiz danışmanlık",
+    scholarshipCta: "Bursları keşfet",
+    searchPlaceholder: "Üniversite, bölüm, şehir veya burs ara",
+    stats: [["Burs yolları", "ulusal, bölgesel, şehir, üniversite ve özel"], ["Okul kataloğu", "uluslararası öğrenciler için Çin üniversiteleri"], ["Hedef öğrenciler", "Çin'e gelmek ve Çince öğrenmek isteyenler"]],
+    missionTitle: "SilkStudy neden var",
+    missionBody: "Daha fazla gencin bugünün Çin'ini doğrudan anlamasını istiyoruz: üniversiteler, şehirler, teknoloji, kültür ve günlük yaşam. Yurtdışı eğitim sadece diploma değil, dil, güven ve uzun vadeli iş birliği köprüsüdür.",
+    reasonsTitle: "Neden şimdi Çin",
+    reasonsBody: "Çin'in yüksek kaliteli gelişimi hızlı tren, dijital ödeme, yapay zeka, yeni enerji, akıllı üretim, güvenli şehir yaşamı ve güçlü burs sistemiyle doğrudan görülebilir.",
+    reasons: [
+      { icon: Award, title: "Zengin burs seçenekleri", body: "CSC, yerel, üniversite ve özel burslar eğitim maliyetini ciddi biçimde düşürebilir." },
+      { icon: Rocket, title: "Hızlı kaliteli gelişim", body: "Çin; yapay zeka, yeni enerji, e-ticaret ve modern altyapı için canlı bir sınıftır." },
+      { icon: BookOpen, title: "Çince avantajı", body: "Çinceyi Çin'de öğrenmek dil, kültür ve kariyer avantajı sağlar." },
+      { icon: ShieldCheck, title: "Düzenli yaşam", body: "Ulaşım, kampüs yönetimi ve şehir hizmetleri öğrenci ve ailelere güven verir." }
+    ],
+    scholarshipTitle: "Burs en büyük çekim noktalarından biridir",
+    scholarshipBody: "Birçok aile için iyi bir Çin üniversitesi ve güçlü burs, pahalı tamamen ücretli seçeneklerden daha gerçekçi olabilir.",
+    scholarshipPoints: ["Bazı burslar öğrenim ücretini kaldırır.", "Bazıları yurt veya yaşam desteği içerir.", "Şehir ve okul bursları ilk yıl baskısını azaltır.", "Her burs güncel resmi duyurudan kontrol edilmelidir."],
+    countriesTitle: "Öncelikli öğrenci pazarları",
+    countriesBody: "Bu bölgelerde uygun maliyetli kaliteli eğitim, Çince, Çin kariyerleri, ticaret, teknoloji ve bölgesel iş birliği ilgisi birlikte görülür.",
+    countryGroups: ["Güneydoğu Asya: Vietnam, Tayland, Endonezya, Malezya, Laos", "Kuzeydoğu Asya: Kore, Japonya, Moğolistan", "Orta Asya ve Avrasya: Kazakistan, Rusya, Türkiye", "Güney Asya ve BRI ortakları: Pakistan, Bangladeş, Nepal, Sri Lanka"],
+    pathTitle: "SilkStudy nasıl yardımcı olur",
+    pathSteps: ["Okul, şehir, bölüm, bütçe ve burs yolunu eşleştirir.", "Resmi kabul ve burs duyurularını doğrular.", "Dil, CSCA, belge, takvim ve vize adımlarını hazırlar.", "Öğrenciyi sadece kabule değil Çin'de yaşama da hazırlar."],
+    finalTitle: "Öğrenciyi gerçek bir planla Çin'e getir.",
+    finalBody: "Burs kapıyı açar. Daha derin hedef ise değişimdir: Çince öğrenmek, Çin'i yerinde görmek, dostluk ve iş birliği kurmak.",
+    exchangeLabel: "Değişim"
+  }
+};
+
+function getCopy(locale: string) {
+  return copy[locale] ?? copy.en;
+}
+
 export default async function HomePage() {
-  const t = await getTranslations("homepage");
-  const locale = await getLocale();
-  const prefix = locale === "en" ? "" : `/${locale}`;
+  const locale = await getCurrentLocale();
+  const c = getCopy(locale);
+  const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
-  const featuredUniversities = await getFeaturedUniversitiesView();
   const allUniversities = await getAllUniversitiesView();
-  const cityDestinations = getCityDestinations(allUniversities);
-  const preferredCities = ["beijing", "shanghai", "hangzhou", "chengdu", "dalian", "xiamen"];
-  const cityHighlights = preferredCities
-    .map((slug) => cityDestinations.find((city) => city.slug === slug))
-    .filter((city): city is NonNullable<typeof city> => Boolean(city));
-  const isZh = locale === "zh";
-  const isVi = locale === "vi";
-  const tx = (en: string, zh: string, vi: string) => isZh ? zh : isVi ? vi : en;
-  const chinaReasons = [
-    {
-      Icon: ShieldCheck,
-      title: tx("A safe and stable place to study", "安全稳定的学习生活环境", "Môi trường học tập an toàn và ổn định"),
-      description: tx("China offers orderly city life, mature public transport, and well-managed campuses, making safety and stability a major reason families consider studying here.", "中国城市公共交通成熟、校园管理完善、日常生活秩序感强，是许多国际学生和家长会优先考虑的安全型留学目的地。", "Các thành phố Trung Quốc có giao thông công cộng phát triển, khuôn viên được quản lý tốt và cuộc sống trật tự, mang lại sự an tâm cho sinh viên và gia đình.")
-    },
-    {
-      Icon: HandHeart,
-      title: tx("Warm, welcoming, and foreigner-friendly", "热情友好，不排外", "Thân thiện và hiếu khách"),
-      description: tx("Many international students quickly feel welcomed by friendly local communities, helpful campuses, and everyday hospitality across Chinese cities.", "中国人民普遍热情好客，对外国朋友友好而愿意提供帮助。很多学生来到中国后，会很快感受到校园、城市和日常生活中的善意。", "Sinh viên quốc tế thường nhanh chóng cảm nhận được sự thân thiện, hỗ trợ từ nhà trường và lòng hiếu khách trong cuộc sống hàng ngày.")
-    },
-    {
-      Icon: Rocket,
-      title: tx("Fast-moving economy and technology", "经济与科技快速发展", "Kinh tế và công nghệ phát triển nhanh"),
-      description: tx("AI, new energy, e-commerce, smart manufacturing, and digital payments make China a living classroom for students who want to understand tomorrow's industries.", "从人工智能、新能源、电子商务、智能制造到数字支付，中国正在形成全球年轻人值得亲身观察和参与的产业现场。", "AI, năng lượng mới, thương mại điện tử, sản xuất thông minh và thanh toán số biến Trung Quốc thành lớp học thực tế về các ngành công nghiệp tương lai.")
-    },
-    {
-      Icon: GraduationCap,
-      title: tx("Rising academic strength", "不断上升的学术水平", "Năng lực học thuật ngày càng cao"),
-      description: tx("Chinese universities continue to expand international programs, research platforms, English-taught degrees, and scholarship pathways across degree levels.", "越来越多中国高校提升国际化项目、科研平台、英文授课和奖学金体系，为本科、硕士、博士和语言学习提供更多选择。", "Các trường đại học Trung Quốc đang mở rộng chương trình quốc tế, nền tảng nghiên cứu, chương trình tiếng Anh và cơ hội học bổng ở mọi bậc học.")
-    },
-    {
-      Icon: Award,
-      title: isZh ? "丰富且高额的奖学金机会" : isVi ? "Nhiều cơ hội học bổng giá trị cao" : "Generous scholarship opportunities",
-      description: isZh
-        ? "中国政府、省市和高校提供多层次奖学金，部分项目可覆盖学费、住宿费并提供生活补助。具体名额、金额和续奖条件需按学校与学年确认。"
-        : isVi
-          ? "Chính phủ, địa phương và các trường đại học Trung Quốc cung cấp nhiều loại học bổng; một số chương trình chi trả học phí, chỗ ở và trợ cấp sinh hoạt. Điều kiện và mức hỗ trợ cần được xác nhận theo từng trường và năm học."
-          : "Government, provincial, city, and university scholarships can cover tuition, accommodation, and living allowances. Availability, amounts, and renewal rules vary by school and academic year."
-    },
-    {
-      Icon: Landmark,
-      title: tx("Ancient civilization meets modern cities", "古老文明与现代城市并存", "Nền văn minh cổ đại bên cạnh thành phố hiện đại"),
-      description: tx("The Great Wall, Dunhuang, West Lake, Guilin, and Zhangjiajie sit alongside Shanghai, Shenzhen, Hangzhou, and Chengdu as one combined study-travel experience.", "长城、故宫、敦煌、西湖、桂林、张家界与上海、深圳、杭州、成都共同构成一种很少国家能同时提供的学习和旅行体验。", "Vạn Lý Trường Thành, Đôn Hoàng, Tây Hồ, Quế Lâm và Trương Gia Giới cùng các thành phố hiện đại tạo nên trải nghiệm học tập và du lịch độc đáo.")
-    },
-    {
-      Icon: Compass,
-      title: tx("A vast country to keep exploring", "辽阔疆域，值得长期探索", "Một đất nước rộng lớn để khám phá"),
-      description: tx("China's provinces, cities, cultures, climates, and landscapes are deeply varied, so studying here can also become a multi-year discovery route.", "中国的省份、城市、民族文化、气候和地貌差异极大，留学不只是上课，也可以是持续几年的中国探索路线。", "Các tỉnh, thành phố, văn hóa, khí hậu và cảnh quan rất đa dạng, vì vậy du học cũng có thể trở thành hành trình khám phá kéo dài nhiều năm.")
-    },
-    {
-      Icon: TrainFront,
-      title: tx("A world-leading high-speed rail network", "全球领先的动车高铁网络", "Mạng lưới đường sắt cao tốc hàng đầu thế giới"),
-      description: tx("China's high-speed rail network is fast, comfortable, and extensive, connecting university cities with historic sites, mountains, coastlines, and weekend trips.", "中国动车和高铁网络发达、准点、舒适，把大学城市、历史名城、自然景区连接起来，让留学期间的周末旅行体验非常好。", "Mạng lưới đường sắt cao tốc nhanh, thoải mái và rộng khắp kết nối các thành phố đại học với di tích lịch sử, núi, biển và những chuyến đi cuối tuần.")
-    },
-    {
-      Icon: BookOpen,
-      title: tx("Long-term value from language to career", "从语言到职业的长期价值", "Giá trị lâu dài từ ngôn ngữ đến nghề nghiệp"),
-      description: tx("Chinese language ability, China experience, cross-cultural fluency, and direct industry exposure can become a durable advantage after graduation.", "中文能力、中国经验、跨文化理解和真实产业观察，会成为学生未来申请研究生、就业或创业时的独特竞争力。", "Khả năng tiếng Trung, kinh nghiệm tại Trung Quốc, hiểu biết liên văn hóa và tiếp xúc thực tế với ngành nghề tạo lợi thế lâu dài sau tốt nghiệp.")
-    }
-  ];
-  const lifestylePaths = [
-    {
-      Icon: Cpu,
-      title: tx("Build with the future", "走进未来产业", "Bước vào các ngành công nghiệp tương lai"),
-      description: tx("Meet AI, new energy, robotics, and the digital economy in Beijing, Shenzhen, Hangzhou, and Shanghai.", "在北京、深圳、杭州和上海接触人工智能、新能源、机器人与数字经济。", "Tiếp cận AI, năng lượng mới, robot và kinh tế số tại Bắc Kinh, Thâm Quyến, Hàng Châu và Thượng Hải."),
-      href: "/majors/artificial-intelligence",
-      image: "/images/ai-lab-campus.png",
-      accent: tx("Technology and innovation", "科技与创新", "Công nghệ và đổi mới")
-    },
-    {
-      Icon: Landmark,
-      title: tx("Live inside a civilization", "生活在文明之中", "Sống giữa một nền văn minh"),
-      description: tx("Make history part of daily life, from Xi'an's city wall and Beijing hutongs to Nanjing's museums.", "从西安城墙、北京胡同到南京博物馆，让历史成为日常生活的一部分。", "Biến lịch sử thành một phần cuộc sống hàng ngày, từ thành cổ Tây An, ngõ nhỏ Bắc Kinh đến bảo tàng Nam Kinh."),
-      href: "/cities/xian",
-      image: "/images/student-city-life.png",
-      accent: tx("History and culture", "历史与文化", "Lịch sử và văn hóa")
-    },
-    {
-      Icon: Trees,
-      title: tx("Explore beyond the classroom", "周末去看更大的世界", "Khám phá bên ngoài lớp học"),
-      description: tx("Take high-speed rail to mountains, coastlines, ancient towns, and radically different ways of life.", "乘高铁去看山川、海岸、古镇和不同地区的生活方式。", "Đi tàu cao tốc đến núi, bờ biển, thị trấn cổ và khám phá nhiều phong cách sống khác nhau."),
-      href: "#map",
-      image: "/images/campus-hero.png",
-      accent: tx("Travel and nature", "旅行与自然", "Du lịch và thiên nhiên")
-    },
-    {
-      Icon: BriefcaseBusiness,
-      title: tx("Connect with Asian careers", "连接亚洲职业机会", "Kết nối cơ hội nghề nghiệp tại châu Á"),
-      description: tx("Build cross-cultural experience across trade, engineering, healthcare, education, and international business.", "在贸易、工程、医疗、教育和国际商务中积累跨文化经验。", "Tích lũy kinh nghiệm liên văn hóa trong thương mại, kỹ thuật, y tế, giáo dục và kinh doanh quốc tế."),
-      href: "/universities",
-      image: "/images/ai-lab-campus.png",
-      accent: tx("Internships and careers", "实习与职业", "Thực tập và nghề nghiệp")
-    }
-  ];
-  const railRoutes = [
-    { from: isZh ? "北京" : "Beijing", to: isZh ? "天津" : "Tianjin", time: isZh ? "约 30 分钟" : "about 30 min", note: isZh ? "海河、意式街区与周末城市漫步" : "River walks, architecture, and an easy weekend reset" },
-    { from: isZh ? "上海" : "Shanghai", to: isZh ? "杭州" : "Hangzhou", time: isZh ? "约 45 分钟" : "about 45 min", note: isZh ? "西湖、茶山与数字经济城市" : "West Lake, tea hills, and a digital-economy city" },
-    { from: isZh ? "成都" : "Chengdu", to: isZh ? "重庆" : "Chongqing", time: isZh ? "约 1 小时" : "about 1 hour", note: isZh ? "美食、山城夜景与两种城市性格" : "Food, hillside nights, and two distinct city personalities" }
-  ];
 
   return (
     <main>
       <JsonLd data={organizationJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
-      <section className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden bg-slate-950 text-white">
+
+      <section className="relative isolate overflow-hidden bg-slate-950 text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/campus-hero.png" alt="International students sharing campus life in China" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-slate-950/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/65 to-transparent" />
-        <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl flex-col justify-end px-4 pb-10 pt-24 sm:px-6 lg:px-8 lg:pb-14">
-          <div className="max-w-4xl">
+        <img src="/images/campus-hero.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/65" />
+        <div className="relative mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_420px] lg:items-center lg:px-8">
+          <div>
             <p className="inline-flex items-center gap-2 border-l-2 border-secondary pl-3 text-sm font-semibold uppercase tracking-wide text-cyan-100">
-              <MapPin size={16} aria-hidden="true" />
-              {isZh ? "你的中国故事，从这里开始" : isVi ? "Câu chuyện Trung Quốc của bạn bắt đầu tại đây" : "Your China story starts here"}
+              <Globe2 size={16} aria-hidden="true" />
+              {c.eyebrow}
             </p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              {isZh ? "来中国学习，也来经历一个更大的世界。" : isVi ? "Học tập tại Trung Quốc. Trải nghiệm một thế giới rộng lớn hơn." : "Study in China. Live the Story."}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 sm:text-xl">
-              {isZh
-                ? "找到适合你的大学，也找到一座愿意生活的城市。认识真实的中国，在这里学习、旅行、交朋友，并参与正在发生的未来。"
-                : isVi
-                  ? "Tìm trường đại học phù hợp và một thành phố bạn muốn gọi là nhà. Học tập, du lịch, kết bạn và trải nghiệm tương lai đang hình thành tại Trung Quốc."
-                  : "Find the right university and a city you want to call home. Study, travel, make friends, and experience the future taking shape across China."}
-            </p>
+            <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{c.title}</h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{c.subtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="#map">{isZh ? "探索中国地图" : isVi ? "Khám phá Trung Quốc" : "Explore China"}</ButtonLink>
-              <ButtonLink href={localize("/universities")} variant="secondary">{t("browseUniversities")}</ButtonLink>
-              <ButtonLink href={localize("/consultation")} variant="ghost">{isZh ? "规划我的旅程" : isVi ? "Lập kế hoạch hành trình" : "Plan My Journey"}</ButtonLink>
+              <ButtonLink href={localize("/universities")}>{c.browse}</ButtonLink>
+              <ButtonLink href={localize("/consultation")} variant="secondary">{c.consult}</ButtonLink>
+              <ButtonLink href={localize("/scholarships")} variant="ghost">{c.scholarshipCta}</ButtonLink>
             </div>
             <div className="mt-8 max-w-2xl">
               <SearchPanel locale={locale} />
             </div>
           </div>
-          <div className="mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-lg border border-white/15 bg-white/15 backdrop-blur md:grid-cols-4">
-            {[
-              [allUniversities.length, tx("universities", "国际学生高校目录", "trường đại học")],
-              [provinces.length, tx("destinations", "中国目的地", "điểm đến")],
-              [tx("High-speed rail", "高铁连接", "Đường sắt cao tốc"), tx("weekend discovery", "周末探索中国", "khám phá cuối tuần")],
-              [tx("Free", "免费", "Miễn phí"), tx("study and travel help", "留学与旅行咨询", "tư vấn học tập và du lịch")]
-            ].map(([value, label]) => (
-              <div key={String(label)} className="bg-slate-950/55 px-4 py-4">
-                <p className="text-xl font-bold text-white">{value}</p>
-                <p className="mt-1 text-xs font-medium text-slate-200">{label}</p>
-              </div>
+          <aside className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <Award size={32} className="text-secondary" aria-hidden="true" />
+            <h2 className="mt-4 text-2xl font-bold">{c.scholarshipTitle}</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-100">{c.scholarshipBody}</p>
+            <ul className="mt-5 space-y-3 text-sm text-slate-100">
+              {c.scholarshipPoints.map((point) => (
+                <li key={point} className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-px bg-slate-200 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
+          {c.stats.map(([value, label]) => (
+            <div key={value} className="bg-white py-7">
+              <p className="text-2xl font-bold text-ink">{value}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-surface py-16">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">{c.missionTitle}</p>
+            <h2 className="mt-4 text-5xl font-bold leading-tight tracking-tight text-ink lg:text-6xl">{c.reasonsTitle}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{c.missionBody}</p>
+            <p className="mt-5 text-base leading-7 text-slate-600">{c.reasonsBody}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {c.reasons.map(({ icon: Icon, title, body }) => (
+              <article key={title} className="rounded-lg border border-slate-200 bg-white p-5">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-primary">
+                  <Icon size={20} aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
+              </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <article className="rounded-lg border border-slate-200 p-6">
+            <Building2 size={28} className="text-primary" aria-hidden="true" />
+            <h2 className="mt-4 text-3xl font-bold text-ink">{c.countriesTitle}</h2>
+            <p className="mt-4 leading-7 text-slate-600">{c.countriesBody}</p>
+            <div className="mt-6 grid gap-3">
+              {c.countryGroups.map((group) => (
+                <p key={group} className="rounded-md bg-surface px-4 py-3 text-sm font-semibold text-slate-700">{group}</p>
+              ))}
+            </div>
+          </article>
+          <article className="rounded-lg border border-slate-200 p-6">
+            <Handshake size={28} className="text-primary" aria-hidden="true" />
+            <h2 className="mt-4 text-3xl font-bold text-ink">{c.pathTitle}</h2>
+            <ol className="mt-6 grid gap-4">
+              {c.pathSteps.map((step, index) => (
+                <li key={step} className="flex gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-white">{index + 1}</span>
+                  <p className="pt-1 text-sm font-semibold leading-6 text-slate-700">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </article>
         </div>
       </section>
 
       <section className="bg-slate-950 py-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow={tx("Choose your China", "选择你的中国生活", "Chọn cuộc sống của bạn tại Trung Quốc")}
-            title={tx("What kind of life do you want to build here?", "你想在中国度过怎样的青春？", "Bạn muốn xây dựng cuộc sống như thế nào tại đây?")}
-            description={tx("Your major matters. So do the city you wake up in, the people you meet, and everything that happens beyond the classroom.", "专业很重要，但真正改变人的，往往是你每天生活的城市、遇见的人，以及那些课堂之外的经历。", "Ngành học rất quan trọng, nhưng thành phố bạn sống, những người bạn gặp và trải nghiệm ngoài lớp học cũng có thể thay đổi cuộc đời.")}
-            dark
-          />
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {lifestylePaths.map(({ Icon, title, description, href, image, accent }) => (
-              <a key={title} href={localize(href)} className="group relative min-h-72 overflow-hidden rounded-lg border border-white/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-slate-950/5" />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-secondary"><Icon size={16} />{accent}</p>
-                  <h3 className="mt-3 text-2xl font-bold">{title}</h3>
-                  <p className="mt-2 max-w-xl text-sm leading-6 text-slate-200">{description}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-white">{tx("Start exploring", "开始探索", "Bắt đầu khám phá")}<ArrowRight size={16} /></span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-                {isZh ? "为什么来中国留学" : isVi ? "Vì sao nên du học Trung Quốc" : "Why study in China"}
-              </p>
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-ink">
-                {isZh ? "把大学、城市、科技与旅行放在同一条成长路线里。" : "Put universities, cities, technology, and travel into one growth route."}
-              </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                {isZh
-                  ? "中国正在成为更值得全球年轻人认真考虑的留学目的地：安全稳定的生活环境、热情友好的人民、快速发展的经济与科技、不断上升的大学学术水平、全球领先的动车高铁网络，以及五千年文明和辽阔疆域带来的探索感，会共同塑造一段不只是拿文凭的经历。SilkStudy 也会为每一位想来中国留学或旅行的朋友提供免费的咨询和帮助。"
-                  : "China is becoming a serious study destination for global students: safe daily life, warm and welcoming people, fast economic and technological development, rising university strength, a world-leading high-speed rail network, and a vast civilization-rich country to explore make the experience larger than a degree. SilkStudy also offers free consultation and practical help for friends who want to study or travel in China."}
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href={localize("/consultation")}>{isZh ? "免费咨询与帮助" : "Free Consultation and Help"}</ButtonLink>
-                <ButtonLink href="#map" variant="secondary">{isZh ? "从地图探索" : "Explore the Map"}</ButtonLink>
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+          {[
+            [TrainFront, `${allUniversities.length}+`, c.stats[1][1]],
+            [Map, `${provinces.length}`, c.stats[0][1]],
+            [Landmark, "CSC", c.scholarshipPoints[0]],
+            [HeartHandshake, c.exchangeLabel, c.finalBody]
+          ].map(([Icon, value, label]) => {
+            const Visual = Icon as LucideIcon;
+            return (
+              <div key={String(value)} className="rounded-lg border border-white/10 bg-white/5 p-5">
+                <Visual size={24} className="text-secondary" aria-hidden="true" />
+                <p className="mt-4 text-2xl font-bold">{String(value)}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{String(label)}</p>
               </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {chinaReasons.map(({ Icon, title, description }) => (
-                <div key={title} className="rounded-lg border border-slate-200 bg-surface p-5">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-primary">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              {tx("Stories and life support", "故事与生活支持", "Câu chuyện và hỗ trợ đời sống")}
-            </p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-ink">
-              {tx("A warmer way to prepare for China.", "用更有温度的方式，准备来到中国。", "Một cách ấm áp hơn để chuẩn bị đến Trung Quốc.")}
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              {tx(
-                "Read real student stories, find senior-student support, join a language partner plan, prepare emotionally before arrival, and learn how to live well in China.",
-                "阅读真实留学生故事，寻找学长学姐支持，加入语伴计划，做好行前心理准备，并学习如何在中国从“能生活”到“活得好”。",
-                "Đọc câu chuyện thật của sinh viên, tìm anh chị hỗ trợ, tham gia bạn học ngôn ngữ, chuẩn bị tinh thần trước khi đến và học cách sống tốt tại Trung Quốc."
-              )}
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/life")}>{tx("Open Stories & Life", "打开故事与生活", "Mở câu chuyện & đời sống")}</ButtonLink>
-              <ButtonLink href={localize("/community")} variant="secondary">{tx("Find People", "寻找伙伴", "Tìm bạn đồng hành")}</ButtonLink>
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              [HandHeart, tx("My China Story", "我的中国故事", "Câu chuyện Trung Quốc của tôi"), tx("Video, photo essays, podcasts, and honest first-month memories.", "视频、图文、播客和真实的第一个月记忆。", "Video, bài ảnh, podcast và ký ức tháng đầu chân thật.")],
-              [GraduationCap, tx("Senior Q&A", "学长学姐问答", "Hỏi đáp với anh chị"), tx("Ask someone from the same school, city, or major.", "向同校、同城、同专业的人提前提问。", "Hỏi người cùng trường, thành phố hoặc ngành.")],
-              [BookOpen, tx("Pre-arrival care pack", "行前暖心包", "Gói chuẩn bị ấm áp"), tx("Homesickness, culture shock, first-week routines, and emotional support.", "想家、文化冲击、第一周节奏和情感支持。", "Nhớ nhà, sốc văn hóa, thói quen tuần đầu và hỗ trợ tinh thần.")],
-              [Landmark, tx("Culture calendar", "中国文化日历", "Lịch văn hóa"), tx("Festivals, traditions, arts, and campus cultural events.", "节日、习俗、传统艺术和高校文化节。", "Lễ hội, truyền thống, nghệ thuật và sự kiện trong trường.")]
-            ].map(([Icon, title, body]) => {
-              const Visual = Icon as typeof HandHeart;
-              return (
-                <a key={String(title)} href={localize("/life")} className="rounded-lg border border-slate-200 bg-white p-5 transition hover:border-primary hover:shadow-sm">
-                  <Visual className="text-primary" size={23} aria-hidden="true" />
-                  <h3 className="mt-4 font-bold text-ink">{String(title)}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{String(body)}</p>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section id="map" className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow={t("mapEyebrow")}
-            title={t("mapTitle")}
-            description={t("mapDescription")}
-          />
-          <div className="mt-8">
-            <ChinaSvgMap locale={locale} />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-surface py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">{isZh ? "高铁周末" : "Weekends by rail"}</p>
-              <h2 className="mt-3 text-4xl font-bold tracking-tight text-ink">
-                {isZh ? "在中国留学，一张车票就能打开另一座城市。" : "One train ticket can open a completely different China."}
-              </h2>
-              <p className="mt-5 leading-7 text-slate-600">
-                {isZh ? "发达的高铁网络让大学生活不被校园边界限制。周五下课后出发，周日晚回到宿舍，你可以持续认识这个辽阔而多样的国家。" : "China's high-speed rail network makes the country part of your campus. Leave after class on Friday, return Sunday night, and keep discovering a vast and varied place."}
-              </p>
-            </div>
-            <div className="grid gap-4">
-              {railRoutes.map((route) => (
-                <div key={`${route.from}-${route.to}`} className="grid gap-4 rounded-lg border border-slate-200 bg-white p-5 sm:grid-cols-[1fr_auto_1fr_1.4fr] sm:items-center">
-                  <p className="text-lg font-bold text-ink">{route.from}</p>
-                  <span className="flex items-center gap-2 text-sm font-bold text-primary">
-                    <TrainFront size={18} aria-hidden="true" />
-                    {route.time}
-                    <ArrowRight size={16} aria-hidden="true" />
-                  </span>
-                  <p className="text-lg font-bold text-ink">{route.to}</p>
-                  <p className="text-sm leading-6 text-slate-600">{route.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow={locale === "zh" ? "城市、生活与旅行" : "Cities, life, and travel"}
-            title={locale === "zh" ? "让学生真正爱上中国的留学城市" : "Study cities that make China unforgettable"}
-            description={locale === "zh" ? "选校不只是排名。生活成本、城市气质、周末旅行和实习机会，都会决定学生是否真正愿意来到中国。" : "School choice is not only rankings. Cost, city energy, weekend travel, and internship access shape whether students truly want to come to China."}
-          />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {cityHighlights.map((city) => (
-              <a
-                key={city.slug}
-                href={localize(`/cities/${city.slug}`)}
-                className="group overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:border-primary hover:shadow-sm"
-              >
-                <div className="relative h-44">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={city.image}
-                    alt={locale === "zh" ? city.zhImageAlt : city.imageAlt}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-secondary">
-                      {locale === "zh" ? city.zhProvinceName : city.provinceName}
-                    </p>
-                    <h3 className="mt-1 text-2xl font-bold">{locale === "zh" ? city.zhName : city.name}</h3>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <div className="flex flex-wrap gap-2">
-                    {(locale === "zh" ? city.zhLifestyleTags : city.lifestyleTags).slice(0, 3).map((tag) => (
-                      <span key={tag} className="rounded bg-blue-50 px-2 py-1 text-xs font-bold text-primary">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-slate-600">
-                    {locale === "zh" ? city.zhSummary : city.summary}
-                  </p>
-                  <div className="mt-4 grid gap-2 text-sm text-slate-600">
-                    <p><span className="font-bold text-ink">{locale === "zh" ? "生活成本：" : "Cost: "}</span>{locale === "zh" ? city.zhLivingCost : city.livingCost}</p>
-                    <p><span className="font-bold text-ink">{locale === "zh" ? "实习方向：" : "Internships: "}</span>{locale === "zh" ? city.zhInternships : city.internships}</p>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="universities" className="bg-surface py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow={t("popularSchoolsEyebrow")}
-            title={t("popularSchoolsTitle")}
-            description={t("popularSchoolsDescription")}
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredUniversities.slice(0, 5).map((university) => (
-              <UniversityCard key={university.slug} university={university} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={t("popularMajorsEyebrow")} title={t("popularMajorsTitle")} />
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {majors.map((major) => (
-              <a key={major} href={localize(`/majors/${major.toLowerCase().replaceAll(" ", "-")}`)} className="rounded-lg border border-slate-200 p-5 text-lg font-semibold text-ink transition hover:border-primary hover:text-primary">
-                {displayMajor(major, locale)}
-              </a>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
       <section className="bg-primary py-16 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold">{t("ctaTitle")}</h2>
-            <p className="mt-3 max-w-2xl text-blue-100">{t("ctaDescription")}</p>
+            <h2 className="text-3xl font-bold">{c.finalTitle}</h2>
+            <p className="mt-3 max-w-2xl text-blue-100">{c.finalBody}</p>
           </div>
-          <ButtonLink href={localize("/consultation")} variant="secondary">{t("applyNow")}</ButtonLink>
+          <ButtonLink href={localize("/consultation")} variant="secondary">{c.consult}</ButtonLink>
         </div>
       </section>
     </main>

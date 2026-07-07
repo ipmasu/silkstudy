@@ -1,5 +1,6 @@
 import { Globe2, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import { getLocale } from "next-intl/server";
+import { BeautyExchange } from "@/components/community/beauty-exchange";
 import { CommunityHub } from "@/components/community/community-hub";
 import { localeCopy } from "@/lib/i18n/copy";
 import { communityPostFallbacks } from "@/lib/community-data";
@@ -47,7 +48,8 @@ export default async function CommunityPage() {
         </div>
       </section>
       <section className="bg-surface py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:px-8">
+          <BeautyExchange locale={locale} />
           <CommunityHub initialPosts={communityPostFallbacks} cities={cities} locale={locale} />
         </div>
       </section>

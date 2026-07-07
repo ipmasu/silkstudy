@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
 import { CalendarDays, Flag, Languages, MapPin, MessageCircle, Send, ShieldCheck, Users } from "lucide-react";
 import type { CommunityPostView } from "@/lib/community-data";
 
@@ -24,11 +24,30 @@ export function CommunityHub({ initialPosts, cities, locale }: { initialPosts: C
   const [message, setMessage] = useState("");
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [actionMessage, setActionMessage] = useState("");
+  const [livePosts, setLivePosts] = useState(initialPosts);
 
-  const posts = useMemo(() => initialPosts.filter((post) =>
+  const posts = useMemo(() => livePosts.filter((post) =>
     (activeType === "ALL" || post.type === activeType) &&
     (activeCity === "all" || post.citySlug === activeCity)
-  ), [activeCity, activeType, initialPosts]);
+  ), [activeCity, activeType, livePosts]);
+
+  const refreshPosts = useCallback(async () => {
+    const params = new URLSearchParams();
+    if (activeType !== "ALL") params.set("type", activeType);
+    if (activeCity !== "all") params.set("city", activeCity);
+    const response = await fetch(`/api/community/posts?${params.toString()}`, { cache: "no-store" });
+    if (!response.ok) return;
+    const data = await response.json().catch(() => null);
+    if (Array.isArray(data?.results)) setLivePosts(data.results as CommunityPostView[]);
+  }, [activeCity, activeType]);
+
+  useEffect(() => {
+    refreshPosts().catch(() => undefined);
+    const timer = window.setInterval(() => {
+      refreshPosts().catch(() => undefined);
+    }, 10000);
+    return () => window.clearInterval(timer);
+  }, [refreshPosts]);
 
   async function submitPost(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -54,6 +73,7 @@ export function CommunityHub({ initialPosts, cities, locale }: { initialPosts: C
     }
     form.reset();
     setStatus("success");
+    refreshPosts().catch(() => undefined);
     setMessage(isZh ? "已提交安全审核。审核通过后会出现在社区。" : "Submitted for safety review. It will appear after approval.");
   }
 
@@ -71,7 +91,7 @@ export function CommunityHub({ initialPosts, cities, locale }: { initialPosts: C
       : (isZh ? "回复提交失败。" : "Could not submit reply."));
     if (response.ok) {
       form.reset();
-      setReplyingTo(null);
+      refreshPosts().catch(() => undefined);
     }
   }
 

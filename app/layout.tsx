@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { getLocale } from "next-intl/server";
 import { AppIntlProvider } from "@/components/i18n/app-intl-provider";
 import { SiteFooter } from "@/components/common/site-footer";
 import { SiteHeader } from "@/components/common/site-header";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import "@/styles/globals.css";
 
 export const dynamic = "force-dynamic";
@@ -21,15 +21,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const locale = await getLocale();
+  const locale = await getCurrentLocale();
 
   return (
     <html lang={locale}>
       <body>
-        <AppIntlProvider>
-          <SiteHeader />
+        <AppIntlProvider locale={locale}>
+          <SiteHeader locale={locale} />
           {children}
-          <SiteFooter />
+          <SiteFooter locale={locale} />
         </AppIntlProvider>
       </body>
     </html>

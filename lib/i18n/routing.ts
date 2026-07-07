@@ -1,4 +1,4 @@
-export const supportedLocales = ["en", "zh", "vi"] as const;
+export const supportedLocales = ["en", "zh", "vi", "ko", "th", "id", "ms", "my", "km", "lo", "tl", "ru", "tr"] as const;
 
 export type AppLocale = (typeof supportedLocales)[number];
 
@@ -12,7 +12,7 @@ export function localePrefix(locale: string) {
 
 export function localizePath(path: string, locale: string) {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const pathWithoutLocale = normalizedPath.replace(/^\/(en|zh|vi)(?=\/|$)/, "") || "/";
+  const pathWithoutLocale = normalizedPath.replace(/^\/(en|zh|vi|ko|th|id|ms|my|km|lo|tl|ru|tr)(?=\/|$)/, "") || "/";
   const prefix = localePrefix(locale);
 
   return pathWithoutLocale === "/" ? prefix || "/" : `${prefix}${pathWithoutLocale}`;

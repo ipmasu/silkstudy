@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Laman utama",
+    "universities": "Universiti",
+    "provinces": "Wilayah",
+    "cities": "Bandar",
+    "map": "Peta",
+    "majors": "Bidang",
+    "scholarships": "Biasiswa",
+    "consultation": "Konsultasi",
+    "freeConsultation": "Konsultasi percuma",
+    "exploreChina": "Terokai China",
+    "studentLife": "Kehidupan Pelajar",
+    "life": "Cerita & Kehidupan",
+    "planJourney": "Rancang Perjalanan Saya",
+    "community": "Komuniti"
+  },
+  "homepage": {
+    "eyebrow": "Belajar di China. Hidupkan kisah anda.",
+    "heroTitle": "Datang ke China untuk pendidikan dan dunia yang lebih luas.",
+    "heroSubtitle": "Cari universiti, kenali bandar, dan mulakan perjalanan belajar, mengembara, dan hidup di China.",
+    "browseUniversities": "Lihat universiti",
+    "exploreMap": "Terokai peta",
+    "applyNow": "Mohon sekarang",
+    "mapEyebrow": "Peta interaktif",
+    "mapTitle": "Terokai China melalui peta destinasi interaktif",
+    "mapDescription": "Pratonton sekolah, kehidupan bandar, budaya perjalanan, dan laluan permohonan.",
+    "popularSchoolsEyebrow": "Sekolah popular",
+    "popularSchoolsTitle": "Universiti China pilihan",
+    "popularSchoolsDescription": "Bandingkan ranking, yuran, lokasi, dan pilihan biasiswa.",
+    "popularMajorsEyebrow": "Bidang popular",
+    "popularMajorsTitle": "Cari program mengikut bidang",
+    "ctaTitle": "Sedia merancang laluan belajar di China?",
+    "ctaDescription": "Kongsi tahap pengajian, bajet, dan bandar pilihan. Kami bantu senarai pendek pilihan."
+  }
+}

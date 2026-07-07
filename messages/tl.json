@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Home",
+    "universities": "Mga Unibersidad",
+    "provinces": "Mga Probinsya",
+    "cities": "Mga Lungsod",
+    "map": "Mapa",
+    "majors": "Mga Kurso",
+    "scholarships": "Scholarships",
+    "consultation": "Konsultasyon",
+    "freeConsultation": "Libreng Konsultasyon",
+    "exploreChina": "Tuklasin ang Tsina",
+    "studentLife": "Buhay-Estudyante",
+    "life": "Kuwento at Buhay",
+    "planJourney": "Planuhin ang Aking Paglalakbay",
+    "community": "Komunidad"
+  },
+  "homepage": {
+    "eyebrow": "Mag-aral sa Tsina. Isabuhay ang kuwento.",
+    "heroTitle": "Pumunta sa Tsina para sa edukasyon at mas malawak na mundo.",
+    "heroSubtitle": "Humanap ng unibersidad, kilalanin ang lungsod, at simulan ang pag-aaral, paglalakbay, at buhay sa Tsina.",
+    "browseUniversities": "Tingnan ang mga unibersidad",
+    "exploreMap": "Tuklasin ang mapa",
+    "applyNow": "Mag-apply ngayon",
+    "mapEyebrow": "Interactive na mapa",
+    "mapTitle": "Tuklasin ang Tsina sa interactive na mapa ng destinasyon",
+    "mapDescription": "Silipin ang mga paaralan, buhay-lungsod, kultura sa paglalakbay, at daan sa aplikasyon.",
+    "popularSchoolsEyebrow": "Mga sikat na paaralan",
+    "popularSchoolsTitle": "Mga tampok na unibersidad sa Tsina",
+    "popularSchoolsDescription": "Ihambing ang ranggo, matrikula, lokasyon, at scholarship options.",
+    "popularMajorsEyebrow": "Mga sikat na kurso",
+    "popularMajorsTitle": "Maghanap ng programa ayon sa larangan",
+    "ctaTitle": "Handa ka na bang planuhin ang pag-aaral sa Tsina?",
+    "ctaDescription": "Ibahagi ang target degree, budget, at gustong lungsod. Tutulungan ka naming pumili ng angkop na opsyon."
+  }
+}

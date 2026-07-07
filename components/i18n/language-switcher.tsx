@@ -8,7 +8,17 @@ import { localizePath, supportedLocales, type AppLocale } from "@/lib/i18n/routi
 const labels: Record<AppLocale, string> = {
   en: "EN",
   zh: "中文",
-  vi: "VI"
+  vi: "VI",
+  ko: "KO",
+  th: "TH",
+  id: "ID",
+  ms: "MS",
+  my: "MY",
+  km: "KM",
+  lo: "LO",
+  tl: "TL",
+  ru: "RU",
+  tr: "TR"
 };
 
 export function LanguageSwitcher({ locale, compact = false }: { locale: string; compact?: boolean }) {

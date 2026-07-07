@@ -11,3 +11,4 @@ prisma/dev.db
 tsconfig.tsbuildinfo
 rendered_mou/
 *.docx
+outputs/

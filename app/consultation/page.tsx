@@ -91,6 +91,45 @@ export default async function ConsultationPage() {
             </div>
           </div>
 
+          <div className="mt-8 rounded-lg border border-slate-200 bg-white p-6">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+              {tx("Who is behind SilkStudy", "谁在做 SilkStudy", "Người đứng sau SilkStudy")}
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink">
+              {tx("A bridge built by someone who has read both inventions and young lives carefully.", "一个认真读过发明，也认真看见年轻人的人，在搭一座桥。", "Một nhịp cầu được xây bởi người từng đọc kỹ các phát minh và lắng nghe những đời trẻ.")}
+            </h2>
+            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+              <p>
+                {tx(
+                  "I was once a patent examiner at the China National Intellectual Property Administration. For years, my work was to sit quietly with other people's inventions, to read the hidden order inside technology, and to judge whether a new idea truly deserved to be protected.",
+                  "我曾是中国国家知识产权局的专利审查员。很多年里，我的工作是安静地面对一个又一个发明，读懂技术背后的秩序，也判断一个新的想法是否真正值得被保护。",
+                  "Tôi từng là thẩm định viên sáng chế tại Cục Sở hữu trí tuệ Trung Quốc. Nhiều năm liền, công việc của tôi là lặng lẽ đọc những phát minh của người khác, nhìn thấy trật tự ẩn sau công nghệ và đánh giá liệu một ý tưởng mới có thật sự xứng đáng được bảo hộ."
+                )}
+              </p>
+              <p>
+                {tx(
+                  "Today I run my own patent company and a science-and-innovation education company. I work with inventors, schools, young founders, and education partners, and I have kept warm, practical relationships with education systems in several countries. The more I travel through these conversations, the more I believe that studying in China should not be a cold application transaction. It should be a meeting: between a young person's future, a family's hope, and a country that is changing quickly.",
+                  "现在，我运营自己的专利公司和科创教育公司，服务发明人、学校、青年创业者和教育伙伴，也与多个国家的教育系统保持着真诚而务实的联系。越是在这些交流中行走，我越觉得，来中国留学不应该只是一次冰冷的申请交易。它应该是一场相遇：一个年轻人的未来，一个家庭的期待，和一个正在高速变化的中国彼此相遇。",
+                  "Hôm nay, tôi điều hành công ty sở hữu trí tuệ và công ty giáo dục khoa học sáng tạo của riêng mình, làm việc với nhà phát minh, trường học, nhà sáng lập trẻ và các đối tác giáo dục. Tôi cũng duy trì quan hệ tốt đẹp với hệ thống giáo dục ở nhiều quốc gia. Càng đi qua nhiều cuộc trò chuyện, tôi càng tin rằng du học Trung Quốc không nên chỉ là một thủ tục nộp hồ sơ lạnh lùng. Nó nên là một cuộc gặp gỡ: giữa tương lai của một người trẻ, hy vọng của một gia đình và một Trung Quốc đang thay đổi nhanh chóng."
+                )}
+              </p>
+              <p>
+                {tx(
+                  "That is why I built SilkStudy. I hope it can help students see China more clearly, find scholarships more bravely, choose schools more wisely, and also bring their own country, language, memory, and kindness into this larger exchange.",
+                  "所以我做了 SilkStudy。我希望它帮助学生更清楚地看见中国，更勇敢地寻找奖学金，更理性地选择学校，也把自己的国家、语言、记忆和善意带进这场更大的交流。",
+                  "Vì vậy tôi xây dựng SilkStudy. Tôi hy vọng nơi này giúp học sinh nhìn Trung Quốc rõ hơn, tìm học bổng can đảm hơn, chọn trường tỉnh táo hơn, đồng thời mang đất nước, ngôn ngữ, ký ức và thiện ý của mình vào một cuộc trao đổi rộng lớn hơn."
+                )}
+              </p>
+              <blockquote className="border-l-4 border-secondary pl-4 text-base font-semibold leading-8 text-ink">
+                {tx(
+                  "My motto is: everyone has the right to ask for a poetic life, and everyone has the duty to make the world more beautiful.",
+                  "我的座右铭是：每个人都有权力要求一段诗意的人生，每个人都有义务让世界变得更美好。",
+                  "Châm ngôn của tôi là: mỗi người đều có quyền yêu cầu một đời sống thi vị, và mỗi người đều có nghĩa vụ làm cho thế giới trở nên đẹp hơn."
+                )}
+              </blockquote>
+            </div>
+          </div>
+
           <div className="mt-8 rounded-lg bg-primary p-6 text-white">
             <CheckCircle2 size={24} aria-hidden="true" />
             <p className="mt-4 text-lg font-bold">{tx("Who this is for", "适合哪些学生？", "Dành cho ai?")}</p>

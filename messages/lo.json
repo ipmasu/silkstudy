@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "ໜ້າຫຼັກ",
+    "universities": "ມະຫາວິທະຍາໄລ",
+    "provinces": "ແຂວງ",
+    "cities": "ເມືອງ",
+    "map": "ແຜນທີ່",
+    "majors": "ສາຂາວິຊາ",
+    "scholarships": "ທຶນການສຶກສາ",
+    "consultation": "ປຶກສາ",
+    "freeConsultation": "ປຶກສາຟຣີ",
+    "exploreChina": "ສຳຫຼວດຈີນ",
+    "studentLife": "ຊີວິດນັກສຶກສາ",
+    "life": "ເລື່ອງລາວ ແລະຊີວິດ",
+    "planJourney": "ວາງແຜນຂອງຂ້ອຍ",
+    "community": "ຊຸມຊົນ"
+  },
+  "homepage": {
+    "eyebrow": "ຮຽນຢູ່ຈີນ. ມີຊີວິດໃນເລື່ອງລາວ.",
+    "heroTitle": "ມາຈີນເພື່ອການສຶກສາ ແລະໂລກທີ່ກວ້າງກວ່າ.",
+    "heroSubtitle": "ຊອກຫາມະຫາວິທະຍາໄລ ຮູ້ຈັກເມືອງ ແລະເລີ່ມຕົ້ນການຮຽນ ການເດີນທາງ ແລະຊີວິດໃນຈີນ.",
+    "browseUniversities": "ເບິ່ງມະຫາວິທະຍາໄລ",
+    "exploreMap": "ສຳຫຼວດແຜນທີ່",
+    "applyNow": "ສະໝັກດຽວນີ້",
+    "mapEyebrow": "ແຜນທີ່ໂຕ້ຕອບ",
+    "mapTitle": "ສຳຫຼວດຈີນຜ່ານແຜນທີ່ຈຸດໝາຍໂຕ້ຕອບ",
+    "mapDescription": "ເບິ່ງໂຮງຮຽນ ຊີວິດເມືອງ ວັດທະນະທຳການເດີນທາງ ແລະເສັ້ນທາງສະໝັກ.",
+    "popularSchoolsEyebrow": "ໂຮງຮຽນຍອດນິຍົມ",
+    "popularSchoolsTitle": "ມະຫາວິທະຍາໄລຈີນທີ່ແນະນຳ",
+    "popularSchoolsDescription": "ປຽບທຽບອັນດັບ ຄ່າຮຽນ ທີ່ຕັ້ງ ແລະທາງເລືອກທຶນ.",
+    "popularMajorsEyebrow": "ສາຂາຍອດນິຍົມ",
+    "popularMajorsTitle": "ຊອກຫາໂປຣແກຣມຕາມສາຂາ",
+    "ctaTitle": "ພ້ອມວາງແຜນການຮຽນຢູ່ຈີນບໍ?",
+    "ctaDescription": "ແບ່ງປັນລະດັບການຮຽນ ງົບປະມານ ແລະເມືອງທີ່ມັກ. ພວກເຮົາຈະຊ່ວຍຄັດເລືອກທາງເລືອກ."
+  }
+}

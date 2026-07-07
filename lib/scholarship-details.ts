@@ -30,26 +30,26 @@ const specialScholarships: Record<string, ScholarshipDetail[]> = {
     {
       name: "First-year Full Scholarship for Degree Students",
       type: "Special",
-      coverage: "Confirmed policy: all first-year international degree students receive full scholarship support covering tuition and living expenses.",
+      coverage: "Confirmed policy: first-year international degree students receive strong scholarship support covering tuition and living-cost support, subject to final admission documents.",
       eligibility: "International degree applicants admitted to Hunan University of Technology. Final document review and admission decision still apply.",
-      renewal: "From the second academic year, support is assessed by academic performance and daily conduct: top students may continue with 100% tuition waiver, followed by 50% and 30% tiers.",
+      renewal: "From the second academic year, support is assessed by academic performance and daily conduct, with 100%, 50%, and 30% tuition-waiver tiers.",
       competitiveness: "Medium",
       bestFor: "Bachelor applicants who need a strong first-year affordability pathway and are willing to maintain good academic performance.",
-      note: "This is a high-priority opportunity for cost-sensitive applicants. Confirm the final award wording in the admission notice before payment and visa steps.",
+      note: "This is a high-priority cost-sensitive opportunity. Confirm the final award wording in the admission notice before payment and visa steps.",
       zhType: "特殊奖学金",
-      zhCoverage: "已确认政策：该校学历留学生第一学年均可获得全额奖学金支持，覆盖学费和生活费。",
+      zhCoverage: "已确认方向：该校第一学年国际学历生可获得较高强度奖学金支持，覆盖学费并包含生活支持，最终以录取和奖学金文件为准。",
       zhEligibility: "适用于被湖南工业大学录取的国际学历生，仍需通过材料审核和正式录取流程。",
-      zhRenewal: "第二学年起按学习成绩和日常表现评定：优秀学生可继续获得 100% 学费减免，其后有 50% 和 30% 档。",
+      zhRenewal: "第二学年起按学习成绩和日常表现评定，常见为 100%、50%、30% 学费减免档位。",
       zhCompetitiveness: "中等",
       zhBestFor: "适合预算敏感、希望第一年低压力入学，并愿意保持良好成绩的本科申请人。",
-      zhNote: "这是目前非常值得重点推荐的机会。付款和签证前仍建议以最终录取通知和奖学金文件为准。",
+      zhNote: "这是目前值得重点推荐的降成本机会。付款和签证前仍建议以最终录取通知和奖学金文件为准。",
       viType: "Học bổng đặc biệt",
-      viCoverage: "Chính sách đã xác nhận: sinh viên quốc tế hệ bằng cấp năm nhất được hỗ trợ học bổng toàn phần, bao gồm học phí và sinh hoạt phí.",
-      viEligibility: "Dành cho sinh viên quốc tế hệ bằng cấp được nhận vào Hunan University of Technology; vẫn cần qua xét duyệt hồ sơ và kết quả nhập học chính thức.",
-      viRenewal: "Từ năm thứ hai, học bổng xét theo kết quả học tập và rèn luyện: nhóm xuất sắc có thể tiếp tục miễn 100% học phí, tiếp theo là mức 50% và 30%.",
+      viCoverage: "Chính sách đã xác nhận theo hướng hỗ trợ mạnh cho năm đầu, bao gồm học phí và hỗ trợ sinh hoạt, nhưng cần đối chiếu giấy báo cuối cùng.",
+      viEligibility: "Dành cho sinh viên quốc tế hệ bằng cấp được Hunan University of Technology nhận, sau khi hồ sơ được xét duyệt.",
+      viRenewal: "Từ năm hai, xét theo học tập và rèn luyện, thường theo các mức miễn giảm học phí 100%, 50%, 30%.",
       viCompetitiveness: "Trung bình",
-      viBestFor: "Phù hợp với ứng viên cử nhân cần giảm áp lực tài chính năm đầu và sẵn sàng duy trì thành tích tốt.",
-      viNote: "Đây là cơ hội nên ưu tiên tư vấn. Trước khi đóng phí và làm visa, cần đối chiếu với giấy báo trúng tuyển và văn bản học bổng cuối cùng."
+      viBestFor: "Phù hợp với ứng viên cử nhân cần giảm áp lực chi phí năm đầu và sẵn sàng duy trì kết quả tốt.",
+      viNote: "Đây là cơ hội nên ưu tiên cho hồ sơ nhạy cảm về chi phí; cần kiểm tra giấy báo học bổng cuối cùng."
     }
   ]
 };
@@ -57,8 +57,9 @@ const specialScholarships: Record<string, ScholarshipDetail[]> = {
 function classifyScholarship(name: string): ScholarshipDetail {
   const lower = name.toLowerCase();
   const isCsc = lower.includes("csc") || lower.includes("chinese government");
-  const isProvincial = lower.includes("government") || lower.includes("provincial") || lower.includes("beijing") || lower.includes("shanghai") || lower.includes("guangdong") || lower.includes("jiangsu") || lower.includes("zhejiang");
-  const isUniversity = lower.includes("university") || lower.includes("fellowship") || lower.includes("presidential") || lower.includes("international scholarship");
+  const isSpecial = lower.includes("mofcom") || lower.includes("silk road") || lower.includes("belt and road") || lower.includes("chinese language teachers") || lower.includes("cis");
+  const isProvincial = lower.includes("provincial") || lower.includes("municipal") || lower.includes("beijing") || lower.includes("shanghai") || lower.includes("guangdong") || lower.includes("jiangsu") || lower.includes("zhejiang") || lower.includes("nanjing");
+  const isUniversity = lower.includes("university") || lower.includes("fellowship") || lower.includes("presidential") || lower.includes("international scholarship") || lower.includes("freshman") || lower.includes("merit");
 
   if (isCsc) {
     return {
@@ -72,18 +73,45 @@ function classifyScholarship(name: string): ScholarshipDetail {
       note: "CSC availability differs by school, degree, major, country channel, and year. Always verify the exact Type A / Type B route.",
       zhType: "中国政府奖学金",
       zhCoverage: "通常是力度最大的奖学金方向，按年度政策和学位层次，可能覆盖学费、住宿补贴、生活费和医疗保险。",
-      zhEligibility: "通常看重成绩、材料完整度、专业匹配、年龄与学历条件、语言能力，以及使馆或学校审核。",
+      zhEligibility: "通常看重成绩、材料完整度、专业匹配、年龄与学历条件、语言能力，以及使领馆或学校审核。",
       zhRenewal: "一般每学年按成绩、出勤、纪律表现和奖学金管理规定进行复评。",
       zhCompetitiveness: "非常高",
       zhBestFor: "适合成绩强、学习计划清晰、材料完整且能赶上截止日期的申请人。",
-      zhNote: "CSC 名额会因学校、学位、专业、国家渠道和年份不同而变化，需核验 Type A / Type B 具体路径。",
+      zhNote: "CSC 名额会因学校、学位、专业、国家渠道和年份不同而变化，必须核验 Type A / Type B 具体路径。",
       viType: "Học bổng Chính phủ Trung Quốc",
-      viCoverage: "Thường là lộ trình mạnh nhất; có thể bao gồm miễn học phí, hỗ trợ ký túc xá, sinh hoạt phí hàng tháng và bảo hiểm y tế tùy bậc học và quy định từng năm.",
-      viEligibility: "Cần thành tích tốt, hồ sơ đầy đủ, ngành phù hợp, đáp ứng tuổi/bậc học, năng lực ngôn ngữ và xét duyệt theo kênh đại sứ quán hoặc trường.",
-      viRenewal: "Thường được xét lại hằng năm theo học lực, chuyên cần, kỷ luật và quy định học bổng.",
+      viCoverage: "Thường là tuyến hỗ trợ mạnh nhất, có thể gồm học phí, ký túc xá, sinh hoạt phí và bảo hiểm y tế tùy bậc học và quy định năm đó.",
+      viEligibility: "Cần thành tích tốt, hồ sơ đầy đủ, ngành phù hợp, đáp ứng tuổi/bậc học, năng lực ngôn ngữ và xét duyệt theo kênh chính thức.",
+      viRenewal: "Thường được xét lại hằng năm theo học tập, chuyên cần, kỷ luật và quy định học bổng.",
       viCompetitiveness: "Rất cao",
-      viBestFor: "Phù hợp với ứng viên có điểm tốt, kế hoạch học tập rõ, hồ sơ đầy đủ và kịp hạn nộp.",
-      viNote: "Số suất CSC thay đổi theo trường, bậc học, ngành, kênh quốc gia và từng năm; cần xác minh rõ Type A / Type B."
+      viBestFor: "Phù hợp với hồ sơ học thuật mạnh, kế hoạch học tập rõ và chuẩn bị sớm.",
+      viNote: "Suất CSC thay đổi theo trường, bậc học, ngành, quốc gia và năm; cần xác minh Type A / Type B."
+    };
+  }
+
+  if (isSpecial) {
+    return {
+      name,
+      type: "Special",
+      coverage: "Coverage varies by route. Some special scholarships can be full awards; others are targeted tuition or language-study support.",
+      eligibility: "Often tied to a specific country, recommending institution, Chinese-language route, public-sector background, or strategic field.",
+      renewal: "Depends on the special program rules and annual review.",
+      competitiveness: "Varies",
+      bestFor: "Applicants whose background matches a precise language, development, Belt and Road, public-sector, or industry-focused route.",
+      note: "Special scholarships can be excellent, but they are narrow. Verify nomination, nationality, degree, and major restrictions first.",
+      zhType: "专项奖学金",
+      zhCoverage: "覆盖力度因项目而异；部分专项可能接近全额，也有些只支持学费、语言学习或特定费用。",
+      zhEligibility: "常与国别、推荐机构、中文学习方向、公共部门背景或特定战略专业有关。",
+      zhRenewal: "按专项项目规则和年度审核执行。",
+      zhCompetitiveness: "视项目而定",
+      zhBestFor: "适合背景与中文教育、发展合作、一带一路、公共部门或行业特色方向高度匹配的学生。",
+      zhNote: "专项奖学金可能很有价值，但限制也更窄；要先核验推荐渠道、国别、学位和专业限制。",
+      viType: "Học bổng chuyên biệt",
+      viCoverage: "Mức hỗ trợ tùy chương trình; có tuyến gần như toàn phần, có tuyến chỉ hỗ trợ học phí hoặc học tiếng.",
+      viEligibility: "Thường gắn với quốc gia, cơ quan giới thiệu, học tiếng Trung, khu vực công hoặc lĩnh vực chiến lược.",
+      viRenewal: "Theo quy định riêng của chương trình và xét duyệt hằng năm.",
+      viCompetitiveness: "Tùy chương trình",
+      viBestFor: "Phù hợp với hồ sơ khớp rõ với ngôn ngữ, phát triển, Vành đai và Con đường, khu vực công hoặc ngành đặc thù.",
+      viNote: "Học bổng chuyên biệt rất hữu ích nhưng giới hạn hẹp; cần kiểm tra kênh giới thiệu, quốc tịch, bậc học và ngành."
     };
   }
 
@@ -102,15 +130,15 @@ function classifyScholarship(name: string): ScholarshipDetail {
       zhEligibility: "通常要求成绩良好、无不良记录、语言能力达标，并由学校或地方教育主管部门评审。",
       zhRenewal: "可能是一年制、按年申请或按表现续评，需看地方规则。",
       zhCompetitiveness: "高",
-      zhBestFor: "适合愿意考虑区域强校和低生活成本城市的学生。",
+      zhBestFor: "适合愿意考虑区域强校和较低生活成本城市的学生。",
       zhNote: "省市奖学金很实用，但具体金额、截止时间和续评方式必须以当年学校通知为准。",
-      viType: "Học bổng cấp tỉnh/thành phố",
-      viCoverage: "Thường hỗ trợ giảm học phí, thưởng một lần hoặc hỗ trợ sinh hoạt một phần; mức hỗ trợ thay đổi theo tỉnh, thành phố và năm tuyển sinh.",
-      viEligibility: "Thường yêu cầu học lực tốt, hạnh kiểm tốt, năng lực ngôn ngữ phù hợp và được trường hoặc cơ quan địa phương xét chọn.",
-      viRenewal: "Có thể là một năm, xét hằng năm hoặc xét theo thành tích tùy quy định địa phương.",
+      viType: "Học bổng tỉnh/thành phố",
+      viCoverage: "Thường hỗ trợ giảm học phí, thưởng một lần hoặc hỗ trợ sinh hoạt một phần; mức hỗ trợ thay đổi theo địa phương và năm tuyển sinh.",
+      viEligibility: "Thường yêu cầu học lực tốt, hạnh kiểm tốt, ngôn ngữ phù hợp và được trường hoặc cơ quan địa phương xét chọn.",
+      viRenewal: "Có thể là một năm, xét hằng năm hoặc theo thành tích tùy quy định địa phương.",
       viCompetitiveness: "Cao",
-      viBestFor: "Phù hợp với sinh viên mở rộng lựa chọn tới các trường khu vực mạnh và thành phố chi phí thấp hơn.",
-      viNote: "Học bổng tỉnh/thành rất hữu ích, nhưng mức tiền, hạn nộp và cách gia hạn phải kiểm tra theo thông báo mới nhất."
+      viBestFor: "Phù hợp với sinh viên sẵn sàng chọn trường khu vực mạnh và thành phố chi phí thấp hơn.",
+      viNote: "Cần kiểm tra số tiền, hạn nộp và điều kiện gia hạn theo thông báo mới nhất của trường."
     };
   }
 
@@ -133,11 +161,11 @@ function classifyScholarship(name: string): ScholarshipDetail {
       zhNote: "校级奖学金常与低成本城市策略组合使用，但具体覆盖比例需按专业核验。",
       viType: "Học bổng trường",
       viCoverage: "Thường là miễn/giảm học phí, học bổng thành tích hoặc hỗ trợ một phần; một số trường có học bổng tân sinh viên giá trị cao.",
-      viEligibility: "Thường xét học lực, năng lực ngôn ngữ, chất lượng hồ sơ, phỏng vấn và độ phù hợp ngành.",
-      viRenewal: "Thường xét lại hằng năm theo học lực và rèn luyện; một số chỉ áp dụng năm đầu.",
+      viEligibility: "Thường xét thành tích, ngôn ngữ, chất lượng hồ sơ, phỏng vấn và độ phù hợp ngành.",
+      viRenewal: "Thường xét theo kết quả học tập và rèn luyện hằng năm; một số chỉ áp dụng năm đầu.",
       viCompetitiveness: "Trung bình",
-      viBestFor: "Phù hợp với đa số ứng viên cử nhân và tự túc vì đây là cách thực tế để giảm áp lực học phí.",
-      viNote: "Học bổng trường có thể kết hợp với chiến lược chọn thành phố chi phí thấp, nhưng mức hỗ trợ cần xác minh theo ngành."
+      viBestFor: "Phù hợp với nhiều ứng viên cử nhân và tự túc vì thực tế trong việc giảm áp lực học phí.",
+      viNote: "Có thể kết hợp với chiến lược thành phố chi phí thấp, nhưng cần xác minh mức hỗ trợ theo ngành."
     };
   }
 
@@ -155,15 +183,15 @@ function classifyScholarship(name: string): ScholarshipDetail {
     zhEligibility: "申请前需核验成绩、语言、年龄、国籍和材料要求。",
     zhRenewal: "续评政策需向学校国际招生办公室确认。",
     zhCompetitiveness: "待核验",
-    zhBestFor: "适合明确想申请该校、并需要顾问核验最新奖学金通知的学生。",
+    zhBestFor: "适合明确想申请该校，并需要顾问核验最新奖学金通知的学生。",
     zhNote: "不要只依据旧奖学金信息做决策，必须核验当前入学年份。",
     viType: "Cần xác minh",
     viCoverage: "Chi tiết học bổng cần xác minh theo thông báo tuyển sinh mới nhất.",
     viEligibility: "Cần kiểm tra yêu cầu học lực, ngôn ngữ, tuổi, quốc tịch và hồ sơ trước khi nộp.",
     viRenewal: "Chính sách gia hạn cần xác nhận với văn phòng tuyển sinh quốc tế.",
     viCompetitiveness: "Cần xác minh",
-    viBestFor: "Phù hợp với ứng viên đã chọn trường này và cần tư vấn xác minh thông báo mới nhất.",
-    viNote: "Không nên dựa vào thông tin học bổng cũ nếu chưa kiểm tra năm tuyển sinh hiện tại."
+    viBestFor: "Phù hợp với ứng viên muốn trường này và cần tư vấn xác minh thông tin mới nhất.",
+    viNote: "Không nên dựa vào thông tin cũ nếu chưa kiểm tra năm tuyển sinh hiện tại."
   };
 }
 

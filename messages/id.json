@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Beranda",
+    "universities": "Universitas",
+    "provinces": "Provinsi",
+    "cities": "Kota",
+    "map": "Peta",
+    "majors": "Jurusan",
+    "scholarships": "Beasiswa",
+    "consultation": "Konsultasi",
+    "freeConsultation": "Konsultasi gratis",
+    "exploreChina": "Jelajahi Tiongkok",
+    "studentLife": "Kehidupan mahasiswa",
+    "life": "Cerita & kehidupan",
+    "planJourney": "Rencanakan studi",
+    "community": "Komunitas"
+  },
+  "homepage": {
+    "eyebrow": "Belajar di Tiongkok dan buka dunia yang lebih luas.",
+    "heroTitle": "Perjalanan studi Tiongkok Anda dimulai di sini.",
+    "heroSubtitle": "Temukan universitas, pilih kota, dan mulai perjalanan belajar, bepergian, dan bertumbuh di Tiongkok.",
+    "browseUniversities": "Lihat universitas",
+    "exploreMap": "Jelajahi peta",
+    "applyNow": "Daftar sekarang",
+    "mapEyebrow": "Peta interaktif",
+    "mapTitle": "Jelajahi destinasi Tiongkok di peta interaktif",
+    "mapDescription": "Arahkan kursor ke setiap destinasi untuk melihat gambar, kampus, kehidupan kota, budaya perjalanan, dan jalur pendaftaran.",
+    "popularSchoolsEyebrow": "Kampus populer",
+    "popularSchoolsTitle": "Universitas Tiongkok pilihan",
+    "popularSchoolsDescription": "Bandingkan peringkat, biaya kuliah, lokasi, jurusan, beasiswa, dan kehidupan kampus.",
+    "popularMajorsEyebrow": "Jurusan populer",
+    "popularMajorsTitle": "Temukan program berdasarkan bidang",
+    "ctaTitle": "Siap merencanakan studi di Tiongkok?",
+    "ctaDescription": "Bagikan jenjang studi, anggaran, jurusan, dan kota pilihan Anda. Kami akan membantu memilih kampus dan beasiswa yang sesuai."
+  }
+}

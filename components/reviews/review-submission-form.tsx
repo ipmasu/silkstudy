@@ -7,9 +7,10 @@ import { useState } from "react";
 type ReviewSubmissionFormProps = {
   universitySlug: string;
   locale?: string;
+  onSubmitted?: () => void | Promise<void>;
 };
 
-export function ReviewSubmissionForm({ universitySlug, locale = "en" }: ReviewSubmissionFormProps) {
+export function ReviewSubmissionForm({ universitySlug, locale = "en", onSubmitted }: ReviewSubmissionFormProps) {
   const isZh = locale === "zh";
   const isVi = locale === "vi";
   const tx = (en: string, zh: string, vi: string) => isZh ? zh : isVi ? vi : en;
@@ -42,6 +43,7 @@ export function ReviewSubmissionForm({ universitySlug, locale = "en" }: ReviewSu
 
     setStatus("success");
     setMessage(tx("Thanks. Your review was submitted and will appear after moderation.", "谢谢，你的评价已提交，审核后会展示。", "Cảm ơn bạn. Đánh giá đã được gửi và sẽ hiển thị sau khi kiểm duyệt."));
+    await onSubmitted?.();
     event.currentTarget.reset();
   }
 

@@ -297,6 +297,41 @@ model CommunityReport {
   @@index([reason])
 }
 
+model GlobalCheckin {
+  id                String       @id @default(cuid())
+  countryCode       String
+  countryName       String
+  userName          String
+  tagline           String       @db.Text
+  countryCharm      String       @db.Text
+  travelStudyReason String       @db.Text
+  specialties       String       @db.Text
+  status            ReviewStatus @default(APPROVED)
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@index([countryCode])
+  @@index([status, createdAt])
+}
+
+model BeautyExchange {
+  id        String       @id @default(cuid())
+  ownerName String
+  country   String
+  city      String
+  title     String
+  offer     String       @db.Text
+  wish      String       @db.Text
+  story     String       @db.Text
+  shipping  String       @db.Text
+  status    ReviewStatus @default(APPROVED)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@index([country])
+  @@index([status, createdAt])
+}
+
 model University {
   id                        String   @id @default(cuid())
   slug                      String   @unique
