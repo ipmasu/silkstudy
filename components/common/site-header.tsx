@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Menu } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 import { localizePath, type AppLocale } from "@/lib/i18n/routing";
@@ -200,6 +200,19 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
         </div>
         <div className="flex items-center gap-2 sm:hidden">
           <LanguageSwitcher locale={locale} compact />
+          <details className="relative">
+            <summary className="flex min-h-9 list-none cursor-pointer items-center justify-center rounded-md border border-slate-200 px-2 text-slate-600">
+              <Menu size={17} aria-hidden="true" />
+              <span className="sr-only">Menu</span>
+            </summary>
+            <nav className="absolute right-0 top-11 z-50 grid w-52 overflow-hidden rounded-md border border-slate-200 bg-white py-2 text-sm font-semibold text-slate-700 shadow-lg">
+              {navItems.map((item) => (
+                <Link key={item.href} href={localize(item.href)} className="px-4 py-2 hover:bg-blue-50 hover:text-primary">
+                  {copy[item.key]}
+                </Link>
+              ))}
+            </nav>
+          </details>
           <Link href={localize("/consultation")} className="rounded-md bg-primary px-3 py-2 text-xs font-semibold text-white">
             {copy.mobilePlan}
           </Link>
