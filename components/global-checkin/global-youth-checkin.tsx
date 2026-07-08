@@ -272,6 +272,15 @@ function countryPosition(country: CheckinCountry) {
 const mapWidth = 1000;
 const mapHeight = 520;
 
+function mergeCheckins(primary: Checkin[], secondary: Checkin[]) {
+  const seen = new Set<string>();
+  return [...primary, ...secondary].filter((item) => {
+    if (seen.has(item.countryCode)) return false;
+    seen.add(item.countryCode);
+    return true;
+  });
+}
+
 const markerCountryCoordinates: Record<string, { lat: number; lon: number }> = {
   AD: { lat: 42.5, lon: 1.6 },
   AG: { lat: 17.1, lon: -61.8 },
@@ -320,12 +329,15 @@ export function GlobalYouthCheckin({ locale }: { locale: AppLocale }) {
   const [countryCharm, setCountryCharm] = useState("");
   const [travelStudyReason, setTravelStudyReason] = useState("");
   const [specialties, setSpecialties] = useState("");
+  const [submitState, setSubmitState] = useState<"idle" | "saving" | "synced" | "localOnly">("idle");
 
   async function refreshCheckins() {
     const response = await fetch("/api/global-checkins", { cache: "no-store" });
     if (!response.ok) return;
     const data = await response.json().catch(() => null);
-    if (Array.isArray(data?.results)) setCheckins(data.results as Checkin[]);
+    if (Array.isArray(data?.results)) {
+      setCheckins((current) => mergeCheckins(data.results as Checkin[], current));
+    }
   }
 
   useEffect(() => {
@@ -365,6 +377,7 @@ export function GlobalYouthCheckin({ locale }: { locale: AppLocale }) {
     event.preventDefault();
     const country = selectedCountry;
     const first = !checkinByCountry.has(country.code);
+    setSubmitState("saving");
     const newCheckin: Checkin = {
       countryCode: country.code,
       countryName: country.name,
@@ -377,11 +390,21 @@ export function GlobalYouthCheckin({ locale }: { locale: AppLocale }) {
     };
 
     setCheckins((current) => first ? [newCheckin, ...current] : [newCheckin, ...current.filter((item) => item.countryCode !== country.code)]);
-    await fetch("/api/global-checkins", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newCheckin)
-    }).then(() => refreshCheckins()).catch(() => undefined);
+    try {
+      const response = await fetch("/api/global-checkins", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newCheckin)
+      });
+      if (response.ok) {
+        await refreshCheckins();
+        setSubmitState("synced");
+      } else {
+        setSubmitState("localOnly");
+      }
+    } catch {
+      setSubmitState("localOnly");
+    }
     setUserName("");
     setTagline("");
     setCountryCharm("");
@@ -548,6 +571,15 @@ export function GlobalYouthCheckin({ locale }: { locale: AppLocale }) {
             <button type="submit" className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary/90">
               <MapPin size={18} aria-hidden="true" /> {t.submit}
             </button>
+            {submitState !== "idle" ? (
+              <p className={`mt-3 text-sm font-medium ${submitState === "localOnly" ? "text-amber-700" : "text-emerald-700"}`} aria-live="polite">
+                {submitState === "saving"
+                  ? "Saving your check-in..."
+                  : submitState === "synced"
+                    ? "Your country is lit and synced online."
+                    : "Your country is lit on this device. Server sync is not available yet."}
+              </p>
+            ) : null}
           </form>
         </div>
       </section>
