@@ -74,7 +74,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ slu
         content: parsed.data.content,
         pros: parsed.data.pros || null,
         cons: parsed.data.cons || null,
-        status: "PENDING"
+        status: "APPROVED"
       },
       select: {
         id: true,
@@ -85,7 +85,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ slu
 
     return NextResponse.json(
       {
-        message: "Review submitted for moderation.",
+        message: "Review published.",
         review
       },
       { status: 201 }

@@ -43,7 +43,7 @@ export function ReviewSubmissionForm({ universitySlug, locale = "en", onSubmitte
       }
 
       setStatus("success");
-      setMessage(tx("Thanks. Your review was submitted and will appear after moderation.", "谢谢，你的评价已提交，审核后会展示。", "Cảm ơn bạn. Đánh giá đã được gửi và sẽ hiển thị sau khi kiểm duyệt."));
+      setMessage(tx("Thanks. Your review has been published.", "谢谢，你的评价已发布。", "Cảm ơn bạn. Đánh giá của bạn đã được hiển thị."));
       await onSubmitted?.();
       event.currentTarget.reset();
     } catch {

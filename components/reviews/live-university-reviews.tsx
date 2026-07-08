@@ -84,7 +84,7 @@ export function LiveUniversityReviews({
         )) : (
           <div className="rounded-lg border border-slate-200 bg-white p-5 text-sm text-slate-600">
             <MessageSquareQuote className="text-primary" size={22} aria-hidden="true" />
-            <p className="mt-3">{isZh ? "暂无已审核学生评价。欢迎分享有帮助的真实体验。" : "No approved student reviews yet. Be the first to share a helpful experience."}</p>
+            <p className="mt-3">{isZh ? "暂无学生评价。欢迎分享有帮助的真实体验。" : "No student reviews yet. Be the first to share a helpful experience."}</p>
           </div>
         )}
       </div>
