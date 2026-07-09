@@ -80,7 +80,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const guideDetail = cityGuideDetails[city.slug];
   const experienceGuide = getCityExperienceGuide(city.slug);
   const foodTravelGuide = getCityFoodTravelGuide(city.slug);
-  const visualGallery = getCityVisualGallery(city.slug, city);
+  const visualGallery = await getCityVisualGallery(city.slug, city);
 
   const reviewCards = [
     {
