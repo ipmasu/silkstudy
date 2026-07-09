@@ -47,7 +47,7 @@ Required variables:
 
 - `ADMIN_NOTIFICATION_EMAIL`: the inbox that receives new lead emails. For SilkStudy, set this to `maximasure@hotmail.com`.
 - `RESEND_API_KEY`: API key from Resend.
-- `ADMIN_NOTIFICATION_FROM_EMAIL`: verified sender address. For initial testing, Resend allows `SilkStudy <onboarding@resend.dev>`; for production, use a verified domain sender such as `SilkStudy <consult@your-domain.com>`.
+- `ADMIN_NOTIFICATION_FROM_EMAIL`: verified sender address. For production, use a verified domain sender such as `SilkStudy <consult@silkstudy.com>`. Do not leave this blank; Resend requires a sender address, and unverified/test senders may not deliver to external inboxes.
 
 If email variables are missing or delivery fails, the consultation is still saved in the CRM and the API response includes the notification status.
 

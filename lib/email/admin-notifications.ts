@@ -75,7 +75,7 @@ export async function notifyAdminAboutConsultation(lead: ConsultationInput) {
     .map((email) => email.trim())
     .filter(Boolean);
   const resendApiKey = process.env.RESEND_API_KEY;
-  const from = process.env.ADMIN_NOTIFICATION_FROM_EMAIL || "SilkStudy <onboarding@resend.dev>";
+  const from = process.env.ADMIN_NOTIFICATION_FROM_EMAIL?.trim();
   const subject = `New SilkStudy lead: ${lead.firstName} ${lead.lastName} from ${lead.country}`;
 
   if (!recipients.length) {
@@ -89,6 +89,17 @@ export async function notifyAdminAboutConsultation(lead: ConsultationInput) {
     return {
       delivered: false,
       reason: "RESEND_API_KEY is not configured",
+      preview: {
+        to: recipients.join(", "),
+        subject
+      }
+    } satisfies NotificationResult;
+  }
+
+  if (!from) {
+    return {
+      delivered: false,
+      reason: "ADMIN_NOTIFICATION_FROM_EMAIL is not configured",
       preview: {
         to: recipients.join(", "),
         subject
