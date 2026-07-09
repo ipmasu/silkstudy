@@ -50,6 +50,14 @@ export async function POST(request: Request) {
     });
 
     const notification = await notifyAdminAboutConsultation(data);
+    if (!notification.delivered) {
+      console.warn("Consultation email notification was not delivered", {
+        leadId: consultation.id,
+        reason: notification.reason,
+        provider: notification.provider,
+        to: notification.preview?.to
+      });
+    }
 
     return NextResponse.json(
       {
