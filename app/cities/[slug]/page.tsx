@@ -208,8 +208,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {!experienceGuide && visualGallery.length > 0 ? (
               <div className="mt-14">
                 <SectionHeading
-                  eyebrow={isZh ? "鍩庡競鍥惧儚" : "City visuals"}
-                  title={isZh ? `${name}鍥炬枃鍗拌薄` : `${city.name} in pictures`}
+                  eyebrow={isZh ? "城市图像" : "City visuals"}
+                  title={isZh ? `${name}图文印象` : `${city.name} in pictures`}
                   description={isZh ? city.zhTourism : city.tourism}
                 />
                 <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -223,7 +223,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? item.zhNote : item.note}</p>
                         {item.sourceUrl ? (
                           <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-xs font-semibold text-primary hover:text-secondary">
-                            {isZh ? "鍥剧墖鏉ユ簮" : "Image source"}
+                            {isZh ? "图片来源" : "Image source"}
                           </a>
                         ) : null}
                       </div>
