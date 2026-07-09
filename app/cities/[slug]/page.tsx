@@ -364,8 +364,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     <div className="mt-6 border-t border-white/10 pt-5">
                       <p className="text-sm leading-6 text-slate-300">
                         {isZh
-                          ? "这些内容会继续扩展到更多城市，并逐步补充真实图片、学生评价和合规来源。"
-                          : "This section will keep expanding with real images, student reviews, and compliant source references."}
+                          ? "我们会把城市里的美食、街区、周末路线和学生真实感受继续写细，让它不只是目的地介绍，而是一份可以带着走的生活地图。"
+                          : "We will keep turning food streets, neighborhoods, weekend routes, and student voices into a practical city map students can actually carry with them."}
                       </p>
                     </div>
                   </aside>
