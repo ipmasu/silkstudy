@@ -41,6 +41,7 @@ type CommonsSearchPage = {
     url?: string;
     descriptionurl?: string;
     mime?: string;
+    extmetadata?: Record<string, { value?: string }>;
   }>;
 };
 
@@ -55,7 +56,7 @@ const commonsSearchEndpoint = (query: string) => {
     gsrlimit: "18",
     gsrsearch: query,
     prop: "imageinfo",
-    iiprop: "url|mime",
+    iiprop: "url|mime|extmetadata",
     iiurlwidth: "1200"
   });
 
@@ -65,9 +66,10 @@ const commonsPage = (title: string) => `https://commons.wikimedia.org/wiki/${tit
 const commonsImage = (file: string) => `https://commons.wikimedia.org/wiki/Special:FilePath/${file}?width=1200`;
 
 const unsuitableImagePattern = /(?:^|[_\s-])(map|locator|location|administrative|division|flag|emblem|logo|seal|icon|diagram|chart|metro|linemap|route|population|blank)(?:[_\s.-]|$)/i;
+const archivalImagePattern = /\b(postcard|archive|archival|old photo|historical photo|vintage|hsinking|manchukuo|manchu air)\b/i;
+const yearPattern = /\b(18\d{2}|19\d{2}|20\d{2})\b/g;
 
 const cityMediaAliases: Record<string, string[]> = {
-  changchun: ["hsinking"],
   guangzhou: ["canton"],
   hohhot: ["huhehaote"],
   xian: ["xian", "xi an"],
@@ -113,21 +115,7 @@ const fallbackRealImages = [
   }
 ];
 
-const zhNoteTemplates = [
-  (city: string, title: string) => `这张图把${city}的“第一眼”交给了「${title}」：建筑、街道或山水先进入视线，学生也更容易想象自己在这里上课、散步和生活。`,
-  (city: string, title: string) => `「${title}」不是单纯的风景，它像是${city}递出的一张名片：有城市的尺度，也有周末可以慢慢探索的余地。`,
-  (city: string, title: string) => `从「${title}」可以看到${city}更具体的一面。留学不只是学校排名，也包括每天醒来后会遇见的街景、光线、人群和生活节奏。`,
-  (city: string, title: string) => `如果学生第一次认识${city}，这类画面很重要：「${title}」能让城市从抽象名字变成可抵达、可行走、可记住的地方。`,
-  (city: string, title: string) => `「${title}」适合放进学生的城市想象里。它提醒人们，选择${city}也意味着选择一种气候、动线、周末和日常。`,
-  (city: string, title: string) => `这幅画面让${city}多了一点温度：学生可以从「${title}」开始理解这里的公共空间、文化表情和城市性格。`
-];
-
-const enNoteTemplates = [
-  (city: string, title: string) => `${title} gives ${city} a concrete first impression: streets, scale, landscape, and the everyday setting students may actually live with.`,
-  (city: string, title: string) => `${title} works like a city postcard for ${city}, turning the destination from a name on an application list into a place students can imagine walking through.`,
-  (city: string, title: string) => `This view of ${title} helps students read ${city} beyond rankings: light, movement, public space, and weekend possibilities all matter.`,
-  (city: string, title: string) => `For a student comparing cities, ${title} makes ${city} feel more reachable, more human, and easier to remember.`
-];
+type ImageMood = "skyline" | "arrival" | "campus" | "nature" | "street" | "heritage" | "food" | "daily";
 
 function normalizeImageUrl(src: string) {
   return src.startsWith("//") ? `https:${src}` : src;
@@ -156,19 +144,145 @@ function shortTitle(value: string, cityName: string) {
     .trim() || `${cityName} city view`;
 }
 
+function mediaText(value: string) {
+  return value.toLowerCase().replace(/[_-]+/g, " ");
+}
+
+function hasPre2000Year(text: string) {
+  const years = Array.from(text.matchAll(yearPattern), (match) => Number(match[0]));
+  return years.some((year) => year < 2000);
+}
+
+function isModernVisual(text: string) {
+  const normalized = mediaText(text);
+  return !archivalImagePattern.test(normalized) && !hasPre2000Year(normalized);
+}
+
+function metadataText(metadata?: Record<string, { value?: string }>) {
+  if (!metadata) return "";
+  return [
+    metadata.DateTimeOriginal?.value,
+    metadata.DateTime?.value,
+    metadata.ObjectName?.value,
+    metadata.ImageDescription?.value
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function imageMood(title: string): ImageMood {
+  const value = mediaText(title);
+  if (/\b(skyline|tower|cbd|downtown|night|aerial|drone|skyscraper)\b/.test(value)) return "skyline";
+  if (/\b(station|railway|airport|terminal|train)\b/.test(value)) return "arrival";
+  if (/\b(university|campus|college|school|library)\b/.test(value)) return "campus";
+  if (/\b(lake|river|park|garden|mountain|forest|wetland|coast|beach|bay|panda)\b/.test(value)) return "nature";
+  if (/\b(street|road|avenue|square|plaza|market|pedestrian|walk|shopping)\b/.test(value)) return "street";
+  if (/\b(temple|museum|pagoda|wall|gate|palace|monument|heritage|historic|ancient|mosque)\b/.test(value)) return "heritage";
+  if (/\b(food|restaurant|noodle|tea|snack|cuisine|market)\b/.test(value)) return "food";
+  return "daily";
+}
+
+function zhGalleryTitle(city: string, title: string, index: number) {
+  const labels: Record<ImageMood, string[]> = {
+    skyline: ["现代天际线", "城市生长", "灯火与楼群"],
+    arrival: ["抵达城市", "车站与远方", "出发的入口"],
+    campus: ["校园日常", "读书的地方", "青春坐标"],
+    nature: ["山水绿意", "周末去处", "自然呼吸"],
+    street: ["街区生活", "城市步调", "人间烟火"],
+    heritage: ["历史现场", "文化记忆", "古今之间"],
+    food: ["城市味道", "餐桌记忆", "烟火滋味"],
+    daily: ["真实一角", "生活切面", "城市表情"]
+  };
+  const options = labels[imageMood(title)];
+  return `${city} · ${options[index % options.length]}`;
+}
+
 function cityNote(city: string, title: string, index: number) {
-  return enNoteTemplates[index % enNoteTemplates.length](city, title);
+  const mood = imageMood(title);
+  const notes: Record<ImageMood, string[]> = {
+    skyline: [
+      `${title} shows ${city} in motion: new buildings, open horizons, and the visible confidence of a city still growing.`,
+      `In this view, ${city} feels contemporary and ambitious, the kind of place where study, internships, and weekend walks can belong to the same rhythm.`
+    ],
+    arrival: [
+      `${title} is not just infrastructure. It is the first threshold of ${city}, where a student's map begins to turn into a real journey.`,
+      `Stations and airports tell a quiet truth about ${city}: it is connected, reachable, and ready to carry young people toward new plans.`
+    ],
+    campus: [
+      `${title} brings the idea of studying in ${city} down to earth: libraries, paths, classrooms, and ordinary days with room to grow.`,
+      `A campus scene makes ${city} feel less abstract, because the city is no longer only a destination but a place to read, meet people, and become someone new.`
+    ],
+    nature: [
+      `${title} gives ${city} a softer register, with water, trees, or open air balancing the pace of study and urban life.`,
+      `This side of ${city} matters for students too: after classes, a city also needs places to breathe, wander, and reset.`
+    ],
+    street: [
+      `${title} catches ${city} at street level, where the real personality of a place usually appears first.`,
+      `The everyday movement in ${title} makes ${city} easier to imagine: errands, conversations, meals, and the small discoveries between classes.`
+    ],
+    heritage: [
+      `${title} lets ${city}'s history stay present without turning it into a museum piece; the past becomes part of today's route through the city.`,
+      `For international students, this kind of place makes ${city} memorable: culture is not distant here, it can be walked through.`
+    ],
+    food: [
+      `${title} reminds students that a city is learned through taste as much as through classrooms.`,
+      `Food is often the fastest doorway into ${city}: it turns unfamiliar streets into places with smell, warmth, and memory.`
+    ],
+    daily: [
+      `${title} gives ${city} a human scale, the kind of detail that helps a student imagine not only arriving, but living here.`,
+      `This image keeps ${city} concrete: light, buildings, movement, and the ordinary texture that slowly becomes a student's second home.`
+    ]
+  };
+
+  return notes[mood][index % notes[mood].length];
 }
 
 function zhCityNote(city: string, title: string, index: number) {
-  return zhNoteTemplates[index % zhNoteTemplates.length](city, title);
+  const mood = imageMood(title);
+  const notes: Record<ImageMood, string[]> = {
+    skyline: [
+      `这类画面最能说明${city}不是停在旧照片里的名字。楼群、天光和城市轮廓一起向前，学生来到这里，感受到的是正在发生的中国。`,
+      `${title}里的${city}很有当代感：道路打开，建筑生长，年轻人可以把学习、实习和周末探索放进同一座城市。`
+    ],
+    arrival: [
+      `车站和机场不只是交通节点，它们像是${city}递给远方学生的第一只手。一个人拖着行李抵达，新的生活就从这里开始有了方向。`,
+      `${title}让${city}显得很可抵达。对留学生来说，城市的连接能力本身就是安全感，也是走向更大中国的起点。`
+    ],
+    campus: [
+      `${title}把“来${city}读书”变得具体：不是一句招生文字，而是清晨的路、图书馆的灯、课后同行的人。`,
+      `校园画面有一种安静的力量。它提醒学生，${city}不只是目的地，也会慢慢变成写论文、交朋友、重新认识自己的地方。`
+    ],
+    nature: [
+      `${title}给${city}留出柔软的一面。水面、树影或山色会把学习的紧张感放慢，让周末也有可以呼吸的去处。`,
+      `一座适合读书的城市，也要有让人恢复能量的角落。${title}展示的正是${city}这种松弛而真实的生活底色。`
+    ],
+    street: [
+      `${title}里的${city}贴近地面，也贴近生活。街道、广场和人流会告诉学生：这里不是遥远的符号，而是每天都能走进去的日常。`,
+      `城市的性格常常藏在街区里。看见${title}，就能想象在${city}买一杯热饮、等一班车、和新朋友慢慢熟悉这座城。`
+    ],
+    heritage: [
+      `${title}让${city}的历史留在今天的路线上。它不是被封存的背景，而是学生可以亲自走过、停留、理解的文化现场。`,
+      `对国际学生来说，${city}最迷人的地方之一，是过去和现在并不分开。${title}让这种时间的层次变得清楚。`
+    ],
+    food: [
+      `认识${city}，有时候从一口味道开始比从一张地图开始更快。${title}让城市有了香气、温度和可以分享的记忆。`,
+      `${title}把${city}的烟火气带出来了。留学生活不会只有课堂，也会有夜市、餐桌和那些让人想念的本地味道。`
+    ],
+    daily: [
+      `${title}让${city}有了具体的表情。真正影响留学体验的，往往正是这些光线、街景、公共空间和慢慢熟悉起来的人间细节。`,
+      `这不是一张为了“好看”而存在的图，它更像${city}生活的一小段证词：年轻人可以在这里学习，也可以在这里把日子过出形状。`
+    ]
+  };
+
+  return notes[mood][index % notes[mood].length];
 }
 
 function isSuitableMediaItem(item: WikipediaMediaItem) {
   if (item.type !== "image" || item.showInGallery === false || !item.title || !item.srcset?.length) return false;
   const title = item.title.toLowerCase();
+  const searchableText = `${item.title} ${item.caption?.text ?? ""}`;
   if (title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
-  return !unsuitableImagePattern.test(title);
+  return !unsuitableImagePattern.test(title) && isModernVisual(searchableText);
 }
 
 function matchesCity(text: string, fallback: CityVisualFallback, slug: string) {
@@ -187,10 +301,12 @@ function isLocalMediaItem(item: WikipediaMediaItem, fallback: CityVisualFallback
 function isSuitableCommonsPage(page: CommonsSearchPage, fallback: CityVisualFallback, slug: string) {
   if (!page.title || !page.imageinfo?.[0]?.thumburl) return false;
   const title = page.title.toLowerCase();
-  const mime = page.imageinfo[0].mime ?? "";
+  const imageInfo = page.imageinfo[0];
+  const searchableText = `${page.title} ${imageInfo.descriptionurl ?? ""} ${metadataText(imageInfo.extmetadata)}`;
+  const mime = imageInfo.mime ?? "";
   if (!mime.startsWith("image/")) return false;
   if (title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
-  return !unsuitableImagePattern.test(title) && matchesCity(page.title, fallback, slug);
+  return !unsuitableImagePattern.test(title) && isModernVisual(searchableText) && matchesCity(page.title, fallback, slug);
 }
 
 function toGalleryItem(item: WikipediaMediaItem, fallback: CityVisualFallback, index: number): CityVisualGalleryItem | null {
@@ -202,7 +318,7 @@ function toGalleryItem(item: WikipediaMediaItem, fallback: CityVisualFallback, i
 
   return {
     title: displayTitle,
-    zhTitle: `${fallback.zhName}印象 ${index + 1}`,
+    zhTitle: zhGalleryTitle(fallback.zhName, displayTitle, index),
     image: normalizeImageUrl(src),
     alt: `${fallback.name}: ${displayTitle}`,
     zhAlt: `${fallback.zhName}城市图像 ${index + 1}`,
@@ -219,7 +335,7 @@ function commonsPageToGalleryItem(page: CommonsSearchPage, fallback: CityVisualF
 
   return {
     title,
-    zhTitle: `${fallback.zhName}印象 ${index + 1}`,
+    zhTitle: zhGalleryTitle(fallback.zhName, title, index),
     image: imageInfo.thumburl || imageInfo.url || commonsImage(page.title.replace(/^File:/, "")),
     alt: `${fallback.name}: ${title}`,
     zhAlt: `${fallback.zhName}城市图像 ${index + 1}`,
@@ -264,9 +380,16 @@ async function fetchCommonsSearchGallery(slug: string, fallback: CityVisualFallb
   const queries = [
     `${fallback.name} China city`,
     `${fallback.name} skyline China`,
+    `${fallback.name} CBD China`,
+    `${fallback.name} railway station`,
+    `${fallback.name} park China`,
     `${fallback.name} landmark`,
     `${fallback.name} street China`,
-    `${fallback.name} university China`
+    `${fallback.name} university China`,
+    `${fallback.name} campus China`,
+    `${fallback.name} 2024`,
+    `${fallback.name} 2023`,
+    `${fallback.name} 2022`
   ];
   const seen = new Set<string>();
   const items: CityVisualGalleryItem[] = [];
@@ -308,7 +431,7 @@ function fallbackGallery(fallback: CityVisualFallback, startIndex = 0) {
 
     return {
       title: `${fallback.name}: ${item.title}`,
-      zhTitle: `${fallback.zhName}印象 ${sequence + 1}`,
+      zhTitle: zhGalleryTitle(fallback.zhName, item.title, sequence),
       image: commonsImage(item.file),
       alt: `${fallback.name}: ${item.title}`,
       zhAlt: `${fallback.zhName}城市图像 ${sequence + 1}`,
