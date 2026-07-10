@@ -327,6 +327,13 @@ type PromotionCopy = {
   consultCta: string;
 };
 
+type CultureBridgeCopy = {
+  title: string;
+  body: string;
+  cta: string;
+  points: string[];
+};
+
 const promotionCopy: Record<string, PromotionCopy> = {
   en: {
     label: "Global Growth",
@@ -435,6 +442,39 @@ const promotionCopy: Record<string, PromotionCopy> = {
   }
 };
 
+const cultureBridgeCopy: Record<string, CultureBridgeCopy> = {
+  en: {
+    title: "For young people who love Chinese culture.",
+    body: "Some students first meet China through music, dramas, food, festivals, kung fu, tea, calligraphy, games, high-speed rail, or a Chinese friend. SilkStudy gives that curiosity a place to grow.",
+    cta: "Discover Chinese culture",
+    points: ["Chinese language", "Festivals and food", "Modern cities", "Youth exchange"]
+  },
+  zh: {
+    title: "给所有喜欢中国文化的年轻人。",
+    body: "有些学生是因为音乐、影视、美食、节日、功夫、茶、书法、游戏、高铁或一个中国朋友开始喜欢中国。SilkStudy 要给这种好奇心一个继续生长的地方。",
+    cta: "了解中国文化",
+    points: ["中文语言", "节日与美食", "现代城市", "青年交流"]
+  },
+  vi: {
+    title: "Dành cho bạn trẻ yêu văn hóa Trung Quốc.",
+    body: "Nhiều bạn bắt đầu yêu Trung Quốc từ âm nhạc, phim, món ăn, lễ hội, trà, thư pháp, tàu cao tốc hoặc một người bạn Trung Quốc. SilkStudy giúp sự tò mò đó phát triển.",
+    cta: "Khám phá văn hóa Trung Quốc",
+    points: ["Tiếng Trung", "Lễ hội và ẩm thực", "Thành phố hiện đại", "Giao lưu trẻ"]
+  },
+  ru: {
+    title: "Для молодежи, которая любит китайскую культуру.",
+    body: "Интерес к Китаю может начаться с музыки, дорам, еды, праздников, чая, каллиграфии, скоростных поездов или китайского друга. SilkStudy помогает этому интересу расти.",
+    cta: "Открыть культуру Китая",
+    points: ["Китайский язык", "Праздники и еда", "Современные города", "Молодежный обмен"]
+  },
+  tr: {
+    title: "Çin kültürünü seven gençler için.",
+    body: "Birçok genç Çin'i müzik, dizi, yemek, festivaller, çay, kaligrafi, hızlı tren veya Çinli bir arkadaşla sevmeye başlar. SilkStudy bu merakı büyütür.",
+    cta: "Çin kültürünü keşfet",
+    points: ["Çince", "Festival ve yemek", "Modern şehirler", "Gençlik değişimi"]
+  }
+};
+
 function getPromotionCopy(locale: string, base: LocaleCopy): PromotionCopy {
   if (promotionCopy[locale]) return promotionCopy[locale];
 
@@ -457,10 +497,20 @@ function getPromotionCopy(locale: string, base: LocaleCopy): PromotionCopy {
   };
 }
 
+function getCultureBridgeCopy(locale: string, base: LocaleCopy): CultureBridgeCopy {
+  return cultureBridgeCopy[locale] ?? {
+    title: base.missionTitle,
+    body: base.missionBody,
+    cta: base.exchangeLabel,
+    points: base.stats.map(([value]) => value)
+  };
+}
+
 export default async function HomePage() {
   const locale = await getCurrentLocale();
   const c = getCopy(locale);
   const promo = getPromotionCopy(locale, c);
+  const culture = getCultureBridgeCopy(locale, c);
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
   const allUniversities = await getAllUniversitiesView();
@@ -564,6 +614,28 @@ export default async function HomePage() {
               ))}
             </ol>
           </article>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">{c.exchangeLabel}</p>
+            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink">{culture.title}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">{culture.body}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {culture.points.map((point) => (
+                <span key={point} className="rounded-md bg-blue-50 px-3 py-2 text-sm font-bold text-primary">{point}</span>
+              ))}
+            </div>
+            <div className="mt-7">
+              <ButtonLink href={localize("/culture")}>{culture.cta}</ButtonLink>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-slate-200 shadow-sm">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/student-city-life.png" alt="" className="h-full min-h-[320px] w-full object-cover" />
+          </div>
         </div>
       </section>
 

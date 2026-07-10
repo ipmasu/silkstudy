@@ -6,6 +6,7 @@ import { localizePath, type AppLocale } from "@/lib/i18n/routing";
 
 const navItems = [
   { href: "/provinces", key: "exploreChina" },
+  { href: "/culture", key: "culture" },
   { href: "/universities", key: "universities" },
   { href: "/cities", key: "studentLife" },
   { href: "/life", key: "life" },
@@ -18,6 +19,7 @@ const navItems = [
 const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>> = {
   en: {
     exploreChina: "Explore China",
+    culture: "Culture",
     universities: "Universities",
     studentLife: "Cities",
     life: "Life Guide",
@@ -30,6 +32,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   zh: {
     exploreChina: "探索中国",
+    culture: "中国文化",
     universities: "大学目录",
     studentLife: "城市",
     life: "生活指南",
@@ -42,6 +45,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   vi: {
     exploreChina: "Khám phá Trung Quốc",
+    culture: "Văn hóa",
     universities: "Trường đại học",
     studentLife: "Thành phố",
     life: "Đời sống",
@@ -54,6 +58,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   ko: {
     exploreChina: "중국 탐색",
+    culture: "중국 문화",
     universities: "대학",
     studentLife: "도시",
     life: "생활 가이드",
@@ -66,6 +71,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   th: {
     exploreChina: "สำรวจจีน",
+    culture: "วัฒนธรรมจีน",
     universities: "มหาวิทยาลัย",
     studentLife: "เมือง",
     life: "คู่มือชีวิต",
@@ -78,6 +84,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   id: {
     exploreChina: "Jelajahi Tiongkok",
+    culture: "Budaya",
     universities: "Universitas",
     studentLife: "Kota",
     life: "Panduan Hidup",
@@ -90,6 +97,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   ms: {
     exploreChina: "Terokai China",
+    culture: "Budaya",
     universities: "Universiti",
     studentLife: "Bandar",
     life: "Panduan Hidup",
@@ -102,6 +110,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   my: {
     exploreChina: "တရုတ်ကို လေ့လာရန်",
+    culture: "တရုတ်ယဉ်ကျေးမှု",
     universities: "တက္ကသိုလ်များ",
     studentLife: "မြို့များ",
     life: "နေထိုင်မှု လမ်းညွှန်",
@@ -114,6 +123,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   km: {
     exploreChina: "ស្វែងយល់ពីចិន",
+    culture: "វប្បធម៌ចិន",
     universities: "សាកលវិទ្យាល័យ",
     studentLife: "ទីក្រុង",
     life: "មគ្គុទេសក៍ជីវិត",
@@ -126,6 +136,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   lo: {
     exploreChina: "ສຳຫຼວດຈີນ",
+    culture: "ວັດທະນະທຳຈີນ",
     universities: "ມະຫາວິທະຍາໄລ",
     studentLife: "ເມືອງ",
     life: "ຄູ່ມືຊີວິດ",
@@ -138,6 +149,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   tl: {
     exploreChina: "Tuklasin ang Tsina",
+    culture: "Kultura",
     universities: "Mga Unibersidad",
     studentLife: "Mga Lungsod",
     life: "Gabay sa Buhay",
@@ -150,6 +162,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   ru: {
     exploreChina: "Открыть Китай",
+    culture: "Культура",
     universities: "Университеты",
     studentLife: "Города",
     life: "Жизнь",
@@ -162,6 +175,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   },
   tr: {
     exploreChina: "Çin'i keşfet",
+    culture: "Kültür",
     universities: "Üniversiteler",
     studentLife: "Şehirler",
     life: "Yaşam Rehberi",
