@@ -65,15 +65,28 @@ const commonsSearchEndpoint = (query: string) => {
 const commonsPage = (title: string) => `https://commons.wikimedia.org/wiki/${title.replaceAll(" ", "_")}`;
 const commonsImage = (file: string) => `https://commons.wikimedia.org/wiki/Special:FilePath/${file}?width=1200`;
 
-const unsuitableImagePattern = /(?:^|[_\s-])(map|locator|location|administrative|division|flag|emblem|logo|seal|icon|diagram|chart|metro|linemap|route|population|blank)(?:[_\s.-]|$)/i;
-const archivalImagePattern = /\b(postcard|archive|archival|old photo|historical photo|vintage|hsinking|manchukuo|manchu air)\b/i;
+const unsuitableImagePattern = /\b(map|locator|location|administrative|division|flag|emblem|logo|seal|icon|diagram|chart|linemap|route|population|blank|montage|collage|floods?|disasters?|storms?|hospitals?|maternity|clinics?|temples?|monaster(?:y|ies)|cemeter(?:y|ies)|graves?|tombs?|mausoleums?|ruins?|construction|demolition|industrial|factory|school|court|government|bureau|police|prison|detention|radio and television station|television station building)\b|\bin china\b|\bin [a-z\s]+ province\b/i;
+const archivalImagePattern = /\b(postcard|archive|archival|old|historic photograph|historical photo|vintage|black and white|black-white|blackwhite|monochrome|grayscale|greyscale|b&w|bw photo|hsinking|manchukuo|manchu air|tianxin pavilion|tianxin ge)\b/i;
 const yearPattern = /\b(18\d{2}|19\d{2}|20\d{2})\b/g;
 
 const cityMediaAliases: Record<string, string[]> = {
+  changsha: ["wuyi square", "taiping street", "juzizhou", "orange isle", "yuelu mountain", "hunan university", "changsha ifs"],
   guangzhou: ["canton"],
   hohhot: ["huhehaote"],
   xian: ["xian", "xi an"],
   urumqi: ["urumchi", "ueruemqi"]
+};
+
+const cityModernSearchTerms: Record<string, string[]> = {
+  changsha: [
+    "Changsha IFS",
+    "Wuyi Square Changsha",
+    "Taiping Street Changsha",
+    "Juzizhou Changsha",
+    "Orange Isle Changsha",
+    "Yuelu Mountain Changsha",
+    "Hunan University Changsha"
+  ]
 };
 
 const fallbackRealImages = [
@@ -158,6 +171,15 @@ function isModernVisual(text: string) {
   return !archivalImagePattern.test(normalized) && !hasPre2000Year(normalized);
 }
 
+function isSuitableScene(text: string) {
+  return !unsuitableImagePattern.test(mediaText(text));
+}
+
+function isPhotoFile(title: string) {
+  const normalized = title.toLowerCase();
+  return /\.(jpe?g|webp)$/i.test(normalized);
+}
+
 function metadataText(metadata?: Record<string, { value?: string }>) {
   if (!metadata) return "";
   return [
@@ -174,7 +196,7 @@ function imageMood(title: string): ImageMood {
   const value = mediaText(title);
   if (/\b(skyline|tower|cbd|downtown|night|aerial|drone|skyscraper)\b/.test(value)) return "skyline";
   if (/\b(station|railway|airport|terminal|train)\b/.test(value)) return "arrival";
-  if (/\b(university|campus|college|school|library)\b/.test(value)) return "campus";
+  if (/\b(university|campus|college|library)\b/.test(value)) return "campus";
   if (/\b(lake|river|park|garden|mountain|forest|wetland|coast|beach|bay|panda)\b/.test(value)) return "nature";
   if (/\b(street|road|avenue|square|plaza|market|pedestrian|walk|shopping)\b/.test(value)) return "street";
   if (/\b(temple|museum|pagoda|wall|gate|palace|monument|heritage|historic|ancient|mosque)\b/.test(value)) return "heritage";
@@ -281,8 +303,8 @@ function isSuitableMediaItem(item: WikipediaMediaItem) {
   if (item.type !== "image" || item.showInGallery === false || !item.title || !item.srcset?.length) return false;
   const title = item.title.toLowerCase();
   const searchableText = `${item.title} ${item.caption?.text ?? ""}`;
-  if (title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
-  return !unsuitableImagePattern.test(title) && isModernVisual(searchableText);
+  if (!isPhotoFile(title) || title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
+  return isSuitableScene(searchableText) && isModernVisual(searchableText);
 }
 
 function matchesCity(text: string, fallback: CityVisualFallback, slug: string) {
@@ -305,8 +327,8 @@ function isSuitableCommonsPage(page: CommonsSearchPage, fallback: CityVisualFall
   const searchableText = `${page.title} ${imageInfo.descriptionurl ?? ""} ${metadataText(imageInfo.extmetadata)}`;
   const mime = imageInfo.mime ?? "";
   if (!mime.startsWith("image/")) return false;
-  if (title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
-  return !unsuitableImagePattern.test(title) && isModernVisual(searchableText) && matchesCity(page.title, fallback, slug);
+  if (!isPhotoFile(title) || title.endsWith(".svg") || title.endsWith(".gif") || title.endsWith(".tif") || title.endsWith(".tiff")) return false;
+  return isSuitableScene(searchableText) && isModernVisual(searchableText) && matchesCity(page.title, fallback, slug);
 }
 
 function toGalleryItem(item: WikipediaMediaItem, fallback: CityVisualFallback, index: number): CityVisualGalleryItem | null {
@@ -378,18 +400,24 @@ async function fetchWikipediaGallery(slug: string, fallback: CityVisualFallback)
 
 async function fetchCommonsSearchGallery(slug: string, fallback: CityVisualFallback, startIndex = 0) {
   const queries = [
-    `${fallback.name} China city`,
+    ...(cityModernSearchTerms[slug] ?? []),
     `${fallback.name} skyline China`,
+    `${fallback.name} night skyline`,
     `${fallback.name} CBD China`,
-    `${fallback.name} railway station`,
-    `${fallback.name} park China`,
-    `${fallback.name} landmark`,
-    `${fallback.name} street China`,
+    `${fallback.name} downtown China`,
+    `${fallback.name} shopping street`,
+    `${fallback.name} pedestrian street`,
     `${fallback.name} university China`,
     `${fallback.name} campus China`,
+    `${fallback.name} railway station`,
+    `${fallback.name} metro station`,
+    `${fallback.name} park China`,
+    `${fallback.name} street China`,
+    `${fallback.name} China city photo`,
     `${fallback.name} 2024`,
     `${fallback.name} 2023`,
-    `${fallback.name} 2022`
+    `${fallback.name} 2022`,
+    `${fallback.name} landmark`
   ];
   const seen = new Set<string>();
   const items: CityVisualGalleryItem[] = [];
@@ -408,6 +436,7 @@ async function fetchCommonsSearchGallery(slug: string, fallback: CityVisualFallb
       if (!response.ok) continue;
       const data = await response.json().catch(() => null) as { query?: { pages?: Record<string, CommonsSearchPage> } } | null;
       const pages = Object.values(data?.query?.pages ?? {});
+      let queryAdded = 0;
 
       for (const page of pages) {
         if (!isSuitableCommonsPage(page, fallback, slug) || !page.title || seen.has(page.title)) continue;
@@ -415,7 +444,9 @@ async function fetchCommonsSearchGallery(slug: string, fallback: CityVisualFallb
         if (!item) continue;
         seen.add(page.title);
         items.push(item);
+        queryAdded += 1;
         if (items.length >= 6) return items;
+        if (queryAdded >= 2) break;
       }
     } catch {
       continue;
@@ -445,12 +476,12 @@ function fallbackGallery(fallback: CityVisualFallback, startIndex = 0) {
 export async function getCityVisualGallery(slug: string, fallback?: CityVisualFallback) {
   if (!fallback) return [];
 
-  const wikipediaItems = await fetchWikipediaGallery(slug, fallback);
-  const commonsItems = wikipediaItems.length >= 6 ? [] : await fetchCommonsSearchGallery(slug, fallback, wikipediaItems.length);
-  const supplements = fallbackGallery(fallback, wikipediaItems.length + commonsItems.length);
+  const commonsItems = await fetchCommonsSearchGallery(slug, fallback);
+  const wikipediaItems = commonsItems.length >= 6 ? [] : await fetchWikipediaGallery(slug, fallback);
+  const supplements = fallbackGallery(fallback, commonsItems.length + wikipediaItems.length);
   const seenImages = new Set<string>();
 
-  return [...wikipediaItems, ...commonsItems, ...supplements]
+  return [...commonsItems, ...wikipediaItems, ...supplements]
     .filter((item) => {
       if (seenImages.has(item.image)) return false;
       seenImages.add(item.image);
