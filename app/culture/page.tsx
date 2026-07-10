@@ -1,8 +1,9 @@
 import { ButtonLink } from "@/components/common/button-link";
+import topicIndex from "@/data/hxfw-cultural-topic-index.json";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { localePrefix } from "@/lib/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
-import { BookOpenText, CalendarHeart, CircleDollarSign, Coffee, Compass, Globe2, Languages, MessageCircleHeart, Music2, Sparkles, TrainFront } from "lucide-react";
+import { BookOpenText, CalendarHeart, CircleDollarSign, Coffee, Compass, Globe2, Languages, MapPinned, MessageCircleHeart, Music2, Sparkles, TrainFront } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export const metadata = buildMetadata({
@@ -33,6 +34,10 @@ type CultureCopy = {
   journey: string[];
   socialTitle: string;
   socialLines: string[];
+  topicTitle: string;
+  topicBody: string;
+  topicSourceLabel: string;
+  topicActionLabel: string;
   finalTitle: string;
   finalBody: string;
   finalCta: string;
@@ -65,6 +70,10 @@ const copy: Record<string, CultureCopy> = {
       "China is not only history. It is high-speed trains, digital life, food streets, universities, and young people building the future.",
       "If you love Chinese culture, SilkStudy can help you turn curiosity into a study plan."
     ],
+    topicTitle: "Public culture topics we can rewrite in our own voice",
+    topicBody: "These are public topic signals collected for editorial planning only. SilkStudy should use them as inspiration, then write original youth-friendly stories instead of copying source descriptions.",
+    topicSourceLabel: "Public source",
+    topicActionLabel: "Open source",
     finalTitle: "Let culture become the first bridge.",
     finalBody: "When young people understand China with warmth and curiosity, studying in China becomes more than admission. It becomes friendship, language, travel, and a more poetic life.",
     finalCta: "Ask about studying in China",
@@ -95,6 +104,10 @@ const copy: Record<string, CultureCopy> = {
       "中国不只有历史，也有高铁、数字生活、美食街、大学和正在创造未来的年轻人。",
       "如果你喜欢中国文化，SilkStudy 可以帮你把好奇心变成留学计划。"
     ],
+    topicTitle: "可以改写成原创内容的公开风物选题",
+    topicBody: "这些条目只作为编辑选题提示使用。SilkStudy 要把它们改写成面向全球年轻人的原创故事，不复制来源平台的简介或百科正文。",
+    topicSourceLabel: "公开来源",
+    topicActionLabel: "查看来源",
     finalTitle: "让文化成为第一座桥。",
     finalBody: "当年轻人带着温度和好奇理解中国，来中国留学就不只是录取，而是友谊、语言、旅行和一段更有诗意的人生。",
     finalCta: "咨询中国留学",
@@ -125,6 +138,10 @@ const copy: Record<string, CultureCopy> = {
       "Trung Quốc không chỉ là lịch sử, mà còn là tàu cao tốc, đời sống số, đồ ăn, đại học và tương lai.",
       "Nếu bạn yêu văn hóa Trung Quốc, SilkStudy giúp biến tò mò thành kế hoạch du học."
     ],
+    topicTitle: "Chủ đề công khai để viết lại bằng giọng riêng",
+    topicBody: "Các mục này chỉ dùng làm gợi ý biên tập. SilkStudy nên viết câu chuyện mới cho bạn trẻ toàn cầu, không sao chép mô tả gốc.",
+    topicSourceLabel: "Nguồn công khai",
+    topicActionLabel: "Mở nguồn",
     finalTitle: "Hãy để văn hóa trở thành cây cầu đầu tiên.",
     finalBody: "Khi bạn trẻ hiểu Trung Quốc bằng sự tò mò và thiện cảm, du học trở thành tình bạn, ngôn ngữ, du lịch và một cuộc đời rộng hơn.",
     finalCta: "Hỏi về du học Trung Quốc",
@@ -155,6 +172,10 @@ const copy: Record<string, CultureCopy> = {
       "Китай - это не только история, но и скоростные поезда, цифровая жизнь, еда, университеты и будущее.",
       "Если ты любишь китайскую культуру, SilkStudy поможет превратить интерес в учебный план."
     ],
+    topicTitle: "Открытые темы, которые можно переписать своим голосом",
+    topicBody: "Эти элементы служат только редакционными подсказками. SilkStudy должен создавать оригинальные молодежные истории, а не копировать описания источника.",
+    topicSourceLabel: "Открытый источник",
+    topicActionLabel: "Открыть источник",
     finalTitle: "Пусть культура станет первым мостом.",
     finalBody: "Когда молодежь понимает Китай с теплом и любопытством, учеба становится дружбой, языком, путешествием и более поэтичной жизнью.",
     finalCta: "Спросить об учебе в Китае",
@@ -185,6 +206,10 @@ const copy: Record<string, CultureCopy> = {
       "Çin sadece tarih değil; hızlı tren, dijital yaşam, yemek, üniversiteler ve gelecektir.",
       "Çin kültürünü seviyorsan SilkStudy merakını eğitim planına çevirmene yardım eder."
     ],
+    topicTitle: "Kendi sesimizle yeniden yazılacak açık kültür konuları",
+    topicBody: "Bu maddeler yalnızca editoryal fikir içindir. SilkStudy kaynak açıklamalarını kopyalamadan gençlere uygun özgün hikayeler yazmalıdır.",
+    topicSourceLabel: "Açık kaynak",
+    topicActionLabel: "Kaynağı aç",
     finalTitle: "Kültür ilk köprü olsun.",
     finalBody: "Gençler Çin'i sıcaklık ve merakla anladığında, Çin'de eğitim dostluk, dil, seyahat ve daha şiirsel bir hayata dönüşür.",
     finalCta: "Çin'de eğitim sor",
@@ -196,11 +221,78 @@ function getCopy(locale: string) {
   return copy[locale] ?? copy.en;
 }
 
+type IndexedCultureTopic = {
+  name: string;
+  categoryName: string;
+  cityName: string;
+  provinceName: string;
+  publicWikiPage?: string | null;
+};
+
+const featuredTopicNames = [
+  "北京荣唐连环画博物馆",
+  "上海航空科普馆",
+  "杭州奥体中心",
+  "西安市非物质文化遗产博物馆",
+  "成都太古里",
+  "广州红砖厂生活创意基地",
+  "南京桂花红茶",
+  "苏州炒肉面",
+  "桂林三花酒传统酿造技艺",
+  "敦煌驴肉黄面",
+  "剪纸（烟台剪纸）",
+  "皮影戏（华阴老腔）",
+  "龙舟说唱",
+  "陶瓷微书",
+  "火锅干碟",
+  "京剧",
+  "昆曲",
+  "丝绸之路：长安——天山廊道的路网"
+];
+
+const indexedTopics = topicIndex.topics as IndexedCultureTopic[];
+
+function featuredTopics() {
+  const byName = new Map(indexedTopics.map((topic) => [topic.name, topic]));
+  return featuredTopicNames.map((name) => byName.get(name)).filter((topic): topic is IndexedCultureTopic => Boolean(topic));
+}
+
+function topicAngle(topic: IndexedCultureTopic, locale: string) {
+  if (locale === "zh") {
+    if (topic.categoryName === "文化") return "适合写成“一个外国学生如何通过传统技艺理解中国”的短故事。";
+    if (topic.categoryName === "特产") return "适合连接到城市味道、夜市、宿舍分享和第一次用中文点餐。";
+    return "适合做成城市打卡、周末路线和中文学习场景。";
+  }
+
+  if (locale === "vi") {
+    if (topic.categoryName === "文化") return "Có thể viết thành câu chuyện về cách sinh viên quốc tế hiểu Trung Quốc qua nghệ thuật truyền thống.";
+    if (topic.categoryName === "特产") return "Có thể nối với hương vị thành phố, chợ đêm, ký túc xá và gọi món bằng tiếng Trung.";
+    return "Có thể biến thành tuyến check-in, cuối tuần và trải nghiệm học tiếng Trung.";
+  }
+
+  if (locale === "ru") {
+    if (topic.categoryName === "文化") return "Можно превратить в историю о том, как иностранный студент понимает Китай через традиционное искусство.";
+    if (topic.categoryName === "特产") return "Можно связать с вкусом города, ночными рынками, общежитием и первым заказом еды на китайском.";
+    return "Можно использовать как идею для городского маршрута, выходных и языковой практики.";
+  }
+
+  if (locale === "tr") {
+    if (topic.categoryName === "文化") return "Geleneksel sanat üzerinden Çin'i anlayan uluslararası öğrenci hikayesine dönüşebilir.";
+    if (topic.categoryName === "特产") return "Şehir lezzeti, gece pazarı, yurt paylaşımı ve Çince yemek siparişiyle bağlanabilir.";
+    return "Şehir check-in rotası, hafta sonu planı ve Çince pratiği fikrine dönüşebilir.";
+  }
+
+  if (topic.categoryName === "文化") return "A good seed for a short story about understanding China through traditional arts.";
+  if (topic.categoryName === "特产") return "A good bridge to city taste, night markets, dorm sharing, and ordering food in Chinese.";
+  return "A good prompt for city check-ins, weekend routes, and Chinese-language practice.";
+}
+
 export default async function CulturePage() {
   const locale = await getCurrentLocale();
   const c = getCopy(locale);
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
+  const topics = featuredTopics();
 
   return (
     <main>
@@ -260,6 +352,34 @@ export default async function CulturePage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <MapPinned size={30} className="text-primary" aria-hidden="true" />
+            <h2 className="mt-4 text-4xl font-bold leading-tight text-ink">{c.topicTitle}</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">{c.topicBody}</p>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {topics.map((topic) => (
+              <article key={topic.name} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-bold text-primary">{topic.categoryName}</span>
+                  <span className="rounded-md bg-surface px-2.5 py-1 text-xs font-semibold text-slate-600">{topic.provinceName || topic.cityName}</span>
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-ink">{topic.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{topicAngle(topic, locale)}</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-slate-400">{c.topicSourceLabel}: 华夏风物</p>
+                {topic.publicWikiPage ? (
+                  <a href={topic.publicWikiPage} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-sm font-semibold text-primary hover:text-blue-700">
+                    {c.topicActionLabel}
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
