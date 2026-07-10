@@ -168,25 +168,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </aside>
 
           <div>
-            <SectionHeading
-              eyebrow={isZh ? "当地大学" : "Local universities"}
-              title={isZh ? `${name}大学列表` : `Universities in ${city.name}`}
-              description={isZh ? "以下学校来自当前国际学生高校目录。打开学校页可继续查看学费、奖学金、专业、评论和生活信息。" : "These schools come from the international-student university catalog. Open profiles for tuition, scholarships, majors, reviews, and campus-life context."}
-            />
-            {cityUniversities.length > 0 ? (
-              <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {cityUniversities.slice(0, 12).map((university) => (
-                  <UniversityCard key={university.slug} university={university} />
-                ))}
-              </div>
-            ) : (
-              <div className="mt-8 rounded-lg border border-slate-200 bg-surface p-8 text-center">
-                <GraduationCap className="mx-auto text-primary" size={30} aria-hidden="true" />
-                <p className="mt-4 font-bold text-ink">{isZh ? "学校资料待补全" : "School data pending enrichment"}</p>
-              </div>
-            )}
-
-            <div className="mt-14">
+            <div>
               <SectionHeading
                 eyebrow={isZh ? "旅行与文化" : "Travel and culture"}
                 title={isZh ? `${name}为什么吸引年轻人` : `Why ${city.name} attracts young people`}
@@ -499,6 +481,26 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                   </Link>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-14">
+              <SectionHeading
+                eyebrow={isZh ? "当地大学" : "Local universities"}
+                title={isZh ? `${name}大学列表` : `Universities in ${city.name}`}
+                description={isZh ? "以下学校来自当前国际学生高校目录。打开学校页可继续查看学费、奖学金、专业、评论和生活信息。" : "These schools come from the international-student university catalog. Open profiles for tuition, scholarships, majors, reviews, and campus-life context."}
+              />
+              {cityUniversities.length > 0 ? (
+                <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {cityUniversities.slice(0, 12).map((university) => (
+                    <UniversityCard key={university.slug} university={university} />
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-8 rounded-lg border border-slate-200 bg-surface p-8 text-center">
+                  <GraduationCap className="mx-auto text-primary" size={30} aria-hidden="true" />
+                  <p className="mt-4 font-bold text-ink">{isZh ? "学校资料待补全" : "School data pending enrichment"}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
