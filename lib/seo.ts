@@ -10,17 +10,23 @@ export function absoluteUrl(path = "/") {
 export function buildMetadata({
   title,
   description,
-  path = "/"
+  path = "/",
+  keywords = [],
+  image = "/images/campus-hero.png"
 }: {
   title: string;
   description: string;
   path?: string;
+  keywords?: string[];
+  image?: string;
 }): Metadata {
   const url = absoluteUrl(path);
+  const imageUrl = absoluteUrl(image);
 
   return {
     title,
     description,
+    keywords,
     alternates: {
       canonical: url
     },
@@ -29,12 +35,21 @@ export function buildMetadata({
       description,
       url,
       siteName,
-      type: "website"
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${siteName} study in China`
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description
+      description,
+      images: [imageUrl]
     }
   };
 }
