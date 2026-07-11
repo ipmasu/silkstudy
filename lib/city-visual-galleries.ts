@@ -135,6 +135,128 @@ function normalizeImageUrl(src: string) {
 }
 
 const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  chengdu: [
+    {
+      title: "Taikoo Li and IFS city center",
+      zhTitle: "成都 · 太古里与IFS的年轻都市感",
+      image: commonsImage("Taikoo_Li_and_IFS_at_the_city_centre.jpg"),
+      alt: "Taikoo Li and IFS at the city centre of Chengdu",
+      zhAlt: "成都太古里与IFS城市中心",
+      note: "Chengdu's center shows why the city feels so easy for young people: fashion, cafes, bookstores, food streets, metro lines, and weekend photos all sit close together.",
+      zhNote: "成都的市中心很能说明这座城市为什么适合年轻人：时尚街区、咖啡馆、书店、美食、地铁和周末拍照点彼此靠得很近，学习之外的生活不会单调。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Taikoo_Li_and_IFS_at_the_city_centre.jpg"
+    },
+    {
+      title: "Taikoo Li skyline",
+      zhTitle: "成都 · 太古里天际线",
+      image: commonsImage("Taikoo_Li_Chengdu_skyline.jpg"),
+      alt: "Modern skyline around Taikoo Li Chengdu",
+      zhAlt: "成都太古里现代天际线",
+      note: "Taikoo Li gives Chengdu a contemporary first impression. For international students, it is a visible sign that the city is relaxed but not slow, stylish but still warm.",
+      zhNote: "太古里给成都一个很当代的第一印象。对国际学生来说，它会让人感觉这座城市既松弛又不落后，既时髦又保留着烟火气。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Taikoo_Li_Chengdu_skyline.jpg"
+    },
+    {
+      title: "IFS panda on Chunxi Road",
+      zhTitle: "成都 · 春熙路IFS熊猫",
+      image: commonsImage("The_panda_at_IFS_Chengdu_from_Hongxing_Road.jpg"),
+      alt: "The panda installation at IFS Chengdu from Hongxing Road",
+      zhAlt: "从红星路看成都IFS熊猫装置",
+      note: "The climbing panda has become a cheerful urban symbol. It connects Chengdu's global panda image with the everyday shopping, transit, and social life of students.",
+      zhNote: "这只爬楼熊猫已经成为成都很有亲和力的城市符号。它把成都世界级的熊猫IP，与学生日常逛街、坐地铁、约朋友的生活连接在一起。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:The_panda_at_IFS_Chengdu_from_Hongxing_Road.jpg"
+    },
+    {
+      title: "Giant panda at Chengdu Panda Base",
+      zhTitle: "成都 · 熊猫基地的大熊猫",
+      image: commonsImage("Chengdu-pandas-d10.jpg"),
+      alt: "Giant panda at the Chengdu Research Base of Giant Panda Breeding",
+      zhAlt: "成都大熊猫繁育研究基地的大熊猫",
+      note: "The panda base is one of Chengdu's strongest global invitations. Go early in the morning, and the city suddenly feels like a place where nature, science, and joy meet.",
+      zhNote: "熊猫基地是成都最强的全球邀请之一。清晨去看熊猫进食和活动，会让人感到这座城市把自然、科研和快乐非常自然地放在了一起。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Chengdu-pandas-d10.jpg"
+    },
+    {
+      title: "Kuanzhai Alley food stall",
+      zhTitle: "成都 · 宽窄巷子的街头味道",
+      image: commonsImage("Food_stall_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05324.jpg"),
+      alt: "Food stall in Kuanzhai Alleys, Chengdu",
+      zhAlt: "成都宽窄巷子里的小吃摊",
+      note: "Kuanzhai Alley is not only a tourist stop. It is also a first lesson in Chengdu taste: snacks, tea, courtyards, dialect, and the slow confidence of local life.",
+      zhNote: "宽窄巷子不只是景点，也是认识成都味道的第一堂课：小吃、盖碗茶、院落、方言，以及本地生活里那种慢而自信的节奏。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Food_stall_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05324.jpg"
+    },
+    {
+      title: "Kuanzhai Alley shops",
+      zhTitle: "成都 · 宽窄巷子的院落与店铺",
+      image: commonsImage("Shops_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05305.jpg"),
+      alt: "Shops in Kuanzhai Alleys, Chengdu",
+      zhAlt: "成都宽窄巷子里的店铺",
+      note: "Old lanes help students understand that Chengdu's comfort is not abstract. It is built from courtyards, shaded streets, food smells, and places where people sit down instead of rushing through.",
+      zhNote: "老巷子会让学生明白，成都的舒服不是抽象词。它来自院落、树荫、食物香气，以及人们愿意停下来坐一会儿的公共空间。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Shops_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05305.jpg"
+    },
+    {
+      title: "Wuhou Shrine corridor",
+      zhTitle: "成都 · 武侯祠的三国记忆",
+      image: commonsImage("Corridor_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05489.jpg"),
+      alt: "Corridor at Wuhou Shrine in Chengdu",
+      zhAlt: "成都武侯祠走廊",
+      note: "Wuhou Shrine makes the Three Kingdoms feel walkable. It is a good Hanfu, history, and Chinese-storytelling route for students who want culture to be more than a textbook.",
+      zhNote: "武侯祠让三国文化变得可以步行进入。对想穿汉服、拍照、听中国故事的学生来说，这里让历史不再只是课本里的名字。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Corridor_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05489.jpg"
+    },
+    {
+      title: "Wuhou Shrine in 2026",
+      zhTitle: "成都 · 近年的武侯祠城市文化现场",
+      image: commonsImage("Wuhou_Shrine_20260513.jpg"),
+      alt: "Wuhou Shrine in Chengdu in 2026",
+      zhAlt: "2026年的成都武侯祠",
+      note: "A newer Wuhou Shrine photo keeps the page visually current. Chengdu's heritage is not frozen; it is still part of how young people walk, photograph, and learn the city.",
+      zhNote: "近年的武侯祠照片能让页面更有当下感。成都的历史不是被封存的，它仍然参与着年轻人的漫步、拍照和城市学习。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Wuhou_Shrine_20260513.jpg"
+    },
+    {
+      title: "Du Fu Thatched Cottage Park",
+      zhTitle: "成都 · 杜甫草堂的诗意公园",
+      image: commonsImage("Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg"),
+      alt: "Du Fu Thatched Cottage Park in Chengdu",
+      zhAlt: "成都杜甫草堂公园",
+      note: "Du Fu Thatched Cottage gives Chengdu a literary softness. It is ideal for students who want to feel Chinese poetry through gardens, paths, bamboo, and quiet afternoons.",
+      zhNote: "杜甫草堂给成都增添了文学气质。学生可以在园林、小径、竹影和安静的下午里理解中国诗歌，而不是只背诵诗句。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg"
+    },
+    {
+      title: "Du Fu Thatched Cottage route",
+      zhTitle: "成都 · 草堂里的慢生活路线",
+      image: commonsImage("Du_Fu_Thatched_Cottage_-_Chengdu_20161121.jpg"),
+      alt: "Du Fu Thatched Cottage in Chengdu",
+      zhAlt: "成都杜甫草堂景观",
+      note: "This is Chengdu's quieter side: poetry, shade, garden paths, and a way to recover energy after language classes, applications, and exams.",
+      zhNote: "这是成都更安静的一面：诗意、树荫、园路，以及在中文课、申请材料和考试之后重新恢复能量的地方。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Du_Fu_Thatched_Cottage_-_Chengdu_20161121.jpg"
+    },
+    {
+      title: "ColorHub late-night street food",
+      zhTitle: "成都 · ColorHub夜市烟火气",
+      image: "https://c.colorhub.me/BeGEVvW2k71uhCZxneuVahsr1gO0J_FkHK8q6y-D/0x500/euc:OwTg9AhgxmAMUCMCmAzYECMKAsATX82AzCBAgGzCLYQQogJGwbmy2jQB0AVgA5IBzIA",
+      alt: "Busy late-night street food stall",
+      zhAlt: "深夜街头小吃摊忙碌场景",
+      note: "ColorHub free atmosphere image: not a Chengdu landmark photo, but useful for expressing the hotpot, chuanchuan, night-market, and after-class food energy of the city.",
+      zhNote: "ColorHub 免费氛围补充图：这不是成都地标实拍，但适合表达成都火锅、串串、夜市和下课后约饭的烟火气。",
+      sourceUrl: "https://www.colorhub.me/photos/0B8bw"
+    },
+    {
+      title: "ColorHub cafe afternoon",
+      zhTitle: "成都 · ColorHub咖啡与茶馆式下午",
+      image: "https://c.colorhub.me/rDyGiTWytHdZ_MjSBFm-cfbi8tD0wu_s4H4EaIhl/0x500/euc:IYVg9ApgTGDMAsUAmsICMDGAzWB2AnLhAGy7EAMAHMGlrktiLhuSGviPLqNAHQBWABwDmQA",
+      alt: "Warm cafe table and relaxed afternoon atmosphere",
+      zhAlt: "温暖咖啡馆与放松下午氛围",
+      note: "ColorHub free atmosphere image: it supports Chengdu's teahouse and cafe rhythm, where students can slow down, talk, read, and make the city feel personal.",
+      zhNote: "ColorHub 免费氛围补充图：用于补充成都茶馆、咖啡馆和慢下午的节奏，学生可以在这里聊天、读书，让城市慢慢变成自己的地方。",
+      sourceUrl: "https://www.colorhub.me/photos/Wjd0p"
+    }
+  ],
   changsha: [
     {
       title: "Changsha IFS skyline",

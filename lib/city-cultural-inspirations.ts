@@ -25,6 +25,129 @@ export type CityCulturalInspiration = {
 const inspiration = (input: CityCulturalInspiration) => input;
 
 export const cityCulturalInspirations: Record<string, CityCulturalInspiration> = {
+  chengdu: inspiration({
+    slug: "chengdu",
+    title: "Chengdu Through Pandas, Tea Houses, Hotpot, and Snow-Mountain Park Life",
+    zhTitle: "从熊猫、茶馆、火锅与雪山下的公园城市里看见成都",
+    intro:
+      "Chengdu attracts global youth because it is relaxed without being empty: pandas, hotpot, teahouses, Taikoo Li, Kuanzhai Alley, Wuhou Shrine, Du Fu poetry, parks, weekend trips, and a talent-friendly city rhythm all sit inside one livable place.",
+    zhIntro:
+      "成都吸引全球年轻人的地方，在于它松弛但不空洞：熊猫、火锅、茶馆、太古里、宽窄巷子、武侯祠、杜甫草堂、公园、周末旅行和面向青年人才的城市机会，都被放进了一座真正适合生活的城市里。",
+    sourceNote:
+      "Topics are rewritten from the Chengdu study-city brief, public cultural references, and verified Wikimedia and ColorHub image sources.",
+    zhSourceNote:
+      "选题根据成都留学城市文章、公共文化线索，以及已核验的 Wikimedia 与 ColorHub 图片来源重新整理撰写。",
+    items: [
+      {
+        name: "Taikoo Li and Chunxi Road",
+        zhName: "太古里与春熙路",
+        category: "Youth city center",
+        zhCategory: "年轻都市中心",
+        district: "Jinjiang District",
+        zhDistrict: "锦江区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Taikoo_Li_and_IFS_at_the_city_centre.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Taikoo_Li_and_IFS_at_the_city_centre.jpg",
+        story:
+          "Taikoo Li and Chunxi Road show Chengdu's contemporary side: fashion, food, cafes, bookstores, metro connections, and the famous IFS panda. It is where many students first feel that Chengdu is international but still easygoing.",
+        zhStory:
+          "太古里和春熙路呈现的是成都当代的一面：时尚、美食、咖啡、书店、地铁连接和IFS熊猫都在这里。许多学生第一次意识到，成都既有国际化的一面，又没有大城市常见的紧绷感。",
+        studentAngle:
+          "Good for a first city walk after arrival: eat, shop lightly, take photos, practice Chinese, and understand how young Chengdu spends an evening.",
+        zhStudentAngle:
+          "适合作为抵达成都后的第一条 city walk：吃饭、轻松逛街、拍照、练中文，也观察年轻成都人怎样度过一个晚上。"
+      },
+      {
+        name: "Chengdu Panda Base",
+        zhName: "成都大熊猫繁育研究基地",
+        category: "Global nature icon",
+        zhCategory: "世界级自然名片",
+        district: "Chenghua District",
+        zhDistrict: "成华区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chengdu-pandas-d10.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Chengdu-pandas-d10.jpg",
+        story:
+          "The panda base gives Chengdu one of the world's most recognizable city identities. For students, it turns wildlife protection, science, tourism, and pure happiness into a morning route.",
+        zhStory:
+          "熊猫基地让成都拥有了世界上最容易被记住的城市名片之一。对学生来说，它把野生动物保护、科学研究、旅游和单纯的快乐变成了一条清晨就能出发的路线。",
+        studentAngle:
+          "Best in the morning. It is also a strong route for social media, biology and ecology interests, and a gentle introduction to Chinese conservation work.",
+        zhStudentAngle:
+          "建议清晨前往。这里也很适合社交媒体记录、生命科学和生态兴趣学生，以及想温和进入中国自然保护议题的人。"
+      },
+      {
+        name: "Kuanzhai Alley",
+        zhName: "宽窄巷子",
+        category: "Old lanes and Chengdu taste",
+        zhCategory: "老巷子与成都味道",
+        district: "Qingyang District",
+        zhDistrict: "青羊区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Food_stall_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05324.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Food_stall_-_Kuanzhai_Alleys_-_Chengdu,_China_-_DSC05324.jpg",
+        story:
+          "Kuanzhai Alley is a compact introduction to Chengdu's texture: courtyard memory, snacks, tea, dialect, small shops, tourists, locals, and the feeling that the city prefers sitting down to rushing through.",
+        zhStory:
+          "宽窄巷子像一份压缩版的成都质感：院落记忆、小吃、盖碗茶、方言、小店、游客、本地人，以及这座城市更愿意坐下来而不是匆忙经过的生活态度。",
+        studentAngle:
+          "Useful for language learners because the route is full of ordering, asking prices, reading signs, and hearing local accents.",
+        zhStudentAngle:
+          "对中文学习者很有用，因为一路上会不断遇到点餐、问价、看招牌、听本地口音的真实场景。"
+      },
+      {
+        name: "Wuhou Shrine",
+        zhName: "武侯祠",
+        category: "Three Kingdoms memory",
+        zhCategory: "三国文化记忆",
+        district: "Wuhou District",
+        zhDistrict: "武侯区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Corridor_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05489.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Corridor_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05489.jpg",
+        story:
+          "Wuhou Shrine lets students meet the Three Kingdoms as a living cultural route. Hanfu photos, old trees, plaques, courtyards, and Jinli nearby make history social and memorable.",
+        zhStory:
+          "武侯祠让学生把三国文化理解成一条还在今天继续被走过的路线。汉服照片、古树、匾额、院落和旁边的锦里，会让历史变得可社交、可记忆。",
+        studentAngle:
+          "Strong for students who like history, storytelling, costume culture, Chinese literature, or immersive cultural photos.",
+        zhStudentAngle:
+          "适合喜欢历史、故事、服饰文化、中国文学和沉浸式文化拍照的学生。"
+      },
+      {
+        name: "Du Fu Thatched Cottage",
+        zhName: "杜甫草堂",
+        category: "Poetry and quiet gardens",
+        zhCategory: "诗歌与安静园林",
+        district: "Qingyang District",
+        zhDistrict: "青羊区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg",
+        story:
+          "Du Fu Thatched Cottage gives Chengdu literary depth. It is one of the best places for students to understand that Chinese culture is not only spectacular, but also quiet, humane, and close to daily life.",
+        zhStory:
+          "杜甫草堂给成都增加了文学深度。它很适合让学生理解，中国文化不只有宏大的奇观，也有安静、含蓄、有人情味并且贴近日常生活的一面。",
+        studentAngle:
+          "Pair it with a teahouse or cafe afternoon. It is a gentle reset route after exams, applications, or intensive language classes.",
+        zhStudentAngle:
+          "可以和茶馆或咖啡馆下午组合在一起。考试、申请或高强度中文课之后，这是一条很温柔的恢复路线。"
+      },
+      {
+        name: "Hotpot, Chuanchuan, and Teahouse Afternoons",
+        zhName: "火锅、串串与茶馆下午",
+        category: "Daily Chengdu lifestyle",
+        zhCategory: "成都日常生活方式",
+        district: "Campus neighborhoods and old city",
+        zhDistrict: "校园周边与老城街区",
+        image: "https://c.colorhub.me/BeGEVvW2k71uhCZxneuVahsr1gO0J_FkHK8q6y-D/0x500/euc:OwTg9AhgxmAMUCMCmAzYECMKAsATX82AzCBAgGzCLYQQogJGwbmy2jQB0AVgA5IBzIA",
+        sourceUrl: "https://www.colorhub.me/photos/0B8bw",
+        story:
+          "Chengdu is learned through the body: hotpot steam, chuanchuan skewers, tea bowls, street stools, campus meals, and long conversations. This is where classmates become friends.",
+        zhStory:
+          "成都很适合用身体来认识：火锅热气、串串签子、盖碗茶、街边小凳、校园饭局和一聊很久的夜晚。很多同学就是在这样的场景里变成朋友的。",
+        studentAngle:
+          "Best for social integration. Even before Chinese becomes fluent, sharing food can make the city feel close.",
+        zhStudentAngle:
+          "最适合帮助学生融入社交。中文还不够流利的时候，一起吃饭也能让城市变得亲近。"
+      }
+    ]
+  }),
   changsha: inspiration({
     slug: "changsha",
     title: "Changsha Through Living Local Culture",

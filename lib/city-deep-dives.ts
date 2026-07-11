@@ -19,6 +19,135 @@ export type CityDeepDive = {
 const deepDive = (input: CityDeepDive) => input;
 
 export const cityDeepDives: Record<string, CityDeepDive> = {
+  chengdu: deepDive({
+    slug: "chengdu",
+    title: "Why Chengdu Is Becoming a Warm China City for Global Youth",
+    zhTitle: "为什么成都正在成为外国年轻人读懂中国的温暖入口",
+    intro:
+      "Chengdu works because it gives international students something rare: strong universities, scholarship routes, a lower-cost big-city life, food that immediately creates friendships, pandas, tea houses, old lanes, western Sichuan weekend routes, and a talent-friendly city rhythm under the image of a park city below snow mountains.",
+    zhIntro:
+      "成都真正吸引国际学生的地方，在于它把很多难得的东西放在了一起：优质高校、奖学金机会、相对实惠的大城市生活、能迅速拉近人与人距离的美食、熊猫、茶馆、老巷子、川西周末路线，以及一座“雪山下的公园城市”对青年人才释放出的友好节奏。",
+    proofPoints: [
+      "Chengdu is one of western China's most dynamic new first-tier cities, attracting students from the United States, Germany, Thailand, Pakistan, and many other countries.",
+      "A practical student budget can often sit around RMB 3,500-5,000 per month, depending on housing and lifestyle, with campus housing often much lower than private apartments.",
+      "Scholarship channels include Chinese Government Scholarship, International Chinese Language Teachers Scholarship, Chengdu Government Scholarship, and university-level awards."
+    ],
+    zhProofPoints: [
+      "成都是中国西部最具活力的新一线城市之一，正在吸引来自美国、德国、泰国、巴基斯坦等不同国家的年轻人。",
+      "在控制住宿和生活方式后，学生月均总开销常可参考 3500-5000 元区间；校内住宿通常明显低于校外单间。",
+      "奖学金路径包括中国政府奖学金、国际中文教师奖学金、成都市政府奖学金以及高校层面的优秀学生奖学金等。"
+    ],
+    sections: [
+      {
+        title: "Strong Universities and Scholarship Routes",
+        zhTitle: "优质高校与多层次奖学金路径",
+        body:
+          "Chengdu's higher-education ecosystem is broad enough for students interested in comprehensive universities, engineering, transportation, medicine, traditional Chinese medicine, tourism, design, Chinese language, and applied fields.",
+        zhBody:
+          "成都的高等教育资源覆盖面很广，适合关注综合类大学、工程、交通、医学、中医药、旅游、设计、中文和应用型专业的学生。它不是只有一所名校撑场面的城市，而是能提供不同学科路径和不同预算选择的留学城市。",
+        bullets: [
+          "Sichuan University offers international student routes and scholarship references including Chinese Government Scholarship, International Chinese Language Teachers Scholarship, Chengdu Government Scholarship, and Sichuan University Excellent Student Scholarship.",
+          "Southwest Jiaotong University, Chengdu University of Technology, Chengdu University of Traditional Chinese Medicine, Sichuan International Studies University, Chengdu University, and other institutions add choices across engineering, medicine, language, culture, and applied majors.",
+          "Chengdu University has received more than 4,600 international students from 78 countries, while Sichuan Tourism University is especially distinctive for tourism and culinary-related strengths."
+        ],
+        zhBullets: [
+          "四川大学面向国际学生开放申请，并可参考中国政府奖学金、国际中文教师奖学金、成都市政府奖学金、四川大学优秀学生奖学金等多层次资助。",
+          "西南交通大学、成都理工大学、成都中医药大学、四川外国语大学、成都大学等高校，让工程、医学、语言、文化和应用型专业学生都有更多选择。",
+          "成都大学累计已招收来自 78 个国家的 4600 余名留学生；四川旅游学院则在旅游与烹饪相关学科上具有鲜明特色。"
+        ]
+      },
+      {
+        title: "A Big City Where the Budget Can Still Breathe",
+        zhTitle: "一座让预算还能喘口气的大城市",
+        body:
+          "Chengdu gives students a rare balance: big-city services, international food and transit, but daily pressure that can be much gentler than in China's most expensive coastal cities.",
+        zhBody:
+          "成都给学生的平衡感很珍贵：它有大城市的服务、交通、商业、国际化餐饮和活动机会，但日常生活压力通常比最昂贵的一线沿海城市更温和。对许多来自发展中国家的学生来说，这种性价比非常重要。",
+        bullets: [
+          "Sichuan University campus dormitory references are around RMB 800-1,200 per month, while off-campus single rooms may sit around RMB 2,000-3,500 depending on area and quality.",
+          "A practical monthly total, including local food, transport, and daily life, can often be planned around RMB 3,500-5,000.",
+          "Compared with Shanghai-level costs, Chengdu can feel like a city where students get comfort, food, social life, and space without exhausting their budget."
+        ],
+        zhBullets: [
+          "四川大学校内宿舍可参考每月约 800-1200 元；校外单人间根据地段和条件不同，常见参考区间约 2000-3500 元。",
+          "如果包含本地餐饮、交通和日常生活，学生月均总开销可大致按 3500-5000 元规划。",
+          "相比上海等高成本城市，成都更容易让学生用可承受的预算获得舒适居住、美食社交和有质量的城市生活。"
+        ]
+      },
+      {
+        title: "Hotpot, Chuanchuan, Night Markets, and Friendship Through Food",
+        zhTitle: "火锅、串串、夜市，以及从食物开始的友谊",
+        body:
+          "Chengdu is a UNESCO City of Gastronomy, but its food culture is not only a title. Hotpot, chuanchuan, bobo chicken, dan dan noodles, Long chaoshou, and fuqi feipian make the city immediately memorable, especially because eating is social here.",
+        zhBody:
+          "成都是联合国教科文组织认证的“美食之都”，但这不是一个冷冰冰的称号。火锅、串串香、钵钵鸡、担担面、龙抄手、夫妻肺片，会让学生很快用味觉记住这座城市；更重要的是，在成都，吃饭本来就是社交。",
+        bullets: [
+          "Fuqin Night Market keeps more old Chengdu neighborhood feeling, with local shops, late-night meals, and friendly prices.",
+          "Jianshe Lane is a student snack paradise, while Kuixinglou Street near Kuanzhai Alley is convenient for first-time food walks.",
+          "Sanse Road Night Market and Jinjiang evening routes show the playful, young, after-dark side of Chengdu."
+        ],
+        zhBullets: [
+          "抚琴夜市更像本地人的深夜食堂，社区老店多、价格亲民，也保留了更多老成都的市井气。",
+          "建设巷是学生小吃天堂；紧邻宽窄巷子的奎星楼街适合作为第一次成都美食漫步路线。",
+          "三色路夜市与锦江傍晚路线，会呈现成都年轻、松弛、入夜以后仍然很有生命力的一面。"
+        ]
+      },
+      {
+        title: "A Park City Below Snow Mountains",
+        zhTitle: "雪山下的公园城市：熊猫、都江堰、青城山与慢生活",
+        body:
+          "Chengdu's tourism value is not only in big landmarks. It is the way students can move from pandas to tea houses, from old lanes to riverside evenings, and from the city to Dujiangyan, Qingcheng Mountain, or western Sichuan weekend landscapes.",
+        zhBody:
+          "成都的旅行价值不只在几个著名景点，而在它能让学生从熊猫基地走到茶馆，从老巷子走到锦江夜色，再从城市出发去都江堰、青城山和川西周末风景。它很适合把旅行变成生活的一部分。",
+        bullets: [
+          "Chengdu Research Base of Giant Panda Breeding is one of the city's strongest global symbols; morning visits are usually better for seeing active pandas.",
+          "Dujiangyan and Qingcheng Mountain connect students with ancient water engineering, Daoist culture, mountains, forests, and world-heritage routes.",
+          "Huanglongxi Ancient Town, Kuanzhai Alley, Heming Teahouse in People's Park, Danjing Terrace, Sancha Lake, and nearby villages give students many low-pressure weekend options."
+        ],
+        zhBullets: [
+          "成都大熊猫繁育研究基地是成都最强的世界级名片之一；清晨更适合看到熊猫户外进食和活动。",
+          "都江堰与青城山把学生带到古代水利工程、道教文化、山林和世界遗产路线之中。",
+          "黄龙溪古镇、宽窄巷子、人民公园鹤鸣茶社、丹景台、三岔湖和周边乡村，都能成为低压力、高记忆度的周末路线。"
+        ]
+      },
+      {
+        title: "Immersive Culture Students Can Touch",
+        zhTitle: "可以亲手触摸的沉浸式文化",
+        body:
+          "Chengdu is especially strong when culture becomes something students can wear, make, taste, and discuss. University activities around Wuhou Shrine, Pengzhou study trips, bamboo villages, wine villages, Jinsha Site, Shuijingfang, and traditional Chinese medicine routes turn the city into a living classroom.",
+        zhBody:
+          "成都的文化吸引力，最强的时候不是停留在介绍文字里，而是变成学生可以穿上、亲手制作、品尝和讨论的体验。武侯祠汉服路线、彭州研学、道明竹艺村、天府酒村、金沙遗址、水井坊和中医药文化实践，都会让城市变成活的课堂。",
+        bullets: [
+          "Students can enter Three Kingdoms culture through Wuhou Shrine and nearby old streets, where Hanfu photography and historical storytelling naturally meet.",
+          "Southwestern University of Finance and Economics and other campuses have organized international students into bamboo-art villages, wine villages, and Pengzhou study experiences involving mugwort hammers and herbal sachets.",
+          "Chengdu University of Traditional Chinese Medicine summer activities connect students with TCM museums, Panda Valley, Jinsha Site, Shuijingfang, and clinical medicine exchange."
+        ],
+        zhBullets: [
+          "学生可以通过武侯祠和周边古祠街巷进入三国文化，汉服拍照与历史叙事在这里自然结合。",
+          "西南财经大学等高校曾组织留学生走进竹艺村、天府酒村和彭州研学活动，亲手制作艾草锤、中药香囊等。",
+          "成都中医药大学相关夏令营和研学项目，将中医药博物馆、熊猫谷、金沙遗址、水井坊和临床医学交流连接起来。"
+        ]
+      },
+      {
+        title: "Talent Policies and a City That Gives Young People Room",
+        zhTitle: "人才政策与一座愿意给年轻人留空间的城市",
+        body:
+          "Chengdu is not only attractive for study years. The city is also building routes for overseas talent, internships, innovation, entrepreneurship, and post-study possibilities.",
+        zhBody:
+          "成都的吸引力不只停留在读书阶段。这座城市正在为海外青年人才、实习、创新创业和毕业后的发展可能性搭建更清晰的路径。",
+        bullets: [
+          "Chengdu has introduced support measures for overseas talent innovation and entrepreneurship.",
+          "The 2026 overseas talent internship plan references at least 300 master and doctoral young talents from well-known global universities, with industry visits, internships, cultural exchange, employment tracking, and entrepreneurship guidance.",
+          "Excellent overseas talents coming to Chengdu for innovation and entrepreneurship may receive matching support of up to RMB 300,000 under relevant policy references."
+        ],
+        zhBullets: [
+          "成都已出台面向优秀海外人才创新创业的支持政策。",
+          "成都市 2026 年海外人才实习生计划面向世界知名高校遴选不少于 300 名硕博青年人才，并配套产业考察、跟岗实习、文化交流、就业跟踪和创业指导。",
+          "符合条件的优秀海外人才来蓉创新创业，可参考最高 30 万元匹配资助等政策支持。"
+        ]
+      }
+    ]
+  }),
   changsha: deepDive({
     slug: "changsha",
     title: "Why Changsha Is Becoming a First China City for Global Youth",
