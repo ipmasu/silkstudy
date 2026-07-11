@@ -50,7 +50,8 @@ const cityZh: Record<string, { name: string; province: string; climate: string; 
   jinan: { name: "济南", province: "山东", climate: "四季分明，夏季较热", visaConvenience: "大学支持稳定", summary: "济南是省会城市，生活成本适中，产业和传统文化资源兼具。" },
   hefei: { name: "合肥", province: "安徽", climate: "湿润亚热带，四季分明", visaConvenience: "研究型大学支持较好", summary: "合肥在科学、量子研究、AI 和先进制造方面越来越受关注。" },
   harbin: { name: "哈尔滨", province: "黑龙江", climate: "冬季非常寒冷，夏季温和", visaConvenience: "工程类国际项目经验丰富", summary: "哈尔滨是生活成本较低的工程教育城市，冬季文化鲜明。" },
-  changsha: { name: "长沙", province: "湖南", climate: "湿润亚热带气候", visaConvenience: "国际学生支持正在增长", summary: "长沙青年文化活跃，美食、制造业和传媒产业都有特色。" }
+  changsha: { name: "长沙", province: "湖南", climate: "湿润亚热带气候", visaConvenience: "国际学生支持正在增长", summary: "长沙青年文化活跃，美食、制造业和传媒产业都有特色。" },
+  kunming: { name: "昆明", province: "云南", climate: "四季温和的高原春城气候", visaConvenience: "面向南亚东南亚的城市服务和高校国际学生支持持续完善", summary: "昆明松弛、实惠、多元，拥有鲜花、湖泊、美食、民族文化和面向东南亚的留学路线。" }
 };
 
 const majorZh: Record<string, string> = {

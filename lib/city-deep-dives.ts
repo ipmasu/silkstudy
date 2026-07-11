@@ -276,6 +276,135 @@ export const cityDeepDives: Record<string, CityDeepDive> = {
         ]
       }
     ]
+  }),
+  kunming: deepDive({
+    slug: "kunming",
+    title: "Why Kunming Is a Spring-City Gateway for Global Students",
+    zhTitle: "为什么昆明正在成为外国年轻人读懂中国西南的理想之地",
+    intro:
+      "Kunming attracts students because it offers something rare: strong universities, scholarship routes, a mild climate, lower living costs, rich food, ethnic diversity, and a slower rhythm that still connects outward to Southeast Asia and the wider world.",
+    zhIntro:
+      "昆明吸引外国年轻人的地方，在于它提供了一种很难得的组合：优质高校、奖学金机会、四季如春的气候、较低生活成本、丰富美食、多元民族文化，以及一种不急不慢却面向东南亚和世界打开的城市节奏。",
+    proofPoints: [
+      "Kunming has repeatedly appeared among attractive Chinese cities in the eyes of foreign professionals since 2019.",
+      "A practical student budget can often sit around RMB 2,500-3,500 per month for basic but comfortable life, depending on housing and lifestyle.",
+      "Students from Vietnam, Myanmar, Laos, the United Kingdom, and many other places already use Kunming as a China pathway."
+    ],
+    zhProofPoints: [
+      "自2019年以来，昆明多次入选外国专家眼中具有吸引力的中国城市，说明它的舒适度和开放度被外来者持续感知。",
+      "如果住宿和生活方式控制得当，许多学生每月约 2500-3500 元就能维持相对舒适的生活，饮食和基础开支也更容易管理。",
+      "从越南、缅甸、老挝到英国，不同国家的学生已经把昆明作为进入中国、理解中国西南和学习中文的重要目的地。"
+    ],
+    sections: [
+      {
+        title: "Strong Universities and Layered Scholarship Routes",
+        zhTitle: "优质高校与多层次奖学金机会",
+        body:
+          "Kunming's higher-education ecosystem is broader than many students expect. Yunnan University, Kunming University of Science and Technology, Kunming Medical University, Yunnan Agricultural University, Yunnan University of Finance and Economics, Yunnan Minzu University, Yunnan Normal University, and Yunnan Arts University create choices across humanities, engineering, medicine, agriculture, business, Chinese language, education, and arts.",
+        zhBody:
+          "昆明的高等教育资源比很多人想象得更丰富。云南大学、昆明理工大学、昆明医科大学、云南农业大学、云南财经大学、云南民族大学、云南师范大学、云南艺术学院等高校，覆盖文、理、工、医、农、商、中文、教育和艺术等方向。",
+        bullets: [
+          "Yunnan University is a Double First-Class comprehensive university with Chinese Government Scholarship, Yunnan provincial scholarship, and university scholarship channels.",
+          "Kunming Medical University offers medical pathways including English-taught clinical medicine references and postgraduate scholarship support.",
+          "Yunnan Agricultural University, Yunnan Minzu University, Yunnan Normal University, and other institutions make Kunming attractive for agriculture, ethnic culture, Chinese language, education, business, and Southeast Asia-facing students."
+        ],
+        zhBullets: [
+          "云南大学是“双一流”建设高校，设有中国政府奖学金、云南省政府奖学金及学校国际学生奖学金等资助通道。",
+          "昆明医科大学提供临床医学英文授课本科等医学路径，硕博阶段也有免学费、住宿、保险和生活费支持的奖学金参考。",
+          "云南农业大学、云南民族大学、云南师范大学等高校，让农业、民族文化、中文教育、商科和面向南亚东南亚发展的学生都有具体选择。"
+        ]
+      },
+      {
+        title: "A Lower-Cost Life in a City That Lets Students Breathe",
+        zhTitle: "实惠生活成本与可以呼吸的城市节奏",
+        body:
+          "Kunming is one of China's most emotionally comfortable study cities. It is modern enough for daily convenience, but not so rushed that students feel swallowed by the city. Rent, meals, transport, and everyday services are generally friendlier than in Beijing or Shanghai.",
+        zhBody:
+          "昆明是中国很容易让留学生感到舒适的城市之一。它足够现代，能满足日常便利；又没有大城市那种把人卷进去的急促感。房租、餐饮、交通和日常服务整体上比北京、上海等城市更亲民。",
+        bullets: [
+          "Students often report that RMB 2,500-3,500 per month can support a basic but comfortable routine when housing is managed carefully.",
+          "Single rooms in many urban areas can be much cheaper than in top-tier cities, while Green Lake-area apartments are higher but still attractive for lifestyle.",
+          "Campus meals often sit around RMB 10-20, making daily budgeting easier for students from different economic backgrounds."
+        ],
+        zhBullets: [
+          "许多学生在控制住宿和生活方式后，每月约 2500-3500 元就能维持相对舒适的生活。",
+          "主城区不少单间和一房一厅价格明显低于一线城市，翠湖周边房源更贵一些，但生活体验很有吸引力。",
+          "学校食堂一顿饭通常约 10-20 元，对来自不同经济背景的学生都比较友好。"
+        ]
+      },
+      {
+        title: "Rice Noodles, Barbecue, Flowers, and the Taste of Yunnan",
+        zhTitle: "米线、烧烤、鲜花和云南味道",
+        body:
+          "Kunming food gives students a fast emotional connection to the city. Crossing-the-bridge rice noodles are famous, but daily Kunming is also small-pot rice noodles, tofu rice noodles, cold rice noodles, roasted tofu, Yunnan barbecue, fruit, coffee, and night-market snacks.",
+        zhBody:
+          "昆明的美食很容易让留学生快速和城市建立情感连接。过桥米线是最有名的名片，但真正日常的昆明还有小锅米线、豆花米线、凉米线、烤豆腐、云南烧烤、热带水果、咖啡和夜市小吃。",
+        bullets: [
+          "Rice noodles are a practical first Chinese lesson: students learn ingredients, spice levels, local names, and how to order.",
+          "Nanqiang pedestrian streets, Daguan night markets, campus neighborhoods, and small restaurants make eating social and affordable.",
+          "Dounan Flower Market turns Kunming's climate into daily beauty and a real flower economy that students can visit by transit."
+        ],
+        zhBullets: [
+          "米线可以成为最实际的第一堂中文课：学生会学配料、辣度、本地叫法和点餐方式。",
+          "南强步行街、大观夜市、校园周边和小餐馆，让吃饭既有社交感，也不容易超预算。",
+          "斗南花市把昆明的气候优势变成日常美好和真实产业，学生可以乘坐公共交通去感受春城的鲜花经济。"
+        ]
+      },
+      {
+        title: "Green Lake, Dianchi, Culture Alley, and Low-Cost Weekends",
+        zhTitle: "翠湖、滇池、文化巷与低成本周末",
+        body:
+          "Kunming's travel value is not only in faraway Yunnan trips. The city itself gives students Green Lake, Yunnan University, Yunnan Military Academy, Culture Alley, Dianchi Lake, Dounan Flower Market, botanical routes, parks, cafes, and old streets.",
+        zhBody:
+          "昆明的旅行价值不只在云南远方路线。城市内部就有翠湖、云南大学、云南陆军讲武堂、文化巷、滇池、斗南花市、植物园路线、公园、咖啡馆和老街，非常适合学生以低成本慢慢探索。",
+        bullets: [
+          "Green Lake and Yunnan University can become a first-day walking route for almost every new international student.",
+          "Dianchi and the lakeside greenway give students sunset, cycling, birds, water, and a wider sense of the plateau city.",
+          "Culture Alley is especially useful for international students because cafes, restaurants, bars, languages, and campus life overlap there."
+        ],
+        zhBullets: [
+          "翠湖与云南大学可以成为几乎每个新留学生的第一天步行路线。",
+          "滇池与湖滨绿道提供日落、骑行、飞鸟、水面和高原城市更开阔的一面。",
+          "文化巷对国际学生尤其友好，因为咖啡馆、餐厅、小酒馆、多种语言和校园生活在这里重叠。"
+        ]
+      },
+      {
+        title: "Ethnic Diversity and a Softer Way to Understand China",
+        zhTitle: "民族多样性与理解中国的另一种方式",
+        body:
+          "Kunming is a gateway to Yunnan's ethnic diversity. For international students, this matters because China no longer appears as one single cultural image. Languages, clothes, food, festivals, weaving, music, villages, and borderland memories all become part of the learning experience.",
+        zhBody:
+          "昆明是进入云南民族多样性的入口。对留学生来说，这很重要，因为中国不再只是单一文化图像。语言、服饰、食物、节庆、纺织、音乐、村寨和边地记忆，都会成为学习中国的一部分。",
+        bullets: [
+          "Yunnan Nationalities Village and nearby cultural routes introduce many ethnic cultures in a form students can walk through and discuss.",
+          "Trips toward Jianshui, Yuanyang terraces, Dali, Lijiang, and Xishuangbanna make Kunming a base for understanding Southwest China.",
+          "Students from Southeast Asia and South Asia may find familiar climate, food notes, and borderland connections while still discovering something new."
+        ],
+        zhBullets: [
+          "云南民族村及周边文化路线，让学生能用步行和讨论的方式进入多民族文化现场。",
+          "建水、元阳梯田、大理、丽江、西双版纳等路线，让昆明成为理解中国西南的出发地。",
+          "来自东南亚和南亚的学生，可能会在气候、食物和边地联系中感到熟悉，同时又不断发现新的中国。"
+        ]
+      },
+      {
+        title: "Cultural Activities and Services That Help Students Stay",
+        zhTitle: "文化活动与帮助学生留下来的服务温度",
+        body:
+          "Kunming's universities and city services create many real entry points for international students: summer camps, flower-market Chinese practice, Dragon Boat Festival gatherings, community visits, theatre exchange, calligraphy, tie-dye, ethnic museum visits, and one-stop foreign talent services.",
+        zhBody:
+          "昆明的高校和城市服务给国际学生提供了很多真实入口：夏令营、斗南花市中文实践、端午雅集、社区参访、戏剧交流、书法、扎染、民族博物馆参观，以及面向外国人才的“一站式”服务。",
+        bullets: [
+          "University cultural festivals bring students from Laos, Pakistan, Thailand, Vietnam, and other countries into shared food, performance, and language scenes.",
+          "Foreign talent and residence-permit service improvements make post-study work and family planning more concrete for qualified students.",
+          "Kunming fits students who want China to feel beautiful, affordable, diverse, safe, and emotionally spacious."
+        ],
+        zhBullets: [
+          "高校文化节让来自老挝、巴基斯坦、泰国、越南等国家的学生在美食、表演和语言场景里真正互动。",
+          "外国人才和居留许可服务的优化，让符合条件的学生能更具体地考虑毕业后的工作、居住和家庭安排。",
+          "昆明适合希望中国留学是美丽、实惠、多元、安全，并且在情感上有空间感的学生。"
+        ]
+      }
+    ]
   })
 };
 

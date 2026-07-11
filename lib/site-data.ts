@@ -221,6 +221,15 @@ export const provinces: Province[] = [
     topMajors: ["Medicine", "Engineering", "Business"],
     cities: ["Changsha", "Zhuzhou"],
     summary: "A central China province with energetic student life, growing media and manufacturing sectors, and respected universities."
+  },
+  {
+    slug: "yunnan",
+    name: "Yunnan",
+    cityCount: 1,
+    universityCount: 6,
+    topMajors: ["Chinese Language", "Medicine", "Engineering"],
+    cities: ["Kunming"],
+    summary: "A southwest China province known for spring-like climate, ethnic diversity, biodiversity, Southeast Asia links, and affordable study-city life."
   }
 ];
 
@@ -368,6 +377,15 @@ export const cities: City[] = [
     climate: "Humid subtropical climate with hot summers and mild winters",
     visaConvenience: "University support with fast rail access to Changsha",
     summary: "Zhuzhou is an affordable rail-transit and manufacturing city in the Changsha-Zhuzhou-Xiangtan metropolitan area."
+  },
+  {
+    slug: "kunming",
+    name: "Kunming",
+    province: "Yunnan",
+    livingCost: "$400-700/month",
+    climate: "Mild spring-like plateau climate",
+    visaConvenience: "Southwest China gateway with international student services and Southeast Asia links",
+    summary: "Kunming is a relaxed, affordable Spring City with strong universities, ethnic culture, flowers, lakes, food, and routes toward Southeast Asia."
   }
 ];
 
@@ -1952,6 +1970,150 @@ export const universities: University[] = [
       tourism: "Three Streets and Two Lanes, Guangxi Museum of Nationalities, Fantawild Asian Legend, Qingxiu Mountain, and Yong River routes fit culture-focused students.",
       internshipsAndCareers: "Chinese language, ASEAN cooperation, education, tourism, business, cultural communication, and translation are natural career contexts.",
       transportAndSafety: "Nanning's warm climate, transit links, and international-student service environment are practical for ASEAN and global students."
+    },
+    reviews: []
+  },
+  {
+    slug: "yunnan-university",
+    name: "Yunnan University",
+    chineseName: "云南大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1922,
+    website: "https://www.ynu.edu.cn/",
+    internationalStudents: "Accepts international undergraduate, master's, doctoral, and Chinese language students",
+    majors: ["Chinese Language", "Business", "Computer Science", "Engineering", "Medicine"],
+    scholarships: ["Chinese Government Scholarship", "Yunnan Provincial Government Scholarship", "Yunnan University International Student Scholarship"],
+    summary: "A Double First-Class comprehensive university in Kunming with strong international student pathways, Chinese language routes, and access to Southwest United Graduate School resources.",
+    campusLife: {
+      nearbyLiving: "The historic campus area near Green Lake gives students cafes, bookstores, small restaurants, parks, and a walkable old-city atmosphere.",
+      foodAndDailyLife: "Students can try crossing-the-bridge rice noodles, small-pot rice noodles, Yunnan barbecue, fruit, coffee, and affordable campus meals.",
+      tourism: "Green Lake, Yunnan University old campus, Yunnan Military Academy, Dianchi Lake, Dounan Flower Market, and cultural streets are close to student life.",
+      internshipsAndCareers: "Chinese language, regional studies, biodiversity, business, culture, journalism, Southeast Asia-facing exchange, and public service are relevant contexts.",
+      transportAndSafety: "Kunming is generally relaxed and student-friendly, with metro, rail, airport links, and a climate that makes daily movement comfortable."
+    },
+    reviews: []
+  },
+  {
+    slug: "kunming-university-of-science-and-technology",
+    name: "Kunming University of Science and Technology",
+    chineseName: "昆明理工大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1954,
+    website: "https://www.kmust.edu.cn/",
+    internationalStudents: "Accepts international degree and exchange students",
+    majors: ["Engineering", "Computer Science", "Architecture", "Business", "Chinese Language"],
+    scholarships: ["Chinese Government Scholarship channels", "Yunnan scholarship opportunities", "University scholarship opportunities"],
+    summary: "A major engineering university in Kunming with strengths in engineering, materials, environment, architecture, information technology, and international cultural activities.",
+    campusLife: {
+      nearbyLiving: "Kunming's moderate costs, mild weather, and metro-linked districts make engineering study more comfortable than many larger cities.",
+      foodAndDailyLife: "Students can balance intensive study with rice noodles, barbecue, campus dining, fruit markets, coffee shops, and late-night local food.",
+      tourism: "Dianchi Lake, Green Lake, Stone Forest, Jianshui, Yuanyang terraces, and Yunnan ethnic culture routes create unusually rich weekend options.",
+      internshipsAndCareers: "Engineering, energy, environment, materials, architecture, infrastructure, visual communication, and Southeast Asia-facing cooperation are relevant career contexts.",
+      transportAndSafety: "Rail, airport, metro, and university services make arrival and weekend travel practical for international students."
+    },
+    reviews: []
+  },
+  {
+    slug: "kunming-medical-university",
+    name: "Kunming Medical University",
+    chineseName: "昆明医科大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1933,
+    website: "https://www.kmmu.edu.cn/",
+    internationalStudents: "Offers international medical student pathways including English-taught clinical medicine references",
+    majors: ["Medicine", "Public Health", "Pharmacy", "Nursing"],
+    scholarships: ["Chinese Government Scholarship channels", "Yunnan Provincial Government Scholarship opportunities", "University support opportunities"],
+    summary: "A representative medical university in Kunming with clinical medicine, public health, pharmacy, nursing, and health-science pathways for international students.",
+    campusLife: {
+      nearbyLiving: "Medical students can study in a lower-cost provincial capital with good hospitals, mild weather, and a less hurried daily rhythm.",
+      foodAndDailyLife: "Affordable dining, rice noodles, campus canteens, fruit, and local markets make daily budgeting easier for medical students.",
+      tourism: "Green Lake, Dianchi, Dounan flowers, ethnic culture routes, and Yunnan weekend trips help balance demanding medical study.",
+      internshipsAndCareers: "Clinical medicine, public health, pharmacy, nursing, tropical and border-region health, and China-Southeast Asia medical exchange are natural directions.",
+      transportAndSafety: "Kunming offers strong transport access and a generally safe, open environment for international students."
+    },
+    reviews: []
+  },
+  {
+    slug: "yunnan-normal-university",
+    name: "Yunnan Normal University",
+    chineseName: "云南师范大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1938,
+    website: "https://www.ynnu.edu.cn/",
+    internationalStudents: "Accepts international degree, Chinese language, and cultural exchange students",
+    majors: ["Chinese Language", "Education", "Business", "Computer Science"],
+    scholarships: ["Chinese Government Scholarship channels", "Yunnan scholarship opportunities", "University scholarship opportunities"],
+    summary: "A teacher-education and humanities university in Kunming with Chinese language education, international education, cultural exchange, and Southwest United University heritage.",
+    campusLife: {
+      nearbyLiving: "Students can enjoy Kunming's slower rhythm, bookstores, cafes, parks, and cultural streets while studying language, education, or humanities.",
+      foodAndDailyLife: "Campus meals, rice noodles, street snacks, coffee, and fruit markets support a comfortable student routine.",
+      tourism: "Green Lake, Dounan Flower Market, Yunnan Nationalities Village, Dianchi Lake, and old-city routes fit language practice and cultural learning.",
+      internshipsAndCareers: "Chinese language teaching, education, translation, intercultural communication, tourism, and Southeast Asia-facing cooperation are strong contexts.",
+      transportAndSafety: "Kunming is accessible by metro, rail, and air, with a relaxed and generally welcoming atmosphere for language learners."
+    },
+    reviews: []
+  },
+  {
+    slug: "yunnan-agricultural-university",
+    name: "Yunnan Agricultural University",
+    chineseName: "云南农业大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1938,
+    website: "https://www.ynau.edu.cn/",
+    internationalStudents: "Accepts international students across undergraduate and postgraduate pathways",
+    majors: ["Agriculture", "Food Science", "Animal Science", "Business", "Chinese Language"],
+    scholarships: ["Chinese Government Scholarship", "Yunnan Provincial Government Scholarship", "University scholarship opportunities"],
+    summary: "A Kunming university suited to agriculture, food systems, tea, ecology, animal science, rural development, and biodiversity-focused students.",
+    campusLife: {
+      nearbyLiving: "Kunming's climate, markets, flowers, farms, and biodiversity make agricultural study feel connected to the surrounding province.",
+      foodAndDailyLife: "Students can connect classroom learning with Yunnan food, tea, flowers, fruit, rice noodles, and everyday markets.",
+      tourism: "Dounan Flower Market, botanical routes, Dianchi wetlands, tea and mountain trips, and ethnic villages give agriculture students strong field context.",
+      internshipsAndCareers: "Agriculture, food systems, ecology, animal science, tea, rural development, and China-Southeast Asia agricultural cooperation are relevant routes.",
+      transportAndSafety: "The city's mild climate and transport links support field visits, internships, and daily student life."
+    },
+    reviews: []
+  },
+  {
+    slug: "yunnan-minzu-university",
+    name: "Yunnan Minzu University",
+    chineseName: "云南民族大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Kunming",
+    citySlug: "kunming",
+    provinceSlug: "yunnan",
+    foundedYear: 1951,
+    website: "https://www.ynni.edu.cn/",
+    internationalStudents: "Accepts international degree and Chinese language students",
+    majors: ["Chinese Language", "Education", "International Relations", "Business", "Digital Media"],
+    scholarships: ["Chinese Government Scholarship channels", "Yunnan scholarship opportunities", "University scholarship opportunities"],
+    summary: "A Kunming university known for ethnic studies, Chinese language, minority cultures, Southeast Asia links, and cross-cultural student life.",
+    campusLife: {
+      nearbyLiving: "The university fits students who want to understand China's ethnic diversity, borderland cultures, languages, and Southwest China daily life.",
+      foodAndDailyLife: "Students can experience multi-ethnic Yunnan food, rice noodles, barbecue, fruit, coffee, tea, and lower-cost local restaurants.",
+      tourism: "Yunnan Nationalities Village, Green Lake, Dianchi, Dounan Flower Market, Jianshui, Yuanyang, Dali, and Lijiang are meaningful cultural routes.",
+      internshipsAndCareers: "Chinese language, ethnic studies, translation, tourism, cultural communication, regional development, and Southeast Asia-facing exchange are natural directions.",
+      transportAndSafety: "Kunming's open atmosphere, mild climate, and regional transport links make it practical for culture-focused international students."
     },
     reviews: []
   }

@@ -178,6 +178,22 @@ const cityProfiles: Record<string, CityProfile> = {
     zhTourism: "茶馆、老街、美食市集、山地路线和川西旅行都很有吸引力。",
     internships: "Healthcare, electronics, gaming, software, cultural industries, and western China business are growing.",
     zhInternships: "医疗、电子、游戏、软件、文创和西部商业机会正在增长。"
+  },
+  kunming: {
+    livingCost: "$400-700/month",
+    zhLivingCost: "约 400-700 美元/月",
+    climate: "Mild spring-like plateau climate",
+    zhClimate: "四季温和、春城气候明显的高原城市",
+    visaConvenience: "Southwest China gateway with international student services and Southeast Asia links",
+    zhVisaConvenience: "面向南亚东南亚的西南门户，大学国际学生服务和城市服务持续完善",
+    summary: "Kunming is relaxed, affordable, diverse, and rich in flowers, lakes, food, ethnic culture, and Southeast Asia-facing study routes.",
+    zhSummary: "昆明松弛、实惠、多元，拥有鲜花、湖泊、美食、民族文化和面向南亚东南亚的留学路线。",
+    tourism: "Green Lake, Dianchi Lake, Dounan Flower Market, Yunnan University, Culture Alley, ethnic routes, Dali, Lijiang, and Yuanyang make Kunming highly attractive.",
+    zhTourism: "翠湖、滇池、斗南花市、云南大学、文化巷、民族文化路线，以及大理、丽江、元阳等延伸线路，让昆明很适合年轻人探索。",
+    internships: "Chinese language, tourism, agriculture, biodiversity, medicine, engineering, regional trade, education, and Southeast Asia-facing cooperation are strong contexts.",
+    zhInternships: "中文、旅游、农业、生物多样性、医学、工程、区域贸易、教育和面向东南亚的合作，是昆明较有潜力的方向。",
+    lifestyleTags: ["Spring City climate", "Ethnic culture", "Flower markets"],
+    zhLifestyleTags: ["春城气候", "民族文化", "鲜花市场"]
   }
 };
 

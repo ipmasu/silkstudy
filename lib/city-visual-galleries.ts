@@ -135,6 +135,250 @@ function normalizeImageUrl(src: string) {
 }
 
 const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  changsha: [
+    {
+      title: "Changsha IFS skyline",
+      zhTitle: "长沙 · IFS城市天际线",
+      image: commonsImage("Changsha_IFS_20250401B.jpg"),
+      alt: "Changsha IFS tower and modern skyline",
+      zhAlt: "长沙IFS与现代城市天际线",
+      note: "Changsha's skyline helps students see the city's contemporary confidence: commerce, youth culture, restaurants, and nightlife gather close to campus routes.",
+      zhNote: "长沙的天际线让学生直观看见这座城市的当代活力：商业、青年文化、餐饮和夜生活，和大学生活并不是割裂的两件事。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Changsha_IFS_20250401B.jpg"
+    },
+    {
+      title: "Changsha IFS city center",
+      zhTitle: "长沙 · 五一商圈的年轻气",
+      image: commonsImage("Changsha_IFS_20250401E.jpg"),
+      alt: "Changsha IFS city center",
+      zhAlt: "长沙IFS城市中心",
+      note: "This central view is useful for imagining student evenings: meeting friends, taking photos, eating snacks, and feeling the city stay awake after class.",
+      zhNote: "这类市中心画面很适合让留学生想象下课后的长沙：见朋友、拍照、吃小吃，在夜晚还亮着的城市里找到自己的节奏。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Changsha_IFS_20250401E.jpg"
+    },
+    {
+      title: "Changsha IFS tower in 2023",
+      zhTitle: "长沙 · 2023年的城市高度",
+      image: commonsImage("Changsha_IFS_Tower_24_August_2023c.jpg"),
+      alt: "Changsha IFS tower in 2023",
+      zhAlt: "2023年长沙IFS塔楼",
+      note: "The newest Changsha is vertical, fast, and photogenic. For international students, it makes the city feel ambitious without losing street-level warmth.",
+      zhNote: "新的长沙是向上生长的、快速的，也很适合拍照。对留学生来说，它有城市野心，但没有失去街头烟火气。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Changsha_IFS_Tower_24_August_2023c.jpg"
+    },
+    {
+      title: "Orange Isle",
+      zhTitle: "长沙 · 橘子洲江风",
+      image: commonsImage("Orange_Isle_2021122645.jpg"),
+      alt: "Orange Isle in Changsha",
+      zhAlt: "长沙橘子洲",
+      note: "Orange Isle is one of Changsha's easiest first routes: river wind, city views, long walks, and a place where history turns into a weekend habit.",
+      zhNote: "橘子洲是初到长沙最容易进入的一条路线：江风、城市视野、长长的散步路，也让历史变成周末可以真实走过的地方。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Orange_Isle_2021122645.jpg"
+    },
+    {
+      title: "Orange Isle riverside route",
+      zhTitle: "长沙 · 湘江与橘洲散步",
+      image: commonsImage("Orange_Isle_2021122648.jpg"),
+      alt: "Riverside route on Orange Isle in Changsha",
+      zhAlt: "长沙橘子洲沿江路线",
+      note: "For students, this is a low-cost, high-memory city route: walk, talk, take photos, watch the river, and return to campus with a clearer sense of Changsha.",
+      zhNote: "对学生来说，这是低成本但很有记忆点的城市路线：散步、聊天、拍照、看江水，然后带着更清楚的长沙印象回到校园。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Orange_Isle_2021122648.jpg"
+    },
+    {
+      title: "Orange Isle landscape",
+      zhTitle: "长沙 · 山水洲城的日常面",
+      image: commonsImage("Orange_Isle,_Changsha_8.jpg"),
+      alt: "Landscape on Orange Isle, Changsha",
+      zhAlt: "长沙橘子洲景观",
+      note: "Changsha's famous mountain-river-island-city pattern becomes easy to understand here: students can move between nature and downtown in the same afternoon.",
+      zhNote: "长沙“山水洲城”的格局，在这里变得非常容易理解：学生可以在同一个下午从自然走回市中心。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Orange_Isle,_Changsha_8.jpg"
+    },
+    {
+      title: "Yuelu Mountain green route",
+      zhTitle: "长沙 · 岳麓山绿色路线",
+      image: commonsImage("Fulong_Mountain_in_Yuelu_District_of_Changsha_2023022601.jpg"),
+      alt: "Green mountain landscape in Yuelu District, Changsha",
+      zhAlt: "长沙岳麓区山地绿意",
+      note: "Yuelu-side green routes matter because many student stories begin there: campuses, bookstores, food streets, hills, and slow weekend climbs.",
+      zhNote: "岳麓一侧的绿色路线很重要，因为很多学生的长沙故事从这里开始：校园、书店、美食街、山路和慢慢爬上去的周末。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Fulong_Mountain_in_Yuelu_District_of_Changsha_2023022601.jpg"
+    },
+    {
+      title: "Qingfeng Spring on Yuelu Mountain",
+      zhTitle: "长沙 · 岳麓山清风泉",
+      image: commonsImage("Qingfeng_Spring_on_Yuelu_Mountain_20230904.jpg"),
+      alt: "Qingfeng Spring on Yuelu Mountain",
+      zhAlt: "长沙岳麓山清风泉",
+      note: "Small places on Yuelu Mountain give Changsha depth: not only nightlife and food, but also shade, water, temples, and quiet study breaks.",
+      zhNote: "岳麓山上的小地点让长沙有了厚度：这里不只是夜生活和美食，也有树荫、水声、寺庙和适合让脑子安静下来的课余时间。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Qingfeng_Spring_on_Yuelu_Mountain_20230904.jpg"
+    },
+    {
+      title: "Taiping Street at night",
+      zhTitle: "长沙 · 太平街夜色",
+      image: commonsImage("Taiping_Street_at_night,_Changsha.jpg"),
+      alt: "Taiping Street at night in Changsha",
+      zhAlt: "长沙太平街夜景",
+      note: "Taiping Street at night catches Changsha at street level: signs, food, crowds, shops, and the easy social energy young people remember.",
+      zhNote: "夜晚的太平街抓住的是街面上的长沙：招牌、小吃、人群、店铺，以及年轻人最容易记住的社交气氛。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Taiping_Street_at_night,_Changsha.jpg"
+    },
+    {
+      title: "Taiping North Road",
+      zhTitle: "长沙 · 太平北路街区",
+      image: commonsImage("Taiping_North_Road,_Changsha_20250301.jpg"),
+      alt: "Taiping North Road in Changsha",
+      zhAlt: "长沙太平北路街区",
+      note: "Old streets make the city more than a skyline. They give language learners real words to use: ordering food, asking prices, finding shops, and talking with locals.",
+      zhNote: "老街让城市不只是天际线。它给学中文的学生很多真实场景：点餐、问价、找店、和本地人说上几句话。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Taiping_North_Road,_Changsha_20250301.jpg"
+    },
+    {
+      title: "Changsha Taiping Old Street",
+      zhTitle: "长沙 · 太平老街",
+      image: commonsImage("Changsha_Taiping_Old_Street.jpg"),
+      alt: "Changsha Taiping Old Street",
+      zhAlt: "长沙太平老街",
+      note: "Taiping Old Street is a good first city-walk route: old walls, snacks, shops, photos, and a way to understand Changsha without a museum label.",
+      zhNote: "太平老街很适合作为第一次城市漫步路线：老墙、小吃、店铺、照片，以及一种不用展签也能理解长沙的方式。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Changsha_Taiping_Old_Street.jpg"
+    },
+    {
+      title: "Mawangdui lacquer spoon at Hunan Museum",
+      zhTitle: "长沙 · 湖南博物院马王堆器物",
+      image: commonsImage("A_lacquer_soup_spoon,_Mawangdui,_Changsha,_Hunan,_Hunan_Museum.jpg"),
+      alt: "Mawangdui lacquer spoon in Hunan Museum",
+      zhAlt: "湖南博物院马王堆漆器",
+      note: "Hunan Museum lets students feel that Changsha's history is not abstract. Mawangdui turns ancient China into color, texture, objects, and questions.",
+      zhNote: "湖南博物院让学生感到长沙的历史并不抽象。马王堆把古代中国变成颜色、质感、器物和可以继续追问的故事。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:A_lacquer_soup_spoon,_Mawangdui,_Changsha,_Hunan,_Hunan_Museum.jpg"
+    }
+  ],
+  kunming: [
+    {
+      title: "Green Lake Park",
+      zhTitle: "昆明 · 翠湖的春城心跳",
+      image: commonsImage("Green_Lake_Park_3.jpg"),
+      alt: "Green Lake Park in Kunming",
+      zhAlt: "昆明翠湖公园",
+      note: "Green Lake is Kunming's gentlest first impression: water, trees, old streets, Yunnan University nearby, and a pace that tells students they can breathe here.",
+      zhNote: "翠湖是昆明最温柔的第一印象：湖水、树影、老街、旁边的云南大学，以及一种告诉学生“可以慢慢呼吸”的城市节奏。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_3.jpg"
+    },
+    {
+      title: "Green Lake walk",
+      zhTitle: "昆明 · 翠湖散步路线",
+      image: commonsImage("Green_Lake_Park_6.jpg"),
+      alt: "Walking route in Green Lake Park",
+      zhAlt: "昆明翠湖公园散步路线",
+      note: "A city becomes livable when students have somewhere to go without spending money. Green Lake gives language practice, photos, quiet talks, and daily reset time.",
+      zhNote: "一座城市是否适合生活，要看学生有没有不花钱也愿意去的地方。翠湖给了他们练中文、拍照、聊天和恢复精力的空间。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_6.jpg"
+    },
+    {
+      title: "Green Lake daily life",
+      zhTitle: "昆明 · 翠湖日常生活",
+      image: commonsImage("Green_Lake_Park_8.jpg"),
+      alt: "Daily life around Green Lake Park",
+      zhAlt: "昆明翠湖日常",
+      note: "Kunming's charm is often small-scale: park benches, local residents, birds, trees, and the sense that study life does not need to be rushed.",
+      zhNote: "昆明的魅力常常是小尺度的：公园长椅、本地市民、飞鸟、树木，还有一种学习生活不必被催得太急的感觉。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_8.jpg"
+    },
+    {
+      title: "Northeastern Green Lake",
+      zhTitle: "昆明 · 2022年的翠湖一角",
+      image: commonsImage("Northeastern_of_Kunming_GreenLake,_2022.07.06.jpg"),
+      alt: "Northeastern part of Kunming Green Lake in 2022",
+      zhAlt: "昆明翠湖东北角",
+      note: "Green Lake sits next to one of Kunming's strongest student neighborhoods, making it a natural bridge between class, cafes, old streets, and weekend walks.",
+      zhNote: "翠湖旁边就是昆明很有学生气的街区之一，它自然连接课堂、咖啡馆、老街和周末散步。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Northeastern_of_Kunming_GreenLake,_2022.07.06.jpg"
+    },
+    {
+      title: "Dianchi Lake",
+      zhTitle: "昆明 · 滇池开阔的风",
+      image: commonsImage("Dianchi_Lake.jpg"),
+      alt: "Dianchi Lake in Kunming",
+      zhAlt: "昆明滇池",
+      note: "Dianchi makes Kunming feel open. Students can ride, walk, watch sunset, and understand why the Spring City is also a lake-and-mountain city.",
+      zhNote: "滇池让昆明变得开阔。学生可以骑行、散步、看日落，也会理解为什么春城同时是一座湖山之城。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Dianchi_Lake.jpg"
+    },
+    {
+      title: "Dianchi lakeside hotel view",
+      zhTitle: "昆明 · 滇池边的城市度假感",
+      image: commonsImage("InterContinental_Kunming_Hotel_(20180212190002).jpg"),
+      alt: "Lakeside view near Dianchi in Kunming",
+      zhAlt: "昆明滇池边景观",
+      note: "The Dianchi side shows another Kunming: more spacious, resort-like, and suitable for students who want study life to include nature and holidays.",
+      zhNote: "滇池边呈现的是昆明的另一面：更开阔、更有度假感，也适合希望学习之外还能亲近自然和假日生活的学生。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:InterContinental_Kunming_Hotel_(20180212190002).jpg"
+    },
+    {
+      title: "Yunnan University at Cuihu North Road",
+      zhTitle: "昆明 · 云南大学翠湖北路",
+      image: commonsImage("6-24-6640_at_Yunnan_University,_Cuihu_North_Rd_(20240214114708).jpg"),
+      alt: "Yunnan University near Cuihu North Road",
+      zhAlt: "昆明云南大学翠湖北路",
+      note: "Yunnan University gives Kunming's student story a historic center: old campus atmosphere, lake walks, bookstores, cafes, and a serious academic anchor.",
+      zhNote: "云南大学给昆明的留学故事一个有历史感的中心：老校区气质、翠湖散步、书店、咖啡馆和扎实的学术锚点。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:6-24-6640_at_Yunnan_University,_Cuihu_North_Rd_(20240214114708).jpg"
+    },
+    {
+      title: "Yunnan University old campus",
+      zhTitle: "昆明 · 云大老校区气质",
+      image: commonsImage("Kunming_44.JPG"),
+      alt: "Yunnan University old campus in Kunming",
+      zhAlt: "昆明云南大学老校区",
+      note: "Old campus scenes help students imagine something quieter than a brochure: reading paths, shaded buildings, and the feeling of growing slowly in a real place.",
+      zhNote: "老校区画面让学生想象到比招生宣传更具体的东西：读书的小路、树荫下的建筑，以及在真实地方慢慢成长的感觉。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kunming_44.JPG"
+    },
+    {
+      title: "Yunnan University campus life",
+      zhTitle: "昆明 · 云大校园日常",
+      image: commonsImage("Kunming_45.JPG"),
+      alt: "Yunnan University campus in Kunming",
+      zhAlt: "昆明云南大学校园",
+      note: "For international students, a campus is not only classrooms. It is where Chinese practice, friendships, research plans, and daily confidence begin to accumulate.",
+      zhNote: "对留学生来说，校园不只是教室。中文练习、朋友关系、研究计划和日常自信，都是在这样的地方一点点积累起来的。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kunming_45.JPG"
+    },
+    {
+      title: "Dounan Flower Market access",
+      zhTitle: "昆明 · 斗南花市的入口",
+      image: commonsImage("Notice_for_passengers_to_Dounan_Flower_Market_at_L1_Dounan_Station_(20210322152436).jpg"),
+      alt: "Passenger notice for Dounan Flower Market at Dounan Station",
+      zhAlt: "昆明斗南站通往斗南花市提示",
+      note: "Dounan Flower Market explains Kunming's flower identity. Even the metro route feels like a doorway into the everyday economy of the Spring City.",
+      zhNote: "斗南花市解释了昆明为什么与鲜花联系得如此紧密。哪怕只是地铁站里的指示，也像是通往春城日常经济的一扇门。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Notice_for_passengers_to_Dounan_Flower_Market_at_L1_Dounan_Station_(20210322152436).jpg"
+    },
+    {
+      title: "Green Lake Park 9",
+      zhTitle: "昆明 · 花树与湖光",
+      image: commonsImage("Green_Lake_Park_9.jpg"),
+      alt: "Trees and lake view at Green Lake Park",
+      zhAlt: "昆明翠湖花树湖光",
+      note: "The Spring City is convincing because it looks livable in ordinary light: flowers, water, people walking, and a climate that becomes part of the study offer.",
+      zhNote: "春城之所以有说服力，是因为它在普通光线里也显得适合生活：花、水、散步的人，以及一种会成为留学理由的气候。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_9.jpg"
+    },
+    {
+      title: "Squirrels in Kunming",
+      zhTitle: "昆明 · 校园边的松弛感",
+      image: commonsImage("Squirrels_kunming.jpg"),
+      alt: "Squirrels in Kunming",
+      zhAlt: "昆明松鼠与自然日常",
+      note: "Small natural details can matter to young students. They make Kunming feel less like a stressful destination and more like a city where life has room.",
+      zhNote: "这些小小的自然细节对年轻学生也重要。它们让昆明不像一个紧张的目的地，而像一座生活有余地的城市。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Squirrels_kunming.jpg"
+    }
+  ],
   nanning: [
     {
       title: "Nanning seen from Qingxiu Mountain",

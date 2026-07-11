@@ -216,6 +216,129 @@ export const cityCulturalInspirations: Record<string, CityCulturalInspiration> =
           "适合来自热带国家的学生，也适合需要在上课、申请和中文练习之间找到平静节奏的人。"
       }
     ]
+  }),
+  kunming: inspiration({
+    slug: "kunming",
+    title: "Kunming Through Spring City Life and Yunnan Diversity",
+    zhTitle: "从春城气候与云南多元文化里看见昆明",
+    intro:
+      "Kunming is attractive because it feels gentle without being empty: Green Lake, Yunnan University, Dianchi, flowers, rice noodles, ethnic cultures, cafes, old streets, and a gateway rhythm toward Southeast Asia.",
+    zhIntro:
+      "昆明吸引年轻人的地方，是它温柔但不空洞：翠湖、云南大学、滇池、鲜花、米线、民族文化、咖啡馆、老街，以及面向东南亚的开放节奏，共同构成了春城的留学气质。",
+    sourceNote:
+      "Topics are rewritten from the Kunming study-city brief, public cultural references, and verified Wikimedia image sources.",
+    zhSourceNote:
+      "选题根据昆明留学城市文章、公共文化线索和已核验 Wikimedia 真实图片重新整理撰写。",
+    items: [
+      {
+        name: "Green Lake Park",
+        zhName: "翠湖公园",
+        category: "Spring City landmark",
+        zhCategory: "春城地标",
+        district: "Wuhua District",
+        zhDistrict: "五华区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Green_Lake_Park_3.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_3.jpg",
+        story:
+          "Green Lake is the emotional center of student Kunming. It is free, walkable, close to Yunnan University, and full of the everyday scenes that make a city feel safe and breathable.",
+        zhStory:
+          "翠湖是学生理解昆明最好的情感入口。它免费、可步行、靠近云南大学，也充满本地市民散步、聊天、看鸟和休息的日常画面，让城市显得安全、松弛、可以呼吸。",
+        studentAngle:
+          "Best for a first Kunming afternoon: walk from campus to the lake, practice Chinese, find a cafe, and feel why the city is called the Spring City.",
+        zhStudentAngle:
+          "适合作为抵达昆明后的第一个下午：从校园走到湖边，练中文，找一家咖啡馆，然后慢慢理解为什么这里叫春城。"
+      },
+      {
+        name: "Yunnan University Old Campus",
+        zhName: "云南大学老校区",
+        category: "Campus and history",
+        zhCategory: "校园与历史",
+        district: "Cuihu North Road",
+        zhDistrict: "翠湖北路",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kunming_44.JPG?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Kunming_44.JPG",
+        story:
+          "Yunnan University gives Kunming a serious academic anchor. Around the old campus, students can feel that study life is connected with old streets, bookstores, cafes, and the memory of Southwest China's intellectual history.",
+        zhStory:
+          "云南大学给昆明的留学故事一个扎实的学术锚点。老校区周围，学习生活和老街、书店、咖啡馆、西南学术传统的记忆连在一起，不是孤零零地存在。",
+        studentAngle:
+          "Strong for students who want a beautiful but academically grounded city: it is easy to combine reading, walking, language practice, and slow discovery.",
+        zhStudentAngle:
+          "适合希望城市既漂亮又有学术根基的学生：读书、散步、中文练习和慢慢探索，可以自然放在同一天里。"
+      },
+      {
+        name: "Dianchi Lake",
+        zhName: "滇池",
+        category: "Lake and weekend life",
+        zhCategory: "湖泊与周末生活",
+        district: "Dianchi area",
+        zhDistrict: "滇池片区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dianchi_Lake.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Dianchi_Lake.jpg",
+        story:
+          "Dianchi gives Kunming a wide horizon. It is where students can ride, walk, watch sunset, and understand that the city is not only mild in weather but also generous in space.",
+        zhStory:
+          "滇池给昆明打开了一个宽阔视野。学生可以骑行、散步、看日落，也会明白昆明不只是气候温和，它在空间上也很慷慨。",
+        studentAngle:
+          "Good for low-cost weekends and mental reset, especially after exam weeks or intensive language study.",
+        zhStudentAngle:
+          "适合低成本周末和恢复状态，尤其适合考试周后，或中文学习比较密集的时候去放松。"
+      },
+      {
+        name: "Dounan Flower Market",
+        zhName: "斗南花市",
+        category: "Flower economy",
+        zhCategory: "鲜花经济",
+        district: "Chenggong District",
+        zhDistrict: "呈贡区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Notice_for_passengers_to_Dounan_Flower_Market_at_L1_Dounan_Station_(20210322152436).jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Notice_for_passengers_to_Dounan_Flower_Market_at_L1_Dounan_Station_(20210322152436).jpg",
+        story:
+          "Dounan Flower Market turns Kunming's climate into a visible industry. It is not only romantic; it is a real supply chain where students can understand how flowers, logistics, cities, and everyday beauty meet.",
+        zhStory:
+          "斗南花市把昆明的气候优势变成了看得见的产业。它不只是浪漫，也是一条真实的供应链，能让学生理解鲜花、物流、城市和日常美好如何连接。",
+        studentAngle:
+          "Useful for students interested in business, agriculture, design, tourism, social media, and the small economies behind beautiful things.",
+        zhStudentAngle:
+          "适合关注商科、农业、设计、旅游、社交媒体，以及“美好事物背后的小经济”的学生。"
+      },
+      {
+        name: "Kunming Food Streets",
+        zhName: "昆明米线与夜市街区",
+        category: "Food and night market",
+        zhCategory: "美食与夜市",
+        district: "Old city and campus neighborhoods",
+        zhDistrict: "老城与校园周边",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Green_Lake_Park_9.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_9.jpg",
+        story:
+          "Kunming is learned through taste: crossing-the-bridge rice noodles, small-pot rice noodles, tofu rice noodles, roasted tofu, Yunnan barbecue, fruit, coffee, and night-market snacks.",
+        zhStory:
+          "昆明很适合通过味觉来认识：过桥米线、小锅米线、豆花米线、烤豆腐、云南烧烤、热带水果、咖啡和夜市小吃，会让学生很快对这座城市产生亲近感。",
+        studentAngle:
+          "Food is the easiest language exchange route: classmates can explain ingredients, dialect names, prices, and local habits over one bowl of rice noodles.",
+        zhStudentAngle:
+          "美食是最容易开启语言交换的路线：一碗米线里，同学就可以讲配料、方言叫法、价格和本地习惯。"
+      },
+      {
+        name: "Yunnan Ethnic Culture Routes",
+        zhName: "云南民族文化路线",
+        category: "Ethnic diversity",
+        zhCategory: "民族多样性",
+        district: "Kunming and Yunnan weekend routes",
+        zhDistrict: "昆明与云南周末路线",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Green_Lake_Park_7.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Green_Lake_Park_7.jpg",
+        story:
+          "Kunming is a gateway to one of China's richest cultural landscapes. From Yunnan Nationalities Village to Jianshui, Yuanyang, Dali, and Lijiang, students can meet China through many languages, clothes, foods, songs, and local memories.",
+        zhStory:
+          "昆明是进入中国最丰富文化景观之一的入口。从云南民族村到建水、元阳、大理、丽江，学生会通过多种语言、服饰、食物、歌舞和地方记忆来认识中国。",
+        studentAngle:
+          "Especially strong for students from Southeast Asia, South Asia, and culture-curious countries because Yunnan makes China feel diverse, border-connected, and emotionally close.",
+        zhStudentAngle:
+          "尤其适合来自东南亚、南亚，以及对文化多样性好奇的学生，因为云南会让中国显得多元、边地相连，也更容易产生情感上的亲近。"
+      }
+    ]
   })
 };
 
