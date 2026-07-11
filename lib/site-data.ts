@@ -343,6 +343,15 @@ export const cities: City[] = [
     summary: "Harbin is a lower-cost engineering city with distinctive winter culture."
   },
   {
+    slug: "nanning",
+    name: "Nanning",
+    province: "Guangxi",
+    livingCost: "$350-650/month",
+    climate: "Warm humid subtropical climate",
+    visaConvenience: "ASEAN-facing international student and talent services",
+    summary: "Nanning is a green, affordable ASEAN-facing city with strong regional universities, food culture, and cross-cultural exchange."
+  },
+  {
     slug: "changsha",
     name: "Changsha",
     province: "Hunan",
@@ -1871,6 +1880,78 @@ export const universities: University[] = [
       tourism: "Zhuzhou connects easily to Changsha, Yuelu Mountain, Orange Isle, Hunan Museum, Hengshan, and longer high-speed rail trips to Zhangjiajie.",
       internshipsAndCareers: "The city is a major rail-transit and manufacturing center, creating relevant exposure for engineering, materials, automation, design, packaging, and business students.",
       transportAndSafety: "Zhuzhou is connected by high-speed rail and regional transport to Changsha and other Chinese cities; the university area offers a practical and generally safe student environment."
+    },
+    reviews: []
+  },
+  {
+    slug: "guangxi-university",
+    name: "Guangxi University",
+    chineseName: "广西大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Nanning",
+    citySlug: "nanning",
+    provinceSlug: "guangxi",
+    foundedYear: 1928,
+    website: "https://www.gxu.edu.cn/",
+    internationalStudents: "Accepts international degree and language students",
+    majors: ["Engineering", "Agriculture", "Computer Science", "Business", "Chinese Language"],
+    scholarships: ["Chinese Government Scholarship", "Silk Road Scholarship", "University scholarship opportunities"],
+    summary: "A Double First-Class comprehensive university in Nanning with strengths in engineering, agriculture, business, Chinese language, and China-ASEAN regional cooperation.",
+    campusLife: {
+      nearbyLiving: "Nanning offers a warm climate, moderate living costs, campus dining, local restaurants, and accessible student neighborhoods.",
+      foodAndDailyLife: "Students can try laoyou rice noodles, suanye, night markets, campus canteens, and affordable local meals around university areas.",
+      tourism: "Qingxiu Mountain, the Yong River, Guangxi Museum of Nationalities, Three Streets and Two Lanes, and ASEAN-themed routes are useful weekend options.",
+      internshipsAndCareers: "Nanning is a gateway for China-ASEAN trade, agriculture, engineering, logistics, language services, and regional business exposure.",
+      transportAndSafety: "The city has airport, rail, bus, and campus support services; daily life is generally practical for international students."
+    },
+    reviews: []
+  },
+  {
+    slug: "guangxi-medical-university",
+    name: "Guangxi Medical University",
+    chineseName: "广西医科大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Nanning",
+    citySlug: "nanning",
+    provinceSlug: "guangxi",
+    foundedYear: 1934,
+    website: "https://www.gxmu.edu.cn/",
+    internationalStudents: "Accepts international medical students",
+    majors: ["Medicine", "Public Health", "Pharmacy", "Nursing"],
+    scholarships: ["Chinese Government Scholarship channels", "Guangxi scholarship opportunities"],
+    summary: "A medical university in Nanning offering international student pathways in clinical medicine, public health, pharmacy, nursing, and related health fields.",
+    campusLife: {
+      nearbyLiving: "Medical students can live in a lower-cost provincial-capital environment with hospitals, campus services, and practical city transport.",
+      foodAndDailyLife: "Nanning's campus meals, local rice noodles, night markets, and fruit-based snacks are affordable and friendly to student budgets.",
+      tourism: "Students can balance intensive medical study with Qingxiu Mountain, Yong River walks, museums, old streets, and Guangxi weekend routes.",
+      internshipsAndCareers: "Medicine, public health, tropical medicine, nursing, and pharmacy are relevant to Guangxi's regional and ASEAN-facing health context.",
+      transportAndSafety: "University and city services support registration, daily transport, and international student arrival needs."
+    },
+    reviews: []
+  },
+  {
+    slug: "guangxi-university-for-nationalities",
+    name: "Guangxi University for Nationalities",
+    chineseName: "广西民族大学",
+    qsRanking: 0,
+    tuition: "Confirm by current program guide",
+    location: "Nanning",
+    citySlug: "nanning",
+    provinceSlug: "guangxi",
+    foundedYear: 1952,
+    website: "https://www.gxun.edu.cn/",
+    internationalStudents: "One of Nanning's representative universities for ASEAN and international students",
+    majors: ["Chinese Language", "Business", "Education", "International Relations", "Digital Media"],
+    scholarships: ["Guangxi ASEAN student scholarship opportunities", "University scholarship opportunities"],
+    summary: "A Nanning university known for ethnic culture, Chinese language, ASEAN exchange, humanities, education, and cross-cultural student life.",
+    campusLife: {
+      nearbyLiving: "The university is strongly connected with ASEAN student exchange and offers a culturally diverse environment in Nanning.",
+      foodAndDailyLife: "Students can explore laoyou noodles, suanye, campus dining, night markets, and Guangxi food culture at manageable costs.",
+      tourism: "Three Streets and Two Lanes, Guangxi Museum of Nationalities, Fantawild Asian Legend, Qingxiu Mountain, and Yong River routes fit culture-focused students.",
+      internshipsAndCareers: "Chinese language, ASEAN cooperation, education, tourism, business, cultural communication, and translation are natural career contexts.",
+      transportAndSafety: "Nanning's warm climate, transit links, and international-student service environment are practical for ASEAN and global students."
     },
     reviews: []
   }

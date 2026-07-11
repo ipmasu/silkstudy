@@ -85,6 +85,28 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const culturalInspiration = getCityCulturalInspiration(city.slug);
   const cityDeepDive = getCityDeepDive(city.slug);
   const visualGallery = await getCityVisualGallery(city.slug, city);
+  const culturalSourceUrls = new Set(culturalInspiration?.items.map((item) => item.sourceUrl) ?? []);
+  const culturalVisualItems = culturalInspiration
+    ? [
+        ...culturalInspiration.items,
+        ...visualGallery
+          .filter((item) => item.sourceUrl && !culturalSourceUrls.has(item.sourceUrl))
+          .map((item) => ({
+            name: item.title,
+            zhName: item.zhTitle,
+            category: "City image",
+            zhCategory: "城市图像",
+            district: city.name,
+            zhDistrict: city.zhName,
+            image: item.image,
+            sourceUrl: item.sourceUrl ?? item.image,
+            story: item.note,
+            zhStory: item.zhNote,
+            studentAngle: "Use this image as a real visual clue for imagining daily study life, weekend routes, and the city's atmosphere.",
+            zhStudentAngle: "这张真实图片可以帮助学生想象日常留学生活、周末路线和这座城市真正的气质。"
+          }))
+      ]
+    : [];
 
   const reviewCards = [
     {
@@ -191,7 +213,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               </div>
             </div>
 
-            {!experienceGuide && visualGallery.length > 0 ? (
+            {!experienceGuide && !culturalInspiration && visualGallery.length > 0 ? (
               <div className="mt-14">
                 <SectionHeading
                   eyebrow={isZh ? "城市图像" : "City visuals"}
@@ -362,12 +384,12 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {culturalInspiration ? (
               <div className="mt-14">
                 <SectionHeading
-                  eyebrow={isZh ? "城市风物" : "Local culture cues"}
+                  eyebrow={isZh ? "城市风物与图像" : "Local culture and city visuals"}
                   title={isZh ? culturalInspiration.zhTitle : culturalInspiration.title}
                   description={isZh ? culturalInspiration.zhIntro : culturalInspiration.intro}
                 />
                 <div className="mt-8 grid gap-6 lg:grid-cols-3">
-                  {culturalInspiration.items.map((item) => (
+                  {culturalVisualItems.map((item) => (
                     <article key={item.name} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                       <div className="aspect-[16/10] overflow-hidden bg-slate-100">
                         <FallbackImage
@@ -389,7 +411,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                           <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? item.zhStudentAngle : item.studentAngle}</p>
                         </div>
                         <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex text-xs font-semibold text-primary hover:text-secondary">
-                          {isZh ? "华夏风物线索" : "Huaxia Fengwu cue"}
+                          {isZh ? "文化线索" : "Culture cue"}
                         </a>
                       </div>
                     </article>
@@ -399,7 +421,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               </div>
             ) : null}
 
-            {guideDetail ? (
+            {guideDetail || cityDeepDive ? (
               <div className="mt-14">
                 <SectionHeading
                   eyebrow={isZh ? "城市深度介绍" : "In-depth city guide"}

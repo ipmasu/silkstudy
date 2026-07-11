@@ -147,6 +147,135 @@ export const cityDeepDives: Record<string, CityDeepDive> = {
         ]
       }
     ]
+  }),
+  nanning: deepDive({
+    slug: "nanning",
+    title: "Why Nanning Is a Natural China Gateway for ASEAN and Global Youth",
+    zhTitle: "为什么南宁正在成为东盟与全球青年读懂中国的第一站",
+    intro:
+      "Nanning is different from China's louder megacities. It is green, warm, affordable, ASEAN-facing, and culturally open. For students from Southeast Asia, South Asia, Africa, and other developing regions, it can feel like a practical and welcoming doorway into China.",
+    zhIntro:
+      "南宁和中国那些声量更大的超大城市不一样。它绿色、温暖、实惠，面向东盟，也天然带着跨文化交流的气质。对来自东南亚、南亚、非洲以及许多发展中国家的学生来说，南宁像是一扇更亲近、更可负担、更容易进入中国的门。",
+    proofPoints: [
+      "Nanning is Guangxi's capital and one of China's most important city windows toward ASEAN cooperation.",
+      "Daily meals around campuses and local restaurants can be very student-friendly, with some references around RMB 14-30 per day for simple eating.",
+      "Scholarship routes include Guangxi ASEAN student scholarships, Chinese Government Scholarship channels, and university-level support."
+    ],
+    zhProofPoints: [
+      "南宁是广西首府，也是中国面向东盟开放合作的重要城市窗口。",
+      "学校食堂和周边餐馆价格对学生友好，简单日常餐饮可低至每天约 14-30 元。",
+      "奖学金路径丰富，包括广西政府东盟国家留学生奖学金、中国政府奖学金项目，以及高校和企业支持项目。"
+    ],
+    sections: [
+      {
+        title: "Education and Scholarships With an ASEAN Advantage",
+        zhTitle: "面向东盟的教育资源与奖学金优势",
+        body:
+          "Nanning's universities are especially meaningful for students who care about China-ASEAN cooperation, medicine, engineering, Chinese language, ethnic culture, tourism, digital fields, and regional development.",
+        zhBody:
+          "南宁的高校资源，特别适合关注中国—东盟合作、医学、工程、中文、民族文化、旅游、数字科技和区域发展的学生。",
+        bullets: [
+          "Guangxi University is a Double First-Class university with scholarship channels and strengths in engineering, agriculture, business, and regional studies.",
+          "Guangxi Minzu University is highly visible among ASEAN students and offers degree and Chinese-language routes for international students.",
+          "Guangxi Medical University, Nanning Normal University, Guangxi University of Chinese Medicine, and other institutions give students choices across medicine, education, humanities, and applied fields."
+        ],
+        zhBullets: [
+          "广西大学是“双一流”建设高校，拥有奖学金通道，在工程、农业、商科和区域研究等方向具备代表性。",
+          "广西民族大学在东盟国家学生中知名度高，面向国际学生提供本科、研究生和汉语进修等路径。",
+          "广西医科大学、南宁师范大学、广西中医药大学等高校，让医学、教育、人文和应用型专业学生都有选择空间。"
+        ]
+      },
+      {
+        title: "Lower Living Cost, Warm Weather, and Easier Daily Life",
+        zhTitle: "更低生活成本、温暖气候和更轻松的日常",
+        body:
+          "Nanning is one of those cities where international students can feel daily pressure become lighter. Food, rent, transport, and everyday services are generally gentler than in Beijing, Shanghai, Guangzhou, or Shenzhen.",
+        zhBody:
+          "南宁是一座能让留学生感到日常压力变轻的城市。餐饮、住宿、交通和生活服务整体比北上广深更温和，特别适合预算有限但希望生活质量稳定的学生。",
+        bullets: [
+          "Campus meals and neighborhood restaurants make student budgeting easier.",
+          "The warm, humid subtropical climate is familiar and comfortable for many students from tropical countries.",
+          "Airport, rail stations, buses, phone cards, and internet services make arrival and daily communication practical."
+        ],
+        zhBullets: [
+          "校园食堂和大学周边餐馆价格友好，学生更容易控制预算。",
+          "南宁温暖湿润、少有严寒，对于许多来自热带国家的学生更亲切。",
+          "机场、火车站、公交网络、电话卡和互联网服务都比较完善，抵达和日常联系更方便。"
+        ]
+      },
+      {
+        title: "A Food City Built on Sour, Spicy, Fresh, and Fragrant Flavors",
+        zhTitle: "一座用“酸辣鲜香”征服味蕾的城市",
+        body:
+          "Nanning food is memorable because it is bright and alive. Laoyou rice noodles, suanye pickled fruits and vegetables, fermented rice noodles, lemon duck, roll rice noodles, Binyang sour noodles, and dumpling-like rice snacks give students an immediate taste of Guangxi.",
+        zhBody:
+          "南宁的美食记忆点很鲜明：酸、辣、鲜、香，轻快而有生命力。老友粉、酸嘢、生榨米粉、白切柠檬鸭、卷筒粉、宾阳酸粉和粉饺，都能让留学生很快尝到广西的地方性格。",
+        bullets: [
+          "Laoyou rice noodles are the city's most direct food identity: hot broth, sour bamboo shoots, garlic, chili, fermented black beans, and a strong street aroma.",
+          "Suanye is perfect for Nanning weather: pickled fruits and vegetables that are sour, sweet, spicy, crisp, and refreshing.",
+          "Zhongshan Road, Jianzheng Road, and Xiguan night markets let students understand Nanning through food, lights, shopping, and late-night crowds."
+        ],
+        zhBullets: [
+          "老友粉是南宁最直接的味觉名片：热汤、酸笋、蒜蓉、小米辣、豆豉和街头镬气，很容易让人记住。",
+          "酸嘢非常适合南宁湿热天气：瓜果蔬菜被腌成酸甜鲜辣、清爽解腻的小吃。",
+          "中山路、建政路和西关夜市让学生通过食物、灯光、购物和夜晚人流理解南宁。"
+        ]
+      },
+      {
+        title: "Green City Travel: Mountains, River, Museums, and Weekend Borders",
+        zhTitle: "绿城旅行：青秀山、邕江、博物馆与边境周末",
+        body:
+          "Nanning's travel rhythm is softer than a blockbuster tourist city, but very livable. Students can move from tropical greenery to river walks, museums, old streets, theme parks, and short trips toward Vietnam-facing border landscapes.",
+        zhBody:
+          "南宁的旅行节奏不像爆款旅游城市那样喧闹，但非常适合生活。学生可以从热带绿意走到邕江，从博物馆走到老街，从东盟主题乐园走到面向中越边境的周末路线。",
+        bullets: [
+          "Qingxiu Mountain is the city landmark: tropical and subtropical plants, a forest-like atmosphere, night garden events, and views from Longxiang Tower.",
+          "The Yong River links Qingxiu Mountain, Jinhuiruyifang, Nanning Confucius Temple Museum, and Guangxi Museum of Nationalities.",
+          "Detian Transnational Waterfall gives adventurous students a rare borderland weekend route."
+        ],
+        zhBullets: [
+          "青秀山是南宁城市名片：热带、亚热带植物，森林氧吧般的氛围，夜花园活动，以及龙象塔上的城市视野。",
+          "邕江串联青秀山、金汇如意坊、南宁孔庙博物馆和广西民族博物馆，是理解城市空间的一条线。",
+          "德天跨国瀑布给喜欢探索的学生提供了很有记忆点的边境周末路线。"
+        ]
+      },
+      {
+        title: "ASEAN Culture Is Not Decoration Here",
+        zhTitle: "东盟文化在这里不是装饰，而是城市底色",
+        body:
+          "Nanning's strongest difference is its ASEAN orientation. The China-ASEAN Expo, ASEAN student exchanges, Fantawild Asian Legend, Guangxi Museum of Nationalities, and university networks make cross-cultural life part of the city structure.",
+        zhBody:
+          "南宁最独特的地方，是它的东盟面向。中国—东盟博览会、东盟留学生交流、方特东盟神画、广西民族博物馆和高校合作网络，让跨文化生活成为城市结构的一部分，而不是旅游宣传里的装饰。",
+        bullets: [
+          "For ASEAN students, Nanning can feel like a second home inside China.",
+          "For non-ASEAN students, it is a good place to understand Southeast Asia while studying in China.",
+          "Fantawild Asian Legend and ASEAN-themed events make culture easy to experience visually, socially, and emotionally."
+        ],
+        zhBullets: [
+          "对东盟学生来说，南宁很容易成为在中国的“第二故乡”。",
+          "对非东盟国家学生来说，南宁也是在中国理解东南亚文化的好窗口。",
+          "方特东盟神画和各类东盟主题活动，让文化不只是知识，而是可以看见、参与和产生情感连接的体验。"
+        ]
+      },
+      {
+        title: "Intangible Heritage, Festivals, and Services That Help Students Stay",
+        zhTitle: "非遗、节庆与让学生留下来的服务温度",
+        body:
+          "Nanning gives international students many chances to enter local culture through the body: Zhuang brocade weaving, qipao and arcade architecture walks, Cantonese opera gestures, art exhibitions, dragon boat racing, Chinese-language storytelling, and campus service events.",
+        zhBody:
+          "南宁给国际学生很多通过身体进入本地文化的机会：壮锦织锦、骑楼建筑参访、粤剧身段学习、美术馆沉浸体验、龙舟赛、中文讲述和校园服务活动，都让留学不只是上课。",
+        bullets: [
+          "Zhuang brocade classes are especially powerful for ASEAN students because they can weave home-country colors into Chinese intangible heritage.",
+          "One-stop foreign talent and work-service platforms make post-study planning more concrete for students who may stay in Guangxi.",
+          "Nanning fits students who want China to feel warm, affordable, regional, green, and internationally connected."
+        ],
+        zhBullets: [
+          "壮锦课程很适合东盟学生，因为他们可以把自己家乡的色彩织进中国非遗里。",
+          "外国人才“一站式”服务平台、来华工作服务专窗和南宁—东盟国际人才港，让毕业后可能留桂发展的学生看到更具体的路径。",
+          "南宁适合希望中国是温暖、实惠、有区域特色、绿色并且国际连接紧密的学生。"
+        ]
+      }
+    ]
   })
 };
 

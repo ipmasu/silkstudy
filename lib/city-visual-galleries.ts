@@ -134,6 +134,151 @@ function normalizeImageUrl(src: string) {
   return src.startsWith("//") ? `https:${src}` : src;
 }
 
+const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  nanning: [
+    {
+      title: "Nanning seen from Qingxiu Mountain",
+      zhTitle: "南宁 · 青秀山俯瞰绿城",
+      image: commonsImage("Nanning_seen_from_Qingxiu_Mountain.jpg"),
+      alt: "Nanning city seen from Qingxiu Mountain",
+      zhAlt: "从青秀山俯瞰南宁城市",
+      note: "Qingxiu Mountain shows why Nanning is called a green city: the skyline, river air, and subtropical landscape sit close enough for students to reach on an ordinary weekend.",
+      zhNote: "青秀山能直接说明南宁为什么被称为“中国绿城”：城市天际线、邕江气息和亚热带绿意离学生生活并不遥远，普通周末就可以抵达。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning_seen_from_Qingxiu_Mountain.jpg"
+    },
+    {
+      title: "China-ASEAN Business Center skyline",
+      zhTitle: "南宁 · 中国—东盟商务区",
+      image: commonsImage("Skyline_of_China-ASEAN_Business_Center_in_Qingxiu_District.jpg"),
+      alt: "Skyline of China-ASEAN Business Center in Nanning",
+      zhAlt: "南宁中国—东盟商务区天际线",
+      note: "This view makes Nanning's ASEAN-facing identity visible. For international students, the city is not only affordable; it also sits inside a real regional cooperation network.",
+      zhNote: "这张图把南宁面向东盟的城市身份变得很直观。对留学生来说，南宁不只是生活成本友好，也处在真实的区域合作网络里。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Skyline_of_China-ASEAN_Business_Center_in_Qingxiu_District.jpg"
+    },
+    {
+      title: "Anthropology Museum of Guangxi",
+      zhTitle: "南宁 · 广西民族博物馆",
+      image: commonsImage("Anthropology_Museum_of_Guangxi.jpg"),
+      alt: "Anthropology Museum of Guangxi in Nanning",
+      zhAlt: "南宁广西民族博物馆",
+      note: "Guangxi Museum of Nationalities helps students understand Zhuang culture, regional diversity, and the cultural bridge between China and Southeast Asia.",
+      zhNote: "广西民族博物馆适合帮助学生理解壮族文化、广西多民族生活，以及中国与东南亚之间的文化连接。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Anthropology_Museum_of_Guangxi.jpg"
+    },
+    {
+      title: "Nanning Confucian Temple and Mount Qingxiu",
+      zhTitle: "南宁 · 孔庙与青秀山",
+      image: commonsImage("Nanning_Confucian_Temple_and_Mount_Qingxiu_Shan,_June_2023.jpg"),
+      alt: "Nanning Confucian Temple and Mount Qingxiu",
+      zhAlt: "南宁孔庙与青秀山",
+      note: "The Confucian Temple route gives Nanning a quieter cultural layer, useful for students who want Chinese tradition to feel walkable rather than distant.",
+      zhNote: "孔庙路线让南宁有了更安静的文化层次。对想理解中国传统的学生来说，它不是遥远概念，而是可以亲自走进去的现场。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning_Confucian_Temple_and_Mount_Qingxiu_Shan,_June_2023.jpg"
+    },
+    {
+      title: "Nanning Bridge",
+      zhTitle: "南宁 · 邕江与城市连接",
+      image: commonsImage("Nanning_Bridge.jpg"),
+      alt: "Nanning Bridge over the Yong River",
+      zhAlt: "南宁大桥与邕江",
+      note: "The Yong River and its bridges connect Nanning's public life: evening walks, city views, museums, parks, and the ordinary routes that make study life feel settled.",
+      zhNote: "邕江和桥梁连接着南宁的公共生活：夜晚散步、城市景观、博物馆、公园和日常通勤，都让留学生活慢慢安定下来。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning_Bridge.jpg"
+    },
+    {
+      title: "Koi Feeding in Mount Qingxiu",
+      zhTitle: "南宁 · 青秀山日常绿意",
+      image: commonsImage("Koi_Feeding_in_Mt_Qingxiu_Nanning.JPG"),
+      alt: "Koi feeding in Mount Qingxiu, Nanning",
+      zhAlt: "南宁青秀山锦鲤与湖面",
+      note: "Small green scenes like this matter for students too: after classes, a city needs places to slow down, breathe, and feel friendly.",
+      zhNote: "这样的绿色日常对学生也很重要：下课之后，一座城市需要有能慢下来、能呼吸、能让人放松的地方。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Koi_Feeding_in_Mt_Qingxiu_Nanning.JPG"
+    },
+    {
+      title: "Minzu Boulevard at night",
+      zhTitle: "南宁 · 民族大道夜色",
+      image: commonsImage("GX 廣西 Guangxi 南寧市 Nanning 民族大道 Minzu Blvd 青秀路 Qingxiu Road night September 2023 R12S 12.jpg"),
+      alt: "Minzu Boulevard and Qingxiu Road at night in Nanning",
+      zhAlt: "南宁民族大道与青秀路夜景",
+      note: "Night on Minzu Boulevard gives Nanning a more youthful face: lights, buses, shopping streets, and the warm outdoor rhythm that makes evenings feel open.",
+      zhNote: "民族大道的夜色让南宁显得更年轻：灯光、公交、商业街和温暖的户外节奏，把下课后的晚上变成可以散步、见朋友、重新认识城市的时间。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:GX_%E5%BB%A3%E8%A5%BF_Guangxi_%E5%8D%97%E5%AF%A7%E5%B8%82_Nanning_%E6%B0%91%E6%97%8F%E5%A4%A7%E9%81%93_Minzu_Blvd_%E9%9D%92%E7%A7%80%E8%B7%AF_Qingxiu_Road_night_September_2023_R12S_12.jpg"
+    },
+    {
+      title: "Nanning Railway Station rail transit concourse",
+      zhTitle: "南宁 · 抵达城市的第一站",
+      image: commonsImage("Concourse,_Nanning_Railway_Station,_Nanning_Rail_Transit_20240209.jpg"),
+      alt: "Concourse at Nanning Railway Station on Nanning Rail Transit",
+      zhAlt: "南宁火车站轨道交通站厅",
+      note: "A good student city must be easy to arrive in and easy to leave from. Nanning's rail transit makes the city feel practical, connected, and less intimidating for newcomers.",
+      zhNote: "一座适合留学的城市，首先要容易抵达，也容易出发。南宁的轨道交通让新来的学生更快建立安全感：城市不是陌生迷宫，而是一张慢慢熟悉起来的地图。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Concourse,_Nanning_Railway_Station,_Nanning_Rail_Transit_20240209.jpg"
+    },
+    {
+      title: "Nanning International Convention and Exhibition Center",
+      zhTitle: "南宁 · 国际会展中心",
+      image: commonsImage("Nanning_International_Convention_%26_Exhibition_Center.jpg"),
+      alt: "Nanning International Convention and Exhibition Center",
+      zhAlt: "南宁国际会展中心",
+      note: "The convention center is part of Nanning's ASEAN-facing identity. It turns regional cooperation into a visible place that students can point to, visit, and understand.",
+      zhNote: "南宁国际会展中心是这座城市面向东盟的重要符号。对留学生来说，区域合作不再只是新闻里的词，而是能被看见、能被走近、能与未来专业方向联系起来的地方。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning_International_Convention_%26_Exhibition_Center.jpg"
+    },
+    {
+      title: "China-ASEAN Expo at Nanning International Convention Center",
+      zhTitle: "南宁 · 中国—东盟博览会现场",
+      image: commonsImage("南宁国际会展中心，中国—东盟博览会.jpg"),
+      alt: "China-ASEAN Expo at Nanning International Convention Center",
+      zhAlt: "南宁国际会展中心中国—东盟博览会",
+      note: "For Southeast Asian students especially, the China-ASEAN Expo explains why Nanning feels close to home and close to opportunity at the same time.",
+      zhNote: "对东南亚学生来说，中国—东盟博览会很能说明南宁的特别之处：它既有熟悉的区域亲近感，也有通向中国市场、中文学习和未来职业机会的现实入口。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%81%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83%EF%BC%8C%E4%B8%AD%E5%9B%BD%E2%80%94%E4%B8%9C%E7%9B%9F%E5%8D%9A%E8%A7%88%E4%BC%9A.jpg"
+    },
+    {
+      title: "Minzu Avenue daytime street life",
+      zhTitle: "南宁 · 民族大道日常街景",
+      image: commonsImage("GX 廣西省 Guangxi 南寧市 Nanning 青秀區 Qingxiu District 民族大道 Minzu Avenue September 2023 R12S 14.jpg"),
+      alt: "Minzu Avenue street scene in Qingxiu District, Nanning",
+      zhAlt: "南宁青秀区民族大道街景",
+      note: "Daytime Minzu Avenue shows the daily city rather than a postcard: broad roads, trees, shops, traffic, and the ordinary routes students will actually use.",
+      zhNote: "白天的民族大道呈现的不是明信片式景观，而是真正会进入留学生日常的南宁：道路、树荫、商场、公交和每一次去上课、吃饭、见朋友的路线。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:GX_%E5%BB%A3%E8%A5%BF%E7%9C%81_Guangxi_%E5%8D%97%E5%AF%A7%E5%B8%82_Nanning_%E9%9D%92%E7%A7%80%E5%8D%80_Qingxiu_District_%E6%B0%91%E6%97%8F%E5%A4%A7%E9%81%93_Minzu_Avenue_September_2023_R12S_14.jpg"
+    },
+    {
+      title: "Jinhu Square Station entrance",
+      zhTitle: "南宁 · 金湖广场地铁入口",
+      image: commonsImage("Exit_F1,_Jinhu_Square_Station,_Nanning_Rail_Transit_20200109.jpg"),
+      alt: "Exit F1 at Jinhu Square Station on Nanning Rail Transit",
+      zhAlt: "南宁轨道交通金湖广场站 F1 出入口",
+      note: "Metro entrances are small but important details for international students. They show whether a city can support independent movement, part-time exploration, and safe evenings out.",
+      zhNote: "地铁口是很小的城市细节，却关系到留学生能不能独立行动、能不能自己探索、晚上出门是否安心。南宁的便利感，常常就藏在这样的日常入口里。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Exit_F1,_Jinhu_Square_Station,_Nanning_Rail_Transit_20200109.jpg"
+    },
+    {
+      title: "Chaoyang Road and Minzu Boulevard",
+      zhTitle: "南宁 · 朝阳路与民族大道",
+      image: commonsImage("N-1732_at_Chaoyang_Rd,_Minzu_Blvd_(20240217074440).jpg"),
+      alt: "Bus and street scene at Chaoyang Road and Minzu Boulevard in Nanning",
+      zhAlt: "南宁朝阳路与民族大道街景",
+      note: "Street-level Nanning is useful for students to imagine real life: buses, crossings, shops, errands, and the rhythm of a city that is affordable without feeling small.",
+      zhNote: "街面上的南宁最能帮助学生想象真实生活：公交、路口、商店、日常采购和城市人流。它不昂贵，也不封闭，是一种容易进入的城市节奏。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:N-1732_at_Chaoyang_Rd,_Minzu_Blvd_(20240217074440).jpg"
+    },
+    {
+      title: "Nanning Mosque",
+      zhTitle: "南宁 · 多元生活的一角",
+      image: commonsImage("Nanning.Qingzhensi.2.jpg"),
+      alt: "Nanning Mosque",
+      zhAlt: "南宁清真寺",
+      note: "This scene adds another layer to Nanning's openness. For Muslim students or students from culturally diverse countries, visible everyday diversity can make a city feel more welcoming.",
+      zhNote: "这张图让南宁的开放性多了一层具体感。对穆斯林学生，或来自多元文化国家的学生来说，城市里看得见的日常多样性，会让留学生活更容易产生亲近感。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning.Qingzhensi.2.jpg"
+    }
+  ]
+};
+
 function cleanTitle(title: string) {
   return title
     .replace(/^File:/, "")
@@ -475,6 +620,7 @@ function fallbackGallery(fallback: CityVisualFallback, startIndex = 0) {
 
 export async function getCityVisualGallery(slug: string, fallback?: CityVisualFallback) {
   if (!fallback) return [];
+  if (curatedCityVisualGalleries[slug]) return curatedCityVisualGalleries[slug];
 
   const commonsItems = await fetchCommonsSearchGallery(slug, fallback);
   const wikipediaItems = commonsItems.length >= 6 ? [] : await fetchWikipediaGallery(slug, fallback);
