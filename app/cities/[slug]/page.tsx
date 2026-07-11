@@ -8,6 +8,8 @@ import { SectionHeading } from "@/components/common/section-heading";
 import { UniversityCard } from "@/components/universities/university-card";
 import { getCityExperienceGuide } from "@/lib/city-experience-guides";
 import { getCityFoodTravelGuide } from "@/lib/city-food-travel-guides";
+import { getCityCulturalInspiration } from "@/lib/city-cultural-inspirations";
+import { getCityDeepDive } from "@/lib/city-deep-dives";
 import { getCityVisualGallery } from "@/lib/city-visual-galleries";
 import { cityGuideDetails } from "@/lib/city-guide-details";
 import { getCityDestination } from "@/lib/city-destinations";
@@ -80,6 +82,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const guideDetail = cityGuideDetails[city.slug];
   const experienceGuide = getCityExperienceGuide(city.slug);
   const foodTravelGuide = getCityFoodTravelGuide(city.slug);
+  const culturalInspiration = getCityCulturalInspiration(city.slug);
+  const cityDeepDive = getCityDeepDive(city.slug);
   const visualGallery = await getCityVisualGallery(city.slug, city);
 
   const reviewCards = [
@@ -355,6 +359,46 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               </div>
             ) : null}
 
+            {culturalInspiration ? (
+              <div className="mt-14">
+                <SectionHeading
+                  eyebrow={isZh ? "城市风物" : "Local culture cues"}
+                  title={isZh ? culturalInspiration.zhTitle : culturalInspiration.title}
+                  description={isZh ? culturalInspiration.zhIntro : culturalInspiration.intro}
+                />
+                <div className="mt-8 grid gap-6 lg:grid-cols-3">
+                  {culturalInspiration.items.map((item) => (
+                    <article key={item.name} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+                      <div className="aspect-[16/10] overflow-hidden bg-slate-100">
+                        <FallbackImage
+                          src={item.image}
+                          alt={isZh ? item.zhName : item.name}
+                          className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      <div className="p-5">
+                        <div className="flex flex-wrap gap-2">
+                          <span className="rounded-md bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">{isZh ? item.zhCategory : item.category}</span>
+                          <span className="rounded-md bg-surface px-2.5 py-1 text-xs font-bold text-slate-600">{isZh ? item.zhDistrict : item.district}</span>
+                        </div>
+                        <h3 className="mt-4 text-xl font-bold text-ink">{isZh ? item.zhName : item.name}</h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">{isZh ? item.zhStory : item.story}</p>
+                        <div className="mt-4 rounded-md bg-surface p-4">
+                          <p className="text-xs font-bold uppercase tracking-wide text-primary">{isZh ? "留学生视角" : "Student angle"}</p>
+                          <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? item.zhStudentAngle : item.studentAngle}</p>
+                        </div>
+                        <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex text-xs font-semibold text-primary hover:text-secondary">
+                          {isZh ? "华夏风物线索" : "Huaxia Fengwu cue"}
+                        </a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs leading-6 text-slate-500">{isZh ? culturalInspiration.zhSourceNote : culturalInspiration.sourceNote}</p>
+              </div>
+            ) : null}
+
             {guideDetail ? (
               <div className="mt-14">
                 <SectionHeading
@@ -362,6 +406,36 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                   title={isZh ? `真正理解${name}` : `Understand ${city.name} before choosing a school`}
                   description={isZh ? "城市不只是学校所在地，也决定学生能看到怎样的中国、结识怎样的人、拥有怎样的周末和成长机会。" : "A city is more than a school location. It shapes what students see, who they meet, and how they grow outside the classroom."}
                 />
+                {cityDeepDive ? (
+                  <div className="mt-8 rounded-lg border border-cyan-100 bg-cyan-50 p-6">
+                    <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+                      <div>
+                        <h3 className="text-2xl font-bold text-ink">{isZh ? cityDeepDive.zhTitle : cityDeepDive.title}</h3>
+                        <p className="mt-4 text-sm leading-7 text-slate-700">{isZh ? cityDeepDive.zhIntro : cityDeepDive.intro}</p>
+                      </div>
+                      <div className="grid gap-3">
+                        {(isZh ? cityDeepDive.zhProofPoints : cityDeepDive.proofPoints).map((point) => (
+                          <p key={point} className="rounded-md bg-white p-4 text-sm font-semibold leading-6 text-cyan-900 shadow-sm">{point}</p>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-8 grid gap-5 md:grid-cols-2">
+                      {cityDeepDive.sections.map((section) => (
+                        <article key={section.title} className="rounded-lg bg-white p-6 shadow-sm">
+                          <h4 className="text-xl font-bold text-ink">{isZh ? section.zhTitle : section.title}</h4>
+                          <p className="mt-3 text-sm leading-7 text-slate-600">{isZh ? section.zhBody : section.body}</p>
+                          <div className="mt-4 grid gap-2">
+                            {(isZh ? section.zhBullets : section.bullets).map((bullet) => (
+                              <p key={bullet} className="rounded-md bg-surface p-3 text-sm leading-6 text-slate-600">{bullet}</p>
+                            ))}
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                {!cityDeepDive ? (
+                  <>
                 <div className="mt-8 grid gap-5">
                   {[
                     [isZh ? "地理与城市格局" : "Geography and Urban Layout", isZh ? guideDetail.zhGeography : guideDetail.geography],
@@ -382,6 +456,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     ))}
                   </div>
                 </div>
+                {visualGallery.length === 0 ? (
                 <div className="mt-10">
                   <h3 className="text-2xl font-bold text-ink">{isZh ? `图文看${name}` : `${city.name} in Pictures`}</h3>
                   <div className="mt-5 grid gap-6 lg:grid-cols-2">
@@ -402,6 +477,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     ))}
                   </div>
                 </div>
+                ) : null}
                 <div className="mt-10 grid gap-6 lg:grid-cols-2">
                   <div className="rounded-lg border border-slate-200 bg-surface p-6">
                     <h3 className="text-xl font-bold text-ink">{isZh ? `${name}不同区域适合什么学生` : `Which ${city.name} Area Fits You`}</h3>
@@ -431,9 +507,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     ))}
                   </div>
                 </div>
+                  </>
+                ) : null}
               </div>
             ) : null}
 
+            {!cityDeepDive ? (
+              <>
             <div className="mt-14">
               <SectionHeading
                 eyebrow={isZh ? "实习就业" : "Internships and careers"}
@@ -467,6 +547,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 ))}
               </div>
             </div>
+              </>
+            ) : null}
 
             <div className="mt-14">
               <SectionHeading
