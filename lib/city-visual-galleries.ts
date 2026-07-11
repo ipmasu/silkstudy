@@ -255,6 +255,46 @@ const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
       note: "Hunan Museum lets students feel that Changsha's history is not abstract. Mawangdui turns ancient China into color, texture, objects, and questions.",
       zhNote: "湖南博物院让学生感到长沙的历史并不抽象。马王堆把古代中国变成颜色、质感、器物和可以继续追问的故事。",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:A_lacquer_soup_spoon,_Mawangdui,_Changsha,_Hunan,_Hunan_Museum.jpg"
+    },
+    {
+      title: "ColorHub youth street energy",
+      zhTitle: "长沙 · ColorHub青年街头氛围",
+      image: "https://c.colorhub.me/iWFKrpKCT83AT15m_YThXYcBN2ZXUEv-veqqMUB0/0x500/euc:JwFg9ArAjGDMBGsogGwFMDsGLAEwGNZgAGWXAE2KnwgA5dU0BDNXFYeNfUaAOgCsADmgDmQA",
+      alt: "Young people relaxing together in an urban street scene",
+      zhAlt: "城市街头青年休闲互动",
+      note: "ColorHub free atmosphere image: not a Changsha landmark, but useful for expressing the youthful street energy that makes Changsha attractive after class.",
+      zhNote: "ColorHub 免费氛围补充图：这不是长沙地标实拍，但适合表达长沙吸引年轻人的街头活力、朋友相聚和下课后的城市气氛。",
+      sourceUrl: "https://www.colorhub.me/photos/JZ2Xw"
+    },
+    {
+      title: "ColorHub night market food",
+      zhTitle: "长沙 · ColorHub夜市美食氛围",
+      image: "https://c.colorhub.me/uYUnyKe7jfgLw3drPMCpL1OZtJcnJAcCHcW7SLVr/0x500/euc:GYUw9AhhYMwMYgOwFY7ACxwIwE4AmeAbDjhInhABxwAMcMMIE6Nwly1MoUAdAFYAHEAHMgA",
+      alt: "Asian night market food stall with warm light",
+      zhAlt: "亚洲夜市小吃摊位暖光",
+      note: "ColorHub free atmosphere image: it supports Changsha's food-story section, where night markets and student meals are a real part of city appeal.",
+      zhNote: "ColorHub 免费氛围补充图：用于增强长沙美食叙事，夜市、小吃和学生能负担的餐饮，本来就是这座城市吸引力的一部分。",
+      sourceUrl: "https://www.colorhub.me/photos/9bv1O"
+    },
+    {
+      title: "ColorHub urban night lights",
+      zhTitle: "长沙 · ColorHub城市夜色氛围",
+      image: "https://d.colorhub.me/ydbunKej8UkeL52iwoFzDWzOAgX0IIec9CtM0CYW/0x500/euc:KwTg9ALAhmAcCMATApvWB2RA2AzBZIEsATBuvAEY46IBm88tIswW866Io0AdAFYAHAOZA",
+      alt: "Modern city night lights and high-rise atmosphere",
+      zhAlt: "现代城市夜景灯光氛围",
+      note: "ColorHub free atmosphere image: a visual bridge for Changsha's nightlife, neon streets, music bars, and late-night food routes.",
+      zhNote: "ColorHub 免费氛围补充图：用于承接长沙夜生活、霓虹街区、音乐酒吧和深夜美食路线的视觉感受。",
+      sourceUrl: "https://www.colorhub.me/photos/4er3l"
+    },
+    {
+      title: "ColorHub library study mood",
+      zhTitle: "长沙 · ColorHub学习空间氛围",
+      image: "https://d.colorhub.me/shX0VvRZwkK09dD4l8RunmWYSRJ_2laAPzcLFjMn/0x500/euc:EwMw9AHApmAszAAwBNkHYCsSkQMwEZYA2YAIylNzQENFdF8RqKoBjKNUaAOgCsAHKAHMgA",
+      alt: "Busy library study atmosphere",
+      zhAlt: "繁忙图书馆学习氛围",
+      note: "ColorHub free atmosphere image: it balances the lively city images with the everyday reality of studying, reading, and preparing for exams.",
+      zhNote: "ColorHub 免费氛围补充图：让页面不只呈现热闹，也呈现留学真正的日常：读书、备考和在知识空间里慢慢成长。",
+      sourceUrl: "https://www.colorhub.me/photos/OrGOr"
     }
   ],
   kunming: [
@@ -377,6 +417,46 @@ const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
       note: "Small natural details can matter to young students. They make Kunming feel less like a stressful destination and more like a city where life has room.",
       zhNote: "这些小小的自然细节对年轻学生也重要。它们让昆明不像一个紧张的目的地，而像一座生活有余地的城市。",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Squirrels_kunming.jpg"
+    },
+    {
+      title: "ColorHub flower market mood",
+      zhTitle: "昆明 · ColorHub鲜花氛围",
+      image: "https://c.colorhub.me/KI2hdZ2qLfBZTurv4X-llNET4YsAuJ-lAcMIORIE/0x500/euc:IYdg9ApgHGCcAmBjYBmALANgEZYKwCYAGQlPDNRCARkPPggllUOAK31GgDoArABwgBzIA",
+      alt: "Floristry and flower arrangement atmosphere",
+      zhAlt: "花艺手工与鲜花生活氛围",
+      note: "ColorHub free atmosphere image: not a Dounan documentary photo, but it strengthens Kunming's flower-market identity and the soft daily beauty of the Spring City.",
+      zhNote: "ColorHub 免费氛围补充图：这不是斗南花市纪实图，但能强化昆明“鲜花之城”的气质，以及春城日常里的柔软美感。",
+      sourceUrl: "https://www.colorhub.me/photos/Zwvyj"
+    },
+    {
+      title: "ColorHub cafe afternoon",
+      zhTitle: "昆明 · ColorHub咖啡馆午后",
+      image: "https://c.colorhub.me/rDyGiTWytHdZ_MjSBFm-cfbi8tD0wu_s4H4EaIhl/0x500/euc:IYVg9ApgTGDMAsUAmsICMDGAzWB2AnLhAGy7EAMAHMGlrktiLhuSGviPLqNAHQBWABwDmQA",
+      alt: "Warm cafe afternoon atmosphere",
+      zhAlt: "温暖咖啡馆午后氛围",
+      note: "ColorHub free atmosphere image: it matches Kunming's student rhythm around Green Lake, Culture Alley, cafes, reading, and slow conversations.",
+      zhNote: "ColorHub 免费氛围补充图：适合承接翠湖、文化巷、咖啡馆、读书和慢慢聊天的昆明学生节奏。",
+      sourceUrl: "https://www.colorhub.me/photos/Wjd0p"
+    },
+    {
+      title: "ColorHub quiet lake reflection",
+      zhTitle: "昆明 · ColorHub湖光山色氛围",
+      image: "https://n.colorhub.me/wNhLPXfG2PYvckjKDNGnLB3K7HNeLCOUeRSeBlTW/0x500/euc:AwRg9AJhYIbAHPCBWAbK4BmA7CEEBjAI03hCIhlQCYJUJMBOVAFiYDMiBTUKAOgBWABy4BzIA",
+      alt: "Quiet lake and mountain reflection",
+      zhAlt: "宁静山湖倒影",
+      note: "ColorHub free atmosphere image: a supplemental visual for Kunming's Dianchi, lake walks, and the emotional spaciousness of plateau life.",
+      zhNote: "ColorHub 免费氛围补充图：用于补充昆明滇池、湖边散步和高原生活那种开阔安静的情绪。",
+      sourceUrl: "https://www.colorhub.me/photos/3VXP2"
+    },
+    {
+      title: "ColorHub graduation confidence",
+      zhTitle: "昆明 · ColorHub毕业与成长氛围",
+      image: "https://d.colorhub.me/yM9fkiiEWB7ojrgMvlee9AFChhndcduIg8PoOoAx/0x500/euc:GYTg9AbArGIAwgEzAIwWAYwMxwEYHZEBTCCAEwiMQ31w2DggxAhVy2NGgDoArAByIBzIA",
+      alt: "Graduate smiling with confidence",
+      zhAlt: "自信毕业生笑容",
+      note: "ColorHub free atmosphere image: it helps connect Kunming's affordable study life with the larger promise of graduation, growth, and a wider future.",
+      zhNote: "ColorHub 免费氛围补充图：帮助把昆明的实惠留学生活，和毕业、成长、未来打开的可能性连接起来。",
+      sourceUrl: "https://www.colorhub.me/photos/q3lgq"
     }
   ],
   nanning: [
@@ -519,6 +599,46 @@ const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
       note: "This scene adds another layer to Nanning's openness. For Muslim students or students from culturally diverse countries, visible everyday diversity can make a city feel more welcoming.",
       zhNote: "这张图让南宁的开放性多了一层具体感。对穆斯林学生，或来自多元文化国家的学生来说，城市里看得见的日常多样性，会让留学生活更容易产生亲近感。",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Nanning.Qingzhensi.2.jpg"
+    },
+    {
+      title: "ColorHub Southeast Asian night market",
+      zhTitle: "南宁 · ColorHub东南亚夜市氛围",
+      image: "https://n.colorhub.me/5aQrbC71TVELLFe_hBfBlwvULPLleuz_AtEVCTRm/0x500/euc:CYYw9AnAZmDMCmICGBGArLE9ZqgJmCTTxQDZ0B2BApADguABZZYK3RoA6AKwAd4A5kA",
+      alt: "Southeast Asian night market walking atmosphere",
+      zhAlt: "东南亚夜市漫步氛围",
+      note: "ColorHub free atmosphere image: not a Nanning documentary photo, but it fits the city's ASEAN-facing warmth, night life, and regional familiarity.",
+      zhNote: "ColorHub 免费氛围补充图：这不是南宁纪实照片，但很贴合南宁面向东盟的温暖感、夜生活和区域亲近感。",
+      sourceUrl: "https://www.colorhub.me/photos/Jqjky"
+    },
+    {
+      title: "ColorHub tropical fruit stall",
+      zhTitle: "南宁 · ColorHub水果摊与热带气息",
+      image: "https://d.colorhub.me/4Lbo3lIrsxCMSfS359aXFkVv5yfnNQGN3YUPLYjZ/0x500/euc:MYQw9AbAnGICxQOxxAVhQRmAZgAy4CMoATCOXAU1UOxIDMEMCL87RoA6AKwAcBzIA",
+      alt: "Southeast Asian fruit stall atmosphere",
+      zhAlt: "东南亚水果摊氛围",
+      note: "ColorHub free atmosphere image: a good supplement for Nanning's warm climate, fruit snacks, suanye flavors, and the comfort many tropical-country students may feel.",
+      zhNote: "ColorHub 免费氛围补充图：用于补充南宁温暖气候、水果小吃、酸嘢味觉，以及许多热带国家学生容易感到熟悉的生活气息。",
+      sourceUrl: "https://www.colorhub.me/photos/2GwG6"
+    },
+    {
+      title: "ColorHub late-night street food",
+      zhTitle: "南宁 · ColorHub深夜小吃摊",
+      image: "https://c.colorhub.me/BeGEVvW2k71uhCZxneuVahsr1gO0J_FkHK8q6y-D/0x500/euc:OwTg9AhgxmAMUCMCmAzYECMKAsATX82AzCBAgGzCLYQQogJGwbmy2jQB0AVgA5IBzIA",
+      alt: "Busy late-night street food stall",
+      zhAlt: "深夜小吃摊忙碌场景",
+      note: "ColorHub free atmosphere image: it supports Nanning's food story, where laoyou noodles, suanye, night markets, and affordable snacks shape student life.",
+      zhNote: "ColorHub 免费氛围补充图：用于承接南宁老友粉、酸嘢、夜市和实惠小吃构成的学生生活味道。",
+      sourceUrl: "https://www.colorhub.me/photos/0B8bw"
+    },
+    {
+      title: "ColorHub multi-cultural food truck",
+      zhTitle: "南宁 · ColorHub多元小吃车氛围",
+      image: "https://c.colorhub.me/lueva02hdfS6Dt62Ce42sLoMy0_mEjDCMUQd05gN/0x500/euc:Kwdg9AjApmAmBMAjALPAnAZhADgMbZEQDZcUQQBDRRWBABgvhKKSJF1GgDoArABygBzIA",
+      alt: "Halal street food truck at night",
+      zhAlt: "夜色中的清真小吃车",
+      note: "ColorHub free atmosphere image: it echoes Nanning's openness to students from different cultural and dietary backgrounds.",
+      zhNote: "ColorHub 免费氛围补充图：呼应南宁对不同文化、不同饮食背景学生的开放度和包容感。",
+      sourceUrl: "https://www.colorhub.me/photos/ojK44"
     }
   ]
 };
