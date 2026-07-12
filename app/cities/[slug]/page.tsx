@@ -10,6 +10,7 @@ import { getCityExperienceGuide } from "@/lib/city-experience-guides";
 import { getCityFoodTravelGuide } from "@/lib/city-food-travel-guides";
 import { getCityCulturalInspiration } from "@/lib/city-cultural-inspirations";
 import { getCityDeepDive } from "@/lib/city-deep-dives";
+import { getCityNightlifeGuide } from "@/lib/city-nightlife-guides";
 import { getCityVisualGallery } from "@/lib/city-visual-galleries";
 import { cityGuideDetails } from "@/lib/city-guide-details";
 import { getCityDestination } from "@/lib/city-destinations";
@@ -86,6 +87,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const culturalInspiration = getCityCulturalInspiration(city.slug);
   const cityDeepDive = getCityDeepDive(city.slug);
   const studentStory = getCityStudentStory(city.slug);
+  const nightlifeGuide = getCityNightlifeGuide(city.slug);
   const visualGallery = await getCityVisualGallery(city.slug, city);
   const culturalSourceUrls = new Set(culturalInspiration?.items.map((item) => item.sourceUrl) ?? []);
   const culturalVisualItems = culturalInspiration
@@ -433,6 +435,44 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                   ))}
                 </div>
                 <p className="mt-4 text-xs leading-6 text-slate-500">{isZh ? culturalInspiration.zhSourceNote : culturalInspiration.sourceNote}</p>
+              </div>
+            ) : null}
+
+            {nightlifeGuide ? (
+              <div className="mt-14">
+                <SectionHeading
+                  eyebrow={isZh ? "酒吧与夜生活" : "Bars and nightlife"}
+                  title={isZh ? nightlifeGuide.zhTitle : nightlifeGuide.title}
+                  description={isZh ? nightlifeGuide.zhIntro : nightlifeGuide.intro}
+                />
+                <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {nightlifeGuide.venues.map((venue) => (
+                    <article key={venue.zhName} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                      <div className="flex flex-wrap gap-2">
+                        {venue.zhArea || venue.area ? (
+                          <span className="rounded-md bg-surface px-2.5 py-1 text-xs font-bold text-slate-600">
+                            {isZh ? venue.zhArea : venue.area}
+                          </span>
+                        ) : null}
+                        {venue.zhPrice || venue.price ? (
+                          <span className="rounded-md bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">
+                            {isZh ? venue.zhPrice : venue.price}
+                          </span>
+                        ) : null}
+                        {venue.zhHours || venue.hours ? (
+                          <span className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-bold text-primary">
+                            {isZh ? venue.zhHours : venue.hours}
+                          </span>
+                        ) : null}
+                      </div>
+                      <h3 className="mt-4 text-xl font-bold text-ink">{isZh ? venue.zhName : venue.name}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">{isZh ? venue.zhHighlight : venue.highlight}</p>
+                    </article>
+                  ))}
+                </div>
+                <p className="mt-4 rounded-lg bg-amber-50 p-4 text-xs leading-6 text-amber-900">
+                  {isZh ? nightlifeGuide.zhNote : nightlifeGuide.note}
+                </p>
               </div>
             ) : null}
 
