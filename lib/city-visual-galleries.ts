@@ -86,6 +86,70 @@ const cityModernSearchTerms: Record<string, string[]> = {
     "Orange Isle Changsha",
     "Yuelu Mountain Changsha",
     "Hunan University Changsha"
+  ],
+  suzhou: [
+    "Suzhou Jinji Lake night",
+    "Suzhou Pingjiang Road",
+    "Suzhou Shantang Street night",
+    "Suzhou Humble Administrator Garden",
+    "Suzhou Museum",
+    "Suzhou Industrial Park skyline"
+  ],
+  fuzhou: [
+    "Fuzhou Sanfang Qixiang",
+    "Fuzhou Yantai Mountain",
+    "Fuzhou Min River night",
+    "Fuzhou Strait Culture and Art Centre",
+    "Fuzhou Gushan",
+    "Fuzhou Daming Food Street"
+  ],
+  tianjin: [
+    "Tianjin Haihe night",
+    "Tianjin Italian Style Town",
+    "Tianjin Wudadao",
+    "Tianjin Eye night",
+    "Tianjin Binhai Library",
+    "Tianjin Jinwan Square"
+  ],
+  harbin: [
+    "Harbin Central Street night",
+    "Harbin Saint Sophia Cathedral",
+    "Harbin Songhua River",
+    "Harbin Ice and Snow World",
+    "Harbin Grand Theatre",
+    "Harbin Sun Island"
+  ],
+  guilin: [
+    "Guilin Li River",
+    "Guilin Elephant Trunk Hill",
+    "Yangshuo West Street night",
+    "Guilin Two Rivers and Four Lakes",
+    "Xingping Guilin",
+    "Guilin karst landscape"
+  ],
+  shenzhen: [
+    "Shenzhen skyline",
+    "Shenzhen Bay Park",
+    "Shenzhen Talent Park",
+    "Shenzhen Ping An Finance Center",
+    "Shenzhen OCT Loft",
+    "Shenzhen Nantou Ancient City"
+  ],
+  taiyuan: [
+    "Taiyuan Fen River night",
+    "Taiyuan Bell Tower Street",
+    "Taiyuan Shanxi Museum",
+    "Taiyuan Jinci Temple",
+    "Taiyuan Food Street",
+    "Taiyuan skyline"
+  ],
+  zhengzhou: [
+    "Zhengzhou Erqi Square",
+    "Zhengzhou Big Corn building",
+    "Zhengzhou CBD night",
+    "Henan Museum Zhengzhou",
+    "Zhengzhou Yellow River scenic area",
+    "Zhengzhou Dehua Street"
   ]
 };
 
@@ -128,6 +192,30 @@ const fallbackRealImages = [
   }
 ];
 
+type CuratedGallerySeed = {
+  title: string;
+  zhTitle: string;
+  file: string;
+  alt: string;
+  zhAlt: string;
+  note: string;
+  zhNote: string;
+};
+
+const curatedSourceUrl = (file: string) => commonsPage(`File:${file}`);
+
+const cityGalleryBatch = (items: CuratedGallerySeed[]): CityVisualGalleryItem[] =>
+  items.map((item) => ({
+    title: item.title,
+    zhTitle: item.zhTitle,
+    image: commonsImage(item.file),
+    alt: item.alt,
+    zhAlt: item.zhAlt,
+    note: item.note,
+    zhNote: item.zhNote,
+    sourceUrl: curatedSourceUrl(item.file)
+  }));
+
 type ImageMood = "skyline" | "arrival" | "campus" | "nature" | "street" | "heritage" | "food" | "daily";
 
 function normalizeImageUrl(src: string) {
@@ -135,6 +223,454 @@ function normalizeImageUrl(src: string) {
 }
 
 const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  suzhou: cityGalleryBatch([
+    {
+      title: "Jinji Lake skyline",
+      zhTitle: "苏州 · 金鸡湖天际线",
+      file: "Jinji Lake, Suzhou Jiangsu.jpg",
+      alt: "Jinji Lake skyline in Suzhou",
+      zhAlt: "苏州金鸡湖城市天际线",
+      note: "Jinji Lake shows the modern side of Suzhou: lake walks, restaurants, concerts, shopping, and a metropolitan night rhythm beside Jiangnan elegance.",
+      zhNote: "金鸡湖呈现苏州的现代一面：湖畔散步、餐厅、演出、购物，以及江南雅致旁边的都市夜节奏。"
+    },
+    {
+      title: "Gate to the East and Suzhou Center",
+      zhTitle: "苏州 · 东方之门与苏州中心",
+      file: "Jinji Lake Bridge, Gate to the East, and Suzhou Center.jpg",
+      alt: "Gate to the East and Suzhou Center by Jinji Lake",
+      zhAlt: "金鸡湖畔东方之门与苏州中心",
+      note: "This is the Suzhou international students meet after class: transport, malls, lakeside lights, and a city that can be both classical and global.",
+      zhNote: "这是留学生下课后会遇见的苏州：交通、商场、湖边灯光，以及一座既古典又国际化的城市。"
+    },
+    {
+      title: "Pingjiang Road riverside",
+      zhTitle: "苏州 · 平江路河边",
+      file: "Riverside of Pingjiang Road, Gusu, Suzhou, Jiangsu, China, 215000.jpg",
+      alt: "Riverside scenery on Pingjiang Road in Suzhou",
+      zhAlt: "苏州平江路河边景致",
+      note: "Pingjiang Road is a soft first lesson in Jiangnan life: water, bridges, signs, snacks, tea, and local conversations.",
+      zhNote: "平江路是进入江南生活的温柔第一课：水、桥、招牌、小吃、茶和本地人的日常对话。"
+    },
+    {
+      title: "Pingjiang Road gate",
+      zhTitle: "苏州 · 平江路入口",
+      file: "Gate of Pingjiang Road, Suzhou.jpg",
+      alt: "Gate of Pingjiang Road in Suzhou",
+      zhAlt: "苏州平江路入口",
+      note: "For students, old streets like this make Chinese culture less distant and more walkable.",
+      zhNote: "对学生来说，这样的老街会让中国文化不再遥远，而是可以一步步走进去。"
+    },
+    {
+      title: "Shantang River",
+      zhTitle: "苏州 · 山塘河",
+      file: "2017-04-17 Shantang River, Suzhou 02.jpg",
+      alt: "Shantang River in Suzhou",
+      zhAlt: "苏州山塘河景观",
+      note: "Shantang is a good night-walk route for students who want lights, folk music, snacks, and old-city atmosphere.",
+      zhNote: "山塘适合喜欢灯光、民谣、小吃和老城氛围的学生夜游。"
+    },
+    {
+      title: "Humble Administrator's Garden",
+      zhTitle: "苏州 · 拙政园",
+      file: "The_Humble_Administrator%27s_Garden%2C_Suzhou%2C_China_%2837825378061%29.jpg",
+      alt: "Humble Administrator's Garden in Suzhou",
+      zhAlt: "苏州拙政园",
+      note: "Suzhou gardens help students understand Chinese aesthetics through space, water, framing, restraint, and quiet attention.",
+      zhNote: "苏州园林让学生通过空间、水、框景、克制和安静的注意力理解中国审美。"
+    }
+  ]),
+  fuzhou: cityGalleryBatch([
+    {
+      title: "Three Lanes and Seven Alleys main street",
+      zhTitle: "福州 · 三坊七巷主街",
+      file: "Fuzhou Three Lanes and Seven Alleys Mainstreet.jpg",
+      alt: "Three Lanes and Seven Alleys main street in Fuzhou",
+      zhAlt: "福州三坊七巷主街",
+      note: "Sanfang Qixiang gives Fuzhou a walkable cultural heart: old houses, museums, cafes, snacks, and everyday city texture.",
+      zhNote: "三坊七巷给福州一个可以步行进入的文化中心：老宅、博物馆、咖啡、小吃和日常城市肌理。"
+    },
+    {
+      title: "Three Lanes and Seven Alleys at night",
+      zhTitle: "福州 · 三坊七巷夜色",
+      file: "Fuzhou Three Lanes and Seven Alleys Nightview.jpg",
+      alt: "Night view of Three Lanes and Seven Alleys in Fuzhou",
+      zhAlt: "福州三坊七巷夜景",
+      note: "At night the old lanes become softer, perfect for students who like history without losing cafes and city lights.",
+      zhNote: "夜里老巷会变得更柔软，适合喜欢历史但也想要咖啡和城市灯光的学生。"
+    },
+    {
+      title: "Min River city view",
+      zhTitle: "福州 · 闽江城市风景",
+      file: "Fuzhou Minjiang River.jpg",
+      alt: "Min River in Fuzhou",
+      zhAlt: "福州闽江风景",
+      note: "The Min River gives students an easy evening route for walks, photos, river wind, and low-cost social life.",
+      zhNote: "闽江给学生一条容易抵达的傍晚路线：散步、拍照、吹江风，也低成本地建立社交生活。"
+    },
+    {
+      title: "Yantai Mountain",
+      zhTitle: "福州 · 烟台山",
+      file: "Fuzhou Yantai Mountain.jpg",
+      alt: "Yantai Mountain area in Fuzhou",
+      zhAlt: "福州烟台山片区",
+      note: "Yantai Mountain mixes old buildings, cafes, small exhibitions, and a youthful coastal-city mood.",
+      zhNote: "烟台山把老建筑、咖啡、小展览和年轻的滨海城市气质放在一起。"
+    },
+    {
+      title: "Strait Culture and Art Centre",
+      zhTitle: "福州 · 海峡文化艺术中心",
+      file: "Fuzhou Strait Culture and Art Centre.jpg",
+      alt: "Fuzhou Strait Culture and Art Centre",
+      zhAlt: "福州海峡文化艺术中心",
+      note: "Modern cultural venues show that Fuzhou is not only old lanes; it is also performance, design, and public life.",
+      zhNote: "现代文化场馆说明福州不只有老巷，也有演出、设计和公共生活。"
+    },
+    {
+      title: "Gushan mountain route",
+      zhTitle: "福州 · 鼓山路线",
+      file: "Gushan Fuzhou.jpg",
+      alt: "Gushan mountain in Fuzhou",
+      zhAlt: "福州鼓山",
+      note: "Gushan gives students a green weekend option close to the city, useful after exam weeks and intensive language study.",
+      zhNote: "鼓山给学生一个离城市很近的绿色周末选择，适合考试周或密集中语学习之后去放松。"
+    }
+  ]),
+  tianjin: cityGalleryBatch([
+    {
+      title: "Jinwan Plaza and Haihe River",
+      zhTitle: "天津 · 津湾广场与海河",
+      file: "Jinwan Plaza, Haihe River, Tianjin.jpg",
+      alt: "Jinwan Plaza and Haihe River in Tianjin",
+      zhAlt: "天津津湾广场与海河",
+      note: "The Haihe riverfront gives Tianjin its most romantic first impression: bridges, boats, lights, and old buildings.",
+      zhNote: "海河沿岸给天津最浪漫的第一印象：桥、船、灯光和老建筑。"
+    },
+    {
+      title: "Haihe downtown",
+      zhTitle: "天津 · 海河市中心",
+      file: "Tianjin Haihe river downtown.jpg",
+      alt: "Downtown Tianjin along the Haihe River",
+      zhAlt: "天津海河市中心景观",
+      note: "For students, a river that runs through the city means daily walks do not need to cost money.",
+      zhNote: "对学生来说，一条穿城而过的河意味着日常散步不必花钱。"
+    },
+    {
+      title: "Wudadao neighborhood",
+      zhTitle: "天津 · 五大道街区",
+      file: "Tianjin Wudadao.jpg",
+      alt: "Wudadao historic district in Tianjin",
+      zhAlt: "天津五大道历史街区",
+      note: "Wudadao makes Tianjin useful for architecture, design, history, photography, and slow city walks.",
+      zhNote: "五大道让天津适合建筑、设计、历史、摄影和慢速 citywalk。"
+    },
+    {
+      title: "Italian Style Town",
+      zhTitle: "天津 · 意式风情区",
+      file: "Tianjin Italian Style Town.jpg",
+      alt: "Italian Style Town in Tianjin",
+      zhAlt: "天津意式风情区",
+      note: "Tianjin's old international streets help foreign students feel that the city has always known how to meet the world.",
+      zhNote: "天津的老国际街区会让外国学生感觉到，这座城市一直知道如何与世界相遇。"
+    },
+    {
+      title: "Tianjin Eye",
+      zhTitle: "天津 · 天津之眼",
+      file: "Tianjin Eye 2015.jpg",
+      alt: "Tianjin Eye ferris wheel",
+      zhAlt: "天津之眼摩天轮",
+      note: "The Tianjin Eye is an easy landmark for first-week photos and a simple way to remember the city by the river.",
+      zhNote: "天津之眼适合新生第一周拍照，也让人很容易用海河记住这座城市。"
+    },
+    {
+      title: "Binhai Library",
+      zhTitle: "天津 · 滨海图书馆",
+      file: "Tianjin Binhai Library 2017.jpg",
+      alt: "Tianjin Binhai Library",
+      zhAlt: "天津滨海图书馆",
+      note: "Binhai shows another Tianjin: new districts, public architecture, port economy, and future-facing urban experiments.",
+      zhNote: "滨海展示另一个天津：新区、公共建筑、港口经济和面向未来的城市实验。"
+    }
+  ]),
+  harbin: cityGalleryBatch([
+    {
+      title: "Central Street at night",
+      zhTitle: "哈尔滨 · 中央大街夜色",
+      file: "201906 Harbin Central Street at night 08.jpg",
+      alt: "Harbin Central Street at night",
+      zhAlt: "哈尔滨中央大街夜景",
+      note: "Central Street is Harbin's social postcard: stone pavement, food, lights, music, and a northern city that stays memorable.",
+      zhNote: "中央大街是哈尔滨的社交名片：面包石、食物、灯光、音乐，以及一座很有记忆点的北方城市。"
+    },
+    {
+      title: "Central Street in summer",
+      zhTitle: "哈尔滨 · 夏日中央大街",
+      file: "Central Street at West 13th St (20230721112501).jpg",
+      alt: "Central Street in Harbin in 2023",
+      zhAlt: "2023年哈尔滨中央大街",
+      note: "Harbin is not only winter. Summer nights are cool, walkable, lively, and good for students.",
+      zhNote: "哈尔滨不只有冬天。夏夜凉爽、适合步行、也很热闹，对学生很友好。"
+    },
+    {
+      title: "Saint Sophia Cathedral",
+      zhTitle: "哈尔滨 · 圣索菲亚教堂",
+      file: "Saint Sophia Cathedral in Harbin.jpg",
+      alt: "Saint Sophia Cathedral in Harbin",
+      zhAlt: "哈尔滨圣索菲亚教堂",
+      note: "Saint Sophia gives students a direct feeling for Harbin's borderland history and Russian-influenced city memory.",
+      zhNote: "圣索菲亚让学生直接感受到哈尔滨的边疆历史和俄式城市记忆。"
+    },
+    {
+      title: "Songhua River",
+      zhTitle: "哈尔滨 · 松花江",
+      file: "Songhua River Harbin.jpg",
+      alt: "Songhua River in Harbin",
+      zhAlt: "哈尔滨松花江",
+      note: "The Songhua River is Harbin's daily release valve: walks, wind, winter ice, summer markets, and weekend gathering.",
+      zhNote: "松花江是哈尔滨的日常释放阀：散步、江风、冬季冰面、夏季市集和周末聚会。"
+    },
+    {
+      title: "Ice and Snow Festival",
+      zhTitle: "哈尔滨 · 冰雪节",
+      file: "Harbin_Ice_%26_Snow_Festival_2026.jpg",
+      alt: "Harbin Ice and Snow Festival",
+      zhAlt: "哈尔滨冰雪节",
+      note: "Harbin turns winter into culture, which is why students remember it so clearly.",
+      zhNote: "哈尔滨把冬天变成文化，所以学生会非常清楚地记住它。"
+    },
+    {
+      title: "Harbin Grand Theatre",
+      zhTitle: "哈尔滨 · 大剧院",
+      file: "Harbin Grand Theatre.jpg",
+      alt: "Harbin Grand Theatre",
+      zhAlt: "哈尔滨大剧院",
+      note: "The Grand Theatre shows a modern, design-forward Harbin beyond old streets and ice.",
+      zhNote: "大剧院展示老街和冰雪之外，一个更现代、更有设计感的哈尔滨。"
+    }
+  ]),
+  guilin: cityGalleryBatch([
+    {
+      title: "Li River landscape",
+      zhTitle: "桂林 · 漓江山水",
+      file: "Yangshuo-Li-River-2019-Luka-Peternel.jpg",
+      alt: "Li River landscape near Yangshuo",
+      zhAlt: "阳朔漓江山水",
+      note: "The Li River makes Chinese landscape painting feel alive: water, mountains, boats, mist, and a slow rhythm for students.",
+      zhNote: "漓江让中国山水画像活着一样：水、山、船、雾和适合学生的慢节奏。"
+    },
+    {
+      title: "Guilin Li River",
+      zhTitle: "桂林 · 漓江城市段",
+      file: "Guilin li river.jpg",
+      alt: "Li River in Guilin",
+      zhAlt: "桂林漓江",
+      note: "Guilin's strongest advantage is that world-class scenery is close to daily student life.",
+      zhNote: "桂林最大的优势，是世界级山水离学生日常生活很近。"
+    },
+    {
+      title: "Elephant Trunk Hill",
+      zhTitle: "桂林 · 象鼻山",
+      file: "Elephant Trunk Hill, Guilin.jpg",
+      alt: "Elephant Trunk Hill in Guilin",
+      zhAlt: "桂林象鼻山",
+      note: "Elephant Trunk Hill is an easy first landmark, useful for arrival photos and city orientation.",
+      zhNote: "象鼻山是很容易进入的第一地标，适合抵达拍照和熟悉城市。"
+    },
+    {
+      title: "Yangshuo West Street",
+      zhTitle: "桂林 · 阳朔西街",
+      file: "Yangshuo West Street.jpg",
+      alt: "Yangshuo West Street",
+      zhAlt: "阳朔西街",
+      note: "West Street adds multilingual nightlife, cafes, bars, and travel friendships to Guilin's mountain-water calm.",
+      zhNote: "西街给桂林的山水安静加入了多语言夜生活、咖啡、酒吧和旅行友谊。"
+    },
+    {
+      title: "Two Rivers and Four Lakes",
+      zhTitle: "桂林 · 两江四湖",
+      file: "Guilin Two Rivers and Four Lakes.jpg",
+      alt: "Two Rivers and Four Lakes in Guilin",
+      zhAlt: "桂林两江四湖",
+      note: "The city itself becomes an evening route, with water, bridges, lights, and a gentle student pace.",
+      zhNote: "城市本身就能成为傍晚路线：水、桥、灯光和温柔的学生节奏。"
+    },
+    {
+      title: "Guilin rice noodles",
+      zhTitle: "桂林 · 桂林米粉",
+      file: "Guilin rice noodles.jpg",
+      alt: "Guilin rice noodles",
+      zhAlt: "桂林米粉",
+      note: "Rice noodles are not only food here. They are a daily ritual and a low-cost bridge into local life.",
+      zhNote: "米粉在桂林不只是食物，而是一种日常仪式，也是进入本地生活的低成本桥梁。"
+    }
+  ]),
+  shenzhen: cityGalleryBatch([
+    {
+      title: "Shenzhen skyline in 2025",
+      zhTitle: "深圳 · 2025年天际线",
+      file: "Skyline in Shenzhen (20250327).jpg",
+      alt: "Shenzhen skyline in 2025",
+      zhAlt: "2025年深圳天际线",
+      note: "Shenzhen's skyline is a career signal: technology, finance, design, startups, and Greater Bay Area ambition.",
+      zhNote: "深圳天际线是一种职业信号：科技、金融、设计、创业和大湾区野心。"
+    },
+    {
+      title: "Shenzhen skyline from Hong Kong",
+      zhTitle: "深圳 · 从香港望向深圳",
+      file: "Skyline of Shenzhen from Hong Kong.jpg",
+      alt: "Shenzhen skyline seen from Hong Kong",
+      zhAlt: "从香港望向深圳天际线",
+      note: "The city sits inside a larger cross-border region, which matters for students thinking about future careers.",
+      zhNote: "深圳处在更大的跨境区域里，这对考虑未来职业的学生很重要。"
+    },
+    {
+      title: "Shenzhen Bay Park",
+      zhTitle: "深圳 · 深圳湾公园",
+      file: "Shenzhen Bay Park.jpg",
+      alt: "Shenzhen Bay Park",
+      zhAlt: "深圳湾公园",
+      note: "Free coastal parks soften a high-cost city, giving students sea wind, running routes, and sunset after class.",
+      zhNote: "免费滨海公园会柔化高成本城市，给学生海风、跑步路线和下课后的日落。"
+    },
+    {
+      title: "Ping An Finance Center",
+      zhTitle: "深圳 · 平安金融中心",
+      file: "Ping An Finance Center.jpg",
+      alt: "Ping An Finance Center in Shenzhen",
+      zhAlt: "深圳平安金融中心",
+      note: "This is the vertical image of Shenzhen's opportunity density, especially for business, finance, engineering, and design students.",
+      zhNote: "这是深圳机会密度的垂直形象，尤其适合商科、金融、工程和设计方向学生理解。"
+    },
+    {
+      title: "Dongmen pedestrian area",
+      zhTitle: "深圳 · 东门街区",
+      file: "Shenzhen Dongmen.jpg",
+      alt: "Dongmen area in Shenzhen",
+      zhAlt: "深圳东门街区",
+      note: "Dongmen and night markets reveal the city from below: snacks, crowds, young people, and food from many provinces.",
+      zhNote: "东门和夜市从地面展示深圳：小吃、人群、年轻人和来自许多省份的食物。"
+    },
+    {
+      title: "Nantou Ancient City",
+      zhTitle: "深圳 · 南头古城",
+      file: "Nantou Ancient City Shenzhen.jpg",
+      alt: "Nantou Ancient City in Shenzhen",
+      zhAlt: "深圳南头古城",
+      note: "Nantou reminds students that even a young city has layers, renewal, memory, and local texture.",
+      zhNote: "南头提醒学生，即使是年轻城市，也有层次、更新、记忆和本地肌理。"
+    }
+  ]),
+  taiyuan: cityGalleryBatch([
+    {
+      title: "Fen River Park",
+      zhTitle: "太原 · 汾河公园",
+      file: "Fen River Park Taiyuan 20110709.jpg",
+      alt: "Fen River Park in Taiyuan",
+      zhAlt: "太原汾河公园",
+      note: "The Fen River gives Taiyuan a calm daily route for walking, running, cycling, and lower-pressure student life.",
+      zhNote: "汾河给太原一条安静的日常路线：散步、跑步、骑行和低压力学生生活。"
+    },
+    {
+      title: "Taiyuan Bell Tower Street",
+      zhTitle: "太原 · 钟楼街",
+      file: "Taiyuan Bell Tower Street.jpg",
+      alt: "Bell Tower Street in Taiyuan",
+      zhAlt: "太原钟楼街",
+      note: "Bell Tower Street shows the younger side of Taiyuan: food, lights, small bars, live music, and renewed old-city life.",
+      zhNote: "钟楼街展示太原更年轻的一面：食物、灯光、小酒馆、现场音乐和更新后的老城生活。"
+    },
+    {
+      title: "Shanxi Museum",
+      zhTitle: "太原 · 山西博物院",
+      file: "Shanxi Museum.jpg",
+      alt: "Shanxi Museum in Taiyuan",
+      zhAlt: "太原山西博物院",
+      note: "Shanxi Museum helps students see a deeper China through bronze, architecture, merchant culture, and regional history.",
+      zhNote: "山西博物院帮助学生通过青铜、建筑、晋商和区域历史看到更深的中国。"
+    },
+    {
+      title: "Jinci Temple",
+      zhTitle: "太原 · 晋祠",
+      file: "Jinci Temple, Taiyuan.jpg",
+      alt: "Jinci Temple in Taiyuan",
+      zhAlt: "太原晋祠",
+      note: "Jinci gives Taiyuan a calm cultural depth, useful for students interested in architecture and heritage.",
+      zhNote: "晋祠给太原一种安静的文化深度，适合关注建筑和遗产的学生。"
+    },
+    {
+      title: "Taiyuan Food Street",
+      zhTitle: "太原 · 食品街",
+      file: "Taiyuan Food Street.jpg",
+      alt: "Food Street in Taiyuan",
+      zhAlt: "太原食品街",
+      note: "Noodles, snacks, old facades, and red lanterns make Food Street a practical first taste of Taiyuan.",
+      zhNote: "面食、小吃、老街面和红灯笼，让食品街成为认识太原的实用第一口。"
+    },
+    {
+      title: "Taiyuan skyline",
+      zhTitle: "太原 · 城市天际线",
+      file: "Taiyuan skyline.jpg",
+      alt: "Taiyuan skyline",
+      zhAlt: "太原城市天际线",
+      note: "Taiyuan is quieter than coastal megacities, but it still gives students a modern northern city base.",
+      zhNote: "太原比沿海超大城市安静，但仍然能给学生一个现代北方城市基地。"
+    }
+  ]),
+  zhengzhou: cityGalleryBatch([
+    {
+      title: "Zhengzhou CBD",
+      zhTitle: "郑州 · 郑东CBD",
+      file: "Zhengzhou CBD.jpg",
+      alt: "Zhengzhou CBD skyline",
+      zhAlt: "郑州郑东CBD天际线",
+      note: "Zhengzhou's CBD shows the city as a growing central-China hub for transport, finance, logistics, and services.",
+      zhNote: "郑东CBD展示郑州作为中部交通、金融、物流和服务枢纽的成长感。"
+    },
+    {
+      title: "Central Business District Station",
+      zhTitle: "郑州 · CBD地铁站",
+      file: "20250120 Central Business District Station - Concourse 01.jpg",
+      alt: "Central Business District Station in Zhengzhou in 2025",
+      zhAlt: "2025年郑州CBD地铁站",
+      note: "New transit images matter because students need to see how a city actually moves.",
+      zhNote: "新的交通照片很重要，因为学生需要看到一座城市真实如何流动。"
+    },
+    {
+      title: "Henan Museum",
+      zhTitle: "郑州 · 河南博物院",
+      file: "Henan Museum.jpg",
+      alt: "Henan Museum in Zhengzhou",
+      zhAlt: "郑州河南博物院",
+      note: "Henan Museum is a gateway to Central Plains civilization, archaeology, bronze, music, and early Chinese memory.",
+      zhNote: "河南博物院是进入中原文明、考古、青铜、音乐和早期中国记忆的入口。"
+    },
+    {
+      title: "Erqi Square",
+      zhTitle: "郑州 · 二七广场",
+      file: "Zhengzhou Erqi Square.jpg",
+      alt: "Erqi Square in Zhengzhou",
+      zhAlt: "郑州二七广场",
+      note: "Erqi is a simple first landmark for city orientation, shopping, food, and downtown walks.",
+      zhNote: "二七是建立城市方向感的简单第一地标，适合购物、美食和市中心步行。"
+    },
+    {
+      title: "Yellow River near Zhengzhou",
+      zhTitle: "郑州 · 黄河路线",
+      file: "Yellow River Zhengzhou.jpg",
+      alt: "Yellow River near Zhengzhou",
+      zhAlt: "郑州附近黄河",
+      note: "The Yellow River makes Zhengzhou more than a transport hub; it connects geography with Chinese civilization.",
+      zhNote: "黄河让郑州不只是交通枢纽，而是把地理和中华文明连接起来。"
+    },
+    {
+      title: "Dehua pedestrian street",
+      zhTitle: "郑州 · 德化步行街",
+      file: "Zhengzhou Dehua Street.jpg",
+      alt: "Dehua pedestrian street in Zhengzhou",
+      zhAlt: "郑州德化步行街",
+      note: "Dehua Street and night markets give students Zhengzhou's practical side: food, crowds, prices, and everyday city life.",
+      zhNote: "德化街和夜市给学生郑州的务实一面：食物、人群、价格和日常城市生活。"
+    }
+  ]),
   hangzhou: [
     {
       title: "West Lake in 2024",

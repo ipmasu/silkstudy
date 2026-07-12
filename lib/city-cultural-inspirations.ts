@@ -24,6 +24,42 @@ export type CityCulturalInspiration = {
 
 const inspiration = (input: CityCulturalInspiration) => input;
 
+type InspirationPoint = {
+  name: string;
+  zhName: string;
+  category: string;
+  zhCategory: string;
+  district: string;
+  zhDistrict: string;
+  image: string;
+  sourceUrl: string;
+  story: string;
+  zhStory: string;
+  studentAngle: string;
+  zhStudentAngle: string;
+};
+
+const cityBatchInspiration = (
+  slug: string,
+  title: string,
+  zhTitle: string,
+  intro: string,
+  zhIntro: string,
+  items: InspirationPoint[]
+) =>
+  inspiration({
+    slug,
+    title,
+    zhTitle,
+    intro,
+    zhIntro,
+    sourceNote:
+      "Topics are rewritten from the user's city briefs, public cultural references, and verified public-domain or freely licensed image sources.",
+    zhSourceNote:
+      "内容根据你提供的城市素材、公开文化线索，以及 Wikimedia 等可核验公共图片来源重新整理撰写。",
+    items
+  });
+
 export const cityCulturalInspirations: Record<string, CityCulturalInspiration> = {
   hangzhou: inspiration({
     slug: "hangzhou",
@@ -708,7 +744,415 @@ export const cityCulturalInspirations: Record<string, CityCulturalInspiration> =
           "尤其适合来自东南亚、南亚，以及对文化多样性好奇的学生，因为云南会让中国显得多元、边地相连，也更容易产生情感上的亲近。"
       }
     ]
-  })
+  }),
+  suzhou: cityBatchInspiration(
+    "suzhou",
+    "Suzhou Through Gardens, Jinji Lake, Pingtan, Indie Bars, and Student Walks",
+    "从园林、金鸡湖、评弹、微醺小馆和学生漫步里看见苏州",
+    "Suzhou is not only a classical garden city. For international students it can be a quiet, elegant, highly connected Jiangnan base: old lanes, museums, lakeside nights, XJTLU-style global campuses, music taverns, markets, and quick trains to Shanghai and Hangzhou.",
+    "苏州不只是园林城市。对国际学生来说，它也是一座安静、雅致、交通便利的江南留学基地：古巷、博物馆、湖畔夜色、国际化校园、音乐小酒馆、市集，以及通往上海和杭州的高铁网络。",
+    [
+      {
+        name: "Pingjiang Road",
+        zhName: "平江路",
+        category: "Old lanes and daily Jiangnan",
+        zhCategory: "古巷与日常江南",
+        district: "Gusu District",
+        zhDistrict: "姑苏区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Pingjiang%20Road,%20Suzhou.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Pingjiang_Road,_Suzhou.jpg",
+        story: "Pingjiang Road lets Suzhou speak softly: canals, stone bridges, tea, small shops, local snacks, and the feeling that history can still be part of an ordinary walk.",
+        zhStory: "平江路让苏州用很轻的声音说话：河道、石桥、茶馆、小店、本地小吃，还有一种历史仍然可以进入日常散步的感觉。",
+        studentAngle: "A good first Chinese-practice route: order snacks, read signs, ask directions, and take friends through a city that never needs to shout.",
+        zhStudentAngle: "很适合作为中文实践路线：点小吃、看招牌、问路，带朋友慢慢走进一座不需要大声喧哗的城市。"
+      },
+      {
+        name: "Jinji Lake",
+        zhName: "金鸡湖",
+        category: "Modern lakefront nightlife",
+        zhCategory: "现代湖畔夜生活",
+        district: "Suzhou Industrial Park",
+        zhDistrict: "苏州工业园区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Suzhou%20Jinji%20Lake.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Suzhou_Jinji_Lake.jpg",
+        story: "Jinji Lake is Suzhou's modern counterpoint: skyline, malls, lakeside walks, concerts, restaurants, and a night view that gives students a metropolitan rhythm without leaving Jiangnan.",
+        zhStory: "金鸡湖是苏州的现代回应：天际线、商场、湖畔步道、演出、餐厅和夜景，让学生不离开江南，也能感受到都市节奏。",
+        studentAngle: "Useful for students who want quiet study days but still need modern social life, dating routes, concerts, and city confidence.",
+        zhStudentAngle: "适合希望白天安静学习、晚上仍然有现代社交、约会路线、演出和城市自信的学生。"
+      },
+      {
+        name: "Shantang Street and Music Taverns",
+        zhName: "山塘街与音乐小酒馆",
+        category: "Night walk and folk music",
+        zhCategory: "夜游与民谣",
+        district: "Shantang Street",
+        zhDistrict: "山塘街",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Shantang%20Street%20Suzhou.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Shantang_Street_Suzhou.jpg",
+        story: "The user's notes describe Suzhou nights as folk songs, warm lights, small drinks, lakeside bars, immersive performance spaces, and markets where old streets meet young voices.",
+        zhStory: "你给的素材里，苏州的夜晚有民谣、暖灯、小酌、湖景酒吧、沉浸式演艺空间，也有老街与年轻声音相遇的市集。",
+        studentAngle: "A softer nightlife choice for students who prefer music, conversation, and atmosphere over high-pressure clubbing.",
+        zhStudentAngle: "适合更喜欢音乐、聊天和氛围，而不是高压夜店体验的学生。"
+      }
+    ]
+  ),
+  fuzhou: cityBatchInspiration(
+    "fuzhou",
+    "Fuzhou Through Sanfang Qixiang, Min River Nights, Fish Balls, and Youth Waterfronts",
+    "从三坊七巷、闽江夜色、鱼丸和青年水岸里看见福州",
+    "Fuzhou gives international students a warm coastal capital with old houses, river wind, university towns, Fujian food, Southeast Asia connections, and a nightlife that mixes hip-hop, sake bars, food streets, and campus waterfront markets.",
+    "福州给国际学生的，是一座温暖的滨海省会：老宅、江风、大学城、闽味美食、面向东南亚的联系，以及把 hip-hop、清酒吧、美食街和校园水岸市集混合在一起的夜生活。",
+    [
+      {
+        name: "Sanfang Qixiang",
+        zhName: "三坊七巷",
+        category: "Historic living texture",
+        zhCategory: "历史生活肌理",
+        district: "Gulou District",
+        zhDistrict: "鼓楼区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sanfang%20Qixiang,%20Fuzhou.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Sanfang_Qixiang,_Fuzhou.jpg",
+        story: "Sanfang Qixiang makes Fuzhou feel intimate: white walls, old lanes, family houses, museums, cafes, and the kind of heritage students can actually walk into.",
+        zhStory: "三坊七巷让福州显得很亲近：白墙、巷道、老宅、博物馆、咖啡馆，还有那种学生真的可以走进去的城市文脉。",
+        studentAngle: "Good for language practice and first city orientation because culture, food, signs, and daily crowds are all in one walkable area.",
+        zhStudentAngle: "适合练中文和建立第一印象，因为文化、食物、招牌和日常人流都集中在一个适合步行的区域里。"
+      },
+      {
+        name: "Min River Night Route",
+        zhName: "闽江夜游路线",
+        category: "River wind and night skyline",
+        zhCategory: "江风与夜景",
+        district: "Min River riverfront",
+        zhDistrict: "闽江沿岸",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fuzhou%20Minjiang%20River.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Fuzhou_Minjiang_River.jpg",
+        story: "The Min River gives Fuzhou a relaxed evening rhythm. Students can walk, take photos, ride by the river, and feel the city cool down after class.",
+        zhStory: "闽江给福州一种松弛的傍晚节奏。学生可以散步、拍照、沿江骑行，在下课后感到整座城市慢慢降温。",
+        studentAngle: "A low-cost route for friendships, dates, photography, and building emotional attachment to the city.",
+        zhStudentAngle: "这是低成本建立友情、约会、拍照和城市情感连接的路线。"
+      },
+      {
+        name: "Daming Food Street and University Town Waterfront",
+        zhName: "达明美食街与大学城水岸",
+        category: "Food, markets, and student nights",
+        zhCategory: "美食、市集与学生夜晚",
+        district: "Gulou and University Town",
+        zhDistrict: "鼓楼与大学城",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fuzhou%20Yantai%20Mountain.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Fuzhou_Yantai_Mountain.jpg",
+        story: "Fuzhou's youth life is not only historic. Daming food street, Xiangban night market, and University Town waterfront events turn fish balls, rouyan, light shows, music, and non-heritage workshops into student memory.",
+        zhStory: "福州的年轻生活不只有历史。达明美食街、祥坂夜市和大学城水岸活动，会把鱼丸、肉燕、光影秀、音乐和非遗体验变成学生记忆。",
+        studentAngle: "Strong for students from Southeast Asia and coastal cultures who may find the food, climate, and river-city rhythm emotionally close.",
+        zhStudentAngle: "尤其适合来自东南亚和滨海文化背景的学生，食物、气候和江城节奏会让人更容易亲近。"
+      }
+    ]
+  ),
+  tianjin: cityBatchInspiration(
+    "tianjin",
+    "Tianjin Through Haihe Lights, Wudadao, Courtyard Bars, and University-Town Night Markets",
+    "从海河灯火、五大道、四合院小酒馆和大学城夜市里看见天津",
+    "Tianjin is a generous study city near Beijing: lower pressure, strong universities, European-style streets, river nights, hearty food, and a humorous local spirit that helps international students feel at ease.",
+    "天津是一座靠近北京、但生活压力更低的留学城市：高校资源、欧式街区、海河夜色、扎实的美食，以及幽默松弛的本地气质，都会让国际学生更容易安顿下来。",
+    [
+      {
+        name: "Haihe River",
+        zhName: "海河",
+        category: "River night and city identity",
+        zhCategory: "河岸夜色与城市性格",
+        district: "Central Tianjin",
+        zhDistrict: "天津中心城区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianjin%20Haihe%20River%20at%20night.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Tianjin_Haihe_River_at_night.jpg",
+        story: "Haihe is Tianjin's evening classroom: bridges, boats, lights, wind, and old buildings make the city easy to understand in one walk.",
+        zhStory: "海河像天津的傍晚课堂：桥、船、灯光、晚风和老建筑，让学生用一次散步就能理解这座城市。",
+        studentAngle: "A perfect arrival-night route, especially for students who want a romantic but affordable first impression.",
+        zhStudentAngle: "很适合作为抵达后的第一晚路线，尤其适合想要浪漫、但又不想花太多钱的学生。"
+      },
+      {
+        name: "Wudadao and Italian Style Area",
+        zhName: "五大道与意式风情区",
+        category: "Architecture and city walks",
+        zhCategory: "建筑与城市漫步",
+        district: "Heping District",
+        zhDistrict: "和平区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianjin%20Wudadao.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Tianjin_Wudadao.jpg",
+        story: "Tianjin's old neighborhoods make Chinese modern history visible. Students can move from architecture to cafes, from museums to riverfront bars, without a complicated plan.",
+        zhStory: "天津的老街区让中国近现代史变得可见。学生可以从建筑走到咖啡馆，从博物馆走到河边酒吧，不需要复杂规划。",
+        studentAngle: "Useful for students in architecture, design, history, urban studies, photography, and anyone who likes slow city walks.",
+        zhStudentAngle: "适合建筑、设计、历史、城市研究、摄影方向的学生，也适合所有喜欢慢慢走城市的人。"
+      },
+      {
+        name: "Yao Village Night Market and Courtyard Bars",
+        zhName: "姚村夜市与四合院酒吧",
+        category: "Student food and gentle nightlife",
+        zhCategory: "学生美食与温柔夜生活",
+        district: "University Town and old city",
+        zhDistrict: "大学城与老城",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tianjin%20Jinwan%20Square.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Tianjin_Jinwan_Square.jpg",
+        story: "The user's notes show Tianjin's nightlife as river decks, courtyard music, retro bars, hip-hop spaces, university-town snacks, and streets where students can eat well without spending like Beijing.",
+        zhStory: "你给的素材里，天津的夜生活有河边露台、四合院民谣、复古酒吧、hip-hop 空间、大学城小吃，也有不用像北京一样花费很高就能吃得很满足的夜市。",
+        studentAngle: "Good for students who want access to North China opportunities while living in a warmer, funnier, more relaxed city.",
+        zhStudentAngle: "适合希望连接华北机会，同时又想生活在更松弛、更幽默、更有人情味城市里的学生。"
+      }
+    ]
+  ),
+  harbin: cityBatchInspiration(
+    "harbin",
+    "Harbin Through Central Street, Ice Culture, Russian Echoes, and Summer Night Markets",
+    "从中央大街、冰雪文化、俄式回声和夏夜市集里看见哈尔滨",
+    "Harbin gives global students a China that feels northern, bold, musical, and memorable: engineering universities, winter festivals, Russian-style streets, generous portions, cool summer nights, and a city identity unlike anywhere else.",
+    "哈尔滨给全球学生的是一种很北方、很鲜明、很有音乐感的中国：工程强校、冰雪节、俄式街区、分量十足的食物、凉爽夏夜，以及一种别处很难复制的城市性格。",
+    [
+      {
+        name: "Central Street",
+        zhName: "中央大街",
+        category: "Northern city icon",
+        zhCategory: "北方城市名片",
+        district: "Daoli District",
+        zhDistrict: "道里区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Harbin%20Central%20Street.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Harbin_Central_Street.jpg",
+        story: "Central Street is where Harbin introduces itself: stone pavement, old facades, ice cream, music, crowds, and the feeling of a northern city that likes being remembered.",
+        zhStory: "中央大街是哈尔滨介绍自己的方式：面包石、老建筑、冰棍、音乐、人群，还有一座北方城市愿意被人记住的性格。",
+        studentAngle: "A strong first-week route for international students because it combines food, architecture, photos, and easy public life.",
+        zhStudentAngle: "很适合作为留学生第一周路线，因为它把美食、建筑、拍照和容易进入的公共生活放在一起。"
+      },
+      {
+        name: "Saint Sophia Cathedral",
+        zhName: "圣索菲亚教堂",
+        category: "Architecture and memory",
+        zhCategory: "建筑与城市记忆",
+        district: "Daoli District",
+        zhDistrict: "道里区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Saint%20Sophia%20Cathedral%20in%20Harbin.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Saint_Sophia_Cathedral_in_Harbin.jpg",
+        story: "Saint Sophia gives Harbin a dramatic silhouette. For students, it is a reminder that Chinese cities can hold many cultural layers at once.",
+        zhStory: "圣索菲亚给哈尔滨一个非常有辨识度的轮廓。对学生来说，它也提醒人们：中国城市可以同时容纳许多文化层次。",
+        studentAngle: "Good for Russian-speaking students, architecture lovers, photographers, and anyone curious about China's borderland modern history.",
+        zhStudentAngle: "适合俄语区学生、建筑爱好者、摄影者，以及所有对中国边疆近现代史好奇的人。"
+      },
+      {
+        name: "Songhua River and Summer Night Markets",
+        zhName: "松花江与夏夜市集",
+        category: "Cool nights and student food",
+        zhCategory: "凉爽夜晚与学生美食",
+        district: "Songhua River area",
+        zhDistrict: "松花江沿岸",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Songhua%20River%20Harbin.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Songhua_River_Harbin.jpg",
+        story: "Harbin's summer is underrated: river wind, Normal University night market, Anjing Street snacks, craft beer, outdoor movies, and weekend markets make the city social after dark.",
+        zhStory: "哈尔滨的夏天被低估了：江风、师大夜市、安静街小吃、精酿、露天电影和周末市集，让这座城市在夜晚很有社交感。",
+        studentAngle: "Useful for students who want lower costs, strong engineering education, winter magic, and a surprisingly lively summer.",
+        zhStudentAngle: "适合想要较低成本、强工程教育、冬季魔法感，以及一个出乎意料热闹夏天的学生。"
+      }
+    ]
+  ),
+  guilin: cityBatchInspiration(
+    "guilin",
+    "Guilin Through Li River Mountains, West Street, Rice Noodles, and Slow Student Weekends",
+    "从漓江山水、西街、桂林米粉和慢周末里看见桂林",
+    "Guilin is a dreamlike but practical study city: karst mountains, affordable living, rice noodles, river trips, Yangshuo nights, and a slower rhythm that helps students breathe while learning China.",
+    "桂林是一座梦幻但很实际的留学城市：喀斯特山水、较低生活成本、桂林米粉、漓江旅行、阳朔夜晚，以及一种能让学生在学习中国时真正喘口气的慢节奏。",
+    [
+      {
+        name: "Li River",
+        zhName: "漓江",
+        category: "Landscape as identity",
+        zhCategory: "山水即城市名片",
+        district: "Guilin and Yangshuo",
+        zhDistrict: "桂林与阳朔",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Li%20River%20Guilin.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Li_River_Guilin.jpg",
+        story: "The Li River makes Guilin instantly understandable: mountains rise from water, boats move slowly, and students can see why Chinese landscape painting feels alive here.",
+        zhStory: "漓江让桂林一眼就能被理解：山从水里生长出来，船慢慢经过，学生会明白为什么中国山水画在这里像活着一样。",
+        studentAngle: "A world-class low-pressure weekend route for students who want nature, photography, and emotional reset.",
+        zhStudentAngle: "这是世界级但低压力的周末路线，适合想亲近自然、拍照和恢复能量的学生。"
+      },
+      {
+        name: "Yangshuo West Street",
+        zhName: "阳朔西街",
+        category: "International small-town nightlife",
+        zhCategory: "国际化小镇夜生活",
+        district: "Yangshuo",
+        zhDistrict: "阳朔",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Yangshuo%20West%20Street.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Yangshuo_West_Street.jpg",
+        story: "West Street has long been a meeting place for travelers. Bars, cafes, live music, restaurants, and many languages make Guilin feel open and easy to enter.",
+        zhStory: "西街长期是旅行者相遇的地方。酒吧、咖啡馆、驻唱、餐厅和许多语言，让桂林显得开放，也容易进入。",
+        studentAngle: "Good for language exchange, tourism students, hospitality majors, and anyone who wants China to feel relaxed and global at the same time.",
+        zhStudentAngle: "适合语言交换、旅游管理、酒店管理方向学生，也适合希望中国既放松又国际化的人。"
+      },
+      {
+        name: "Rice Noodles and Night Food Streets",
+        zhName: "桂林米粉与夜市小吃",
+        category: "Affordable daily food",
+        zhCategory: "实惠日常美食",
+        district: "City center and campus areas",
+        zhDistrict: "市中心与校园周边",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Guilin%20rice%20noodles.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Guilin_rice_noodles.jpg",
+        story: "Guilin's food culture is student-friendly: rice noodles, beer fish, snails, Zhengyang Street, Dongxi Lane, Wayao night market, and small stalls make daily life delicious without being expensive.",
+        zhStory: "桂林的饮食对学生很友好：米粉、啤酒鱼、田螺、正阳街、东西巷、瓦窑夜市和小摊，让日常生活好吃但不贵。",
+        studentAngle: "A strong choice for students who care about nature, affordability, tourism culture, and a slower social rhythm.",
+        zhStudentAngle: "适合重视自然、生活成本、旅游文化和更慢社交节奏的学生。"
+      }
+    ]
+  ),
+  shenzhen: cityBatchInspiration(
+    "shenzhen",
+    "Shenzhen Through Bay Parks, Skyscrapers, Maker Culture, and Cyberpunk Nights",
+    "从湾区公园、摩天楼、创客文化和赛博夜色里看见深圳",
+    "Shenzhen is the China of speed and possibility: young, coastal, entrepreneurial, expensive but full of free parks, tech exposure, global companies, food from everywhere, and night markets that never feel sleepy.",
+    "深圳是速度和可能性的中国：年轻、滨海、创业气质强，生活成本较高但免费公园很多，科技产业密集、全球公司聚集，全国美食汇合，夜市也从不困倦。",
+    [
+      {
+        name: "Shenzhen Bay and Talent Park",
+        zhName: "深圳湾与人才公园",
+        category: "Coastal city life",
+        zhCategory: "滨海城市生活",
+        district: "Nanshan District",
+        zhDistrict: "南山区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Shenzhen%20Bay%20Park.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Shenzhen_Bay_Park.jpg",
+        story: "Shenzhen's free public spaces are important. Students can walk by the bay, see Hong Kong across the water, and feel that global ambition can also have sea wind.",
+        zhStory: "深圳的免费公共空间很重要。学生可以在海边散步，看见水对面的香港，也会感到全球化的野心并不一定冰冷，它也可以有海风。",
+        studentAngle: "Good for students who want tech opportunities but still need running routes, sunsets, and open space.",
+        zhStudentAngle: "适合想要科技机会，但也需要跑步路线、日落和开阔空间的学生。"
+      },
+      {
+        name: "Ping An Finance Center and Tech Districts",
+        zhName: "平安金融中心与科技城区",
+        category: "Future-facing city",
+        zhCategory: "面向未来的城市",
+        district: "Futian and Nanshan",
+        zhDistrict: "福田与南山",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ping%20An%20Finance%20Center.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Ping_An_Finance_Center.jpg",
+        story: "Shenzhen's skyline is not decoration; it is a career signal. Hardware, AI applications, design, finance, cross-border trade, and startups are all part of the city vocabulary.",
+        zhStory: "深圳的天际线不是装饰，而是一种职业信号。硬件、AI 应用、设计、金融、跨境贸易和创业，都属于这座城市的词汇。",
+        studentAngle: "A strong match for students in engineering, business, design, computing, innovation, and Greater Bay Area careers.",
+        zhStudentAngle: "非常适合工程、商科、设计、计算机、创新创业和大湾区职业发展方向的学生。"
+      },
+      {
+        name: "Night Markets and Urban Villages",
+        zhName: "夜市与城中村烟火",
+        category: "Food from everywhere",
+        zhCategory: "全国美食汇合",
+        district: "Bao'an, Futian, Longhua, and Yantian",
+        zhDistrict: "宝安、福田、龙华与盐田",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Shenzhen%20Dongmen.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Shenzhen_Dongmen.jpg",
+        story: "The user's notes capture Shenzhen after dark: Xixiang Yantian night market, Fanshen night market, Yantian port views, Qianhai HOP, Shuiwei 1368, and creative food streets built for young people.",
+        zhStory: "你给的素材抓住了夜晚的深圳：西乡盐田夜市、翻身夜市、盐田港晚霞、前海 HOP、水围 1368，以及围绕年轻人形成的创意美食街区。",
+        studentAngle: "Best for energetic students who can handle higher costs in exchange for dense opportunity and global-city speed.",
+        zhStudentAngle: "最适合精力充沛、愿意用更高生活成本换取密集机会和全球城市速度的学生。"
+      }
+    ]
+  ),
+  taiyuan: cityBatchInspiration(
+    "taiyuan",
+    "Taiyuan Through Fen River Lights, Jin Culture, Noodles, and Bell Tower Nights",
+    "从汾河灯光、晋文化、面食和钟楼夜色里看见太原",
+    "Taiyuan gives international students a lower-cost northern base with engineering universities, deep Jin culture, serious noodles, river walks, museum routes, and a nightlife that is becoming younger around Bell Tower Street.",
+    "太原给国际学生的是一个生活成本较低的北方留学基地：工程高校、深厚晋文化、扎实面食、汾河散步、博物馆路线，以及围绕钟楼街逐渐年轻起来的夜生活。",
+    [
+      {
+        name: "Fen River",
+        zhName: "汾河",
+        category: "Riverfront daily life",
+        zhCategory: "河岸日常生活",
+        district: "Central Taiyuan",
+        zhDistrict: "太原中心城区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fen%20River%20Taiyuan.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Fen_River_Taiyuan.jpg",
+        story: "The Fen River gives Taiyuan space to breathe. After class, students can walk, run, cycle, watch lights, and feel a calmer northern city rhythm.",
+        zhStory: "汾河给太原留出了呼吸空间。下课后，学生可以散步、跑步、骑行、看灯光，感受一种更沉稳的北方城市节奏。",
+        studentAngle: "Good for students who want lower living costs, less pressure, and a city that does not overwhelm them on arrival.",
+        zhStudentAngle: "适合想要较低生活成本、较小压力，以及抵达后不会被城市压倒的学生。"
+      },
+      {
+        name: "Shanxi Museum and Jin Culture",
+        zhName: "山西博物院与晋文化",
+        category: "Deep China history",
+        zhCategory: "深层中国历史",
+        district: "Wanbailin District",
+        zhDistrict: "万柏林区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Shanxi%20Museum.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Shanxi_Museum.jpg",
+        story: "Taiyuan is a strong city for students who want China to feel old, layered, and serious. Jin culture, merchant history, temples, and museums give the city quiet depth.",
+        zhStory: "太原很适合希望中国显得古老、层次深、气质沉稳的学生。晋文化、晋商历史、寺庙和博物馆，让城市有安静的深度。",
+        studentAngle: "Useful for history, architecture, archaeology, finance history, cultural heritage, and Chinese civilization studies.",
+        zhStudentAngle: "适合历史、建筑、考古、金融史、文化遗产和中国文明研究方向的学生。"
+      },
+      {
+        name: "Bell Tower Street and Food Street",
+        zhName: "钟楼街与食品街",
+        category: "Noodles, baijiu bars, and youth nights",
+        zhCategory: "面食、汾酒小馆与年轻夜晚",
+        district: "Yingze District",
+        zhDistrict: "迎泽区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Taiyuan%20Bell%20Tower%20Street.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Taiyuan_Bell_Tower_Street.jpg",
+        story: "The user's notes show a younger Taiyuan: Fenjiu-themed bars, folk music, Modern Sky live events, Food Street, Liuxiang, and Yijing snacks turn the old city into a student night route.",
+        zhStory: "你给的素材里有一个更年轻的太原：汾酒主题小馆、民谣、摩登天空演出、食品街、柳巷和义井小吃，把老城变成了学生夜游路线。",
+        studentAngle: "Strong for students who want affordable northern food culture and a city that is quietly renewing itself.",
+        zhStudentAngle: "适合想体验实惠北方面食文化，也愿意看见一座城市安静更新的学生。"
+      }
+    ]
+  ),
+  zhengzhou: cityBatchInspiration(
+    "zhengzhou",
+    "Zhengzhou Through Central Plains History, CBD Nights, Hu La Tang, and Yellow River Routes",
+    "从中原历史、CBD夜色、胡辣汤和黄河路线里看见郑州",
+    "Zhengzhou is a central-China study city with practical power: transport hub, affordable food, Henan history, big universities, CBD lights, night markets, and easy access to the Yellow River and ancient capitals.",
+    "郑州是一座很务实的中部留学城市：交通枢纽、实惠美食、河南历史、综合性高校、CBD灯光、夜市，以及通往黄河和古都线路的便利入口。",
+    [
+      {
+        name: "Henan Museum",
+        zhName: "河南博物院",
+        category: "Central Plains civilization",
+        zhCategory: "中原文明",
+        district: "Jinshui District",
+        zhDistrict: "金水区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Henan%20Museum.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Henan_Museum.jpg",
+        story: "Henan Museum helps students understand why the Central Plains matter. Bronze, jade, music, writing, and ancient states make Chinese civilization feel concrete.",
+        zhStory: "河南博物院会帮助学生理解为什么中原重要。青铜、玉器、音乐、文字和古国历史，让中华文明变得具体。",
+        studentAngle: "A must for students who want China beyond skylines: history, archaeology, language, art, and cultural identity.",
+        zhStudentAngle: "适合想在天际线之外理解中国的学生：历史、考古、语言、艺术和文化身份都能在这里找到入口。"
+      },
+      {
+        name: "Zhengdong CBD",
+        zhName: "郑东新区CBD",
+        category: "Modern central-city energy",
+        zhCategory: "现代中部城市能量",
+        district: "Zhengdong New Area",
+        zhDistrict: "郑东新区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Zhengzhou%20CBD.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Zhengzhou_CBD.jpg",
+        story: "The CBD and the 'Big Corn' skyline show Zhengzhou's ambition as a transport, finance, logistics, and service hub in central China.",
+        zhStory: "郑东CBD和“大玉米”天际线，展示了郑州作为中部交通、金融、物流和服务业枢纽的城市野心。",
+        studentAngle: "Good for students in business, logistics, rail transport, urban development, economics, and China market studies.",
+        zhStudentAngle: "适合商科、物流、轨道交通、城市发展、经济学和中国市场研究方向的学生。"
+      },
+      {
+        name: "Night Markets and Yellow River Trips",
+        zhName: "夜市与黄河路线",
+        category: "Food and regional travel",
+        zhCategory: "美食与区域旅行",
+        district: "Jinshui, Erqi, and Yellow River areas",
+        zhDistrict: "金水、二七与黄河沿线",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Yellow%20River%20Zhengzhou.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Yellow_River_Zhengzhou.jpg",
+        story: "The user's notes make Zhengzhou feel young after dark: Nongke Road bars, CBD live music, Health Road night market, Dehua Street, Taiheli food street, Financial Island, and Yellow River weekend routes.",
+        zhStory: "你给的素材让郑州的夜晚变得年轻：农科路酒吧、CBD驻唱、健康路夜市、德化街、泰和里好吃街、金融岛，还有黄河周末路线。",
+        studentAngle: "A practical choice for students who want lower costs, transport convenience, deep history, and a city still growing fast.",
+        zhStudentAngle: "适合想要较低成本、交通便利、深厚历史，以及一座仍在快速生长城市的学生。"
+      }
+    ]
+  )
 };
 
 export function getCityCulturalInspiration(slug: string) {

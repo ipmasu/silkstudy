@@ -65,6 +65,7 @@ const cityNameZh: Record<string, string> = {
   shanghai: "上海",
   shantou: "汕头",
   shenyang: "沈阳",
+  shenzhen: "深圳",
   shihezi: "石河子",
   shijiazhuang: "石家庄",
   suzhou: "苏州",

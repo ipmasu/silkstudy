@@ -18,6 +18,19 @@ export type CityDeepDive = {
 
 const deepDive = (input: CityDeepDive) => input;
 
+type BatchDeepDiveInput = {
+  slug: string;
+  title: string;
+  zhTitle: string;
+  intro: string;
+  zhIntro: string;
+  proofPoints: string[];
+  zhProofPoints: string[];
+  sections: CityDeepDive["sections"];
+};
+
+const cityBatchDeepDive = (input: BatchDeepDiveInput) => deepDive(input);
+
 export const cityDeepDives: Record<string, CityDeepDive> = {
   hangzhou: deepDive({
     slug: "hangzhou",
@@ -789,6 +802,606 @@ export const cityDeepDives: Record<string, CityDeepDive> = {
           "高校文化节让来自老挝、巴基斯坦、泰国、越南等国家的学生在美食、表演和语言场景里真正互动。",
           "外国人才和居留许可服务的优化，让符合条件的学生能更具体地考虑毕业后的工作、居住和家庭安排。",
           "昆明适合希望中国留学是美丽、实惠、多元、安全，并且在情感上有空间感的学生。"
+        ]
+      }
+    ]
+  }),
+  suzhou: cityBatchDeepDive({
+    slug: "suzhou",
+    title: "Why Suzhou Works for Global Students Who Want Jiangnan Beauty and Modern Opportunity",
+    zhTitle: "为什么苏州适合想要江南美感与现代机会的国际学生",
+    intro:
+      "Suzhou is attractive because it is graceful without being sleepy. Classical gardens, canals, museums, high-speed rail, Suzhou Industrial Park, Jinji Lake, XJTLU-style international education, student food streets, and gentle nightlife all sit close together.",
+    zhIntro:
+      "苏州的吸引力在于它优雅但并不沉睡。园林、运河、博物馆、高铁、苏州工业园区、金鸡湖、国际化教育资源、学生美食街和温柔夜生活，彼此距离都不远。",
+    proofPoints: [
+      "Suzhou offers strong university choices and is closely connected to Shanghai, Hangzhou, Nanjing, and the Yangtze River Delta job market.",
+      "Daily costs can be easier to manage than Shanghai while still offering refined urban life.",
+      "The city gives students both classical Chinese culture and modern lakefront nightlife."
+    ],
+    zhProofPoints: [
+      "苏州有较强高校选择，并紧密连接上海、杭州、南京和长三角就业市场。",
+      "日常成本通常比上海更容易控制，但仍能享受精致城市生活。",
+      "这座城市同时给学生古典中国文化和现代湖畔夜生活。"
+    ],
+    sections: [
+      {
+        title: "Universities and a Yangtze River Delta Base",
+        zhTitle: "高校资源与长三角基地",
+        body:
+          "Suzhou is suitable for students who want a calmer city while staying close to China's most dynamic economic region. Soochow University, Xi'an Jiaotong-Liverpool University, and applied universities give options across Chinese language, engineering, business, design, science, and international programs.",
+        zhBody:
+          "苏州适合那些希望城市更安静、但仍然靠近中国最活跃经济区域的学生。苏州大学、西交利物浦大学以及应用型高校，为中文、工程、商科、设计、理科和国际化项目提供了选择。",
+        bullets: [
+          "High-speed rail makes Shanghai and Hangzhou practical weekend or career-exposure routes.",
+          "Suzhou Industrial Park gives the city a modern business and technology context.",
+          "The city is especially friendly to students who want study, beauty, safety, and regional mobility in one place."
+        ],
+        zhBullets: [
+          "高铁让上海和杭州成为现实的周末与职业探索路线。",
+          "苏州工业园区给这座城市带来现代商务和科技语境。",
+          "这座城市尤其适合同时重视学习、美感、安全和区域流动性的学生。"
+        ]
+      },
+      {
+        title: "Gardens, Canals, and a Daily Route Into Chinese Aesthetics",
+        zhTitle: "园林、运河和进入中国审美的日常路线",
+        body:
+          "Suzhou makes Chinese aesthetics walkable. Students can enter gardens, sit by canals, listen to Pingtan, visit Suzhou Museum, and understand that Chinese culture is not only ancient text but also space, water, shadow, and restraint.",
+        zhBody:
+          "苏州让中国审美变得可以步行进入。学生可以走进园林，坐在河边，听评弹，参观苏州博物馆，理解中国文化不只是古书里的文字，也是空间、水、光影和克制。",
+        bullets: [
+          "Pingjiang Road and Shantang Street are good language-practice and photography routes.",
+          "Classical gardens help design, architecture, art, and culture students understand Jiangnan taste.",
+          "Museums, bookstores, cafes, and old lanes give students a low-pressure way to spend weekends."
+        ],
+        zhBullets: [
+          "平江路和山塘街很适合练中文、拍照和熟悉城市。",
+          "古典园林能帮助设计、建筑、艺术和文化方向学生理解江南趣味。",
+          "博物馆、书店、咖啡馆和古巷，让学生可以低压力地度过周末。"
+        ]
+      },
+      {
+        title: "Gentle Nightlife: Lake Bars, Folk Music, and Summer Markets",
+        zhTitle: "温柔夜生活：湖景酒吧、民谣和夏夜市集",
+        body:
+          "Suzhou's nightlife is not only clubs. The user's notes show a city of folk taverns on Shantang Street, Jinji Lake music restaurants, immersive performance spaces, markets on Shiquan Street, and citywide summer events.",
+        zhBody:
+          "苏州的夜生活不只是夜店。你给的素材里有山塘街民谣小酒馆、金鸡湖音乐餐厅、沉浸式演艺空间、十全街市集和全城夏季活动。",
+        bullets: [
+          "This rhythm is good for students who like conversation, music, and atmosphere.",
+          "Food and markets make social life easier for newcomers.",
+          "Suzhou is a strong fit for students who want China to feel elegant, modern, and not overwhelming."
+        ],
+        zhBullets: [
+          "这种节奏适合喜欢聊天、音乐和氛围的学生。",
+          "美食和市集能帮助新生更容易进入社交生活。",
+          "苏州适合希望中国显得优雅、现代、但不过度压迫的人。"
+        ]
+      }
+    ]
+  }),
+  fuzhou: cityBatchDeepDive({
+    slug: "fuzhou",
+    title: "Why Fuzhou Is a Warm Coastal Study City With Fujian Flavor",
+    zhTitle: "为什么福州是一座有闽味、有温度的滨海留学城市",
+    intro:
+      "Fuzhou attracts students through warmth: warm climate, warm food, warm old lanes, riverfront nights, university-town life, and a coastal openness that connects Fujian culture with Southeast Asia.",
+    zhIntro:
+      "福州吸引学生的地方在于温度：温暖气候、温暖食物、温暖老巷、江边夜色、大学城生活，以及把福建文化和东南亚联系起来的滨海开放性。",
+    proofPoints: [
+      "Fuzhou has major provincial universities across engineering, education, medicine, agriculture, language, and applied fields.",
+      "Food and daily living are generally more student-friendly than China's most expensive megacities.",
+      "Historic lanes, riverside routes, and university-town events give students many low-cost ways to enter local life."
+    ],
+    zhProofPoints: [
+      "福州拥有工程、教育、医学、农业、语言和应用学科方向的省会高校资源。",
+      "饮食和日常生活整体比中国最贵的一线城市更适合学生预算。",
+      "历史街巷、江边路线和大学城活动，让学生有很多低成本进入本地生活的方式。"
+    ],
+    sections: [
+      {
+        title: "A Provincial Capital With Practical University Choices",
+        zhTitle: "一座高校选择务实的省会城市",
+        body:
+          "Fuzhou's university map is practical for students who want Fujian, coastal China, and Southeast Asia-facing opportunities. Fuzhou University, Fujian Normal University, Fujian Agriculture and Forestry University, Fujian Medical University, and other institutions cover many applied paths.",
+        zhBody:
+          "福州的高校地图很务实，适合希望进入福建、沿海中国以及面向东南亚机会的学生。福州大学、福建师范大学、福建农林大学、福建医科大学等高校覆盖了许多应用型方向。",
+        bullets: [
+          "Engineering, education, medicine, agriculture, language, and business all have visible local context.",
+          "University-town neighborhoods give students food, transport, and peer communities.",
+          "Fuzhou is especially relevant for students who want a coastal city with lower pressure than Shanghai or Shenzhen."
+        ],
+        zhBullets: [
+          "工程、教育、医学、农业、语言和商科都能找到明确的本地语境。",
+          "大学城周边能提供食物、交通和同龄人社区。",
+          "福州尤其适合想要沿海城市，但不想承受上海或深圳压力的学生。"
+        ]
+      },
+      {
+        title: "Fish Balls, Rouyan, Guobianhu, and Food Streets",
+        zhTitle: "鱼丸、肉燕、锅边糊和美食街",
+        body:
+          "Fuzhou food is gentle but memorable. Fish balls, rouyan, guobianhu, peanut soup, taro paste, oyster cakes, Daming food street, Xiangban night market, and campus snacks help students enter the city through taste.",
+        zhBody:
+          "福州食物温和但有记忆点。鱼丸、肉燕、锅边糊、花生汤、芋泥、海蛎饼、达明美食街、祥坂夜市和校园小吃，能让学生用味觉进入城市。",
+        bullets: [
+          "Food is an easy first Chinese-practice route because prices, ingredients, and local names can become daily conversation.",
+          "Daming food street connects Fujian, Taiwan, and Southeast Asian food memories.",
+          "University-town waterfront markets make student nights social without needing a big budget."
+        ],
+        zhBullets: [
+          "食物很适合作为中文实践入口，因为价格、配料和本地叫法都能变成日常对话。",
+          "达明美食街连接了福建、台湾和东南亚的饮食记忆。",
+          "大学城水岸市集能让学生不用大预算也拥有社交夜晚。"
+        ]
+      },
+      {
+        title: "Sanfang Qixiang, Yantai Mountain, Min River, and Night Culture",
+        zhTitle: "三坊七巷、烟台山、闽江和夜间文化",
+        body:
+          "Fuzhou has a soft cultural depth. Students can walk Sanfang Qixiang, explore Yantai Mountain, take Min River night routes, visit Guling, and then choose hip-hop bars, sake bars, music restaurants, or food streets after dark.",
+        zhBody:
+          "福州有柔和的文化深度。学生可以走三坊七巷，探索烟台山，夜游闽江，去鼓岭，再在夜晚选择 hip-hop 小厅、清酒吧、音乐餐吧或美食街。",
+        bullets: [
+          "The city works well for students who want old streets and coastal modernity together.",
+          "Nightlife is diverse enough for different personalities: music, food, quiet bars, and markets.",
+          "Fuzhou can feel especially welcoming to students from Southeast Asia because of climate, food, and regional ties."
+        ],
+        zhBullets: [
+          "这座城市适合希望老街和沿海现代性同时存在的学生。",
+          "夜生活足够多样：音乐、美食、安静酒吧和市集都能对应不同性格。",
+          "因为气候、食物和区域联系，福州会让东南亚学生更容易感到亲近。"
+        ]
+      }
+    ]
+  }),
+  tianjin: cityBatchDeepDive({
+    slug: "tianjin",
+    title: "Why Tianjin Gives Students North China Access With Lower Pressure",
+    zhTitle: "为什么天津能用较低压力连接华北留学机会",
+    intro:
+      "Tianjin is close to Beijing but has its own personality: Haihe lights, Wudadao architecture, Nankai and Tianjin University traditions, funny street culture, lower costs, and a food scene built for students.",
+    zhIntro:
+      "天津靠近北京，但有自己的性格：海河灯火、五大道建筑、南开与天大传统、幽默街头文化、相对较低成本，以及非常适合学生的美食现场。",
+    proofPoints: [
+      "Tianjin connects students to Beijing and North China while keeping living costs more manageable.",
+      "The city has strong universities across engineering, medicine, language, business, and applied fields.",
+      "Riverfront routes, old neighborhoods, university-town night markets, and courtyard bars make daily life warm."
+    ],
+    zhProofPoints: [
+      "天津能把学生连接到北京和华北机会，同时生活成本更容易控制。",
+      "这座城市在工程、医学、语言、商科和应用学科上都有高校资源。",
+      "河岸路线、老街区、大学城夜市和四合院酒吧，让日常生活更有温度。"
+    ],
+    sections: [
+      {
+        title: "Strong Universities Beside Beijing",
+        zhTitle: "北京旁边的强高校城市",
+        body:
+          "Tianjin University, Nankai University, Tianjin Foreign Studies University, Tianjin Medical University, Tianjin University of Science and Technology, and other institutions make Tianjin a serious study choice rather than only a weekend trip from Beijing.",
+        zhBody:
+          "天津大学、南开大学、天津外国语大学、天津医科大学、天津科技大学等高校，让天津不是北京周边的周末目的地，而是一个可以认真选择的留学城市。",
+        bullets: [
+          "Engineering, chemistry, architecture, medicine, language, and business are visible strengths.",
+          "High-speed rail makes Beijing reachable while students live in a calmer city.",
+          "Families often appreciate the balance of opportunity, transport, and relative affordability."
+        ],
+        zhBullets: [
+          "工程、化学、建筑、医学、语言和商科都有明显优势。",
+          "高铁让北京触手可及，而学生仍能住在更松弛的城市里。",
+          "这种机会、交通和相对实惠之间的平衡，对家庭也有吸引力。"
+        ]
+      },
+      {
+        title: "Haihe, Wudadao, and a Walkable City Memory",
+        zhTitle: "海河、五大道与可步行的城市记忆",
+        body:
+          "Tianjin is easy to love on foot. Haihe night routes, Wudadao, the Italian Style Area, Jinwan Square, and the Tianjin Eye make the city visual, romantic, and easy to explain to friends back home.",
+        zhBody:
+          "天津是一座适合步行喜欢上的城市。海河夜线、五大道、意式风情区、津湾广场和天津之眼，让这座城市很有画面感、很浪漫，也容易讲给家乡朋友听。",
+        bullets: [
+          "Many city experiences are free or low-cost.",
+          "Architecture routes are useful for design, history, and photography students.",
+          "The river gives students a daily place to walk, talk, and reset."
+        ],
+        zhBullets: [
+          "许多城市体验都是免费或低成本的。",
+          "建筑路线适合设计、历史和摄影方向学生。",
+          "海河给学生一个日常散步、聊天和恢复状态的地方。"
+        ]
+      },
+      {
+        title: "Jianbing, Night Markets, River Bars, and Local Humor",
+        zhTitle: "煎饼、夜市、河边酒吧和天津幽默",
+        body:
+          "Tianjin's food and nightlife are friendly to students: jianbing guozi, local snacks, Yao Village night market, Binjiang Road, Wandezhuang food street, river-deck bars, courtyard music, retro bars, and hip-hop spaces.",
+        zhBody:
+          "天津的食物和夜生活很适合学生：煎饼果子、本地小吃、姚村夜市、滨江道、万德庄美食街、海河露台酒吧、四合院民谣、复古酒吧和 hip-hop 空间。",
+        bullets: [
+          "The city is good for students who want North China access but prefer a warmer social texture.",
+          "Nightlife can be lively without being as expensive as Beijing.",
+          "Tianjin's humor helps students feel that language learning can be playful, not only academic."
+        ],
+        zhBullets: [
+          "这座城市适合想连接华北机会、但也希望社交氛围更温暖的学生。",
+          "夜生活可以热闹，但不一定像北京那样昂贵。",
+          "天津的幽默感会让学生觉得学中文也可以很好玩，而不只是课堂任务。"
+        ]
+      }
+    ]
+  }),
+  harbin: cityBatchDeepDive({
+    slug: "harbin",
+    title: "Why Harbin Is a Memorable Northern China Study City",
+    zhTitle: "为什么哈尔滨是一座很有记忆点的中国北方留学城市",
+    intro:
+      "Harbin is ideal for students who want China to feel different: cold winters, cool summers, Russian-style streets, engineering universities, ice culture, generous food, and a strong northern identity.",
+    zhIntro:
+      "哈尔滨适合那些希望看到不一样中国的学生：寒冷冬季、凉爽夏天、俄式街区、工程强校、冰雪文化、分量十足的食物，以及非常鲜明的北方身份。",
+    proofPoints: [
+      "Harbin is strong for engineering, aerospace, marine, medicine, language, forestry, and applied science fields.",
+      "Living costs are usually lower than major coastal cities.",
+      "Central Street, Saint Sophia, Songhua River, ice festivals, and summer night markets create a city identity students remember."
+    ],
+    zhProofPoints: [
+      "哈尔滨在工程、航天、船舶、医学、语言、林业和应用理科方向都很有辨识度。",
+      "生活成本通常低于主要沿海大城市。",
+      "中央大街、圣索菲亚、松花江、冰雪节和夏夜市集，共同创造了很难忘的城市身份。"
+    ],
+    sections: [
+      {
+        title: "Engineering, Aerospace, Medicine, and Northern Research",
+        zhTitle: "工程、航天、医学和北方科研",
+        body:
+          "Harbin Institute of Technology, Harbin Engineering University, Harbin Medical University, Heilongjiang University, Northeast Forestry University, and other institutions make the city serious for students who want research strength with lower living pressure.",
+        zhBody:
+          "哈尔滨工业大学、哈尔滨工程大学、哈尔滨医科大学、黑龙江大学、东北林业大学等高校，让这座城市适合想要科研实力、但又希望生活压力较低的学生。",
+        bullets: [
+          "Engineering and aerospace are major signals for the city.",
+          "Medicine, language, forestry, and Russian-related regional studies add variety.",
+          "The city is especially relevant for students from colder regions or Russian-speaking backgrounds."
+        ],
+        zhBullets: [
+          "工程和航天是这座城市最强的信号之一。",
+          "医学、语言、林业和俄语区域研究也提供了更多选择。",
+          "来自寒冷地区或俄语背景的学生，可能会更容易适应哈尔滨。"
+        ]
+      },
+      {
+        title: "A City That Turns Climate Into Culture",
+        zhTitle: "把气候变成文化的城市",
+        body:
+          "Harbin does not hide winter; it turns winter into identity. Ice and Snow World, Central Street, Saint Sophia, Songhua River, hot food, and indoor music scenes make the season part of the study experience.",
+        zhBody:
+          "哈尔滨不回避冬天，而是把冬天变成身份。冰雪大世界、中央大街、圣索菲亚、松花江、热乎食物和室内音乐现场，让季节成为留学体验的一部分。",
+        bullets: [
+          "Winter gives students one of China's most distinctive travel memories.",
+          "Summer is cool and lively, with night markets, river walks, beer, and outdoor events.",
+          "Food such as guobaorou, red sausage, and Madier ice cream helps students remember the city by taste."
+        ],
+        zhBullets: [
+          "冬天会给学生最有辨识度的中国旅行记忆之一。",
+          "夏天则凉爽热闹，有夜市、江边散步、啤酒和户外活动。",
+          "锅包肉、红肠和马迭尔冰棍，会让学生用味觉记住这座城市。"
+        ]
+      },
+      {
+        title: "Central Street, Music Bars, and Night Markets",
+        zhTitle: "中央大街、音乐酒馆和夜市",
+        body:
+          "The user's notes show Harbin after dark as more than ice tourism: Central Street bars, Commune, TIMES LiveHouse, high-rise music bars, Normal University night market, Anjing Street, and Songhua River weekend markets.",
+        zhBody:
+          "你给的素材里，夜晚的哈尔滨不只是冰雪旅游：中央大街酒吧、Commune、TIMES LiveHouse、高空音乐酒吧、师大夜市、安静街和松花江周末市集，都让城市在夜晚继续有生活。",
+        bullets: [
+          "Harbin is a good fit for students who like music, winter culture, and strong city personality.",
+          "Lower costs can make student social life more accessible.",
+          "The city is not soft in climate, but it is generous in memory."
+        ],
+        zhBullets: [
+          "哈尔滨适合喜欢音乐、冬季文化和强烈城市性格的学生。",
+          "较低生活成本会让学生社交生活更容易开始。",
+          "这座城市在气候上并不柔软，但在记忆上非常慷慨。"
+        ]
+      }
+    ]
+  }),
+  guilin: cityBatchDeepDive({
+    slug: "guilin",
+    title: "Why Guilin Is a Low-Pressure Landscape City for International Students",
+    zhTitle: "为什么桂林是一座低压力的山水留学城市",
+    intro:
+      "Guilin is powerful because it gives students beauty without needing luxury: karst mountains, Li River routes, rice noodles, Yangshuo, affordable daily life, and a slower rhythm that helps students stay curious.",
+    zhIntro:
+      "桂林的力量在于它用不奢侈的方式给学生美：喀斯特山水、漓江路线、桂林米粉、阳朔、相对实惠的日常生活，以及让人保持好奇的慢节奏。",
+    proofPoints: [
+      "Guilin has university options across education, electronic information, engineering, tourism, language, and applied fields.",
+      "Living costs and local food can be friendly to students.",
+      "The city gives students immediate access to one of China's most famous natural landscapes."
+    ],
+    zhProofPoints: [
+      "桂林在教育、电子信息、工程、旅游、语言和应用学科方向有高校选择。",
+      "生活成本和本地饮食对学生较友好。",
+      "这座城市让学生很快接触到中国最著名的自然山水之一。"
+    ],
+    sections: [
+      {
+        title: "Study in a City That Breathes",
+        zhTitle: "在一座会呼吸的城市里学习",
+        body:
+          "Guangxi Normal University, Guilin University of Electronic Technology, Guilin University of Technology, and other institutions give Guilin a practical academic base while the city itself remains relaxed, scenic, and less expensive than major megacities.",
+        zhBody:
+          "广西师范大学、桂林电子科技大学、桂林理工大学等高校，为桂林提供了务实的学术基础，而城市本身仍然松弛、山水感强，生活成本低于许多超大城市。",
+        bullets: [
+          "Electronic information, engineering, tourism, education, Chinese language, and culture studies all have local relevance.",
+          "The city is suitable for students who prefer nature and slower daily rhythm.",
+          "Guilin can be a gentle first China experience for students who feel overwhelmed by megacities."
+        ],
+        zhBullets: [
+          "电子信息、工程、旅游、教育、中文和文化研究都能找到本地语境。",
+          "这座城市适合偏爱自然和慢日常节奏的学生。",
+          "对容易被超大城市压倒的学生来说，桂林可以成为温柔的中国第一站。"
+        ]
+      },
+      {
+        title: "Li River, Yangshuo, West Street, and Weekend Freedom",
+        zhTitle: "漓江、阳朔、西街和周末自由",
+        body:
+          "Guilin's travel value is built into daily life. Students can go from class to riverside walks, from city food streets to Yangshuo, from quiet mountains to West Street's multilingual nightlife.",
+        zhBody:
+          "桂林的旅行价值就嵌在日常生活里。学生可以从课堂走到江边，从城市美食街去阳朔，从安静山水走到西街多语言夜生活。",
+        bullets: [
+          "Li River and Xingping are useful for photography, language exchange, and nature study.",
+          "West Street has long made Guilin feel international and friendly to foreigners.",
+          "Many scenic routes are manageable for student budgets with careful planning."
+        ],
+        zhBullets: [
+          "漓江和兴坪适合摄影、语言交换和自然观察。",
+          "西街长期让桂林显得国际化，也对外国人更友好。",
+          "许多山水路线只要认真规划，就能适合学生预算。"
+        ]
+      },
+      {
+        title: "Rice Noodles, Beer Fish, and Night Food Streets",
+        zhTitle: "米粉、啤酒鱼和夜间美食街",
+        body:
+          "Guilin's food scene is simple, affordable, and memorable. Rice noodles can become a daily ritual, while beer fish, snails, Zhengyang Street, Dongxi Lane, Wayao night market, and West Street give students easy social routes.",
+        zhBody:
+          "桂林的食物简单、实惠、有记忆点。米粉会成为日常仪式，而啤酒鱼、田螺、正阳街、东西巷、瓦窑夜市和西街，则给学生提供轻松的社交路线。",
+        bullets: [
+          "Food is a low-cost way to build friendships in the first semester.",
+          "The city is strong for tourism, ecology, cultural exchange, and Chinese-language immersion.",
+          "Guilin sells not pressure, but the possibility of living beautifully with less."
+        ],
+        zhBullets: [
+          "食物是第一学期低成本建立友情的方式。",
+          "这座城市适合旅游、生态、文化交流和中文沉浸方向。",
+          "桂林卖的不是压力，而是用更少成本把生活过得很美的可能性。"
+        ]
+      }
+    ]
+  }),
+  shenzhen: cityBatchDeepDive({
+    slug: "shenzhen",
+    title: "Why Shenzhen Is a High-Speed Study City for Ambitious Global Students",
+    zhTitle: "为什么深圳适合有野心的全球学生",
+    intro:
+      "Shenzhen is not the cheapest city, but it is one of China's clearest opportunity cities: tech companies, startups, finance, hardware, design, maker culture, coastal parks, global food, and a young population that moves fast.",
+    zhIntro:
+      "深圳不是最便宜的城市，但它是中国机会感最清晰的城市之一：科技公司、创业、金融、硬件、设计、创客文化、滨海公园、全球美食，以及快速移动的年轻人口。",
+    proofPoints: [
+      "Shenzhen is strong for technology, engineering, business, design, finance, hardware, AI, and Greater Bay Area careers.",
+      "Living costs are higher, but free parks, public transport, and student budgeting can make daily life more manageable.",
+      "The city is especially appealing to students who want China as future-facing, global, and entrepreneurial."
+    ],
+    zhProofPoints: [
+      "深圳在科技、工程、商科、设计、金融、硬件、AI 和大湾区职业机会方面很强。",
+      "生活成本较高，但免费公园、公共交通和学生预算规划能帮助日常生活更可控。",
+      "这座城市尤其吸引那些希望看到面向未来、全球化、创业型中国的学生。"
+    ],
+    sections: [
+      {
+        title: "Universities Inside an Innovation Ecosystem",
+        zhTitle: "创新生态里的大学",
+        body:
+          "Shenzhen University, Southern University of Science and Technology, Shenzhen Technology University, The Chinese University of Hong Kong, Shenzhen, and other institutions place students inside the Greater Bay Area's technology and business ecosystem.",
+        zhBody:
+          "深圳大学、南方科技大学、深圳技术大学、香港中文大学（深圳）等高校，把学生放进大湾区科技与商业生态之中。",
+        bullets: [
+          "Engineering, computing, business, design, finance, life sciences, and innovation programs all match the city.",
+          "Internship and project exposure can be stronger than in many quieter cities.",
+          "Students should plan budgets carefully because rent and services can be expensive."
+        ],
+        zhBullets: [
+          "工程、计算机、商科、设计、金融、生命科学和创新项目都与城市匹配。",
+          "实习和项目曝光可能强于许多更安静的城市。",
+          "学生需要认真规划预算，因为租房和服务价格可能较高。"
+        ]
+      },
+      {
+        title: "Bay Parks, Maker Spaces, and a City That Looks Forward",
+        zhTitle: "湾区公园、创客空间和向前看的城市",
+        body:
+          "Shenzhen's advantage is that ambition is visible. Ping An Finance Center, Shenzhen Bay Park, Talent Park, OCT Loft, Nantou Ancient City renewal, hardware markets, and design districts all show different layers of the same city.",
+        zhBody:
+          "深圳的优势在于野心是可见的。平安金融中心、深圳湾公园、人才公园、华侨城创意园、南头古城更新、硬件市场和设计街区，展示的是同一座城市的不同层次。",
+        bullets: [
+          "Free coastal parks help balance the pressure of a high-cost city.",
+          "Maker culture is useful for students who learn by building things.",
+          "The city is highly relevant for students interested in China's next industries."
+        ],
+        zhBullets: [
+          "免费滨海公园能平衡高成本城市带来的压力。",
+          "创客文化适合那些通过动手做东西来学习的学生。",
+          "这座城市非常适合关注中国下一阶段产业的学生。"
+        ]
+      },
+      {
+        title: "Cyberpunk Nights, Night Markets, and Food From Everywhere",
+        zhTitle: "赛博夜色、夜市和来自全国的食物",
+        body:
+          "The user's notes capture Shenzhen's nights well: high-rise bars, hotel terraces, vintage lounges, Xixiang Yantian night market, Fanshen night market, Yantian port views, Shuiwei 1368, Qianhai HOP, and food streets born from migration.",
+        zhBody:
+          "你给的素材很好地抓住了深圳的夜晚：高空酒吧、酒店露台、复古清吧、西乡盐田夜市、翻身夜市、盐田港晚霞、水围 1368、前海 HOP，以及因移民城市而形成的全国美食街。",
+        bullets: [
+          "Shenzhen suits energetic students who want opportunity density.",
+          "The city can feel expensive, but it also gives many free public spaces and fast-growth networks.",
+          "For global youth, Shenzhen is a clear way to see China's high-speed development dividend."
+        ],
+        zhBullets: [
+          "深圳适合精力充沛、希望机会密度很高的学生。",
+          "城市会显得昂贵，但也提供许多免费公共空间和快速成长网络。",
+          "对全球年轻人来说，深圳是理解中国高速发展红利的清晰入口。"
+        ]
+      }
+    ]
+  }),
+  taiyuan: cityBatchDeepDive({
+    slug: "taiyuan",
+    title: "Why Taiyuan Is an Affordable Northern City With Deep Jin Culture",
+    zhTitle: "为什么太原是一座实惠而有晋文化深度的北方留学城市",
+    intro:
+      "Taiyuan is not trying to be a coastal megacity. Its value is different: lower costs, engineering universities, Shanxi history, Fen River walks, museums, noodles, old streets, and a nightlife slowly becoming younger.",
+    zhIntro:
+      "太原并不试图成为沿海超大城市。它的价值在别处：较低成本、工程高校、山西历史、汾河散步、博物馆、面食、老街，以及正在变年轻的夜生活。",
+    proofPoints: [
+      "Taiyuan offers practical university options in engineering, medicine, finance, science, and applied disciplines.",
+      "Living costs are generally more student-friendly than first-tier cities.",
+      "Jin culture, Fen River, Shanxi Museum, Jinci, Bell Tower Street, and Food Street give students a grounded city life."
+    ],
+    zhProofPoints: [
+      "太原在工程、医学、财经、理科和应用学科方面有务实高校选择。",
+      "生活成本整体比一线城市更适合学生。",
+      "晋文化、汾河、山西博物院、晋祠、钟楼街和食品街，让学生拥有扎实的城市生活。"
+    ],
+    sections: [
+      {
+        title: "A Lower-Cost Study Base in North China",
+        zhTitle: "华北较低成本留学基地",
+        body:
+          "Taiyuan University of Technology, Shanxi University, Shanxi Medical University, Shanxi University of Finance and Economics, and other institutions make the city practical for students who want affordability and academic choices.",
+        zhBody:
+          "太原理工大学、山西大学、山西医科大学、山西财经大学等高校，让太原成为一个兼具实惠生活和学科选择的务实留学城市。",
+        bullets: [
+          "Engineering, medicine, finance, science, and Chinese language all have clear pathways.",
+          "Daily food and transport can be easier to manage than in coastal megacities.",
+          "The city fits students who prefer steady life over constant stimulation."
+        ],
+        zhBullets: [
+          "工程、医学、财经、理科和中文方向都有较清晰路径。",
+          "日常餐饮和交通成本比沿海超大城市更容易控制。",
+          "这座城市适合偏好稳定生活，而不是持续刺激的学生。"
+        ]
+      },
+      {
+        title: "Shanxi Museum, Jinci, and a Serious Historical Texture",
+        zhTitle: "山西博物院、晋祠和厚重历史质感",
+        body:
+          "Taiyuan helps students read a deeper China. Shanxi Museum, Jinci Temple, merchant culture, old city streets, and nearby ancient architecture routes make history feel close rather than abstract.",
+        zhBody:
+          "太原能帮助学生读到更深层的中国。山西博物院、晋祠、晋商文化、老城街道和周边古建筑路线，让历史不再抽象，而是变得很近。",
+        bullets: [
+          "Strong for students interested in Chinese civilization, architecture, heritage, archaeology, and regional economy.",
+          "Weekend routes can extend to Shanxi's famous ancient buildings and old towns.",
+          "The city gives cultural depth without the price level of larger tourist cities."
+        ],
+        zhBullets: [
+          "适合关注中国文明、建筑、遗产、考古和区域经济的学生。",
+          "周末路线可以延伸到山西著名古建和古城。",
+          "这座城市能提供文化深度，但成本不必达到热门旅游大城水平。"
+        ]
+      },
+      {
+        title: "Noodles, Fenjiu Bars, Bell Tower Street, and Liuxiang",
+        zhTitle: "面食、汾酒小馆、钟楼街和柳巷",
+        body:
+          "Taiyuan's student life is built from solid food and renewed old streets: knife-cut noodles, tounao, Food Street, Liuxiang, Bell Tower Street, Fenjiu-themed bars, folk music, live houses, and Yijing snacks.",
+        zhBody:
+          "太原的学生生活由扎实食物和更新后的老街组成：刀削面、头脑、食品街、柳巷、钟楼街、汾酒主题小馆、民谣、Livehouse 和义井小吃。",
+        bullets: [
+          "Food gives international students an easy route into local conversation.",
+          "Bell Tower Street shows Taiyuan's younger side.",
+          "Taiyuan is a good fit for students who want China to feel grounded, affordable, and culturally thick."
+        ],
+        zhBullets: [
+          "食物能让国际学生轻松进入本地对话。",
+          "钟楼街展示了太原更年轻的一面。",
+          "太原适合希望中国显得扎实、实惠、有文化厚度的学生。"
+        ]
+      }
+    ]
+  }),
+  zhengzhou: cityBatchDeepDive({
+    slug: "zhengzhou",
+    title: "Why Zhengzhou Is a Practical Central China Gateway for International Students",
+    zhTitle: "为什么郑州是务实的中部中国留学入口",
+    intro:
+      "Zhengzhou is attractive because it is practical: big universities, transport connections, lower daily costs, Henan food, Central Plains history, CBD nights, and access to the Yellow River, Luoyang, Kaifeng, and many cultural routes.",
+    zhIntro:
+      "郑州的吸引力在于务实：大型高校、交通连接、较低日常成本、河南美食、中原历史、CBD夜色，以及通往黄河、洛阳、开封等文化路线的入口。",
+    proofPoints: [
+      "Zhengzhou is a major transport hub and connects students to central China quickly.",
+      "The city offers university choices across comprehensive, engineering, agriculture, medicine, business, and applied fields.",
+      "Food, museums, night markets, and regional travel routes are affordable and culturally dense."
+    ],
+    zhProofPoints: [
+      "郑州是重要交通枢纽，能让学生快速连接中部中国。",
+      "这座城市在综合、工程、农业、医学、商科和应用学科上有高校选择。",
+      "美食、博物馆、夜市和区域旅行路线成本较低、文化密度高。"
+    ],
+    sections: [
+      {
+        title: "Universities and Transport Hub Advantage",
+        zhTitle: "高校资源与交通枢纽优势",
+        body:
+          "Zhengzhou University, Henan Agricultural University, Henan University of Economics and Law, and other institutions make Zhengzhou a practical base for students who want central China access and manageable costs.",
+        zhBody:
+          "郑州大学、河南农业大学、河南财经政法大学等高校，让郑州成为希望进入中部中国、同时控制生活成本学生的务实基地。",
+        bullets: [
+          "High-speed rail makes regional travel and internships easier to plan.",
+          "The city is relevant for logistics, agriculture, engineering, business, medicine, and regional development.",
+          "Students can compare Zhengzhou with Wuhan, Xi'an, and Changsha as central China options."
+        ],
+        zhBullets: [
+          "高铁让区域旅行和实习探索更容易规划。",
+          "这座城市适合物流、农业、工程、商科、医学和区域发展方向。",
+          "学生可以把郑州与武汉、西安、长沙一起作为中部中国选项来比较。"
+        ]
+      },
+      {
+        title: "Henan Museum, Yellow River, and Central Plains Memory",
+        zhTitle: "河南博物院、黄河和中原记忆",
+        body:
+          "Zhengzhou helps students understand China through the Central Plains. Henan Museum, Yellow River routes, nearby Luoyang and Kaifeng, ancient capitals, and archaeological stories make the city much deeper than its railway-hub image.",
+        zhBody:
+          "郑州能帮助学生通过中原理解中国。河南博物院、黄河路线、周边洛阳和开封、古都与考古故事，让这座城市远比“铁路枢纽”的印象更深。",
+        bullets: [
+          "History and archaeology students can find strong cultural context.",
+          "Yellow River routes make geography and civilization feel connected.",
+          "Nearby ancient cities give students rich weekend learning routes."
+        ],
+        zhBullets: [
+          "历史和考古方向学生能找到很强的文化语境。",
+          "黄河路线会让地理与文明变得有连接感。",
+          "周边古都给学生提供了丰富的周末学习路线。"
+        ]
+      },
+      {
+        title: "Hu La Tang, Night Markets, CBD Bars, and Growing Youth Culture",
+        zhTitle: "胡辣汤、夜市、CBD酒吧和正在生长的年轻文化",
+        body:
+          "Zhengzhou's daily charm is in food and night routes: hu la tang, hui mian, Health Road night market, Dehua Street, Taiheli food street, Financial Island, Nongke Road bars, CBD live music, and Erqi-area city walks.",
+        zhBody:
+          "郑州的日常魅力在食物和夜间路线里：胡辣汤、烩面、健康路夜市、德化街、泰和里好吃街、金融岛、农科路酒吧、CBD驻唱和二七区 citywalk。",
+        bullets: [
+          "Food is affordable and good for first-semester friendships.",
+          "Night routes are becoming more diverse, from street food to skyline bars.",
+          "Zhengzhou fits students who want a real, growing, central-China city rather than a polished postcard."
+        ],
+        zhBullets: [
+          "食物实惠，很适合第一学期建立朋友关系。",
+          "夜间路线越来越多样，从街头小吃到天际线酒吧都有。",
+          "郑州适合想要真实、成长中、中部中国城市，而不是精修明信片的学生。"
         ]
       }
     ]
