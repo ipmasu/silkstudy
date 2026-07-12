@@ -25,6 +25,129 @@ export type CityCulturalInspiration = {
 const inspiration = (input: CityCulturalInspiration) => input;
 
 export const cityCulturalInspirations: Record<string, CityCulturalInspiration> = {
+  chongqing: inspiration({
+    slug: "chongqing",
+    title: "Chongqing Through Mountain-City Nights, Hotpot, Monorails, and Two Rivers",
+    zhTitle: "从山城夜景、火锅、轻轨与两江里看见重庆",
+    intro:
+      "Chongqing is one of China's most visually unforgettable study cities. It gives global youth a city of cliffs, bridges, rivers, hotpot, noodles, monorails, night markets, museums, and a bold western-China energy that feels different from flat coastal cities.",
+    zhIntro:
+      "重庆是中国最有视觉记忆点的留学城市之一。它给全球年轻人的不是一座平面的城市，而是一座由坡坎、桥梁、两江、火锅、小面、轻轨、夜市、博物馆和中国西部发展能量组成的立体城市。",
+    sourceNote:
+      "Topics are rewritten from the Chongqing study-city brief, public cultural references, and verified Wikimedia and ColorHub image sources.",
+    zhSourceNote:
+      "选题根据重庆留学城市文章、公共文化线索，以及已核验的 Wikimedia 与 ColorHub 图片来源重新整理撰写。",
+    items: [
+      {
+        name: "Hongyadong",
+        zhName: "洪崖洞",
+        category: "Mountain-city night landmark",
+        zhCategory: "山城夜景地标",
+        district: "Yuzhong District",
+        zhDistrict: "渝中区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/20250521%20Hongyadong%20(223216).jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:20250521_Hongyadong_(223216).jpg",
+        story:
+          "Hongyadong turns Chongqing's vertical geography into a night scene students never forget. Buildings hang along the river, lights stack above each other, and food streets make the city feel social immediately.",
+        zhStory:
+          "洪崖洞把重庆的立体地理变成了让学生很难忘记的夜景。建筑临江而起，灯光层层叠叠，小吃街又让这座城市一开始就带着社交感。",
+        studentAngle:
+          "Best for a first evening route: go with classmates, take photos, eat snacks, and understand why Chongqing becomes famous so quickly online.",
+        zhStudentAngle:
+          "适合作为第一次重庆夜游：和同学一起去拍照、吃小吃，也理解为什么重庆这么容易在互联网上出圈。"
+      },
+      {
+        name: "Jiefangbei",
+        zhName: "解放碑",
+        category: "City center and student nights",
+        zhCategory: "城市中心与学生夜生活",
+        district: "Yuzhong District",
+        zhDistrict: "渝中区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20close%20view%20of%20Jiefangbei%20CBD,Central%20Chongqing%20at%20night.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:A_close_view_of_Jiefangbei_CBD,Central_Chongqing_at_night.jpg",
+        story:
+          "Jiefangbei gives students Chongqing's busiest urban rhythm: shopping, metro exits, food streets, neon, crowds, and a strong sense that the city is always moving.",
+        zhStory:
+          "解放碑给学生的是重庆最忙碌的城市节奏：购物、地铁口、美食街、霓虹、人群，以及这座城市一直在向前生长的感觉。",
+        studentAngle:
+          "Good for students who want practical orientation: meeting points, transport, shopping, meals, and first-night city confidence.",
+        zhStudentAngle:
+          "适合学生建立城市方向感：约见地点、交通、购物、吃饭和抵达重庆后的第一份夜间安全感，都能从这里开始。"
+      },
+      {
+        name: "Liziba Station",
+        zhName: "李子坝站",
+        category: "Transit as city spectacle",
+        zhCategory: "交通即城市奇观",
+        district: "Yuzhong District",
+        zhDistrict: "渝中区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20train%20of%20Chongqing%20Rail%20Transit%20Line%202%20coming%20through%20a%20residential%20building%20at%20Liziba.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:A_train_of_Chongqing_Rail_Transit_Line_2_coming_through_a_residential_building_at_Liziba.jpg",
+        story:
+          "Liziba shows that Chongqing's transportation is part of its personality. A train passing through a building is not only a photo spot; it explains how the city adapts to mountains.",
+        zhStory:
+          "李子坝说明重庆的交通本身就是城市性格的一部分。轻轨穿楼不只是拍照点，它也解释了这座城市如何在山地空间里生长。",
+        studentAngle:
+          "Strong for engineering, architecture, urban design, transport, and social-media-minded students.",
+        zhStudentAngle:
+          "适合工程、建筑、城市设计、交通和喜欢社交媒体记录的学生。"
+      },
+      {
+        name: "Chaotianmen and Raffles City",
+        zhName: "朝天门与来福士",
+        category: "Two-river gateway",
+        zhCategory: "两江门户",
+        district: "Yuzhong Peninsula",
+        zhDistrict: "渝中半岛",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/RafflesCity%20Chongqing%20Bridge.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:RafflesCity_Chongqing_Bridge.jpg",
+        story:
+          "Chaotianmen is where students can feel Chongqing's geography directly: the Yangtze and Jialing rivers meet, modern buildings rise, and the city opens toward western China and the world.",
+        zhStory:
+          "朝天门能让学生直接感到重庆的地理力量：长江与嘉陵江交汇，现代建筑拔地而起，城市也从这里面向中国西部和世界打开。",
+        studentAngle:
+          "Good for understanding Chongqing as more than a tourist city: it is a port, logistics hub, manufacturing base, and western opening gateway.",
+        zhStudentAngle:
+          "适合理解重庆不只是旅游城市：它也是港口、物流枢纽、制造业基地和中国西部开放门户。"
+      },
+      {
+        name: "Ciqikou Old Town",
+        zhName: "磁器口古镇",
+        category: "Old street and food memory",
+        zhCategory: "老街与美食记忆",
+        district: "Shapingba District",
+        zhDistrict: "沙坪坝区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Street%20scene%20in%20Ciqikou,%20Chongqing.JPG?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Street_scene_in_Ciqikou,_Chongqing.JPG",
+        story:
+          "Ciqikou gives Chongqing a slower cultural route: old streets, snacks, tea houses, dialect, small shops, and river memories that balance the city's dramatic skyline.",
+        zhStory:
+          "磁器口给重庆一条更慢的文化路线：老街、小吃、茶馆、方言、小店和江边记忆，会平衡重庆强烈的天际线和夜景冲击。",
+        studentAngle:
+          "Useful for Chinese practice because students can order snacks, read signs, ask prices, and talk with shop owners in real situations.",
+        zhStudentAngle:
+          "对中文练习很有用，因为学生可以在真实场景里点小吃、看招牌、问价格、和店主聊天。"
+      },
+      {
+        name: "Chongqing China Three Gorges Museum",
+        zhName: "重庆中国三峡博物馆",
+        category: "River history and western China",
+        zhCategory: "江河历史与中国西部",
+        district: "Yuzhong District",
+        zhDistrict: "渝中区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing%20Three%20Gorges%20Museum%20China.JPG?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Chongqing_Three_Gorges_Museum_China.JPG",
+        story:
+          "The Three Gorges Museum helps students understand the deeper Chongqing: rivers, archaeology, migration, industry, mountain settlements, and the transformation of western China.",
+        zhStory:
+          "三峡博物馆能帮助学生看到更深的重庆：江河、考古、移民、工业、山地聚落，以及中国西部的现代转型。",
+        studentAngle:
+          "Good for students who want culture beyond photo spots, especially those interested in history, geography, engineering, and development.",
+        zhStudentAngle:
+          "适合想看网红拍照点之外内容的学生，尤其适合关注历史、地理、工程和发展议题的人。"
+      }
+    ]
+  }),
   chengdu: inspiration({
     slug: "chengdu",
     title: "Chengdu Through Pandas, Tea Houses, Hotpot, and Snow-Mountain Park Life",

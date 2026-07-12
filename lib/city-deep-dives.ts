@@ -19,6 +19,135 @@ export type CityDeepDive = {
 const deepDive = (input: CityDeepDive) => input;
 
 export const cityDeepDives: Record<string, CityDeepDive> = {
+  chongqing: deepDive({
+    slug: "chongqing",
+    title: "Why Chongqing Is a Dramatic Western China Gateway for Global Students",
+    zhTitle: "为什么重庆正在成为外国年轻人读懂中国西部的魔幻入口",
+    intro:
+      "Chongqing attracts international students because it is impossible to confuse with anywhere else: a mountain city where rivers, bridges, hotpot, monorails, night lights, manufacturing, universities, and western-China openness all rise in layers.",
+    zhIntro:
+      "重庆吸引国际学生的地方，在于它几乎不可能被误认为任何其他城市：这是一座山城，江河、桥梁、火锅、轻轨、夜景、制造业、高校资源和中国西部开放门户的气质，都以层层叠叠的方式生长在一起。",
+    proofPoints: [
+      "Chongqing is one of China's major municipalities and a key western gateway, with universities offering undergraduate, master's, doctoral, and Chinese-language routes for international students.",
+      "The city can be more budget-friendly than many coastal megacities, with student food costs often kept manageable through campus canteens and local restaurants.",
+      "Scholarship and support channels include Chinese Government Scholarship routes, Chongqing municipal scholarships, joint scholarship programs, and university-level support."
+    ],
+    zhProofPoints: [
+      "重庆是中国重要直辖市和西部开放门户，多所高校面向国际学生开放本科、硕士、博士和中文进修路径。",
+      "相比不少沿海超大城市，重庆生活成本更友好；校园食堂、本地小面馆和街头餐饮能帮助学生控制日常预算。",
+      "奖学金与支持路径包括中国政府奖学金、重庆市级奖学金、联合奖学金项目以及高校层面的资助。"
+    ],
+    sections: [
+      {
+        title: "Universities Across Engineering, Communications, Business, and Culture",
+        zhTitle: "覆盖工程、通信、商科与文化的高校资源",
+        body:
+          "Chongqing gives students a practical university map. It is especially relevant for students interested in engineering, architecture, information technology, communications, transportation, Chinese language, business, law, and western-China development.",
+        zhBody:
+          "重庆给学生的是一张很务实的高校地图。它尤其适合关注工程、建筑、信息技术、通信、交通、中文、商科、法律和中国西部发展机会的学生。",
+        bullets: [
+          "Chongqing University recruits full-time international undergraduate students, with many degree routes generally taking four years and architecture-related routes often longer.",
+          "Chongqing University of Posts and Telecommunications offers international undergraduate and postgraduate programs and is especially visible for information, communications, and digital fields.",
+          "Chongqing Normal University, Chongqing Technology and Business University, Chongqing Jiaotong University, and other institutions add options across language, education, business, law, transport, and applied disciplines."
+        ],
+        zhBullets: [
+          "重庆大学面向国际学生招收全日制来华留学本科生，多数专业学制一般为 4 年，建筑学等专业常见学制更长。",
+          "重庆邮电大学面向外国留学生开设本科和研究生项目，在信息、通信和数字技术相关方向上辨识度很高。",
+          "重庆师范大学、重庆工商大学、重庆交通大学等高校，为语言、教育、商科、法律、交通和应用型学科学生提供更多选择。"
+        ]
+      },
+      {
+        title: "A Lower-Pressure Budget in a Giant City",
+        zhTitle: "巨型城市里的相对低压力预算",
+        body:
+          "Chongqing is large, energetic, and visually intense, but daily spending can be more forgiving than in Beijing, Shanghai, Shenzhen, or other coastal first-tier cities. For many students, this makes Chongqing a serious option rather than only a travel fantasy.",
+        zhBody:
+          "重庆很大、很热烈、视觉冲击也很强，但日常开销通常比北京、上海、深圳等沿海一线城市更温和。对许多学生来说，这让重庆不只是旅游幻想，而是一个可以认真考虑的留学城市。",
+        bullets: [
+          "Campus canteens and neighborhood restaurants help students keep food costs manageable.",
+          "Chongqing noodles, simple rice meals, hotpot shared by classmates, and local snacks make eating social without always becoming expensive.",
+          "The city fits students who want big-city energy, lower relative costs, and strong public transportation."
+        ],
+        zhBullets: [
+          "校园食堂和大学周边餐馆可以帮助学生控制餐饮成本。",
+          "重庆小面、简餐、同学合吃火锅和本地小吃，让吃饭既有社交感，也不必总是很贵。",
+          "重庆适合希望拥有大城市能量、相对可控生活成本和便利公共交通的学生。"
+        ]
+      },
+      {
+        title: "Hotpot, Noodles, Night Snacks, and a City That Eats Together",
+        zhTitle: "火锅、小面、夜宵，以及一座一起吃饭的城市",
+        body:
+          "Chongqing food is direct, hot, and emotional. Hotpot is the city signature, but daily Chongqing is also noodles, grilled snacks, street food, and underground food plazas where students can begin friendship before their Chinese is perfect.",
+        zhBody:
+          "重庆的食物很直接、很热烈，也很有情绪。火锅是最响亮的名片，但真正日常的重庆还有小面、烧烤、街头小吃和地下美食广场。学生即使中文还不够流利，也可以先从一起吃饭开始交朋友。",
+        bullets: [
+          "Chongqing hotpot gives students a powerful first taste of the city: spicy broth, shared tables, noisy conversation, and strong memory.",
+          "Chongqing noodles are a daily ritual and an affordable way to enter local life.",
+          "Jiefangbei Bayi Road food street and Guanyinqiao food areas work well for first food walks, especially at night."
+        ],
+        zhBullets: [
+          "重庆火锅给学生的是强烈的第一口城市记忆：麻辣锅底、共享餐桌、热闹聊天和很难忘的味觉冲击。",
+          "重庆小面是这座城市的日常仪式，也是学生以较低成本进入本地生活的方式。",
+          "解放碑八一路好吃街、观音桥美食区等地方，很适合作为第一次重庆美食漫步路线，尤其适合晚上去。"
+        ]
+      },
+      {
+        title: "A 3D City of Rivers, Bridges, Monorails, and Night Views",
+        zhTitle: "由江河、桥梁、轻轨与夜景组成的 3D 山城",
+        body:
+          "Chongqing's travel appeal is not a list of separate spots. The whole city is the experience: bridges crossing rivers, stairs climbing hills, monorails passing buildings, and night lights stacked above the water.",
+        zhBody:
+          "重庆的旅行吸引力不是几个分散景点的清单，而是整座城市本身就是体验：桥跨过江河，台阶爬上山坡，轻轨穿过建筑，夜景在江面之上层层亮起。",
+        bullets: [
+          "Hongyadong is the classic first-night landmark, especially for students who want a dramatic visual memory.",
+          "Liziba Station turns public transportation into a city lesson about mountain terrain, architecture, and adaptation.",
+          "Chaotianmen, Raffles City, the Yangtze River, and the Jialing River help students understand why Chongqing's geography matters."
+        ],
+        zhBullets: [
+          "洪崖洞适合作为第一次重庆夜景路线，尤其适合想迅速获得强烈视觉记忆的学生。",
+          "李子坝站把公共交通变成了理解山地地形、建筑和城市适应能力的现场课堂。",
+          "朝天门、来福士、长江和嘉陵江，能帮助学生理解重庆为什么必须从地理开始读懂。"
+        ]
+      },
+      {
+        title: "Museums, Old Streets, and Culture Beyond Internet-Famous Views",
+        zhTitle: "博物馆、老街与网红景观之外的文化厚度",
+        body:
+          "The deeper Chongqing is found in museums, old streets, intangible-heritage workshops, river memories, and campus cultural activities. These routes help students understand that the city is not only visually spectacular, but historically layered.",
+        zhBody:
+          "更深的重庆藏在博物馆、老街、非遗体验、江河记忆和高校文化活动里。这些路线能让学生明白，重庆不只是视觉奇观，也是一座历史层次很厚的城市。",
+        bullets: [
+          "Ciqikou gives students old-street food, tea, dialect, signs, and a slower way to practice Chinese.",
+          "Chongqing China Three Gorges Museum connects rivers, archaeology, migration, industry, and western-China transformation.",
+          "International student activities have included visits to Three Gorges Museum, People's Auditorium, Jiefangbei, Chaotianmen, and old streets, helping students connect city views with cultural context."
+        ],
+        zhBullets: [
+          "磁器口给学生老街美食、茶、方言、招牌和更慢的中文练习方式。",
+          "重庆中国三峡博物馆把江河、考古、移民、工业和中国西部转型连接起来。",
+          "不少国际学生城市活动会走进三峡博物馆、人民大礼堂、解放碑、朝天门和老街区，让学生把城市景观与文化背景连接起来。"
+        ]
+      },
+      {
+        title: "Services, Scholarships, and Western China Opportunities",
+        zhTitle: "来华服务、奖学金与中国西部机会",
+        body:
+          "Chongqing is building service systems for overseas students and returned talents, while also offering scholarship routes that make the city more accessible for students with different budgets.",
+        zhBody:
+          "重庆正在完善面向海外学生和留学回国人才的服务体系，同时也通过多层次奖学金路径，让不同预算背景的学生更容易把重庆纳入选择范围。",
+        bullets: [
+          "Chongqing has promoted one-stop service ideas for overseas and returned talents, linking policies, jobs, and city services more directly.",
+          "The city offers municipal scholarship references for foreign students, while some universities connect students with Chinese Government Scholarship and joint scholarship programs.",
+          "Chongqing fits students who want China to feel bold, affordable, visually powerful, industrial, and connected to western development."
+        ],
+        zhBullets: [
+          "重庆推动留学回国人才等群体的“一站式”服务思路，让政策、岗位和城市服务连接得更直接。",
+          "重庆设有面向外国留学生的市级奖学金参考路径，部分高校也连接中国政府奖学金和联合奖学金项目。",
+          "重庆适合希望中国留学体验呈现为热烈、实惠、视觉强烈、产业基础扎实，并连接西部发展机会的学生。"
+        ]
+      }
+    ]
+  }),
   chengdu: deepDive({
     slug: "chengdu",
     title: "Why Chengdu Is Becoming a Warm China City for Global Youth",

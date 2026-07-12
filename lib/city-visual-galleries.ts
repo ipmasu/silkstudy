@@ -135,6 +135,128 @@ function normalizeImageUrl(src: string) {
 }
 
 const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  chongqing: [
+    {
+      title: "Hongyadong night lights",
+      zhTitle: "重庆 · 洪崖洞夜色",
+      image: commonsImage("20250521 Hongyadong (223216).jpg"),
+      alt: "Hongyadong night lights in Chongqing",
+      zhAlt: "重庆洪崖洞夜景灯光",
+      note: "Hongyadong gives Chongqing its most cinematic first impression: layered buildings, river wind, bright lights, food, crowds, and a city that feels vertical after dark.",
+      zhNote: "洪崖洞给重庆一个最有电影感的第一印象：层层叠叠的建筑、江风、灯光、小吃、人群，以及入夜后突然变得立体的山城。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:20250521_Hongyadong_(223216).jpg"
+    },
+    {
+      title: "Hongyadong riverside layers",
+      zhTitle: "重庆 · 洪崖洞与江边层次",
+      image: commonsImage("20250521 Hongyadong (223429).jpg"),
+      alt: "Hongyadong riverside buildings in Chongqing",
+      zhAlt: "重庆洪崖洞江边建筑层次",
+      note: "This newer Hongyadong view keeps the page current and shows why students remember Chongqing as a city of stairs, bridges, riverbanks, and glowing nights.",
+      zhNote: "这张较新的洪崖洞照片让页面更有当下感，也能说明为什么学生会把重庆记成一座由台阶、桥、江岸和灯火组成的城市。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:20250521_Hongyadong_(223429).jpg"
+    },
+    {
+      title: "Jiefangbei CBD at night",
+      zhTitle: "重庆 · 解放碑夜间CBD",
+      image: commonsImage("A close view of Jiefangbei CBD,Central Chongqing at night.jpg"),
+      alt: "Jiefangbei CBD in central Chongqing at night",
+      zhAlt: "重庆解放碑中央商务区夜景",
+      note: "Jiefangbei is where Chongqing feels fast and young: shopping, street food, photos, language practice, and late-night routes can all begin here.",
+      zhNote: "解放碑呈现的是重庆快速又年轻的一面：购物、街头小吃、拍照、中文练习和深夜路线，都可以从这里开始。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:A_close_view_of_Jiefangbei_CBD,Central_Chongqing_at_night.jpg"
+    },
+    {
+      title: "Jiefangbei city center",
+      zhTitle: "重庆 · 解放碑城市中心",
+      image: commonsImage("Chongqing Jiefangbei CBD.jpg"),
+      alt: "Jiefangbei CBD in Chongqing",
+      zhAlt: "重庆解放碑CBD",
+      note: "The city center helps students imagine daily life beyond sightseeing: metro exits, malls, snacks, errands, and meeting points in a dense mountain city.",
+      zhNote: "城市中心能让学生想象景点之外的重庆日常：地铁口、商场、小吃、办事路线，以及在一座高密度山城里约朋友见面的地点。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Chongqing_Jiefangbei_CBD.jpg"
+    },
+    {
+      title: "Raffles City and Chaotianmen",
+      zhTitle: "重庆 · 朝天门与来福士",
+      image: commonsImage("RafflesCity Chongqing Bridge.jpg"),
+      alt: "Raffles City Chongqing near Chaotianmen",
+      zhAlt: "重庆朝天门附近的来福士",
+      note: "Chaotianmen turns Chongqing's river geography into a powerful urban scene, where the Yangtze and Jialing rivers meet modern architecture.",
+      zhNote: "朝天门把重庆的两江地理变成了强烈的城市画面：长江与嘉陵江交汇，现代建筑和山城空间也在这里相遇。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:RafflesCity_Chongqing_Bridge.jpg"
+    },
+    {
+      title: "Chongqing night skyline",
+      zhTitle: "重庆 · 渝中夜景天际线",
+      image: commonsImage("Chongqing Night Yuzhong.jpg"),
+      alt: "Night skyline of Yuzhong, Chongqing",
+      zhAlt: "重庆渝中半岛夜景天际线",
+      note: "Chongqing at night is not only beautiful; it helps students feel the city's scale, ambition, and unusual vertical rhythm.",
+      zhNote: "夜晚的重庆不只是好看，它能让学生感到这座城市的尺度、发展雄心，以及非常独特的垂直节奏。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Chongqing_Night_Yuzhong.jpg"
+    },
+    {
+      title: "Liziba monorail through building",
+      zhTitle: "重庆 · 李子坝轻轨穿楼",
+      image: commonsImage("A train of Chongqing Rail Transit Line 2 coming through a residential building at Liziba.jpg"),
+      alt: "Chongqing Rail Transit Line 2 train passing through a building at Liziba",
+      zhAlt: "重庆轨道交通二号线列车穿过李子坝建筑",
+      note: "Liziba is the kind of place young visitors instantly understand: Chongqing is not flat, not ordinary, and not easy to forget.",
+      zhNote: "李子坝是年轻人一眼就能理解的重庆：它不平、不普通，也很难被忘记。交通本身在这里变成了城市体验。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:A_train_of_Chongqing_Rail_Transit_Line_2_coming_through_a_residential_building_at_Liziba.jpg"
+    },
+    {
+      title: "Liziba Line 2 train",
+      zhTitle: "重庆 · 李子坝轨道交通",
+      image: commonsImage("CRT Line 2 The 8-car Train Arriving at Liziba Station 20230704.jpg"),
+      alt: "Chongqing Rail Transit Line 2 train arriving at Liziba Station in 2023",
+      zhAlt: "2023年重庆轨道交通二号线列车抵达李子坝站",
+      note: "A recent Liziba image keeps the transit story fresh. For students, Chongqing's metro is both transportation and a daily lesson in mountain-city design.",
+      zhNote: "较新的李子坝照片让交通故事更有现实感。对学生来说，重庆地铁既是交通工具，也是理解山城空间设计的日常课堂。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:CRT_Line_2_The_8-car_Train_Arriving_at_Liziba_Station_20230704.jpg"
+    },
+    {
+      title: "Ciqikou old street",
+      zhTitle: "重庆 · 磁器口老街",
+      image: commonsImage("Street scene in Ciqikou, Chongqing.JPG"),
+      alt: "Street scene in Ciqikou, Chongqing",
+      zhAlt: "重庆磁器口街景",
+      note: "Ciqikou gives Chongqing a slower, older texture: snacks, old shops, dialect, tea, river memory, and a route where students can practice Chinese naturally.",
+      zhNote: "磁器口给重庆增添了更慢、更老的质感：小吃、老店、方言、茶、江边记忆，以及学生可以自然练中文的街巷路线。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Street_scene_in_Ciqikou,_Chongqing.JPG"
+    },
+    {
+      title: "Ciqikou gateway",
+      zhTitle: "重庆 · 磁器口入口",
+      image: commonsImage("Gateway in Ciqikou, Chongqing.JPG"),
+      alt: "Gateway in Ciqikou, Chongqing",
+      zhAlt: "重庆磁器口入口牌坊",
+      note: "Old-town gateways are useful for first-time students because they make history easy to enter: walk in, eat something, read signs, and let the city explain itself.",
+      zhNote: "古镇入口对第一次来的学生很友好，因为它让历史变得容易进入：走进去、吃点东西、看招牌，然后让城市自己讲故事。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Gateway_in_Ciqikou,_Chongqing.JPG"
+    },
+    {
+      title: "Three Gorges Museum",
+      zhTitle: "重庆 · 三峡博物馆",
+      image: commonsImage("Chongqing Three Gorges Museum China.JPG"),
+      alt: "Chongqing China Three Gorges Museum",
+      zhAlt: "重庆中国三峡博物馆",
+      note: "The Three Gorges Museum helps students understand Chongqing beyond internet-famous views: rivers, migration, archaeology, industry, and the memory of western China.",
+      zhNote: "三峡博物馆能帮助学生理解网红景观之外的重庆：江河、移民、考古、工业，以及中国西部的历史记忆。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Chongqing_Three_Gorges_Museum_China.JPG"
+    },
+    {
+      title: "ColorHub spicy night food",
+      zhTitle: "重庆 · ColorHub麻辣夜宵氛围",
+      image: "https://c.colorhub.me/BeGEVvW2k71uhCZxneuVahsr1gO0J_FkHK8q6y-D/0x500/euc:OwTg9AhgxmAMUCMCmAzYECMKAsATX82AzCBAgGzCLYQQogJGwbmy2jQB0AVgA5IBzIA",
+      alt: "Busy late-night street food stall",
+      zhAlt: "热闹的深夜街头小吃摊",
+      note: "ColorHub free atmosphere image: not a Chongqing landmark photo, but useful for expressing the hotpot, noodles, night snack, and street-social energy of the city.",
+      zhNote: "ColorHub 免费氛围补充图：这不是重庆地标实拍，但适合表达火锅、小面、夜宵和街头社交构成的重庆烟火气。",
+      sourceUrl: "https://www.colorhub.me/photos/0B8bw"
+    }
+  ],
   chengdu: [
     {
       title: "Taikoo Li and IFS city center",
