@@ -135,6 +135,148 @@ function normalizeImageUrl(src: string) {
 }
 
 const curatedCityVisualGalleries: Record<string, CityVisualGalleryItem[]> = {
+  hangzhou: [
+    {
+      title: "West Lake in 2024",
+      zhTitle: "杭州 · 2024年的西湖水光",
+      image: commonsImage("West Lake in 2024.jpg"),
+      alt: "West Lake in Hangzhou in 2024",
+      zhAlt: "2024年的杭州西湖",
+      note: "West Lake is still Hangzhou's emotional center: free walks, lake light, bridges, gardens, museums, and the kind of quiet beauty students can return to again and again.",
+      zhNote: "西湖仍然是杭州最重要的情感中心：免费的湖边散步、水光、桥、园林、博物馆，以及学生可以一次次回来的安静美感。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:West_Lake_in_2024.jpg"
+    },
+    {
+      title: "West Lake April 2024",
+      zhTitle: "杭州 · 春日西湖",
+      image: commonsImage("West Lake April 2024.jpg"),
+      alt: "West Lake in April 2024",
+      zhAlt: "2024年4月杭州西湖",
+      note: "A newer West Lake image keeps the city page fresh. Hangzhou's most famous view is not only a postcard; it becomes a student's daily reset route.",
+      zhNote: "较新的西湖照片让页面更有当下感。杭州最著名的景色不只是明信片，它会成为学生日常恢复能量的路线。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:West_Lake_April_2024.jpg"
+    },
+    {
+      title: "West Lake bus route in 2024",
+      zhTitle: "杭州 · 西湖边的城市日常",
+      image: commonsImage("Hangzhou bus WE1314 in West Lake (July 2024).jpg"),
+      alt: "Hangzhou bus route near West Lake in July 2024",
+      zhAlt: "2024年7月西湖边的杭州公交",
+      note: "This everyday city view matters: students need more than famous scenery. They need buses, routes, small errands, and a city that is easy to live inside.",
+      zhNote: "这样的城市日常也很重要：学生需要的不只是著名风景，还需要公交、路线、办事和一座真正容易住进去的城市。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hangzhou_bus_WE1314_in_West_Lake_(July_2024).jpg"
+    },
+    {
+      title: "Grand Canal Hangzhou Steelworks Park",
+      zhTitle: "杭州 · 运河与杭钢公园工业遗存",
+      image: commonsImage("The Grand Canal Hangzhou Steelworks Park (1), 202507.jpg"),
+      alt: "The Grand Canal Hangzhou Steelworks Park in 2025",
+      zhAlt: "2025年的杭州运河杭钢公园",
+      note: "Hangzhou is not only soft and classical. The Grand Canal and steelworks park show how industrial memory can become music festivals, markets, night walks, and youth culture.",
+      zhNote: "杭州不只有柔和古典的一面。运河和杭钢公园展示了工业记忆如何变成音乐节、市集、夜间漫步和年轻人的文化空间。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Grand_Canal_Hangzhou_Steelworks_Park_(1),_202507.jpg"
+    },
+    {
+      title: "Hangzhou Steelworks Park night route",
+      zhTitle: "杭州 · 杭钢公园夜间活动空间",
+      image: commonsImage("The Grand Canal Hangzhou Steelworks Park (2), 202507.jpg"),
+      alt: "Hangzhou Steelworks Park by the Grand Canal in 2025",
+      zhAlt: "2025年杭州运河杭钢公园空间",
+      note: "The newest Hangzhou nightlife is often found in reused spaces: open-air cinema, concerts, markets, food, and industrial structures turned into shared memory.",
+      zhNote: "最新的杭州夜生活常常出现在更新后的空间里：露天电影、演出、市集、美食，以及被改造为公共记忆的工业结构。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Grand_Canal_Hangzhou_Steelworks_Park_(2),_202507.jpg"
+    },
+    {
+      title: "Wulinmen Grand Canal",
+      zhTitle: "杭州 · 武林门与京杭大运河",
+      image: commonsImage("Wulinmen, Beijing-Hangzhou Grand Canal.jpg"),
+      alt: "Wulinmen and the Beijing-Hangzhou Grand Canal",
+      zhAlt: "杭州武林门与京杭大运河",
+      note: "The canal gives Hangzhou a thousand-year urban line. For students, it connects old commerce, river walks, museums, cafes, and a quieter night route.",
+      zhNote: "运河给杭州一条千年城市线索。对学生来说，它连接旧商业、河边散步、博物馆、咖啡馆和更安静的夜间路线。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Wulinmen,_Beijing-Hangzhou_Grand_Canal.jpg"
+    },
+    {
+      title: "Hangzhou Olympic Sports Center",
+      zhTitle: "杭州 · 奥体中心",
+      image: commonsImage("Hangzhou Olympic Sports Center Stadium2021.jpg"),
+      alt: "Hangzhou Olympic Sports Center Stadium",
+      zhAlt: "杭州奥体中心体育场",
+      note: "The Olympic Sports Center shows the other side of Hangzhou: major events, sports, concerts, riverfront development, and a younger metropolitan confidence.",
+      zhNote: "奥体中心展示的是杭州另一面：大型活动、体育、演唱会、江岸发展，以及更年轻的都市自信。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hangzhou_Olympic_Sports_Center_Stadium2021.jpg"
+    },
+    {
+      title: "Hangzhou Olympic Sports Expo Center",
+      zhTitle: "杭州 · 奥体博览城",
+      image: commonsImage("Hangzhou Olympic Sports Expo Center 10.jpg"),
+      alt: "Hangzhou Olympic Sports Expo Center",
+      zhAlt: "杭州奥体博览城",
+      note: "For international students, modern Hangzhou is also about events, entrepreneurship, digital trade, design, and a city that knows how to stage the future.",
+      zhNote: "对国际学生来说，现代杭州也意味着会展、创业、数字贸易、设计，以及一座善于把未来感做成城市现场的地方。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hangzhou_Olympic_Sports_Expo_Center_10.jpg"
+    },
+    {
+      title: "Liangzhu Museum",
+      zhTitle: "杭州 · 良渚博物院",
+      image: commonsImage("Hangzhou Liangzhu Museum 2015.08.02 13-39-09.jpg"),
+      alt: "Liangzhu Museum in Hangzhou",
+      zhAlt: "杭州良渚博物院",
+      note: "Liangzhu adds deep time to Hangzhou. It helps students see that the city is not only digital and scenic, but also connected to one of China's earliest civilizations.",
+      zhNote: "良渚给杭州增加了深时间。它让学生看到，这座城市不只有数字经济和风景，也连接着中国早期文明的重要源头。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hangzhou_Liangzhu_Museum_2015.08.02_13-39-09.jpg"
+    },
+    {
+      title: "Liangzhu Ancient City wall",
+      zhTitle: "杭州 · 良渚古城遗址",
+      image: commonsImage("West City Wall of Liangzhu Ancient City.JPG"),
+      alt: "West city wall of Liangzhu Ancient City",
+      zhAlt: "良渚古城西城墙遗址",
+      note: "Liangzhu makes Chinese civilization feel walkable. It is a strong route for students who want archaeology, design, jade culture, and ancient urban planning.",
+      zhNote: "良渚让中华文明变得可以步行进入。它很适合关注考古、设计、玉文化和早期城市规划的学生。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:West_City_Wall_of_Liangzhu_Ancient_City.JPG"
+    },
+    {
+      title: "Longjing tea fields",
+      zhTitle: "杭州 · 龙井茶田",
+      image: commonsImage("Longjing Tea field, Dragon Well area, Meijiawu China.jpg"),
+      alt: "Longjing tea field near Meijiawu in Hangzhou",
+      zhAlt: "杭州梅家坞龙井茶田",
+      note: "Longjing tea fields slow Hangzhou down. After coding, applications, or exams, students can step into hills, tea fragrance, village paths, and a calmer China.",
+      zhNote: "龙井茶田会让杭州慢下来。写代码、准备申请或考试之后，学生可以走进山、茶香、村路和一个更安静的中国。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Longjing_Tea_field,_Dragon_Well_area,_Meijiawu_China.jpg"
+    },
+    {
+      title: "Xixi Wetland",
+      zhTitle: "杭州 · 西溪湿地",
+      image: commonsImage("Xixi Wetland Park, Hangzhou, China.jpg"),
+      alt: "Xixi Wetland Park in Hangzhou",
+      zhAlt: "杭州西溪湿地",
+      note: "Xixi Wetland gives Hangzhou breathing space beyond the lake: water paths, reeds, birds, slow boats, and a softer weekend for students.",
+      zhNote: "西溪湿地给杭州西湖之外的呼吸空间：水路、芦苇、鸟、慢船，以及适合学生放松的柔和周末。",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Xixi_Wetland_Park,_Hangzhou,_China.jpg"
+    },
+    {
+      title: "ColorHub night market mood",
+      zhTitle: "杭州 · ColorHub夜市与市集氛围",
+      image: "https://c.colorhub.me/uYUnyKe7jfgLw3drPMCpL1OZtJcnJAcCHcW7SLVr/0x500/euc:GYUw9AhhYMwMYgOwFY7ACxwIwE4AmeAbDjhInhABxwAMcMMIE6Nwly1MoUAdAFYAHEAHMgA",
+      alt: "Asian night market food stall with warm light",
+      zhAlt: "亚洲夜市小吃摊暖光氛围",
+      note: "ColorHub free atmosphere image: not a Hangzhou landmark photo, but useful for expressing night markets, creative fairs, food stalls, and summer evening social life.",
+      zhNote: "ColorHub 免费氛围补充图：这不是杭州地标实拍，但适合表达夜市、创意市集、小吃摊和夏夜社交氛围。",
+      sourceUrl: "https://www.colorhub.me/photos/9bv1O"
+    },
+    {
+      title: "ColorHub live music bar mood",
+      zhTitle: "杭州 · ColorHub音乐酒吧氛围",
+      image: "https://c.colorhub.me/iWFKrpKCT83AT15m_YThXYcBN2ZXUEv-veqqMUB0/0x500/euc:JwFg9ArAjGDMBGsogGwFMDsGLAEwGNZgAGWXAE2KnwgA5dU0BDNXFYeNfUaAOgCsADmgDmQA",
+      alt: "Young people relaxing together in an urban street scene",
+      zhAlt: "年轻人在城市街区放松社交",
+      note: "ColorHub free atmosphere image: it supports the Hangzhou nightlife story, where bars, live music, games, bookstores, and cultural salons give students gentle ways to meet people.",
+      zhNote: "ColorHub 免费氛围补充图：用于补充杭州夜生活叙事，酒吧、Live、游戏、书店和文化沙龙都能成为学生认识朋友的温和方式。",
+      sourceUrl: "https://www.colorhub.me/photos/JZ2Xw"
+    }
+  ],
   chongqing: [
     {
       title: "Hongyadong night lights",

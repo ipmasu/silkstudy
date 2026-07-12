@@ -19,6 +19,135 @@ export type CityDeepDive = {
 const deepDive = (input: CityDeepDive) => input;
 
 export const cityDeepDives: Record<string, CityDeepDive> = {
+  hangzhou: deepDive({
+    slug: "hangzhou",
+    title: "Why Hangzhou Is a Poetic and Digital China City for Global Students",
+    zhTitle: "为什么杭州正在成为外国年轻人读懂诗意中国与数字中国的理想之地",
+    intro:
+      "Hangzhou is powerful because it does not ask students to choose between beauty and opportunity. West Lake, the Grand Canal, Liangzhu, Longjing tea hills, Qiantang River lights, universities, digital economy, e-commerce, music bars, creative markets, and a softer nightlife all sit inside one highly livable city.",
+    zhIntro:
+      "杭州真正强大的地方，在于它不要求学生在美感和机会之间二选一。西湖、运河、良渚、龙井茶山、钱塘江灯光、高校资源、数字经济、电商产业、音乐酒吧、创意市集和更柔和的夜生活，都被放进了一座高度宜居的城市里。",
+    proofPoints: [
+      "Hangzhou combines strong universities with one of China's most active digital-economy and e-commerce ecosystems.",
+      "Living costs are generally lower than Beijing and Shanghai while still offering a refined new first-tier city lifestyle.",
+      "The city gives students both free scenic routines around West Lake and modern youth culture through markets, music, creative parks, and riverside events."
+    ],
+    zhProofPoints: [
+      "杭州把优质高校资源与中国最活跃的数字经济、电商和创新生态之一结合在一起。",
+      "杭州生活成本整体低于北京、上海，同时仍能提供精致的新一线城市生活方式。",
+      "这座城市既有西湖周边免费的日常风景，也有市集、音乐、创意园区和江岸活动构成的年轻文化。"
+    ],
+    sections: [
+      {
+        title: "Universities, Research, and Digital-Economy Momentum",
+        zhTitle: "高校、科研与数字经济动能",
+        body:
+          "Hangzhou is especially attractive for students who want China to feel both academically serious and professionally current. It is strong for engineering, business, e-commerce, AI applications, design, product thinking, Chinese language, culture, and entrepreneurship.",
+        zhBody:
+          "杭州尤其适合那些希望中国既有学术深度、又有当代职业机会的学生。工程、商科、电商、AI应用、设计、产品思维、中文、文化和创业方向，都能在杭州找到比较自然的结合点。",
+        bullets: [
+          "Zhejiang University is one of China's leading comprehensive universities and anchors Hangzhou's research reputation.",
+          "Zhejiang Gongshang University, Zhejiang University of Technology, Hangzhou Normal University, Hangzhou Dianzi University, and other institutions add choices across business, engineering, information technology, education, and applied fields.",
+          "Hangzhou's digital economy, e-commerce companies, creative parks, and startup networks make the city especially relevant for students who want internships, projects, or future China-facing careers."
+        ],
+        zhBullets: [
+          "浙江大学是中国顶尖综合性大学之一，为杭州提供了强有力的研究型大学底色。",
+          "浙江工商大学、浙江工业大学、杭州师范大学、杭州电子科技大学等高校，让商科、工程、信息技术、教育和应用型学科学生有更多选择。",
+          "杭州的数字经济、电商企业、创意园区和创业网络，让想寻找实习、项目和未来中国相关职业机会的学生更容易看到具体路径。"
+        ]
+      },
+      {
+        title: "A Refined New First-Tier City With Manageable Costs",
+        zhTitle: "一座精致但成本相对可控的新一线城市",
+        body:
+          "Hangzhou is not the cheapest city in China, but it often feels more manageable than Beijing or Shanghai. Students can enjoy a sophisticated city life while still using campus neighborhoods, local food streets, public transit, and free scenic routes to control daily spending.",
+        zhBody:
+          "杭州不是中国最便宜的城市，但通常比北京、上海更可控。学生可以享受精致的城市生活，同时通过校园周边、本地美食街、公共交通和免费风景路线来控制日常支出。",
+        bullets: [
+          "West Lake and many everyday walking routes cost nothing, which matters for students who want beauty without constant spending.",
+          "Campus neighborhoods and local food streets give students practical options beyond expensive scenic-area restaurants.",
+          "High-speed rail access to Shanghai, Suzhou, Nanjing, Ningbo, and other Yangtze River Delta cities makes Hangzhou a strong regional base."
+        ],
+        zhBullets: [
+          "西湖和很多日常步行路线都不需要门票，这对希望低成本拥有城市美感的学生很重要。",
+          "校园周边和本地美食街能提供比景区餐厅更实用、更适合学生预算的选择。",
+          "高铁可以快速连接上海、苏州、南京、宁波等长三角城市，让杭州成为很好的区域学习和旅行 base。"
+        ]
+      },
+      {
+        title: "Jiangnan Food, Student Streets, and Night Markets",
+        zhTitle: "江南味道、学生街与夜间市集",
+        body:
+          "Hangzhou food is gentler than Sichuan or Hunan food, but it has a deep local memory. West Lake vinegar fish, Dongpo pork, Longjing shrimp, beggar's chicken, food streets, night markets, and campus-area restaurants help students understand Jiangnan through taste.",
+        zhBody:
+          "杭州的食物不像川湘那样热烈，但有很深的地方记忆。西湖醋鱼、东坡肉、龙井虾仁、叫花鸡、美食街、夜市和校园周边餐馆，能让学生用味觉理解江南。",
+        bullets: [
+          "Shengli River food street is useful for students who want a direct local-food route without over-planning.",
+          "Hefang Street, Wushan night routes, and old-city snack streets connect food with old Hangzhou atmosphere.",
+          "The 2026 Hangzhou night-event rhythm described in the source material adds citywide markets, cultural goods, handmade products, museum merchandise, and summer food scenes."
+        ],
+        zhBullets: [
+          "胜利河美食街适合学生用一条路线直接进入本地餐饮，不需要过度规划。",
+          "河坊街、吴山夜间路线和老城小吃街，把食物和老杭州氛围连接起来。",
+          "你提供的 2026 杭州夜间活动素材里，全城夜市、市集、文博好物、手作产品和夏夜美食，都能增强杭州对年轻人的吸引力。"
+        ]
+      },
+      {
+        title: "West Lake, Liangzhu, Canal, Tea Hills, and a Thousand-Year Cultural Line",
+        zhTitle: "西湖、良渚、运河、茶山与千年文化线索",
+        body:
+          "Hangzhou's cultural depth is unusual because it is not held in one monument. It spreads through water: West Lake, the Grand Canal, wetlands, tea villages, and Liangzhu's ancient water systems and city walls.",
+        zhBody:
+          "杭州的文化深度很特别，因为它并不只被放在某一个纪念性建筑里，而是通过水系展开：西湖、运河、湿地、茶村，以及良渚古城的水利系统和城墙遗址。",
+        bullets: [
+          "West Lake gives students a world-heritage daily route: walking, cycling, museums, temples, and evening conversations by the water.",
+          "Liangzhu Ancient City and Liangzhu Museum help students understand Chinese civilization at a much earlier historical scale.",
+          "Longjing tea villages and Xixi Wetland give Hangzhou a calmer weekend rhythm that balances the digital economy."
+        ],
+        zhBullets: [
+          "西湖给学生一条世界遗产级日常路线：散步、骑行、博物馆、寺庙和湖边傍晚聊天。",
+          "良渚古城遗址和良渚博物院能帮助学生从更早的历史尺度理解中华文明。",
+          "龙井茶村和西溪湿地给杭州一种更慢的周末节奏，平衡了数字经济城市的速度。"
+        ]
+      },
+      {
+        title: "Gentle Nightlife: Bars, Bookstores, Games, Music, and Creative Markets",
+        zhTitle: "温和夜生活：酒吧、书店、游戏、音乐与创意市集",
+        body:
+          "Hangzhou nightlife is attractive because it does not have to be overwhelming. The user's notes describe a city where game bars, whisky bars, live music bars, bookstore bars, creative markets, industrial parks, and citywide summer night events all give students different levels of social energy.",
+        zhBody:
+          "杭州夜生活的吸引力，在于它不一定是压迫感很强的。你提供的素材里，游戏酒吧、威士忌吧、音乐酒吧、书店酒馆、创意市集、工业遗存公园和全城夏夜活动，为学生提供了不同强度的社交选择。",
+        bullets: [
+          "Homebar-style social bars, Mission Mars game-bar formats, and music venues such as TZ House make it easier for new students to meet people.",
+          "Bookstore-adjacent culture bars and quieter cocktail spaces give students who prefer conversation a softer social route.",
+          "Tianmuli markets, Hangzhou Steelworks Park, beer festivals, music events, open-air cinema, and citywide summer night programs make Hangzhou feel young after dark."
+        ],
+        zhBullets: [
+          "桃岸 homebar 这类社交酒吧、Mission Mars 这类游戏酒吧，以及 TZ House 等音乐空间，能帮助新学生更自然地认识朋友。",
+          "书店旁的文化酒馆和更安静的鸡尾酒空间，为偏好聊天、阅读和小范围社交的学生提供了柔和路线。",
+          "天目里市集、杭钢公园、啤酒节、音乐活动、露天电影和全城夏夜项目，让杭州在夜晚也显得年轻。"
+        ]
+      },
+      {
+        title: "The Best Fit: Students Who Want China to Be Beautiful and Useful",
+        zhTitle: "最适合的人群：希望中国既美又有用的学生",
+        body:
+          "Hangzhou is not only a scenic city and not only a technology city. Its strongest appeal is the combination: students can study, build career exposure, learn Chinese, walk by a lake, drink tea in the hills, go to a music bar, and take a high-speed train across the Yangtze River Delta.",
+        zhBody:
+          "杭州不只是风景城市，也不只是科技城市。它最强的吸引力是组合感：学生可以学习、积累职业曝光、练中文、湖边散步、山里喝茶、去音乐酒吧，再坐高铁进入整个长三角。",
+        bullets: [
+          "Good for students interested in AI applications, e-commerce, business, design, media, Chinese language, culture, and entrepreneurship.",
+          "Good for students who want a city softer than Shanghai but still connected to the Yangtze River Delta's opportunities.",
+          "Good for families who care about safety, scenery, transport, university quality, and a high-quality daily environment."
+        ],
+        zhBullets: [
+          "适合关注 AI 应用、电商、商科、设计、媒体、中文、文化和创业的学生。",
+          "适合希望城市比上海更柔和，但仍然连接长三角机会的学生。",
+          "适合重视安全、风景、交通、高校质量和高品质日常环境的家庭。"
+        ]
+      }
+    ]
+  }),
   chongqing: deepDive({
     slug: "chongqing",
     title: "Why Chongqing Is a Dramatic Western China Gateway for Global Students",

@@ -25,6 +25,129 @@ export type CityCulturalInspiration = {
 const inspiration = (input: CityCulturalInspiration) => input;
 
 export const cityCulturalInspirations: Record<string, CityCulturalInspiration> = {
+  hangzhou: inspiration({
+    slug: "hangzhou",
+    title: "Hangzhou Through West Lake, Liangzhu, Tea Hills, Digital Economy, and Night Markets",
+    zhTitle: "从西湖、良渚、茶山、数字经济与夜市里看见杭州",
+    intro:
+      "Hangzhou attracts global youth because it can be poetic and modern at the same time: West Lake, the Grand Canal, Liangzhu, Longjing tea hills, Qiantang River lights, digital economy, creative parks, music bars, and summer night markets all belong to the same city.",
+    zhIntro:
+      "杭州吸引全球年轻人的地方，在于它可以同时诗意和摩登：西湖、运河、良渚、龙井茶山、钱塘江灯光、数字经济、创意园区、音乐酒吧和夏夜市集，都在同一座城市里自然并存。",
+    sourceNote:
+      "Topics are rewritten from the Hangzhou study-city brief, the user's nightlife notes, public cultural references, and verified Wikimedia and ColorHub image sources.",
+    zhSourceNote:
+      "选题根据杭州留学城市文章、你提供的夜生活素材、公共文化线索，以及已核验的 Wikimedia 与 ColorHub 图片来源重新整理撰写。",
+    items: [
+      {
+        name: "West Lake",
+        zhName: "西湖",
+        category: "Poetic city center",
+        zhCategory: "诗意城市中心",
+        district: "West Lake area",
+        zhDistrict: "西湖周边",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/West%20Lake%20in%202024.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:West_Lake_in_2024.jpg",
+        story:
+          "West Lake makes Hangzhou feel emotionally available. It gives students a free, repeatable route for walking, taking photos, talking, reading, and recovering after classes.",
+        zhStory:
+          "西湖让杭州变得很容易产生情感连接。它给学生一条免费、可反复回来的路线：散步、拍照、聊天、阅读，以及在上课之后恢复能量。",
+        studentAngle:
+          "Best for first impressions and quiet daily life. A city that lets students walk by a world-famous lake after class has a special kind of kindness.",
+        zhStudentAngle:
+          "适合第一印象，也适合日常生活。一座能让学生下课后走到世界级湖边的城市，本身就有一种特别的温柔。"
+      },
+      {
+        name: "Grand Canal and Hangzhou Steelworks Park",
+        zhName: "大运河与杭钢公园",
+        category: "Industrial memory and youth events",
+        zhCategory: "工业记忆与青年活动",
+        district: "Gongshu District",
+        zhDistrict: "拱墅区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Grand%20Canal%20Hangzhou%20Steelworks%20Park%20(1),%20202507.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Grand_Canal_Hangzhou_Steelworks_Park_(1),_202507.jpg",
+        story:
+          "The canal and steelworks park show a newer Hangzhou: industrial structures become concerts, markets, open-air cinema, beer festivals, and a place where young people can gather at night.",
+        zhStory:
+          "运河和杭钢公园展示的是更新后的杭州：工业结构被转化为演出、市集、露天电影、啤酒节和年轻人夜间聚集的公共空间。",
+        studentAngle:
+          "Strong for students who like music festivals, design, urban renewal, photography, and a less conventional Hangzhou than the postcard West Lake.",
+        zhStudentAngle:
+          "适合喜欢音乐节、设计、城市更新、摄影，以及想看到西湖明信片之外杭州的学生。"
+      },
+      {
+        name: "Liangzhu",
+        zhName: "良渚",
+        category: "Ancient civilization and design",
+        zhCategory: "古文明与设计",
+        district: "Yuhang District",
+        zhDistrict: "余杭区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/West%20City%20Wall%20of%20Liangzhu%20Ancient%20City.JPG?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:West_City_Wall_of_Liangzhu_Ancient_City.JPG",
+        story:
+          "Liangzhu gives Hangzhou a civilization-scale depth. Jade, water systems, ancient city walls, museums, and night events help students understand China before the familiar dynastic timeline.",
+        zhStory:
+          "良渚给杭州一种文明尺度的深度。玉器、水利系统、古城墙、博物馆和夜间活动，能帮助学生理解更早于常见王朝叙事的中国。",
+        studentAngle:
+          "Good for archaeology, design, museum studies, anthropology, history, and students who want Chinese culture to feel older and more complex.",
+        zhStudentAngle:
+          "适合考古、设计、博物馆、人类学、历史方向学生，也适合希望看到更古老、更复杂中国文化的人。"
+      },
+      {
+        name: "Longjing Tea Hills",
+        zhName: "龙井茶山",
+        category: "Tea, hills, and slow weekends",
+        zhCategory: "茶、山与慢周末",
+        district: "Meijiawu and West Lake hills",
+        zhDistrict: "梅家坞与西湖群山",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Longjing%20Tea%20field,%20Dragon%20Well%20area,%20Meijiawu%20China.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Longjing_Tea_field,_Dragon_Well_area,_Meijiawu_China.jpg",
+        story:
+          "Longjing tea hills balance Hangzhou's digital speed. Students can drink tea, walk village roads, learn local etiquette, and discover that Chinese modernity can still keep a quiet rural doorway.",
+        zhStory:
+          "龙井茶山会平衡杭州的数字速度。学生可以喝茶、走村路、学习本地礼仪，也会发现中国的现代化仍然可以保留一个安静的乡村入口。",
+        studentAngle:
+          "Ideal after exams or internships: a low-pressure route for language practice, photos, and slowing the mind down.",
+        zhStudentAngle:
+          "适合考试或实习之后去：低压力、适合练中文、拍照，也适合让脑子慢下来。"
+      },
+      {
+        name: "Olympic Sports Center and Qiantang River Life",
+        zhName: "奥体中心与钱塘江生活",
+        category: "Modern events and riverfront city",
+        zhCategory: "现代活动与江岸城市",
+        district: "Binjiang and Qianjiang New City area",
+        zhDistrict: "滨江与钱江新城片区",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hangzhou%20Olympic%20Sports%20Center%20Stadium2021.jpg?width=1200",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Hangzhou_Olympic_Sports_Center_Stadium2021.jpg",
+        story:
+          "The Olympic Sports Center and Qiantang River side show Hangzhou's metropolitan ambition: concerts, sports, skyline walks, night lights, and a city that knows how to host global attention.",
+        zhStory:
+          "奥体中心和钱塘江一带展示杭州的都市雄心：演唱会、体育、天际线散步、夜间灯光，以及这座城市承接全球目光的能力。",
+        studentAngle:
+          "Strong for students who want a city with both scenery and event energy, especially around design, media, e-commerce, and digital trade.",
+        zhStudentAngle:
+          "适合希望城市既有风景又有活动能量的学生，尤其适合设计、媒体、电商和数字贸易方向。"
+      },
+      {
+        name: "Hangzhou Night Markets and Culture Bars",
+        zhName: "杭州夜市、市集与文化酒馆",
+        category: "Gentle nightlife",
+        zhCategory: "温和夜生活",
+        district: "Tianmuli, Binjiang, canal areas, and bookstore neighborhoods",
+        zhDistrict: "天目里、滨江、运河片区与书店周边",
+        image: "https://c.colorhub.me/uYUnyKe7jfgLw3drPMCpL1OZtJcnJAcCHcW7SLVr/0x500/euc:GYUw9AhhYMwMYgOwFY7ACxwIwE4AmeAbDjhInhABxwAMcMMIE6Nwly1MoUAdAFYAHEAHMgA",
+        sourceUrl: "https://www.colorhub.me/photos/9bv1O",
+        story:
+          "Hangzhou nightlife can be gentle rather than loud: game bars, whisky bars, live music, bookstore bars, creative markets, beer festivals, and summer city events give students many ways to meet people safely.",
+        zhStory:
+          "杭州的夜生活可以不是喧闹型，而是更温和的：游戏酒吧、威士忌吧、Live、书店酒馆、创意市集、啤酒节和夏季城市活动，为学生提供很多相对安全、自然认识朋友的方式。",
+        studentAngle:
+          "Good for students who want nightlife but still care about comfort, safety, conversation, culture, and a softer social rhythm than megacity clubbing.",
+        zhStudentAngle:
+          "适合想体验夜生活，但也在意舒适、安全、聊天、文化和更柔和社交节奏的学生。"
+      }
+    ]
+  }),
   chongqing: inspiration({
     slug: "chongqing",
     title: "Chongqing Through Mountain-City Nights, Hotpot, Monorails, and Two Rivers",
