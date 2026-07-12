@@ -1,13 +1,14 @@
-import Link from "next/link";
-import { BriefcaseBusiness, CloudSun, Landmark, MapPinned, Plane, WalletCards, type LucideIcon } from "lucide-react";
+import { BriefcaseBusiness, Plane, WalletCards, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { SectionHeading } from "@/components/common/section-heading";
+import { CityFilterGrid } from "@/components/cities/city-filter-grid";
 import { getCityDestinations } from "@/lib/city-destinations";
+import { cityFilterOptions, getCityFilterTags } from "@/lib/city-filter-tags";
 import { getAllUniversitiesView } from "@/lib/content/universities";
-import { buildMetadata } from "@/lib/seo";
 import { localeCopy } from "@/lib/i18n/copy";
+import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "China Student City Guides",
@@ -19,9 +20,9 @@ const valueCards: { Icon: LucideIcon; titleEn: string; titleZh: string; descript
   {
     Icon: WalletCards,
     titleEn: "Budget fit",
-    titleZh: "预算感",
+    titleZh: "预算匹配",
     descriptionEn: "Living cost affects long-term study stability and family decisions.",
-    descriptionZh: "生活成本会影响学生能否长期稳定学习，也影响家长决策。"
+    descriptionZh: "生活成本会影响学生能否长期稳定学习，也会影响家庭决策。"
   },
   {
     Icon: Plane,
@@ -47,7 +48,8 @@ export default async function CitiesPage() {
   const universities = await getAllUniversitiesView();
   const cities = getCityDestinations(universities).map((city) => ({
     ...city,
-    universityCount: universities.filter((university) => university.citySlug === city.slug).length
+    universityCount: universities.filter((university) => university.citySlug === city.slug).length,
+    filterTags: getCityFilterTags(city, universities)
   }));
 
   const featuredCities = cities.filter((city) => city.universityCount >= 2).slice(0, 9);
@@ -58,9 +60,11 @@ export default async function CitiesPage() {
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{tx("City life guides", "城市生活指南", "Hướng dẫn đời sống thành phố")}</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
+              {tx("City life guides", "城市生活指南", "Huong dan doi song thanh pho")}
+            </p>
             <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight">
-              {tx("Choose the Chinese city that fits your study life.", "选择适合你留学生活的中国城市。", "Chọn thành phố Trung Quốc phù hợp với cuộc sống du học của bạn.")}
+              {tx("Choose the Chinese city that fits your study life.", "选择适合你留学生活的中国城市。", "Chon thanh pho Trung Quoc phu hop voi doi song du hoc cua ban.")}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
               {isZh
@@ -68,8 +72,8 @@ export default async function CitiesPage() {
                 : "A city shapes transport, food, budget, weekend travel, and internships. This guide compares university data with real student-life context."}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={`${prefix}/universities`}>{tx("Browse Schools", "浏览学校", "Xem các trường")}</ButtonLink>
-              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{tx("Get City Advice", "获取城市建议", "Nhận tư vấn thành phố")}</ButtonLink>
+              <ButtonLink href={`${prefix}/universities`}>{tx("Browse Schools", "浏览学校", "Xem cac truong")}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{tx("Get City Advice", "获取城市建议", "Nhan tu van thanh pho")}</ButtonLink>
             </div>
           </div>
           <div className="grid gap-4">
@@ -90,52 +94,15 @@ export default async function CitiesPage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow={tx("City comparison", "城市比较", "So sánh thành phố")}
-            title={tx("Judge a city by daily life, not only rankings.", "从日常生活判断一座城市是否适合你。", "Đánh giá thành phố qua cuộc sống hàng ngày, không chỉ qua xếp hạng.")}
-            description={tx("Each city page shows cost, climate, visa convenience, local universities, travel culture, internships, and student review context.", "每个城市页都会展示生活成本、气候、签证便利、当地大学、旅行文化、实习就业和学生评价。", "Mỗi trang thành phố giới thiệu chi phí sống, khí hậu, trường đại học, du lịch, thực tập và đánh giá sinh viên.")}
+            eyebrow={tx("City comparison", "城市比较", "So sanh thanh pho")}
+            title={tx("Judge a city by daily life, not only rankings.", "从日常生活判断一座城市是否适合你。", "Danh gia thanh pho qua doi song hang ngay, khong chi qua xep hang.")}
+            description={tx(
+              "Each city page shows cost, climate, visa convenience, local universities, travel culture, internships, and student review context.",
+              "每个城市页都会展示生活成本、气候、签证便利、当地大学、旅行文化、实习就业和学生评价背景。",
+              "Moi trang thanh pho gioi thieu chi phi song, khi hau, truong dai hoc, du lich, thuc tap va danh gia sinh vien."
+            )}
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {allCities.map((city) => {
-              const name = isZh ? city.zhName : city.name;
-              const province = isZh ? city.zhProvinceName : city.provinceName;
-              const summary = isZh ? city.zhSummary : city.summary;
-              const tags = isZh ? city.zhLifestyleTags : city.lifestyleTags;
-
-              return (
-                <Link key={city.slug} href={`${prefix}/cities/${city.slug}`} className="group overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
-                  <div className="relative h-40">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={city.image} alt={isZh ? city.zhImageAlt : city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-secondary">{province}</p>
-                      <h2 className="mt-1 text-2xl font-bold">{name}</h2>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="inline-flex items-center gap-2 rounded-md bg-blue-50 px-3 py-2 text-sm font-bold text-primary">
-                        <MapPinned size={15} aria-hidden="true" />
-                        {city.universityCount} {isZh ? "所学校" : "schools"}
-                      </span>
-                      <span className="text-xs font-semibold text-slate-500">{isZh ? city.zhLivingCost : city.livingCost}</span>
-                    </div>
-                    <p className="mt-4 text-sm leading-6 text-slate-600">{summary}</p>
-                    <div className="mt-5 grid gap-3 text-sm text-slate-600">
-                      <p className="flex gap-2"><WalletCards size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhLivingCost : city.livingCost}</p>
-                      <p className="flex gap-2"><CloudSun size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhClimate : city.climate}</p>
-                      <p className="flex gap-2"><Landmark size={16} className="mt-0.5 shrink-0 text-primary" /> {isZh ? city.zhVisaConvenience : city.visaConvenience}</p>
-                    </div>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="rounded bg-cyan-50 px-2 py-1 text-xs font-semibold text-cyan-700">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <CityFilterGrid cities={allCities} filters={cityFilterOptions} isZh={isZh} prefix={prefix} />
         </div>
       </section>
 

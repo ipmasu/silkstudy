@@ -13,6 +13,7 @@ import { getCityDeepDive } from "@/lib/city-deep-dives";
 import { getCityVisualGallery } from "@/lib/city-visual-galleries";
 import { cityGuideDetails } from "@/lib/city-guide-details";
 import { getCityDestination } from "@/lib/city-destinations";
+import { getCityStudentStory } from "@/lib/city-student-stories";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { buildMetadata } from "@/lib/seo";
@@ -84,6 +85,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const foodTravelGuide = getCityFoodTravelGuide(city.slug);
   const culturalInspiration = getCityCulturalInspiration(city.slug);
   const cityDeepDive = getCityDeepDive(city.slug);
+  const studentStory = getCityStudentStory(city.slug);
   const visualGallery = await getCityVisualGallery(city.slug, city);
   const culturalSourceUrls = new Set(culturalInspiration?.items.map((item) => item.sourceUrl) ?? []);
   const culturalVisualItems = culturalInspiration
@@ -136,6 +138,19 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{isZh ? "学生城市指南" : "Student city guide"}</p>
             <h1 className="mt-3 text-5xl font-bold tracking-tight">{isZh ? `在${name}留学` : `Study in ${city.name}`}</h1>
+            {studentStory ? (
+              <figure className="mt-6 max-w-3xl rounded-lg border border-white/10 bg-white/10 p-5">
+                <blockquote className="text-xl font-semibold leading-8 text-white">
+                  “{isZh ? studentStory.zhQuote : studentStory.quote}”
+                </blockquote>
+                <figcaption className="mt-3 text-sm font-semibold text-secondary">
+                  {isZh ? studentStory.zhStudent : studentStory.student}
+                </figcaption>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  {isZh ? studentStory.zhStory : studentStory.story}
+                </p>
+              </figure>
+            ) : null}
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">{isZh ? city.zhSummary : city.summary}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {lifestyleTags.map((tag) => (
