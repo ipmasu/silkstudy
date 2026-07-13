@@ -7,7 +7,7 @@ import { universities } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/universities", "/provinces", "/cities", "/life", "/community", "/majors", "/scholarships", "/consultation", "/login", "/dashboard", "/admin"];
+  const staticRoutes = ["/", "/universities", "/provinces", "/cities", "/life", "/community", "/majors", "/scholarships", "/why-china", "/consultation", "/login", "/dashboard", "/admin"];
   const catalogUniversities = getCatalogUniversities(universities);
   const provinceRoutes = provinceShowcases.map((province) => `/provinces/${province.slug}`);
   const cityRoutes = getCityDestinations(catalogUniversities).map((city) => `/cities/${city.slug}`);

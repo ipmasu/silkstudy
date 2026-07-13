@@ -66,6 +66,21 @@ export default async function UniversitiesPage() {
       </section>
 
       <UniversitySelector universities={universities} cityOptions={cityOptions} majorOptions={majorOptions} prefix={prefix} />
+
+      <section className="bg-slate-950 py-16 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-amber-200">Next step</p>
+            <h2 className="mt-2 text-3xl font-bold">{isZh ? "找到目标大学了吗？" : "Found your target university?"}</h2>
+            <p className="mt-3 max-w-2xl text-slate-300">
+              {isZh
+                ? "我们来帮你搞定申请。从选校到签证，全程 1 对 1 指导。"
+                : "Let us help you turn a shortlist into an application plan, from school matching to visa preparation."}
+            </p>
+          </div>
+          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询 →" : "Free consultation →"}</ButtonLink>
+        </div>
+      </section>
     </main>
   );
 }

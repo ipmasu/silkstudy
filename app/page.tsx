@@ -376,6 +376,9 @@ export default async function HomePage() {
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
   const isZh = locale === "zh";
+  const serviceSubtitle = isZh
+    ? "选一座城市，住下来，慢慢探索。门槛比你想象的低，成本比你想象的小，我们来帮你搞定申请的一切。"
+    : "Choose a city, settle in, and explore slowly. The threshold can be lower than you imagine, the cost can be smaller than you expect, and SilkStudy helps you turn interest into a real application plan.";
   const heroTitle = isZh ? "你的中国故事，从这里开始。" : c.title;
   const heroSubtitle = isZh
     ? "选一座城市，住下来，慢慢探索。学习、旅行、交朋友——参与正在发生的未来。"
@@ -400,10 +403,10 @@ export default async function HomePage() {
               {c.eyebrow}
             </p>
             <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{heroTitle}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{heroSubtitle}</p>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{serviceSubtitle || heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/cities")}>{isZh ? "探索城市 →" : "Explore cities"}</ButtonLink>
-              <ButtonLink href={localize("/cities?tab=scholarship")} variant="secondary">{isZh ? "了解奖学金" : c.scholarshipCta}</ButtonLink>
+              <ButtonLink href={localize("/consultation")}>{isZh ? "\u514d\u8d39\u8bc4\u4f30\u4f60\u7684\u7559\u5b66\u65b9\u6848 \u2192" : "Get your free study plan \u2192"}</ButtonLink>
+              <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "\u770b\u770b\u6709\u54ea\u4e9b\u57ce\u5e02 \u2192" : "See study cities \u2192"}</ButtonLink>
             </div>
           </div>
           <aside className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
@@ -463,7 +466,7 @@ export default async function HomePage() {
                   </div>
                   <p className="mt-4 text-base font-semibold leading-7 text-slate-700">{city.highlight}</p>
                   <a href={localize(`/cities/${city.slug}`)} className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-white transition hover:bg-blue-700">
-                    探索 →
+                    {isZh ? "\u4e86\u89e3\u8fd9\u5ea7\u57ce\u5e02\u7559\u5b66 \u2192" : "Explore studying here \u2192"}
                   </a>
                 </div>
               </article>
@@ -533,9 +536,7 @@ export default async function HomePage() {
             <p className="mt-3 max-w-2xl text-blue-100">{isZh ? "先看城市，再看奖学金；如果你需要人工建议，我们也可以帮你整理适合的学校和申请路径。" : c.finalBody}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "探索城市 →" : "Explore cities"}</ButtonLink>
-            <ButtonLink href={localize("/cities?tab=scholarship")} variant="ghost">{isZh ? "了解奖学金" : c.scholarshipCta}</ButtonLink>
-            <ButtonLink href={localize("/contact")} variant="ghost">{isZh ? "免费咨询" : c.consult}</ButtonLink>
+            <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u514d\u8d39\u54a8\u8be2 \u2192" : "Free consultation \u2192"}</ButtonLink>
           </div>
         </div>
       </section>

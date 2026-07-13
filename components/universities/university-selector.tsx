@@ -9,11 +9,9 @@ import {
   CheckCircle2,
   GraduationCap,
   MapPin,
-  Plus,
   Search,
   Star,
-  Trophy,
-  X
+  Trophy
 } from "lucide-react";
 import { universityCityImageFallbacks, universityVisualOverrides } from "@/lib/university-visual-overrides";
 import type { University } from "@/lib/site-data";
@@ -166,7 +164,6 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
   const [typeFilters, setTypeFilters] = useState<string[]>([]);
   const [sortMode, setSortMode] = useState<SortMode>("ranking");
   const [visibleCount, setVisibleCount] = useState(pageSize);
-  const [selected, setSelected] = useState<University[]>([]);
   const [quizCity, setQuizCity] = useState(cityOptions[0]?.slug ?? "all");
   const [quizBudget, setQuizBudget] = useState<TuitionFilter>("3000-5000");
   const [quizMajor, setQuizMajor] = useState("工程");
@@ -196,8 +193,6 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
   }, [city, csc, majorFilters, ranking, search, sortMode, tuition, typeFilters, universities]);
 
   const visibleUniversities = filtered.slice(0, visibleCount);
-  const compareHref = `${prefix}/universities/compare?schools=${selected.map((item) => item.slug).join(",")}`;
-
   function clearAll() {
     setSearch("");
     setCity("all");
@@ -213,13 +208,6 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
   function toggleList(value: string, setter: (next: string[]) => void, current: string[]) {
     setter(current.includes(value) ? current.filter((item) => item !== value) : [...current, value]);
     setVisibleCount(pageSize);
-  }
-
-  function toggleCompare(university: University) {
-    setSelected((current) => {
-      if (current.some((item) => item.slug === university.slug)) return current.filter((item) => item.slug !== university.slug);
-      return [...current, university].slice(0, 4);
-    });
   }
 
   function applyQuiz() {
@@ -364,8 +352,6 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
                     key={university.slug}
                     university={university}
                     prefix={prefix}
-                    selected={selected.some((item) => item.slug === university.slug)}
-                    onCompare={() => toggleCompare(university)}
                   />
                 ))}
               </div>
@@ -384,32 +370,16 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
         </section>
       </section>
 
-      {selected.length ? (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-amber-200 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-700">
-              <span>已选：</span>
-              {selected.map((university) => (
-                <button key={university.slug} onClick={() => toggleCompare(university)} className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">
-                  {university.chineseName || university.name} ×
-                </button>
-              ))}
-            </div>
-            <Link href={compareHref} className="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-bold text-white hover:bg-slate-800">
-              比较 {selected.length} 所大学 →
-            </Link>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
 
-function UniversityDecisionCard({ university, prefix, selected, onCompare }: { university: University; prefix: string; selected: boolean; onCompare: () => void }) {
+function UniversityDecisionCard({ university, prefix }: { university: University; prefix: string }) {
   const type = inferSchoolType(university);
   const fields = universityFields(university).slice(0, 5);
   const ranked = university.qsRanking > 0 && university.qsRanking < 900;
   const csc = hasCsc(university);
+  const isZh = prefix === "/zh";
 
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-red-200 hover:shadow-lg">
@@ -431,15 +401,9 @@ function UniversityDecisionCard({ university, prefix, selected, onCompare }: { u
           </div>
           <p className="mt-4 text-sm leading-6 text-slate-600 line-clamp-2">{university.summary}</p>
           <p className="mt-4 text-sm font-semibold text-slate-700">🔬 优势专业：{fields.join("、")}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link href={`${prefix}/universities/${university.slug}`} className="inline-flex min-h-11 items-center rounded-full bg-red-600 px-5 py-2 text-sm font-bold text-white hover:bg-red-700">
-              查看详情 →
-            </Link>
-            <button onClick={onCompare} className={`inline-flex min-h-11 items-center gap-1 rounded-full px-4 py-2 text-sm font-bold ${selected ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}>
-              {selected ? <X size={15} /> : <Plus size={15} />}
-              比较
-            </button>
-          </div>
+          <Link href={`${prefix}/consultation?school=${university.slug}`} className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-red-600 px-5 py-2 text-sm font-bold text-white hover:bg-red-700">
+            {isZh ? "\u514d\u8d39\u8bc4\u4f30\u5f55\u53d6\u7387" : "Free admission chance assessment"}
+          </Link>
         </div>
       </div>
     </article>

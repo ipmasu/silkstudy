@@ -12,7 +12,7 @@ const navItems = [
   { href: "/life", key: "life" },
   { href: "/community", key: "community" },
   { href: "/global-checkin", key: "globalCheckin" },
-  { href: "/scholarships", key: "scholarships" },
+  { href: "/why-china", key: "scholarships" },
   { href: "/consultation", key: "planJourney" }
 ] as const;
 
