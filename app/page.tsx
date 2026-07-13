@@ -1,12 +1,9 @@
 import { ButtonLink } from "@/components/common/button-link";
 import { JsonLd } from "@/components/common/json-ld";
-import { SearchPanel } from "@/components/search/search-panel";
-import { getAllUniversitiesView } from "@/lib/content/universities";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
-import { provinces } from "@/lib/site-data";
-import { Award, BookOpen, Building2, Globe2, Handshake, HeartHandshake, Landmark, Languages, Map, MessageCircle, Rocket, Share2, ShieldCheck, TrainFront, UsersRound } from "lucide-react";
+import { Award, BookOpen, Globe2, Rocket, ShieldCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -314,206 +311,78 @@ function getCopy(locale: string) {
   return copy[locale] ?? copy.en;
 }
 
-type PromotionCopy = {
-  label: string;
-  title: string;
-  body: string;
-  cards: { icon: LucideIcon; title: string; body: string; href: string }[];
-  shareTitle: string;
-  shareLines: string[];
-  ambassadorTitle: string;
-  ambassadorBody: string;
-  ambassadorCta: string;
-  consultCta: string;
-};
+const homepageHeroImage = "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2200&q=85";
 
-type CultureBridgeCopy = {
-  title: string;
-  body: string;
-  cta: string;
-  points: string[];
-};
-
-const promotionCopy: Record<string, PromotionCopy> = {
-  en: {
-    label: "Global Growth",
-    title: "Built to spread among young people.",
-    body: "SilkStudy should be easy to share in a group chat, a short video caption, a school community, or a language-learning circle. The message is simple: China is close, modern, affordable, and full of scholarships.",
-    cards: [
-      { icon: MessageCircle, title: "Group-chat ready", body: "Clear scholarship hooks and city pages that students can send to friends, parents, teachers, and agents.", href: "/scholarships" },
-      { icon: Share2, title: "Social story friendly", body: "Young people can share cities, check-ins, reviews, and cultural exchange moments, not only admission information.", href: "/global-checkin" },
-      { icon: Languages, title: "Language-first growth", body: "Students who already learn Chinese, or want to start, get a stronger reason to choose China now.", href: "/life" },
-      { icon: UsersRound, title: "Community trust", body: "Real questions, comments, check-ins, and exchange posts can make the platform feel alive across countries.", href: "/community" }
-    ],
-    shareTitle: "Short messages for promotion",
-    shareLines: [
-      "Study in China can be more affordable than you think. Scholarships may cover tuition, housing, and living support.",
-      "Learn Chinese in China, discover modern cities, and build a future connected to the world's fastest-changing market.",
-      "SilkStudy helps students compare universities, cities, majors, scholarships, and free consultation routes."
-    ],
-    ambassadorTitle: "Invite global youth ambassadors",
-    ambassadorBody: "Let the first students from each country check in, introduce their home culture, and become visible bridges between China and their communities.",
-    ambassadorCta: "Join global check-in",
-    consultCta: "Ask about China study"
+const featuredStudyCities = [
+  {
+    slug: "changsha",
+    name: "长沙 · Changsha",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Changsha_IFS_20250401B.jpg/1200px-Changsha_IFS_20250401B.jpg",
+    imageAlt: "长沙五一商圈与IFS城市天际线",
+    badges: ["🌶️ 美食之都", "🎭 不夜之城", "📺 媒体艺术之都"],
+    highlight: "凌晨两点，这里的热闹才刚刚开始"
   },
-  zh: {
-    label: "全球推广",
-    title: "让全球年轻人愿意转发、愿意咨询、愿意来到中国。",
-    body: "SilkStudy 的传播重点要简单有力：来中国不只是留学，也是学习中文、看到高速发展的中国、认识朋友、获得奖学金机会，并把人生打开到更大的世界。",
-    cards: [
-      { icon: MessageCircle, title: "适合群聊传播", body: "奖学金、免学费、城市生活、大学选择都要能被学生转发给朋友、家长、老师和中介。", href: "/scholarships" },
-      { icon: Share2, title: "适合短视频表达", body: "不仅讲录取，也讲城市打卡、学生生活、国家文化交换和真实体验。", href: "/global-checkin" },
-      { icon: Languages, title: "抓住中文学习人群", body: "已经学中文或想学中文的年轻人，是最容易被中国机会打动的一批学生。", href: "/life" },
-      { icon: UsersRound, title: "用社区建立信任", body: "打卡、留言、评论、物品交换和真实咨询，会让网站像一个活的全球青年社区。", href: "/community" }
-    ],
-    shareTitle: "适合推广时使用的短句",
-    shareLines: [
-      "来中国留学，奖学金可能覆盖学费、住宿，甚至生活补助。",
-      "在中国学习中文，亲眼看到高速发展的城市、科技和真实生活。",
-      "SilkStudy 帮你比较中国大学、城市、专业、奖学金，并获得免费咨询。"
-    ],
-    ambassadorTitle: "邀请全球青年成为第一批国家打卡者",
-    ambassadorBody: "让每个国家的第一个学生点亮地图，介绍自己的国家，也成为连接中国与本国青年社区的桥梁。",
-    ambassadorCta: "去全球打卡",
-    consultCta: "咨询中国留学"
+  {
+    slug: "chengdu",
+    name: "成都 · Chengdu",
+    image: "https://images.unsplash.com/photo-1528227208854-053d0a9d8d73?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "成都夜色与城市生活",
+    badges: ["🐼 熊猫故乡", "🍲 美食之都", "🍵 盖碗茶文化"],
+    highlight: "一座来了就不想走的城市"
   },
-  vi: {
-    label: "Tăng trưởng toàn cầu",
-    title: "Dễ chia sẻ cho bạn trẻ toàn cầu.",
-    body: "Thông điệp cần rõ ràng: Trung Quốc hiện đại, gần gũi, nhiều học bổng, phù hợp để học tiếng Trung và mở rộng tương lai.",
-    cards: [
-      { icon: MessageCircle, title: "Dễ gửi trong nhóm chat", body: "Học bổng, miễn học phí, thành phố và trường học được trình bày để học sinh dễ gửi cho gia đình.", href: "/scholarships" },
-      { icon: Share2, title: "Hợp với mạng xã hội", body: "Không chỉ tuyển sinh, mà còn có check-in, đời sống, văn hóa và trải nghiệm thật.", href: "/global-checkin" },
-      { icon: Languages, title: "Tập trung vào tiếng Trung", body: "Những bạn đã học hoặc muốn học tiếng Trung có lý do mạnh hơn để chọn Trung Quốc.", href: "/life" },
-      { icon: UsersRound, title: "Xây dựng niềm tin", body: "Câu hỏi, bình luận, check-in và trao đổi văn hóa giúp nền tảng sống động hơn.", href: "/community" }
-    ],
-    shareTitle: "Câu ngắn để quảng bá",
-    shareLines: [
-      "Du học Trung Quốc có thể dễ tiếp cận hơn bạn nghĩ nhờ học bổng.",
-      "Học tiếng Trung tại Trung Quốc và trải nghiệm các thành phố hiện đại.",
-      "SilkStudy giúp so sánh trường, ngành, thành phố, học bổng và tư vấn miễn phí."
-    ],
-    ambassadorTitle: "Mời đại sứ trẻ toàn cầu",
-    ambassadorBody: "Sinh viên đầu tiên từ mỗi quốc gia có thể check-in, giới thiệu quê hương và kết nối cộng đồng với Trung Quốc.",
-    ambassadorCta: "Check-in toàn cầu",
-    consultCta: "Hỏi tư vấn"
+  {
+    slug: "xian",
+    name: "西安 · Xi'an",
+    image: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "西安古城夜色",
+    badges: ["🏛️ 十三朝古都", "🥙 碳水天堂", "🏮 大唐不夜城"],
+    highlight: "穿上汉服，一夜穿越回长安"
   },
-  ru: {
-    label: "Глобальное продвижение",
-    title: "Платформа, которую молодые люди захотят пересылать.",
-    body: "Главная идея проста: Китай современный, доступный, связан с будущими профессиями и предлагает реальные стипендии.",
-    cards: [
-      { icon: MessageCircle, title: "Готово для чатов", body: "Стипендии, города и университеты можно быстро отправить друзьям, семье или преподавателям.", href: "/scholarships" },
-      { icon: Share2, title: "Подходит для соцсетей", body: "Можно делиться городами, чек-инами, отзывами и культурным обменом.", href: "/global-checkin" },
-      { icon: Languages, title: "Рост через китайский язык", body: "Тем, кто учит китайский или хочет начать, легче увидеть ценность учебы в Китае.", href: "/life" },
-      { icon: UsersRound, title: "Доверие через сообщество", body: "Вопросы, комментарии и чек-ины делают сайт живым международным пространством.", href: "/community" }
-    ],
-    shareTitle: "Короткие тексты для продвижения",
-    shareLines: [
-      "Учеба в Китае может быть доступнее благодаря стипендиям.",
-      "Изучай китайский в Китае и увидь современные города своими глазами.",
-      "SilkStudy помогает сравнить вузы, города, направления, стипендии и консультации."
-    ],
-    ambassadorTitle: "Пригласить молодежных амбассадоров",
-    ambassadorBody: "Первые студенты из каждой страны могут отметить себя на карте и стать мостом между Китаем и своим сообществом.",
-    ambassadorCta: "Глобальный чек-ин",
-    consultCta: "Задать вопрос"
+  {
+    slug: "hangzhou",
+    name: "杭州 · Hangzhou",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/West_Lake%2C_Hangzhou%2C_China_-_panoramio_%2822%29.jpg/1200px-West_Lake%2C_Hangzhou%2C_China_-_panoramio_%2822%29.jpg",
+    imageAlt: "杭州西湖水面与城市景观",
+    badges: ["🌊 人间天堂", "🍖 西湖醋鱼", "🍵 龙井茶乡"],
+    highlight: "把课堂搬到西湖边"
   },
-  tr: {
-    label: "Küresel büyüme",
-    title: "Gençlerin paylaşmak isteyeceği şekilde tasarlandı.",
-    body: "Mesaj net: Çin modern, ulaşılabilir, burslarla güçlü ve Çince öğrenmek isteyen gençler için gerçek bir gelecek kapısı.",
-    cards: [
-      { icon: MessageCircle, title: "Sohbet gruplarına uygun", body: "Burs, şehir ve üniversite bilgileri öğrencilerin ailesine ve arkadaşlarına gönderebileceği kadar nettir.", href: "/scholarships" },
-      { icon: Share2, title: "Sosyal medyaya uygun", body: "Sadece kabul değil; şehirler, check-in, yorumlar ve kültürel değişim de paylaşılır.", href: "/global-checkin" },
-      { icon: Languages, title: "Çince odaklı büyüme", body: "Çince öğrenen veya öğrenmek isteyen gençler için Çin daha güçlü bir seçenek olur.", href: "/life" },
-      { icon: UsersRound, title: "Topluluk güveni", body: "Sorular, yorumlar ve check-inler platformu yaşayan bir gençlik alanına dönüştürür.", href: "/community" }
-    ],
-    shareTitle: "Tanıtım için kısa cümleler",
-    shareLines: [
-      "Çin'de okumak burslarla düşündüğünden daha erişilebilir olabilir.",
-      "Çinceyi Çin'de öğren, modern şehirleri gör ve geleceğini Çin'le bağla.",
-      "SilkStudy üniversite, şehir, bölüm, burs ve ücretsiz danışmanlığı karşılaştırmana yardımcı olur."
-    ],
-    ambassadorTitle: "Küresel gençlik elçilerini davet et",
-    ambassadorBody: "Her ülkeden ilk öğrenciler haritada check-in yapabilir, kültürünü tanıtabilir ve Çin'le köprü kurabilir.",
-    ambassadorCta: "Küresel check-in",
-    consultCta: "Danışmanlık al"
+  {
+    slug: "guangzhou",
+    name: "广州 · Guangzhou",
+    image: "https://images.unsplash.com/photo-1537531383496-f4749b8032cf?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "广州珠江夜景与城市天际线",
+    badges: ["🏛️ 千年商都", "🥢 食在广州", "🌺 花城之都"],
+    highlight: "美食与机遇，365天不重样"
+  },
+  {
+    slug: "kunming",
+    name: "昆明 · Kunming",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Green_Lake_Park%2C_Kunming%2C_Yunnan%2C_China.jpg/1200px-Green_Lake_Park%2C_Kunming%2C_Yunnan%2C_China.jpg",
+    imageAlt: "昆明翠湖公园",
+    badges: ["🌺 春城花都", "🍜 过桥米线", "🦚 孔雀之乡"],
+    highlight: "四季如春，花开不败"
   }
-};
+];
 
-const cultureBridgeCopy: Record<string, CultureBridgeCopy> = {
-  en: {
-    title: "For young people who love Chinese culture.",
-    body: "Some students first meet China through music, dramas, food, festivals, kung fu, tea, calligraphy, games, high-speed rail, or a Chinese friend. SilkStudy gives that curiosity a place to grow.",
-    cta: "Discover Chinese culture",
-    points: ["Chinese language", "Festivals and food", "Modern cities", "Youth exchange"]
-  },
-  zh: {
-    title: "给所有喜欢中国文化的年轻人。",
-    body: "有些学生是因为音乐、影视、美食、节日、功夫、茶、书法、游戏、高铁或一个中国朋友开始喜欢中国。SilkStudy 要给这种好奇心一个继续生长的地方。",
-    cta: "了解中国文化",
-    points: ["中文语言", "节日与美食", "现代城市", "青年交流"]
-  },
-  vi: {
-    title: "Dành cho bạn trẻ yêu văn hóa Trung Quốc.",
-    body: "Nhiều bạn bắt đầu yêu Trung Quốc từ âm nhạc, phim, món ăn, lễ hội, trà, thư pháp, tàu cao tốc hoặc một người bạn Trung Quốc. SilkStudy giúp sự tò mò đó phát triển.",
-    cta: "Khám phá văn hóa Trung Quốc",
-    points: ["Tiếng Trung", "Lễ hội và ẩm thực", "Thành phố hiện đại", "Giao lưu trẻ"]
-  },
-  ru: {
-    title: "Для молодежи, которая любит китайскую культуру.",
-    body: "Интерес к Китаю может начаться с музыки, дорам, еды, праздников, чая, каллиграфии, скоростных поездов или китайского друга. SilkStudy помогает этому интересу расти.",
-    cta: "Открыть культуру Китая",
-    points: ["Китайский язык", "Праздники и еда", "Современные города", "Молодежный обмен"]
-  },
-  tr: {
-    title: "Çin kültürünü seven gençler için.",
-    body: "Birçok genç Çin'i müzik, dizi, yemek, festivaller, çay, kaligrafi, hızlı tren veya Çinli bir arkadaşla sevmeye başlar. SilkStudy bu merakı büyütür.",
-    cta: "Çin kültürünü keşfet",
-    points: ["Çince", "Festival ve yemek", "Modern şehirler", "Gençlik değişimi"]
-  }
-};
-
-function getPromotionCopy(locale: string, base: LocaleCopy): PromotionCopy {
-  if (promotionCopy[locale]) return promotionCopy[locale];
-
-  return {
-    label: base.exchangeLabel,
-    title: base.finalTitle,
-    body: base.finalBody,
-    cards: base.reasons.map((reason, index) => ({
-      icon: reason.icon,
-      title: reason.title,
-      body: reason.body,
-      href: ["/scholarships", "/global-checkin", "/life", "/community"][index] ?? "/consultation"
-    })),
-    shareTitle: base.scholarshipTitle,
-    shareLines: base.scholarshipPoints.slice(0, 3),
-    ambassadorTitle: base.countriesTitle,
-    ambassadorBody: base.countriesBody,
-    ambassadorCta: base.exchangeLabel,
-    consultCta: base.consult
-  };
-}
-
-function getCultureBridgeCopy(locale: string, base: LocaleCopy): CultureBridgeCopy {
-  return cultureBridgeCopy[locale] ?? {
-    title: base.missionTitle,
-    body: base.missionBody,
-    cta: base.exchangeLabel,
-    points: base.stats.map(([value]) => value)
-  };
-}
+const trustCards = [
+  ["🏛️", "280+", "所中国合作高校"],
+  ["🌍", "30+", "个国家的学生已加入"],
+  ["💰", "100%", "奖学金覆盖学费的机会"]
+];
 
 export default async function HomePage() {
   const locale = await getCurrentLocale();
   const c = getCopy(locale);
-  const promo = getPromotionCopy(locale, c);
-  const culture = getCultureBridgeCopy(locale, c);
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
-  const allUniversities = await getAllUniversitiesView();
+  const isZh = locale === "zh";
+  const heroTitle = isZh ? "你的中国故事，从这里开始。" : c.title;
+  const heroSubtitle = isZh
+    ? "选一座城市，住下来，慢慢探索。学习、旅行、交朋友——参与正在发生的未来。"
+    : c.subtitle;
+  const missionBody = isZh
+    ? "在中国留学，你得到的不仅是一个学位——还有高铁上的移动课堂、夜市里的文化课，以及一个正在改变世界的国家的第一手体验。"
+    : c.missionBody;
 
   return (
     <main>
@@ -522,23 +391,19 @@ export default async function HomePage() {
 
       <section className="relative isolate overflow-hidden bg-slate-950 text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/campus-hero.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-slate-950/65" />
+        <img src={homepageHeroImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/64 to-slate-950/20" />
         <div className="relative mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_420px] lg:items-center lg:px-8">
           <div>
             <p className="inline-flex items-center gap-2 border-l-2 border-secondary pl-3 text-sm font-semibold uppercase tracking-wide text-cyan-100">
               <Globe2 size={16} aria-hidden="true" />
               {c.eyebrow}
             </p>
-            <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{c.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{c.subtitle}</p>
+            <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{heroTitle}</h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/universities")}>{c.browse}</ButtonLink>
-              <ButtonLink href={localize("/consultation")} variant="secondary">{c.consult}</ButtonLink>
-              <ButtonLink href={localize("/scholarships")} variant="ghost">{c.scholarshipCta}</ButtonLink>
-            </div>
-            <div className="mt-8 max-w-2xl">
-              <SearchPanel locale={locale} />
+              <ButtonLink href={localize("/cities")}>{isZh ? "探索城市 →" : "Explore cities"}</ButtonLink>
+              <ButtonLink href={localize("/cities?tab=scholarship")} variant="secondary">{isZh ? "了解奖学金" : c.scholarshipCta}</ButtonLink>
             </div>
           </div>
           <aside className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
@@ -568,12 +433,51 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">🏙️ 热门留学城市</p>
+              <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">选一座城市，开始你的中国故事。</h2>
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">城市决定你每天吃什么、和谁相遇、周末去哪里，也决定你如何真正理解中国。</p>
+            </div>
+            <ButtonLink href={localize("/cities")} variant="secondary">查看全部城市 →</ButtonLink>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {featuredStudyCities.map((city) => (
+              <article key={city.slug} className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
+                <div className="relative h-56 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={city.image} alt={city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-2xl font-bold text-ink">{city.name}</h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {city.badges.map((badge, index) => (
+                      <span key={badge} className="inline-flex min-h-8 items-center rounded-md bg-slate-950/75 px-2.5 py-1 text-sm font-semibold text-white">
+                        {badge}
+                        {index < city.badges.length - 1 ? <span className="ml-2 text-white/60">|</span> : null}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-base font-semibold leading-7 text-slate-700">{city.highlight}</p>
+                  <a href={localize(`/cities/${city.slug}`)} className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-white transition hover:bg-blue-700">
+                    探索 →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-surface py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">{c.missionTitle}</p>
             <h2 className="mt-4 text-5xl font-bold leading-tight tracking-tight text-ink lg:text-6xl">{c.reasonsTitle}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{c.missionBody}</p>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{missionBody}</p>
             <p className="mt-5 text-base leading-7 text-slate-600">{c.reasonsBody}</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -590,124 +494,49 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <article className="rounded-lg border border-slate-200 p-6">
-            <Building2 size={28} className="text-primary" aria-hidden="true" />
-            <h2 className="mt-4 text-3xl font-bold text-ink">{c.countriesTitle}</h2>
-            <p className="mt-4 leading-7 text-slate-600">{c.countriesBody}</p>
-            <div className="mt-6 grid gap-3">
-              {c.countryGroups.map((group) => (
-                <p key={group} className="rounded-md bg-surface px-4 py-3 text-sm font-semibold text-slate-700">{group}</p>
-              ))}
-            </div>
-          </article>
-          <article className="rounded-lg border border-slate-200 p-6">
-            <Handshake size={28} className="text-primary" aria-hidden="true" />
-            <h2 className="mt-4 text-3xl font-bold text-ink">{c.pathTitle}</h2>
-            <ol className="mt-6 grid gap-4">
-              {c.pathSteps.map((step, index) => (
-                <li key={step} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-white">{index + 1}</span>
-                  <p className="pt-1 text-sm font-semibold leading-6 text-slate-700">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </article>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">{c.exchangeLabel}</p>
-            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink">{culture.title}</h2>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">{culture.body}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {culture.points.map((point) => (
-                <span key={point} className="rounded-md bg-blue-50 px-3 py-2 text-sm font-bold text-primary">{point}</span>
-              ))}
-            </div>
-            <div className="mt-7">
-              <ButtonLink href={localize("/culture")}>{culture.cta}</ButtonLink>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-slate-200 shadow-sm">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/student-city-life.png" alt="" className="h-full min-h-[320px] w-full object-cover" />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface py-16">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">{promo.label}</p>
-              <h2 className="mt-3 text-4xl font-bold leading-tight text-ink">{promo.title}</h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">{promo.body}</p>
-              <div className="mt-7 rounded-lg border border-slate-200 bg-white p-5">
-                <Share2 size={24} className="text-primary" aria-hidden="true" />
-                <h3 className="mt-3 text-xl font-bold text-ink">{promo.shareTitle}</h3>
-                <div className="mt-4 grid gap-3">
-                  {promo.shareLines.map((line) => (
-                    <p key={line} className="rounded-md bg-blue-50 px-4 py-3 text-sm font-semibold leading-6 text-slate-700">{line}</p>
-                  ))}
-                </div>
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">🤝 为什么全球学生选择我们？</p>
+            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">少一点信息焦虑，多一个清楚的中国留学决定。</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">我们把城市生活、大学选择、奖学金机会和申请路径放在一起，帮助学生从“想去中国看看”走到“知道下一步怎么做”。</p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {trustCards.map(([icon, value, label]) => (
+              <article key={label} className="rounded-lg border border-slate-200 bg-surface p-6">
+                <p className="text-3xl" aria-hidden="true">{icon}</p>
+                <p className="mt-4 text-4xl font-bold text-ink">{value}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{label}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-5 rounded-lg bg-slate-950 p-6 text-white lg:grid-cols-[220px_1fr] lg:items-center">
+            <div className="flex items-center gap-4">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-2xl font-bold">A</div>
+              <div>
+                <p className="font-bold">Alina</p>
+                <p className="text-sm text-slate-300">俄罗斯 · 中南大学</p>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {promo.cards.map(({ icon: Icon, title, body, href }) => (
-                <a key={title} href={localize(href)} className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-primary transition group-hover:bg-primary group-hover:text-white">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
-                </a>
-              ))}
-            </div>
+            <blockquote className="text-base leading-8 text-slate-100">
+              “长沙是最懂我的城市。我在这里学会了书法、吉他和滑板，还骑着摩托车探索了湖南的乡村。”
+            </blockquote>
           </div>
-          <div className="mt-8 grid gap-5 rounded-lg bg-slate-950 p-6 text-white md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{promo.ambassadorTitle}</p>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-200">{promo.ambassadorBody}</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <ButtonLink href={localize("/global-checkin")} variant="secondary">{promo.ambassadorCta}</ButtonLink>
-              <ButtonLink href={localize("/consultation")} variant="ghost">{promo.consultCta}</ButtonLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-950 py-16 text-white">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-          {[
-            [TrainFront, `${allUniversities.length}+`, c.stats[1][1]],
-            [Map, `${provinces.length}`, c.stats[0][1]],
-            [Landmark, "CSC", c.scholarshipPoints[0]],
-            [HeartHandshake, c.exchangeLabel, c.finalBody]
-          ].map(([Icon, value, label]) => {
-            const Visual = Icon as LucideIcon;
-            return (
-              <div key={String(value)} className="rounded-lg border border-white/10 bg-white/5 p-5">
-                <Visual size={24} className="text-secondary" aria-hidden="true" />
-                <p className="mt-4 text-2xl font-bold">{String(value)}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{String(label)}</p>
-              </div>
-            );
-          })}
         </div>
       </section>
 
       <section className="bg-primary py-16 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold">{c.finalTitle}</h2>
-            <p className="mt-3 max-w-2xl text-blue-100">{c.finalBody}</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎯 开始你的中国之旅</p>
+            <h2 className="mt-2 text-3xl font-bold">{isZh ? "已经准备好了？选一座城市，开始你的中国故事。" : c.finalTitle}</h2>
+            <p className="mt-3 max-w-2xl text-blue-100">{isZh ? "先看城市，再看奖学金；如果你需要人工建议，我们也可以帮你整理适合的学校和申请路径。" : c.finalBody}</p>
           </div>
-          <ButtonLink href={localize("/consultation")} variant="secondary">{c.consult}</ButtonLink>
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "探索城市 →" : "Explore cities"}</ButtonLink>
+            <ButtonLink href={localize("/cities?tab=scholarship")} variant="ghost">{isZh ? "了解奖学金" : c.scholarshipCta}</ButtonLink>
+            <ButtonLink href={localize("/consultation")} variant="ghost">{isZh ? "免费咨询" : c.consult}</ButtonLink>
+          </div>
         </div>
       </section>
     </main>
