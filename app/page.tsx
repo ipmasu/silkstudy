@@ -311,13 +311,13 @@ function getCopy(locale: string) {
   return copy[locale] ?? copy.en;
 }
 
-const homepageHeroImage = "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2200&q=85";
+const homepageHeroImage = "/images/home/homepage-hero.jpg";
 
 const featuredStudyCities = [
   {
     slug: "changsha",
     name: "长沙 · Changsha",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Changsha_IFS_20250401B.jpg/1200px-Changsha_IFS_20250401B.jpg",
+    image: "/images/home/changsha.jpg",
     imageAlt: "长沙五一商圈与IFS城市天际线",
     badges: ["🌶️ 美食之都", "🎭 不夜之城", "📺 媒体艺术之都"],
     highlight: "凌晨两点，这里的热闹才刚刚开始"
@@ -325,7 +325,7 @@ const featuredStudyCities = [
   {
     slug: "chengdu",
     name: "成都 · Chengdu",
-    image: "https://images.unsplash.com/photo-1528227208854-053d0a9d8d73?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/chengdu.jpg",
     imageAlt: "成都夜色与城市生活",
     badges: ["🐼 熊猫故乡", "🍲 美食之都", "🍵 盖碗茶文化"],
     highlight: "一座来了就不想走的城市"
@@ -333,7 +333,7 @@ const featuredStudyCities = [
   {
     slug: "xian",
     name: "西安 · Xi'an",
-    image: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/xian.jpg",
     imageAlt: "西安古城夜色",
     badges: ["🏛️ 十三朝古都", "🥙 碳水天堂", "🏮 大唐不夜城"],
     highlight: "穿上汉服，一夜穿越回长安"
@@ -341,7 +341,7 @@ const featuredStudyCities = [
   {
     slug: "hangzhou",
     name: "杭州 · Hangzhou",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/West_Lake%2C_Hangzhou%2C_China_-_panoramio_%2822%29.jpg/1200px-West_Lake%2C_Hangzhou%2C_China_-_panoramio_%2822%29.jpg",
+    image: "/images/home/hangzhou.jpg",
     imageAlt: "杭州西湖水面与城市景观",
     badges: ["🌊 人间天堂", "🍖 西湖醋鱼", "🍵 龙井茶乡"],
     highlight: "把课堂搬到西湖边"
@@ -349,7 +349,7 @@ const featuredStudyCities = [
   {
     slug: "guangzhou",
     name: "广州 · Guangzhou",
-    image: "https://images.unsplash.com/photo-1537531383496-f4749b8032cf?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/guangzhou.jpg",
     imageAlt: "广州珠江夜景与城市天际线",
     badges: ["🏛️ 千年商都", "🥢 食在广州", "🌺 花城之都"],
     highlight: "美食与机遇，365天不重样"
@@ -357,7 +357,7 @@ const featuredStudyCities = [
   {
     slug: "kunming",
     name: "昆明 · Kunming",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Green_Lake_Park%2C_Kunming%2C_Yunnan%2C_China.jpg/1200px-Green_Lake_Park%2C_Kunming%2C_Yunnan%2C_China.jpg",
+    image: "/images/home/kunming.jpg",
     imageAlt: "昆明翠湖公园",
     badges: ["🌺 春城花都", "🍜 过桥米线", "🦚 孔雀之乡"],
     highlight: "四季如春，花开不败"
