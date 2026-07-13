@@ -1,5 +1,5 @@
 import type { University, UniversityMedia } from "@/lib/site-data";
-import { universityVisualOverrides } from "@/lib/university-visual-overrides";
+import { universityCityImageFallbacks, universityVisualOverrides } from "@/lib/university-visual-overrides";
 
 function officialWebsiteLogo(university: University): UniversityMedia | undefined {
   if (!university.website || university.website === "#") return undefined;
@@ -23,21 +23,29 @@ export function getUniversityMedia(university: University): UniversityMedia[] {
   const hasCover = uploaded.some((item) => item.type === "COVER");
   const generatedLogo = hasLogo ? undefined : officialWebsiteLogo(university);
   const visual = universityVisualOverrides[university.slug];
+  const cityFallback = universityCityImageFallbacks[university.citySlug];
   const verifiedGate: UniversityMedia | undefined = !hasCover && visual ? {
     type: "COVER",
     url: visual.gateImage,
     alt: visual.gateAlt,
     publicId: visual.sourceUrl
   } : undefined;
+  const cityCover: UniversityMedia | undefined = !hasCover && !verifiedGate && cityFallback ? {
+    type: "COVER",
+    url: cityFallback.image,
+    alt: cityFallback.alt
+  } : undefined;
 
   if (uploaded.length) return [
     ...(generatedLogo ? [generatedLogo] : []),
     ...(verifiedGate ? [verifiedGate] : []),
+    ...(cityCover ? [cityCover] : []),
     ...uploaded
   ];
 
   return [
     ...(generatedLogo ? [generatedLogo] : []),
-    ...(verifiedGate ? [verifiedGate] : [])
+    ...(verifiedGate ? [verifiedGate] : []),
+    ...(cityCover ? [cityCover] : [])
   ];
 }

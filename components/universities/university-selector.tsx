@@ -15,7 +15,7 @@ import {
   Trophy,
   X
 } from "lucide-react";
-import { universityVisualOverrides } from "@/lib/university-visual-overrides";
+import { universityCityImageFallbacks, universityVisualOverrides } from "@/lib/university-visual-overrides";
 import type { University } from "@/lib/site-data";
 
 type CityOption = { slug: string; name: string; count: number };
@@ -141,7 +141,8 @@ function schoolImage(university: University) {
   const override = universityVisualOverrides[university.slug];
   if (override) return override.gateImage;
   const cover = university.media?.find((item) => item.type === "COVER");
-  return cover?.url ?? "/images/student-city-life.png";
+  if (cover) return cover.url;
+  return universityCityImageFallbacks[university.citySlug]?.image ?? "/images/student-city-life.png";
 }
 
 function sortUniversities(items: University[], sortMode: SortMode) {
