@@ -71,7 +71,7 @@ export const cityFilterOptions: CityFilterOption[] = [
 ];
 
 const coastalCities = new Set(["dalian", "fuzhou", "guangzhou", "haikou", "ningbo", "qingdao", "shanghai", "shantou", "shenzhen", "tianjin", "xiamen", "yantai"]);
-const nightlifeCities = new Set(["beijing", "changsha", "chengdu", "chongqing", "fuzhou", "guangzhou", "guilin", "hangzhou", "harbin", "nanjing", "shanghai", "shenzhen", "suzhou", "taiyuan", "tianjin", "wuhan", "xian", "zhengzhou"]);
+const nightlifeCities = new Set(["beijing", "changsha", "chengdu", "chongqing", "fuzhou", "guangzhou", "guilin", "hangzhou", "harbin", "nanchang", "nanjing", "shanghai", "shenzhen", "suzhou", "taiyuan", "tianjin", "wuhan", "xiamen", "xian", "zhengzhou"]);
 const techCities = new Set(["beijing", "chengdu", "guangzhou", "hangzhou", "hefei", "nanjing", "shanghai", "shenzhen", "suzhou", "wuhan", "xian"]);
 const natureCities = new Set(["chengdu", "chongqing", "dalian", "guilin", "guiyang", "haikou", "hangzhou", "harbin", "kunming", "lanzhou", "nanning", "qingdao", "taiyuan", "wuhan", "xiamen", "xian"]);
 const cultureCities = new Set(["beijing", "changsha", "chengdu", "guilin", "hangzhou", "harbin", "kunming", "nanjing", "shanghai", "suzhou", "taiyuan", "tianjin", "xian", "zhengzhou"]);
