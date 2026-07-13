@@ -535,7 +535,7 @@ export default async function HomePage() {
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "探索城市 →" : "Explore cities"}</ButtonLink>
             <ButtonLink href={localize("/cities?tab=scholarship")} variant="ghost">{isZh ? "了解奖学金" : c.scholarshipCta}</ButtonLink>
-            <ButtonLink href={localize("/consultation")} variant="ghost">{isZh ? "免费咨询" : c.consult}</ButtonLink>
+            <ButtonLink href={localize("/contact")} variant="ghost">{isZh ? "免费咨询" : c.consult}</ButtonLink>
           </div>
         </div>
       </section>
