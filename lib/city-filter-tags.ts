@@ -1,7 +1,7 @@
 import type { CityDestination } from "@/lib/city-destinations";
 import type { University } from "@/lib/site-data";
 
-export type CityFilterKey = "lowCost" | "nightlife" | "coastal" | "medicine" | "engineering" | "culture" | "nature" | "tech";
+export type CityFilterKey = "lowCost" | "culture" | "nightlife" | "coastal" | "elite" | "food" | "climate";
 
 export type CityFilterOption = {
   key: CityFilterKey;
@@ -14,89 +14,75 @@ export type CityFilterOption = {
 export const cityFilterOptions: CityFilterOption[] = [
   {
     key: "lowCost",
-    label: "Lower living cost",
-    zhLabel: "生活成本低",
-    description: "Cities where daily budget pressure is usually easier to manage.",
-    zhDescription: "日常预算压力相对更容易控制的城市。"
-  },
-  {
-    key: "nightlife",
-    label: "Rich nightlife",
-    zhLabel: "夜生活丰富",
-    description: "Cities with night markets, bars, music, food streets, and youth events.",
-    zhDescription: "有夜市、酒吧、音乐、美食街和青年活动的城市。"
-  },
-  {
-    key: "coastal",
-    label: "Near the sea",
-    zhLabel: "靠近海边",
-    description: "Coastal or port cities with sea, bay, island, or river-to-sea routes.",
-    zhDescription: "拥有海湾、港口、岛屿或滨海路线的城市。"
-  },
-  {
-    key: "medicine",
-    label: "Medicine / TCM fit",
-    zhLabel: "医学/中医药方向",
-    description: "Cities with visible medicine, pharmacy, or traditional Chinese medicine study context.",
-    zhDescription: "医学、药学或中医药学习语境比较明显的城市。"
-  },
-  {
-    key: "engineering",
-    label: "Engineering strength",
-    zhLabel: "工程科技强",
-    description: "Good fit for engineering, manufacturing, transport, architecture, or applied science.",
-    zhDescription: "适合工程、制造、交通、建筑或应用理科方向。"
+    label: "💰 Lower living cost",
+    zhLabel: "💰 低生活成本",
+    description: "Cities where monthly living costs are usually easier to manage.",
+    zhDescription: "月均生活成本较友好，适合重视长期预算稳定的学生。"
   },
   {
     key: "culture",
-    label: "Deep culture",
-    zhLabel: "文化历史深",
-    description: "Cities where museums, heritage, old streets, and Chinese civilization routes are strong.",
-    zhDescription: "博物馆、遗产、老街和中华文明路线较强的城市。"
+    label: "🏛️ Historic culture",
+    zhLabel: "🏛️ 历史文化名城",
+    description: "Cities with strong museums, old capitals, heritage, and Chinese civilization routes.",
+    zhDescription: "古都、博物馆、老街和中华文明体验更突出的城市。"
   },
   {
-    key: "nature",
-    label: "Nature and weekends",
-    zhLabel: "自然周末强",
-    description: "Cities with mountains, lakes, rivers, parks, or nearby travel routes.",
-    zhDescription: "拥有山水、湖泊、公园或周边旅行路线的城市。"
+    key: "nightlife",
+    label: "🌃 Rich nightlife",
+    zhLabel: "🌃 夜生活丰富",
+    description: "Cities with night markets, bars, live music, food streets, and youth events.",
+    zhDescription: "夜市、酒吧、音乐、美食街和青年活动更丰富的城市。"
   },
   {
-    key: "tech",
-    label: "Tech / startup access",
-    zhLabel: "科技/创业机会",
-    description: "Cities with digital economy, startups, AI, finance, or innovation ecosystems.",
-    zhDescription: "数字经济、创业、AI、金融或创新生态较强的城市。"
+    key: "coastal",
+    label: "🏖️ Coastal city",
+    zhLabel: "🏖️ 沿海城市",
+    description: "Cities with sea, bay, island, port, or coastal lifestyle.",
+    zhDescription: "拥有海滨、海湾、岛屿、港口或沿海生活方式的城市。"
+  },
+  {
+    key: "elite",
+    label: "🎓 Strong universities",
+    zhLabel: "🎓 名校聚集",
+    description: "Cities with strong 985/211 or nationally recognized university clusters.",
+    zhDescription: "985/211 或重点高校资源更集中的城市。"
+  },
+  {
+    key: "food",
+    label: "🌶️ Food city",
+    zhLabel: "🌶️ 美食之都",
+    description: "Cities where food is a major reason students fall in love with daily life.",
+    zhDescription: "美食本身就是城市吸引力，适合喜欢用味觉认识中国的学生。"
+  },
+  {
+    key: "climate",
+    label: "🌿 Pleasant climate",
+    zhLabel: "🌿 气候宜人",
+    description: "Cities with softer climate, greenery, lakes, sea breeze, or a more comfortable pace.",
+    zhDescription: "气候、绿意、水系或城市节奏更舒适的目的地。"
   }
 ];
 
-const coastalCities = new Set(["dalian", "fuzhou", "guangzhou", "haikou", "ningbo", "qingdao", "shanghai", "shantou", "shenzhen", "tianjin", "xiamen", "yantai"]);
-const nightlifeCities = new Set(["beijing", "changsha", "chengdu", "chongqing", "fuzhou", "guangzhou", "guilin", "hangzhou", "harbin", "nanchang", "nanjing", "shanghai", "shenzhen", "suzhou", "taiyuan", "tianjin", "wuhan", "xiamen", "xian", "zhengzhou"]);
-const techCities = new Set(["beijing", "chengdu", "guangzhou", "hangzhou", "hefei", "nanjing", "shanghai", "shenzhen", "suzhou", "wuhan", "xian"]);
-const natureCities = new Set(["chengdu", "chongqing", "dalian", "guilin", "guiyang", "haikou", "hangzhou", "harbin", "kunming", "lanzhou", "nanning", "qingdao", "taiyuan", "wuhan", "xiamen", "xian"]);
-const cultureCities = new Set(["beijing", "changsha", "chengdu", "guilin", "hangzhou", "harbin", "kunming", "nanjing", "shanghai", "suzhou", "taiyuan", "tianjin", "xian", "zhengzhou"]);
-const lowCostProvinceSlugs = new Set(["anhui", "chongqing", "gansu", "guangxi", "guizhou", "heilongjiang", "henan", "hubei", "hunan", "jiangxi", "jilin", "ningxia", "qinghai", "shanxi", "shaanxi", "yunnan"]);
-
-function hasMajorSignal(universities: University[], citySlug: string, words: string[]) {
-  return universities
-    .filter((university) => university.citySlug === citySlug)
-    .some((university) => {
-      const text = [
-        university.name,
-        university.chineseName,
-        university.summary,
-        university.campusLife.nearbyLiving,
-        university.campusLife.foodAndDailyLife,
-        university.campusLife.internshipsAndCareers,
-        ...university.majors
-      ].join(" ").toLowerCase();
-
-      return words.some((word) => text.includes(word.toLowerCase()));
-    });
-}
+const explicitMatches: Record<CityFilterKey, Set<string>> = {
+  lowCost: new Set(["changsha", "chengdu", "chongqing", "xian", "kunming", "guilin", "nanchang", "taiyuan", "nanning", "guiyang", "harbin", "zhengzhou"]),
+  culture: new Set(["beijing", "xian", "nanjing", "hangzhou", "chengdu", "changsha", "guangzhou", "suzhou", "zhengzhou", "taiyuan"]),
+  nightlife: new Set(["changsha", "chengdu", "chongqing", "shanghai", "guangzhou", "shenzhen", "beijing", "xian", "hangzhou", "harbin"]),
+  coastal: new Set(["shanghai", "guangzhou", "shenzhen", "xiamen", "qingdao", "tianjin", "dalian"]),
+  elite: new Set(["beijing", "shanghai", "nanjing", "wuhan", "xian", "guangzhou", "chengdu", "changsha", "hangzhou", "tianjin"]),
+  food: new Set(["chengdu", "changsha", "guangzhou", "xian", "chongqing", "hangzhou", "nanjing", "suzhou", "kunming"]),
+  climate: new Set(["kunming", "guilin", "chengdu", "hangzhou", "xiamen", "nanning", "qingdao"])
+};
 
 export function getCityFilterTags(city: CityDestination, universities: University[]): CityFilterKey[] {
   const tags = new Set<CityFilterKey>();
+
+  for (const [key, slugs] of Object.entries(explicitMatches) as Array<[CityFilterKey, Set<string>]>) {
+    if (slugs.has(city.slug)) tags.add(key);
+  }
+
+  const cityUniversities = universities.filter((university) => university.citySlug === city.slug);
+  if (cityUniversities.length >= 3) tags.add("elite");
+
   const lowerText = [
     city.summary,
     city.zhSummary,
@@ -109,14 +95,13 @@ export function getCityFilterTags(city: CityDestination, universities: Universit
     ...city.zhLifestyleTags
   ].join(" ").toLowerCase();
 
-  if (lowCostProvinceSlugs.has(city.provinceSlug) || /350|400|450|低|实惠|affordable|lower cost|manageable/.test(lowerText)) tags.add("lowCost");
-  if (nightlifeCities.has(city.slug) || /夜|night|bar|music|market|市集|酒吧|夜市/.test(lowerText)) tags.add("nightlife");
-  if (coastalCities.has(city.slug) || /coast|sea|bay|port|island|海|港|湾|岛/.test(lowerText)) tags.add("coastal");
-  if (techCities.has(city.slug) || /tech|startup|ai|digital|software|internet|科技|创业|数字|人工智能|互联网/.test(lowerText)) tags.add("tech");
-  if (natureCities.has(city.slug) || /mountain|lake|river|park|nature|山|湖|江|河|自然|公园/.test(lowerText)) tags.add("nature");
-  if (cultureCities.has(city.slug) || /museum|heritage|historic|culture|古|历史|文化|博物馆|遗产/.test(lowerText)) tags.add("culture");
-  if (hasMajorSignal(universities, city.slug, ["medicine", "medical", "pharmacy", "nursing", "clinical", "chinese medicine", "中医", "医学", "药学", "护理", "临床"])) tags.add("medicine");
-  if (hasMajorSignal(universities, city.slug, ["engineering", "technology", "architecture", "transport", "manufacturing", "computer", "工程", "技术", "建筑", "交通", "制造", "计算机"])) tags.add("engineering");
+  if (/350|400|430|450|affordable|lower cost|manageable|student-friendly/.test(lowerText)) tags.add("lowCost");
+  if (/night|bar|music|market|夜|酒吧|夜市|livehouse|club/.test(lowerText)) tags.add("nightlife");
+  if (/coast|sea|bay|port|island|海|港|湾|岛/.test(lowerText)) tags.add("coastal");
+  if (/museum|heritage|historic|culture|ancient|history|古|历史|文化|博物馆/.test(lowerText)) tags.add("culture");
+  if (/food|cuisine|hotpot|noodle|snack|美食|火锅|小吃|米粉|面/.test(lowerText)) tags.add("food");
+  if (/mild|spring|pleasant|lake|green|climate|温和|春城|宜人|海风/.test(lowerText)) tags.add("climate");
 
   return [...tags];
 }
+
