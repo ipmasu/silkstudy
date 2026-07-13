@@ -211,7 +211,7 @@ export default async function CulturePage() {
               <PenLine size={16} aria-hidden="true" />
               Start Your Chapter
             </p>
-            <h2 className="mt-4 max-w-4xl font-serif text-4xl font-black leading-tight sm:text-5xl">当你准备好了，中国有24个城市在等你。</h2>
+            <h2 className="mt-4 max-w-4xl font-serif text-4xl font-black leading-tight sm:text-5xl">当你准备好了，中国有许多座城市在等你。</h2>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[#f6dfc0]">每个城市都有自己的脾性、味道和夜生活。你不需要一次走完它们——你只需要选一个，住下来，然后慢慢探索。</p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
