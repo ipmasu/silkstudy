@@ -1,418 +1,223 @@
 import { ButtonLink } from "@/components/common/button-link";
-import topicIndex from "@/data/hxfw-cultural-topic-index.json";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { localePrefix } from "@/lib/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
-import { BookOpenText, CalendarHeart, CircleDollarSign, Coffee, Compass, Globe2, Languages, MapPinned, MessageCircleHeart, Music2, Sparkles, TrainFront } from "lucide-react";
+import { BookOpenText, CalendarHeart, Coffee, Compass, Globe2, HeartHandshake, Languages, MessageCircleHeart, PenLine, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export const metadata = buildMetadata({
-  title: "Discover China Culture, Cities and Student Life",
-  description: "A youth-friendly guide for people who love Chinese culture, language, food, festivals, modern cities, travel, and study opportunities in China.",
+  title: "中国文化体验 — SilkStudy",
+  description: "在申请大学之前，先爱上中国。了解中国的美食、节日、历史、艺术和青年文化——5000年的故事，正等着你的篇章。",
   path: "/culture",
   keywords: [
+    "中国文化体验",
+    "中国留学",
     "Chinese culture",
+    "study in China",
     "learn Chinese",
-    "China travel",
-    "Chinese food",
-    "Chinese festivals",
-    "study in China culture"
-  ]
+    "international students in China"
+  ],
+  image: "/images/student-city-life.png"
 });
 
-type CultureCopy = {
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-  primaryCta: string;
-  secondaryCta: string;
-  cultureTitle: string;
-  cultureBody: string;
-  cards: { icon: LucideIcon; title: string; body: string; href: string }[];
-  journeyTitle: string;
-  journeyBody: string;
-  journey: string[];
-  socialTitle: string;
-  socialLines: string[];
-  topicTitle: string;
-  topicBody: string;
-  topicSourceLabel: string;
-  topicActionLabel: string;
-  finalTitle: string;
-  finalBody: string;
-  finalCta: string;
-  communityCta: string;
-};
-
-const copy: Record<string, CultureCopy> = {
-  en: {
-    eyebrow: "For everyone who loves China",
-    title: "Understand China through culture, language, cities, and real young lives.",
-    subtitle: "SilkStudy is not only a university catalog. It is a warm entrance for global young people who are curious about Chinese culture, learning Chinese, Chinese cities, food, technology, festivals, and the possibility of studying here.",
-    primaryCta: "Explore Chinese cities",
-    secondaryCta: "Join global check-in",
-    cultureTitle: "Chinese culture should feel alive, not distant.",
-    cultureBody: "A young person may first love China because of a song, a drama, kung fu, tea, calligraphy, hotpot, high-speed rail, a city skyline, a Chinese friend, or one sentence they learned in Mandarin. The website should help that first curiosity become a real connection.",
-    cards: [
-      { icon: Languages, title: "Chinese language", body: "Make Mandarin feel useful, musical, and connected to friendship, daily life, scholarships, and future work.", href: "/life" },
-      { icon: CalendarHeart, title: "Festivals and rituals", body: "Spring Festival, Lantern Festival, Dragon Boat Festival, Mid-Autumn Festival, campus cultural nights, and family traditions.", href: "/community" },
-      { icon: Coffee, title: "Food and everyday warmth", body: "Hotpot, noodles, milk tea, night markets, campus canteens, and the small tastes that make a city unforgettable.", href: "/cities" },
-      { icon: TrainFront, title: "Modern China", body: "High-speed rail, mobile payment, safe cities, smart logistics, new energy, AI, and the daily texture of fast development.", href: "/provinces" },
-      { icon: Music2, title: "Youth culture", body: "Music, short videos, games, street fashion, cafes, university societies, and the way young Chinese people live now.", href: "/community" },
-      { icon: CircleDollarSign, title: "Scholarship gateway", body: "Curiosity can become a plan when students learn that scholarships may cover tuition, housing, or living support.", href: "/scholarships" }
-    ],
-    journeyTitle: "Turn cultural interest into a China pathway.",
-    journeyBody: "The best promotion path is gentle: first let people like China, then help them understand cities and culture, then show universities, scholarships, language preparation, and consultation.",
-    journey: ["Discover culture and language.", "Pick cities that match personality and budget.", "Compare universities, majors, and scholarships.", "Ask questions, check in, leave comments, and join exchange.", "Build a real plan to study or visit China."],
-    socialTitle: "Shareable ideas for global youth",
-    socialLines: [
-      "I started learning Chinese because I loved the culture. Now I want to see China for myself.",
-      "China is not only history. It is high-speed trains, digital life, food streets, universities, and young people building the future.",
-      "If you love Chinese culture, SilkStudy can help you turn curiosity into a study plan."
-    ],
-    topicTitle: "Public culture topics we can rewrite in our own voice",
-    topicBody: "These are public topic signals collected for editorial planning only. SilkStudy should use them as inspiration, then write original youth-friendly stories instead of copying source descriptions.",
-    topicSourceLabel: "Public source",
-    topicActionLabel: "Open source",
-    finalTitle: "Let culture become the first bridge.",
-    finalBody: "When young people understand China with warmth and curiosity, studying in China becomes more than admission. It becomes friendship, language, travel, and a more poetic life.",
-    finalCta: "Ask about studying in China",
-    communityCta: "Community"
-  },
-  zh: {
-    eyebrow: "给所有喜欢中国的人",
-    title: "通过文化、中文、城市和真实青年生活来了解中国。",
-    subtitle: "SilkStudy 不只是大学目录，也应该成为全球年轻人了解中国的温暖入口：中文、美食、节日、城市、科技、旅行、青年生活，以及最后真正来到中国学习的可能。",
-    primaryCta: "探索中国城市",
-    secondaryCta: "加入全球打卡",
-    cultureTitle: "中国文化要让人感觉活着，而不是停在展柜里。",
-    cultureBody: "一个年轻人可能因为一首歌、一部剧、功夫、茶、书法、火锅、高铁、城市天际线、一个中国朋友，或者学会的一句中文而喜欢中国。网站要把这种最初的好奇，变成真实连接。",
-    cards: [
-      { icon: Languages, title: "中文语言", body: "让中文不只是考试科目，而是友谊、日常生活、奖学金和未来机会的钥匙。", href: "/life" },
-      { icon: CalendarHeart, title: "节日与礼俗", body: "春节、元宵、端午、中秋、校园文化节和中国家庭的温度，都可以成为了解中国的入口。", href: "/community" },
-      { icon: Coffee, title: "美食与烟火气", body: "火锅、面食、奶茶、夜市、校园食堂和一座城市让人记住的小味道。", href: "/cities" },
-      { icon: TrainFront, title: "现代中国", body: "高铁、移动支付、安全城市、智慧物流、新能源、人工智能和高速发展的日常质感。", href: "/provinces" },
-      { icon: Music2, title: "青年文化", body: "音乐、短视频、游戏、街头穿搭、咖啡馆、大学社团，以及今天中国年轻人的真实生活。", href: "/community" },
-      { icon: CircleDollarSign, title: "奖学金入口", body: "喜欢中国之后，如果知道奖学金可能覆盖学费、住宿和生活补助，好奇心就会变成行动计划。", href: "/scholarships" }
-    ],
-    journeyTitle: "把对中国文化的喜欢，变成来中国的路径。",
-    journeyBody: "最好的推广路径应该是柔和的：先让人喜欢中国，再理解城市和文化，然后看到大学、奖学金、语言准备和咨询服务。",
-    journey: ["先认识文化和中文。", "选择适合性格和预算的城市。", "比较大学、专业和奖学金。", "提问、打卡、留言，加入真实交流。", "形成一个可执行的中国留学或访学计划。"],
-    socialTitle: "适合全球年轻人转发的表达",
-    socialLines: [
-      "我因为喜欢中国文化开始学中文，现在想亲眼去看看中国。",
-      "中国不只有历史，也有高铁、数字生活、美食街、大学和正在创造未来的年轻人。",
-      "如果你喜欢中国文化，SilkStudy 可以帮你把好奇心变成留学计划。"
-    ],
-    topicTitle: "可以改写成原创内容的公开风物选题",
-    topicBody: "这些条目只作为编辑选题提示使用。SilkStudy 要把它们改写成面向全球年轻人的原创故事，不复制来源平台的简介或百科正文。",
-    topicSourceLabel: "公开来源",
-    topicActionLabel: "查看来源",
-    finalTitle: "让文化成为第一座桥。",
-    finalBody: "当年轻人带着温度和好奇理解中国，来中国留学就不只是录取，而是友谊、语言、旅行和一段更有诗意的人生。",
-    finalCta: "咨询中国留学",
-    communityCta: "社区"
-  },
-  vi: {
-    eyebrow: "Dành cho những ai yêu văn hóa Trung Quốc",
-    title: "Hiểu Trung Quốc qua văn hóa, tiếng Trung, thành phố và đời sống trẻ.",
-    subtitle: "SilkStudy là cánh cửa ấm áp cho bạn trẻ tò mò về văn hóa Trung Quốc, tiếng Trung, ẩm thực, lễ hội, thành phố hiện đại và cơ hội học tập tại Trung Quốc.",
-    primaryCta: "Khám phá thành phố",
-    secondaryCta: "Check-in toàn cầu",
-    cultureTitle: "Văn hóa Trung Quốc nên sống động và gần gũi.",
-    cultureBody: "Một bạn trẻ có thể yêu Trung Quốc từ một bài hát, phim, trà, thư pháp, lẩu, tàu cao tốc, thành phố hiện đại, một người bạn Trung Quốc hoặc một câu tiếng Trung đầu tiên.",
-    cards: [
-      { icon: Languages, title: "Tiếng Trung", body: "Biến tiếng Trung thành chìa khóa của tình bạn, đời sống, học bổng và tương lai.", href: "/life" },
-      { icon: CalendarHeart, title: "Lễ hội", body: "Tết, Trung Thu, Đoan Ngọ, lễ hội trong trường và những truyền thống gia đình.", href: "/community" },
-      { icon: Coffee, title: "Ẩm thực", body: "Lẩu, mì, trà sữa, chợ đêm, căng tin và hương vị khiến một thành phố đáng nhớ.", href: "/cities" },
-      { icon: TrainFront, title: "Trung Quốc hiện đại", body: "Tàu cao tốc, thanh toán số, thành phố an toàn, năng lượng mới và AI.", href: "/provinces" },
-      { icon: Music2, title: "Văn hóa trẻ", body: "Âm nhạc, video ngắn, game, thời trang, cà phê và câu lạc bộ sinh viên.", href: "/community" },
-      { icon: CircleDollarSign, title: "Cánh cửa học bổng", body: "Khi biết học bổng có thể hỗ trợ học phí và đời sống, sự tò mò trở thành kế hoạch.", href: "/scholarships" }
-    ],
-    journeyTitle: "Biến tình yêu văn hóa thành lộ trình đến Trung Quốc.",
-    journeyBody: "Trước hết hãy yêu Trung Quốc, sau đó hiểu thành phố, trường, học bổng, tiếng Trung và cách chuẩn bị.",
-    journey: ["Khám phá văn hóa và tiếng Trung.", "Chọn thành phố phù hợp.", "So sánh trường, ngành và học bổng.", "Đặt câu hỏi, check-in và giao lưu.", "Lập kế hoạch học tập tại Trung Quốc."],
-    socialTitle: "Ý tưởng dễ chia sẻ",
-    socialLines: [
-      "Mình học tiếng Trung vì yêu văn hóa Trung Quốc. Bây giờ mình muốn tận mắt nhìn thấy Trung Quốc.",
-      "Trung Quốc không chỉ là lịch sử, mà còn là tàu cao tốc, đời sống số, đồ ăn, đại học và tương lai.",
-      "Nếu bạn yêu văn hóa Trung Quốc, SilkStudy giúp biến tò mò thành kế hoạch du học."
-    ],
-    topicTitle: "Chủ đề công khai để viết lại bằng giọng riêng",
-    topicBody: "Các mục này chỉ dùng làm gợi ý biên tập. SilkStudy nên viết câu chuyện mới cho bạn trẻ toàn cầu, không sao chép mô tả gốc.",
-    topicSourceLabel: "Nguồn công khai",
-    topicActionLabel: "Mở nguồn",
-    finalTitle: "Hãy để văn hóa trở thành cây cầu đầu tiên.",
-    finalBody: "Khi bạn trẻ hiểu Trung Quốc bằng sự tò mò và thiện cảm, du học trở thành tình bạn, ngôn ngữ, du lịch và một cuộc đời rộng hơn.",
-    finalCta: "Hỏi về du học Trung Quốc",
-    communityCta: "Cộng đồng"
-  },
-  ru: {
-    eyebrow: "Для всех, кто любит китайскую культуру",
-    title: "Понять Китай через культуру, язык, города и жизнь молодых людей.",
-    subtitle: "SilkStudy помогает молодежи узнать китайский язык, еду, праздники, современные города, технологии, путешествия и возможности учебы в Китае.",
-    primaryCta: "Открыть города Китая",
-    secondaryCta: "Глобальный чек-ин",
-    cultureTitle: "Китайская культура должна быть живой и близкой.",
-    cultureBody: "Интерес может начаться с песни, дорамы, чая, каллиграфии, хотпота, скоростного поезда, китайского друга или первой фразы на китайском.",
-    cards: [
-      { icon: Languages, title: "Китайский язык", body: "Язык как ключ к дружбе, повседневной жизни, стипендиям и будущей карьере.", href: "/life" },
-      { icon: CalendarHeart, title: "Праздники", body: "Новый год, Фестиваль фонарей, Дуаньу, Праздник середины осени и кампусные события.", href: "/community" },
-      { icon: Coffee, title: "Еда и тепло жизни", body: "Хотпот, лапша, чай, ночные рынки, столовые и вкусы, которые запоминаются.", href: "/cities" },
-      { icon: TrainFront, title: "Современный Китай", body: "Скоростные поезда, цифровые платежи, безопасные города, новая энергетика и ИИ.", href: "/provinces" },
-      { icon: Music2, title: "Молодежная культура", body: "Музыка, короткие видео, игры, мода, кафе и студенческие клубы.", href: "/community" },
-      { icon: CircleDollarSign, title: "Путь к стипендиям", body: "Интерес превращается в план, когда студент видит реальные стипендии.", href: "/scholarships" }
-    ],
-    journeyTitle: "Превратить интерес к культуре в путь в Китай.",
-    journeyBody: "Сначала людям нужно полюбить Китай, затем понять города, университеты, стипендии и подготовку.",
-    journey: ["Открыть культуру и язык.", "Выбрать подходящие города.", "Сравнить вузы, направления и стипендии.", "Задавать вопросы, отмечаться и общаться.", "Построить реальный план учебы."],
-    socialTitle: "Идеи для публикаций",
-    socialLines: [
-      "Я начал учить китайский из любви к культуре. Теперь хочу увидеть Китай сам.",
-      "Китай - это не только история, но и скоростные поезда, цифровая жизнь, еда, университеты и будущее.",
-      "Если ты любишь китайскую культуру, SilkStudy поможет превратить интерес в учебный план."
-    ],
-    topicTitle: "Открытые темы, которые можно переписать своим голосом",
-    topicBody: "Эти элементы служат только редакционными подсказками. SilkStudy должен создавать оригинальные молодежные истории, а не копировать описания источника.",
-    topicSourceLabel: "Открытый источник",
-    topicActionLabel: "Открыть источник",
-    finalTitle: "Пусть культура станет первым мостом.",
-    finalBody: "Когда молодежь понимает Китай с теплом и любопытством, учеба становится дружбой, языком, путешествием и более поэтичной жизнью.",
-    finalCta: "Спросить об учебе в Китае",
-    communityCta: "Сообщество"
-  },
-  tr: {
-    eyebrow: "Çin kültürünü seven herkes için",
-    title: "Çin'i kültür, dil, şehirler ve genç yaşamı üzerinden anla.",
-    subtitle: "SilkStudy; Çin kültürü, Çince, yemek, festivaller, modern şehirler, teknoloji, seyahat ve Çin'de eğitim fırsatları için sıcak bir başlangıç noktasıdır.",
-    primaryCta: "Çin şehirlerini keşfet",
-    secondaryCta: "Küresel check-in",
-    cultureTitle: "Çin kültürü canlı ve yakın hissettirmeli.",
-    cultureBody: "Bir genç Çin'i bir şarkı, dizi, çay, kaligrafi, hotpot, hızlı tren, Çinli bir arkadaş veya öğrendiği ilk Çince cümleyle sevebilir.",
-    cards: [
-      { icon: Languages, title: "Çince", body: "Çinceyi arkadaşlık, günlük yaşam, burs ve gelecek fırsatlarının anahtarı yap.", href: "/life" },
-      { icon: CalendarHeart, title: "Festivaller", body: "Bahar Bayramı, Fener Festivali, Dragon Boat, Orta Sonbahar ve kampüs kültür geceleri.", href: "/community" },
-      { icon: Coffee, title: "Yemek ve günlük sıcaklık", body: "Hotpot, noodle, milk tea, gece pazarları, kampüs yemekleri ve unutulmaz şehir tatları.", href: "/cities" },
-      { icon: TrainFront, title: "Modern Çin", body: "Hızlı tren, dijital ödeme, güvenli şehirler, yeni enerji, yapay zeka ve hızlı gelişim.", href: "/provinces" },
-      { icon: Music2, title: "Gençlik kültürü", body: "Müzik, kısa video, oyun, sokak modası, kafeler ve üniversite kulüpleri.", href: "/community" },
-      { icon: CircleDollarSign, title: "Burs kapısı", body: "Merak, bursların gerçek olduğunu görünce eğitim planına dönüşebilir.", href: "/scholarships" }
-    ],
-    journeyTitle: "Kültür ilgisini Çin yoluna dönüştür.",
-    journeyBody: "Önce Çin'i sevdir, sonra şehirleri, üniversiteleri, bursları ve hazırlık adımlarını göster.",
-    journey: ["Kültür ve dili keşfet.", "Uygun şehirleri seç.", "Üniversite, bölüm ve bursları karşılaştır.", "Soru sor, check-in yap ve paylaş.", "Gerçek bir Çin eğitim planı kur."],
-    socialTitle: "Paylaşılabilir fikirler",
-    socialLines: [
-      "Çin kültürünü sevdiğim için Çince öğrenmeye başladım. Şimdi Çin'i kendim görmek istiyorum.",
-      "Çin sadece tarih değil; hızlı tren, dijital yaşam, yemek, üniversiteler ve gelecektir.",
-      "Çin kültürünü seviyorsan SilkStudy merakını eğitim planına çevirmene yardım eder."
-    ],
-    topicTitle: "Kendi sesimizle yeniden yazılacak açık kültür konuları",
-    topicBody: "Bu maddeler yalnızca editoryal fikir içindir. SilkStudy kaynak açıklamalarını kopyalamadan gençlere uygun özgün hikayeler yazmalıdır.",
-    topicSourceLabel: "Açık kaynak",
-    topicActionLabel: "Kaynağı aç",
-    finalTitle: "Kültür ilk köprü olsun.",
-    finalBody: "Gençler Çin'i sıcaklık ve merakla anladığında, Çin'de eğitim dostluk, dil, seyahat ve daha şiirsel bir hayata dönüşür.",
-    finalCta: "Çin'de eğitim sor",
-    communityCta: "Topluluk"
-  }
-};
-
-function getCopy(locale: string) {
-  return copy[locale] ?? copy.en;
-}
-
-type IndexedCultureTopic = {
-  name: string;
-  categoryName: string;
-  cityName: string;
-  provinceName: string;
-  publicWikiPage?: string | null;
-};
-
-const featuredTopicNames = [
-  "北京荣唐连环画博物馆",
-  "上海航空科普馆",
-  "杭州奥体中心",
-  "西安市非物质文化遗产博物馆",
-  "成都太古里",
-  "广州红砖厂生活创意基地",
-  "南京桂花红茶",
-  "苏州炒肉面",
-  "桂林三花酒传统酿造技艺",
-  "敦煌驴肉黄面",
-  "剪纸（烟台剪纸）",
-  "皮影戏（华阴老腔）",
-  "龙舟说唱",
-  "陶瓷微书",
-  "火锅干碟",
-  "京剧",
-  "昆曲",
-  "丝绸之路：长安——天山廊道的路网"
+const heroImage = "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2200&q=85";
+const sectionImages = [
+  "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?auto=format&fit=crop&w=1200&q=80"
 ];
 
-const indexedTopics = topicIndex.topics as IndexedCultureTopic[];
-
-function featuredTopics() {
-  const byName = new Map(indexedTopics.map((topic) => [topic.name, topic]));
-  return featuredTopicNames.map((name) => byName.get(name)).filter((topic): topic is IndexedCultureTopic => Boolean(topic));
-}
-
-function topicAngle(topic: IndexedCultureTopic, locale: string) {
-  if (locale === "zh") {
-    if (topic.categoryName === "文化") return "适合写成“一个外国学生如何通过传统技艺理解中国”的短故事。";
-    if (topic.categoryName === "特产") return "适合连接到城市味道、夜市、宿舍分享和第一次用中文点餐。";
-    return "适合做成城市打卡、周末路线和中文学习场景。";
+const charms = [
+  {
+    title: "🏮 第一重：历史的重量 — 活的文明史",
+    body: "不是书本里死去的朝代，而是你身边呼吸的遗产。在西安，你脚下踩着的土地，唐朝诗人也踩过；在北京，故宫的红墙不仅是风景，更是600年的见证；在杭州，西湖的水面倒映着苏轼凝视过的月光。在这里，历史不是“过去”，而是你留学生活的一部分。",
+    image: sectionImages[0]
+  },
+  {
+    title: "🍜 第二重：生活的温度 — 市井烟火气",
+    body: "中国的文化不在博物馆里，在街头巷尾。凌晨两点的夜市，烧烤摊前围坐的年轻人；清晨六点的公园，打太极的老人和跳广场舞的阿姨；茶馆里，陌生人能因为一壶茶聊成朋友。这是一座“不装”的文化——热闹、真实、让人上瘾。",
+    image: sectionImages[1]
+  },
+  {
+    title: "🌏 第三重：未来的高度 — 传统与现代的碰撞",
+    body: "5000年的文明，今天正在和5G、高铁、AI碰撞出新的火花。穿上汉服逛商场，用手机支付在百年老店买糕点，在古老的城墙下听电子音乐。中国不是“古老”的，也不是“新潮”的——它是两者的奇妙融合。",
+    image: sectionImages[2]
   }
+];
 
-  if (locale === "vi") {
-    if (topic.categoryName === "文化") return "Có thể viết thành câu chuyện về cách sinh viên quốc tế hiểu Trung Quốc qua nghệ thuật truyền thống.";
-    if (topic.categoryName === "特产") return "Có thể nối với hương vị thành phố, chợ đêm, ký túc xá và gọi món bằng tiếng Trung.";
-    return "Có thể biến thành tuyến check-in, cuối tuần và trải nghiệm học tiếng Trung.";
+const keywords: { icon: LucideIcon; title: string; body: string }[] = [
+  { icon: HeartHandshake, title: "和合", body: "中国文化的核心哲学。人与自然和合、人与人和合、传统与现代和合。不追求对抗，而追求平衡。你会在中国人的相处方式、建筑风格、饮食搭配中处处感受到这种“和”。" },
+  { icon: Coffee, title: "生活", body: "在中国，“吃了吗？”是问候，“热乎的”是最高评价。中国人把对生活的热爱倾注在一日三餐里——这不是“饮食文化”，这就是生活本身。" },
+  { icon: Languages, title: "汉字", body: "每一个汉字都是一幅画、一个故事。“家”是房子里有一头猪，“好”是女人抱着孩子。学中文不只是学一门语言，更是开始用中国人的眼睛看世界。" },
+  { icon: Compass, title: "功夫", body: "功夫不只是打架，而是一种修行——是身体的哲学，是千万次重复后的优雅。真正的“功夫”也藏在每一个中国人的日常里：耐心、专注、不放弃。" },
+  { icon: Sparkles, title: "国潮", body: "年轻人正在重新定义“中国风”。汉服复兴、国货崛起、中国设计走向世界——这不是怀旧，是创造。传统文化正在被穿在身上、用进生活。" },
+  { icon: Globe2, title: "面面俱到", body: "中国很大，大到每个角落都有自己的方言、食物和脾气。你不可能真正“走完”中国，但你每次出发，都会发现一个新世界。" }
+];
+
+const experiences = [
+  ["✍️ 学写毛笔字", "大学文化工作坊、社区活动", "握笔的手在抖，但写出第一个汉字时，想拍照发给妈妈"],
+  ["🥟 包饺子", "春节、大学活动、寄宿家庭", "包了20个，只有3个没破皮，但吃的时候觉得这是世界上最好吃的饺子"],
+  ["🏮 过春节", "全中国（1-2月）", "被中国朋友拉去家里吃年夜饭、收红包、看烟花——发现你多了一大家人"],
+  ["🥋 练功夫", "武馆、大学社团、公园清晨", "你以为自己能飞檐走壁，结果第一个动作是站了20分钟马步"],
+  ["👘 穿汉服", "西安大唐不夜城、杭州西湖、南京夫子庙", "走在街上有人叫你“姑娘”“公子”，那一刻你穿越了"],
+  ["🌃 逛夜市", "每个城市都有", "从头吃到尾，花不到100块，但快乐值拉满"]
+];
+
+const studentQuotes = [
+  {
+    quote: "我来中国之前，以为这里的人很严肃、很保守。来了之后才发现——他们比谁都爱笑，比谁都爱热闹，比我认识的任何人都更懂得享受生活。",
+    name: "迈克尔",
+    meta: "英国，在北京留学"
+  },
+  {
+    quote: "我第一次过春节，被中国朋友邀请去她家。她妈妈包了三种馅的饺子，虽然我一个都吃不下了，但她说‘再吃一个，这个是幸运的’——那是我吃过最撑的一餐，也是最温暖的一餐。",
+    name: "安娜",
+    meta: "俄罗斯，在长春留学"
+  },
+  {
+    quote: "在中国，我学会了‘慢慢来’——事情总会解决，饭总会做好，朋友总会认识。这种心态让我整个人都放松了。",
+    name: "索菲亚",
+    meta: "法国，在成都留学"
+  },
+  {
+    quote: "中国不止一种味道。四川是麻辣的，广东是清淡的，西安是面香的，上海是甜糯的——用舌头旅行中国，是留学生最奢侈的福利。",
+    name: "卡洛斯",
+    meta: "墨西哥，在广州留学"
   }
-
-  if (locale === "ru") {
-    if (topic.categoryName === "文化") return "Можно превратить в историю о том, как иностранный студент понимает Китай через традиционное искусство.";
-    if (topic.categoryName === "特产") return "Можно связать с вкусом города, ночными рынками, общежитием и первым заказом еды на китайском.";
-    return "Можно использовать как идею для городского маршрута, выходных и языковой практики.";
-  }
-
-  if (locale === "tr") {
-    if (topic.categoryName === "文化") return "Geleneksel sanat üzerinden Çin'i anlayan uluslararası öğrenci hikayesine dönüşebilir.";
-    if (topic.categoryName === "特产") return "Şehir lezzeti, gece pazarı, yurt paylaşımı ve Çince yemek siparişiyle bağlanabilir.";
-    return "Şehir check-in rotası, hafta sonu planı ve Çince pratiği fikrine dönüşebilir.";
-  }
-
-  if (topic.categoryName === "文化") return "A good seed for a short story about understanding China through traditional arts.";
-  if (topic.categoryName === "特产") return "A good bridge to city taste, night markets, dorm sharing, and ordering food in Chinese.";
-  return "A good prompt for city check-ins, weekend routes, and Chinese-language practice.";
-}
+];
 
 export default async function CulturePage() {
   const locale = await getCurrentLocale();
-  const c = getCopy(locale);
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
-  const topics = featuredTopics();
 
   return (
-    <main>
-      <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+    <main className="bg-[#fff8ee] text-[#281815]">
+      <section className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden bg-[#120b09] text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/student-city-life.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-slate-950/70" />
-        <div className="relative mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
-          <div>
-            <p className="inline-flex items-center gap-2 border-l-2 border-secondary pl-3 text-sm font-semibold uppercase tracking-wide text-cyan-100">
-              <Globe2 size={16} aria-hidden="true" />
-              {c.eyebrow}
+        <img src={heroImage} alt="中国山水与历史文化意象" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#120b09]/90 via-[#120b09]/62 to-[#120b09]/25" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fff8ee] to-transparent" />
+        <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <p className="inline-flex items-center gap-2 border-l-2 border-[#d6a441] pl-3 text-sm font-bold uppercase tracking-wide text-[#ffd98a]">
+              <Sparkles size={16} aria-hidden="true" />
+              中国文化体验
             </p>
-            <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl">{c.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100">{c.subtitle}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/cities")}>{c.primaryCta}</ButtonLink>
-              <ButtonLink href={localize("/global-checkin")} variant="secondary">{c.secondaryCta}</ButtonLink>
+            <h1 className="mt-7 max-w-5xl font-serif text-5xl font-black leading-tight tracking-normal sm:text-6xl lg:text-7xl">
+              5000年的故事，正等着你的篇章
+            </h1>
+            <p className="mt-7 max-w-3xl text-xl leading-9 text-[#fff3dc]">
+              文化不是博物馆里的展品，而是你每天呼吸的空气。在你决定去哪座城市之前，先感受中国的文化心跳。
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <ButtonLink href={localize("/cities")}>探索城市 →</ButtonLink>
+              <ButtonLink href={localize("/consultation")} variant="secondary">了解如何申请 →</ButtonLink>
             </div>
           </div>
-          <aside className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
-            <Sparkles size={32} className="text-secondary" aria-hidden="true" />
-            <h2 className="mt-4 text-2xl font-bold">{c.cultureTitle}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-100">{c.cultureBody}</p>
-          </aside>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {c.cards.map(({ icon: Icon, title, body, href }) => (
-              <a key={title} href={localize(href)} className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-primary transition group-hover:bg-primary group-hover:text-white">
-                  <Icon size={20} aria-hidden="true" />
-                </span>
-                <h2 className="mt-4 text-xl font-bold text-ink">{title}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <Compass size={30} className="text-primary" aria-hidden="true" />
-            <h2 className="mt-4 text-4xl font-bold leading-tight text-ink">{c.journeyTitle}</h2>
-            <p className="mt-4 leading-7 text-slate-600">{c.journeyBody}</p>
-          </div>
-          <ol className="grid gap-4">
-            {c.journey.map((item, index) => (
-              <li key={item} className="flex gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-white">{index + 1}</span>
-                <p className="pt-1 text-sm font-semibold leading-6 text-slate-700">{item}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <MapPinned size={30} className="text-primary" aria-hidden="true" />
-            <h2 className="mt-4 text-4xl font-bold leading-tight text-ink">{c.topicTitle}</h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">{c.topicBody}</p>
+            <p className="text-sm font-bold uppercase tracking-wide text-[#b45309]">Three Layers</p>
+            <h2 className="mt-3 font-serif text-4xl font-black leading-tight text-[#281815] sm:text-5xl">中国文化的三重魅力</h2>
+            <p className="mt-5 text-lg leading-8 text-[#6d4b3f]">它不是游客相册里的背景，而是留学生每天会遇见、会参与、会慢慢爱上的生活方式。</p>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {topics.map((topic) => (
-              <article key={topic.name} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="flex flex-wrap gap-2">
-                  <span className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-bold text-primary">{topic.categoryName}</span>
-                  <span className="rounded-md bg-surface px-2.5 py-1 text-xs font-semibold text-slate-600">{topic.provinceName || topic.cityName}</span>
+          <div className="mt-12 grid gap-7">
+            {charms.map((item, index) => (
+              <article key={item.title} className={`grid overflow-hidden rounded-lg border border-[#ead8bd] bg-white shadow-sm lg:grid-cols-2 ${index % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}>
+                <div className="min-h-[310px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.image} alt="" className="h-full w-full object-cover" />
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-ink">{topic.name}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{topicAngle(topic, locale)}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-slate-400">{c.topicSourceLabel}: 华夏风物</p>
-                {topic.publicWikiPage ? (
-                  <a href={topic.publicWikiPage} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-sm font-semibold text-primary hover:text-blue-700">
-                    {c.topicActionLabel}
-                  </a>
-                ) : null}
+                <div className="flex flex-col justify-center p-7 sm:p-10">
+                  <h3 className="font-serif text-3xl font-black leading-tight text-[#281815]">{item.title}</h3>
+                  <p className="mt-5 text-base leading-8 text-[#624438]">{item.body}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
-          <div className="rounded-lg border border-slate-200 p-6">
-            <BookOpenText size={28} className="text-primary" aria-hidden="true" />
-            <h2 className="mt-4 text-3xl font-bold text-ink">{c.socialTitle}</h2>
-            <div className="mt-5 grid gap-3">
-              {c.socialLines.map((line) => (
-                <p key={line} className="rounded-md bg-blue-50 px-4 py-3 text-sm font-semibold leading-6 text-slate-700">{line}</p>
-              ))}
-            </div>
+      <section className="bg-[#2a1712] py-20 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-wide text-[#ffd98a]">Six Words</p>
+            <h2 className="mt-3 font-serif text-4xl font-black leading-tight sm:text-5xl">六个文化关键词</h2>
+            <p className="mt-5 text-lg leading-8 text-[#f6dfc0]">如果你想真正理解中国，可以先从这些词开始。它们会在语言、餐桌、街道、节日和朋友关系里反复出现。</p>
           </div>
-          <div className="rounded-lg bg-slate-950 p-6 text-white">
-            <MessageCircleHeart size={28} className="text-secondary" aria-hidden="true" />
-            <h2 className="mt-4 text-3xl font-bold">{c.finalTitle}</h2>
-            <p className="mt-4 text-sm leading-6 text-slate-200">{c.finalBody}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/consultation")} variant="secondary">{c.finalCta}</ButtonLink>
-              <ButtonLink href={localize("/community")} variant="ghost">{c.communityCta}</ButtonLink>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {keywords.map(({ icon: Icon, title, body }) => (
+              <article key={title} className="rounded-lg border border-white/10 bg-white/8 p-6 backdrop-blur">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#d6a441] text-[#281815]">
+                  <Icon size={23} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 font-serif text-2xl font-black">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#f6dfc0]">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <div>
+              <CalendarHeart size={34} className="text-[#b45309]" aria-hidden="true" />
+              <h2 className="mt-5 font-serif text-4xl font-black leading-tight sm:text-5xl">来到这里，你会亲手体验……</h2>
+              <p className="mt-5 text-lg leading-8 text-[#6d4b3f]">文化不是被讲懂的，而是被你亲手揉进饺子皮、写进毛笔字、穿进汉服、吃进深夜的热汤里。</p>
+            </div>
+            <div className="overflow-hidden rounded-lg border border-[#ead8bd] bg-white shadow-sm">
+              {experiences.map(([name, where, feeling]) => (
+                <article key={name} className="grid gap-3 border-b border-[#ead8bd] p-5 last:border-b-0 md:grid-cols-[0.75fr_0.9fr_1.35fr]">
+                  <h3 className="font-serif text-xl font-black text-[#281815]">{name}</h3>
+                  <p className="text-sm font-bold leading-6 text-[#9a5b16]">{where}</p>
+                  <p className="text-sm leading-6 text-[#624438]">{feeling}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-primary py-14 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">SilkStudy</p>
-            <h2 className="mt-2 text-3xl font-bold">{c.finalTitle}</h2>
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <MessageCircleHeart size={34} className="text-[#b45309]" aria-hidden="true" />
+            <h2 className="mt-5 font-serif text-4xl font-black leading-tight sm:text-5xl">留学生说文化</h2>
+            <p className="mt-5 text-lg leading-8 text-[#6d4b3f]">真正打动人的，往往不是宏大的词，而是一个朋友、一顿饭、一次节日邀请，和忽然发现“我也属于这里”的瞬间。</p>
           </div>
-          <ButtonLink href={localize("/scholarships")} variant="secondary">{c.finalCta}</ButtonLink>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {studentQuotes.map((item) => (
+              <blockquote key={item.name} className="rounded-lg border border-[#ead8bd] bg-[#fff8ee] p-6">
+                <BookOpenText size={24} className="text-[#b45309]" aria-hidden="true" />
+                <p className="mt-4 text-base leading-8 text-[#3c2923]">“{item.quote}”</p>
+                <footer className="mt-5 text-sm font-bold text-[#9a5b16]">— {item.name}，{item.meta}</footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden bg-[#2a1712] py-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,164,65,0.25),transparent_35%),linear-gradient(135deg,rgba(120,31,18,0.7),transparent_55%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+          <div>
+            <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#ffd98a]">
+              <PenLine size={16} aria-hidden="true" />
+              Start Your Chapter
+            </p>
+            <h2 className="mt-4 max-w-4xl font-serif text-4xl font-black leading-tight sm:text-5xl">当你准备好了，中国有24个城市在等你。</h2>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#f6dfc0]">每个城市都有自己的脾性、味道和夜生活。你不需要一次走完它们——你只需要选一个，住下来，然后慢慢探索。</p>
+          </div>
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            <ButtonLink href={localize("/cities")} variant="secondary">探索城市 →</ButtonLink>
+            <ButtonLink href={localize("/consultation")} variant="ghost">了解如何申请 →</ButtonLink>
+          </div>
         </div>
       </section>
     </main>
