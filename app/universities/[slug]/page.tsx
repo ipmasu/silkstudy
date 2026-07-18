@@ -371,7 +371,13 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
                 {photos.slice(0, 4).map((photo) => (
                   <figure key={photo.url} className="overflow-hidden rounded-lg border border-slate-200 bg-white">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={photo.url} alt={photo.alt ?? `${university.name} campus photo`} className="h-56 w-full object-cover" />
+                    <img
+                      src={photo.url}
+                      alt={photo.alt ?? `${university.name} campus photo`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-56 w-full object-cover"
+                    />
                     {photo.alt ? <figcaption className="px-4 py-3 text-sm text-slate-600">{photo.alt}</figcaption> : null}
                   </figure>
                 ))}

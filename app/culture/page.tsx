@@ -95,7 +95,7 @@ export default async function CulturePage() {
     <main className="bg-[#fff8ee] text-[#281815]">
       <section className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden bg-[#120b09] text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="中国山水与历史文化意象" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt="中国山水与历史文化意象" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#120b09]/90 via-[#120b09]/62 to-[#120b09]/25" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fff8ee] to-transparent" />
         <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
@@ -130,7 +130,7 @@ export default async function CulturePage() {
               <article key={item.title} className={`grid overflow-hidden rounded-lg border border-[#ead8bd] bg-white shadow-sm lg:grid-cols-2 ${index % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}>
                 <div className="min-h-[310px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.image} alt="" className="h-full w-full object-cover" />
+                  <img src={item.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10">
                   <h3 className="font-serif text-3xl font-black leading-tight text-[#281815]">{item.title}</h3>

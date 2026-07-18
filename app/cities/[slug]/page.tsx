@@ -169,7 +169,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           <div className="overflow-hidden rounded-lg border border-white/10 bg-white/10">
             <div className="relative h-72">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={city.image} alt={isZh ? city.zhImageAlt : city.imageAlt} className="h-full w-full object-cover" />
+              <img
+                src={city.image}
+                alt={isZh ? city.zhImageAlt : city.imageAlt}
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
                 <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-secondary">
@@ -195,7 +201,16 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <nav className="sticky top-[101px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur sm:top-[73px]">
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-700 sm:px-6 lg:px-8">
+          <a href="#city-overview" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "城市概览" : "Overview"}</a>
+          <a href="#city-culture" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "风物图像" : "Culture"}</a>
+          <a href="#city-guide" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "深度指南" : "Guide"}</a>
+          <a href="#city-universities" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "当地大学" : "Universities"}</a>
+        </div>
+      </nav>
+
+      <section id="city-overview" className="scroll-mt-32 bg-white py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[320px_1fr] lg:px-8">
           <aside className="h-fit rounded-lg border border-slate-200 p-5 lg:sticky lg:top-24">
             <p className="font-bold text-ink">{isZh ? "城市关键指标" : "City signals"}</p>
@@ -231,7 +246,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </div>
 
             {!experienceGuide && !culturalInspiration && visualGallery.length > 0 ? (
-              <div className="mt-14">
+              <div id="city-culture" className="mt-14 scroll-mt-32">
                 <SectionHeading
                   eyebrow={isZh ? "城市图像" : "City visuals"}
                   title={isZh ? `${name}图文印象` : `${city.name} in pictures`}
@@ -334,7 +349,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             ) : null}
 
             {foodTravelGuide ? (
-              <div className="mt-14">
+              <div id="city-guide" className="mt-14 scroll-mt-32">
                 <SectionHeading
                   eyebrow={isZh ? "旅游美食" : "Food and travel"}
                   title={isZh ? foodTravelGuide.zhTitle : foodTravelGuide.title}
@@ -496,17 +511,20 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         ))}
                       </div>
                     </div>
-                    <div className="mt-8 grid gap-5 md:grid-cols-2">
+                    <div className="mt-8 grid gap-4 md:grid-cols-2">
                       {cityDeepDive.sections.map((section) => (
-                        <article key={section.title} className="rounded-lg bg-white p-6 shadow-sm">
-                          <h4 className="text-xl font-bold text-ink">{isZh ? section.zhTitle : section.title}</h4>
-                          <p className="mt-3 text-sm leading-7 text-slate-600">{isZh ? section.zhBody : section.body}</p>
+                        <details key={section.title} className="group rounded-lg bg-white p-5 shadow-sm">
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-xl font-bold text-ink">
+                            <span>{isZh ? section.zhTitle : section.title}</span>
+                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-primary transition group-open:rotate-45">+</span>
+                          </summary>
+                          <p className="mt-4 text-sm leading-7 text-slate-600">{isZh ? section.zhBody : section.body}</p>
                           <div className="mt-4 grid gap-2">
                             {(isZh ? section.zhBullets : section.bullets).map((bullet) => (
                               <p key={bullet} className="rounded-md bg-surface p-3 text-sm leading-6 text-slate-600">{bullet}</p>
                             ))}
                           </div>
-                        </article>
+                        </details>
                       ))}
                     </div>
                   </div>
@@ -541,7 +559,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                       <article key={block.title} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                         <div className="aspect-[16/9] overflow-hidden bg-slate-100">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={block.image} alt={isZh ? block.zhImageAlt : block.imageAlt} className="h-full w-full object-cover transition duration-500 hover:scale-105" />
+                          <img
+                            src={block.image}
+                            alt={isZh ? block.zhImageAlt : block.imageAlt}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                          />
                         </div>
                         <div className="p-5">
                           <h4 className="text-lg font-bold text-ink">{isZh ? block.zhTitle : block.title}</h4>
@@ -642,7 +666,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               </div>
             </div>
 
-            <div className="mt-14">
+            <div id="city-universities" className="mt-14 scroll-mt-32">
               <SectionHeading
                 eyebrow={isZh ? "当地大学" : "Local universities"}
                 title={isZh ? `${name}大学列表` : `Universities in ${city.name}`}

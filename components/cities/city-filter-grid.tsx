@@ -211,7 +211,13 @@ export function CityFilterGrid({
       >
         <div className={`relative ${isHot ? "aspect-[16/9]" : "aspect-[16/9]"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={cityImage(city)} alt={isZh ? city.zhImageAlt : city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <img
+            src={cityImage(city)}
+            alt={isZh ? city.zhImageAlt : city.imageAlt}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
           {isHot ? (
             <span className="absolute right-3 top-3 rounded-full bg-amber-300 px-3 py-1 text-xs font-bold text-red-950 shadow-sm">
@@ -228,28 +234,28 @@ export function CityFilterGrid({
         <div className={isHot ? "p-5" : "p-4"}>
           <div className="flex flex-wrap gap-2">
             {cityBadgesFor(city, isZh).map((badge) => (
-              <span key={badge} className="rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white">
+              <span key={badge} className="inline-flex min-h-11 items-center rounded-md bg-slate-950/75 px-3 py-2 text-sm font-semibold text-white">
                 {badge}
               </span>
             ))}
           </div>
           <p className={`mt-4 leading-7 text-slate-700 ${isHot ? "text-base" : "text-sm"}`}>“{cityHighlight(city, isZh)}”</p>
           <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold text-slate-700">
-            <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-red-700">
+            <span className="inline-flex min-h-11 items-center gap-1 rounded-full bg-red-50 px-3 py-2 text-red-700">
               <GraduationCap size={15} /> {city.universityCount} {isZh ? "所学校" : "schools"}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-amber-800">
+            <span className="inline-flex min-h-11 items-center gap-1 rounded-full bg-amber-50 px-3 py-2 text-amber-800">
               <WalletCards size={15} /> {cost}
             </span>
           </div>
           <div className="mt-5 flex items-center justify-between gap-3">
-            <Link href={`${prefix}/cities/${city.slug}`} className="inline-flex min-h-11 items-center rounded-full bg-red-600 px-5 py-2 text-sm font-bold text-white hover:bg-red-700">
+            <Link href={`${prefix}/cities/${city.slug}`} className="inline-flex min-h-12 items-center rounded-full bg-red-600 px-5 py-3 text-sm font-bold text-white hover:bg-red-700">
               {isZh ? "探索" : "Explore"} →
             </Link>
             <button
               type="button"
               onClick={() => toggleCompare(city)}
-              className={`inline-flex min-h-11 items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition ${
+              className={`inline-flex min-h-12 items-center gap-1 rounded-full px-4 py-3 text-sm font-semibold transition ${
                 selected ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
               }`}
             >
@@ -272,6 +278,9 @@ export function CityFilterGrid({
             <p className="mt-3 text-sm leading-6 text-slate-600">回答 3 个问题，我们先帮你缩小范围。</p>
           </div>
           <div className="grid gap-4">
+            <div className="h-2 overflow-hidden rounded-full bg-white" aria-hidden="true">
+              <div className="h-full w-full rounded-full bg-red-600" />
+            </div>
             <QuestionRow title="1. 你的月预算是多少？" value={budget} options={["<$500", "$500-800", "$800+"]} onChange={setBudget} />
             <QuestionRow title="2. 你喜欢什么样的气候？" value={climate} options={["四季分明", "温暖湿润", "四季如春"]} onChange={setClimate} />
             <QuestionRow title="3. 你最看重什么？" value={priority} options={["美食", "夜生活", "历史文化", "实习机会"]} onChange={setPriority} />
@@ -307,7 +316,7 @@ export function CityFilterGrid({
                 type="button"
                 onClick={() => toggleFilter(filter.key)}
                 title={isZh ? filter.zhDescription : filter.description}
-                className={`min-h-11 rounded-full border px-4 text-sm font-bold transition ${
+                className={`min-h-11 rounded-lg border px-4 py-2 text-sm font-bold transition sm:rounded-full ${
                   isActive
                     ? "border-red-600 bg-red-600 text-white shadow-sm"
                     : "border-amber-100 bg-amber-50 text-slate-800 hover:border-red-300 hover:text-red-700"
@@ -409,13 +418,13 @@ function QuestionRow({
   return (
     <div>
       <p className="text-sm font-bold text-slate-950">{title}</p>
-      <div className="mt-2 flex flex-wrap gap-2">
+      <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         {options.map((option) => (
           <button
             key={option}
             type="button"
             onClick={() => onChange(option)}
-            className={`min-h-11 rounded-full px-4 text-sm font-semibold transition ${
+            className={`min-h-12 w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition sm:w-auto sm:rounded-full sm:text-center ${
               value === option ? "bg-slate-950 text-white" : "bg-white text-slate-700 hover:bg-amber-100"
             }`}
           >

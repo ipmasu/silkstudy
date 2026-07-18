@@ -177,7 +177,7 @@ export default async function LifePage() {
     <main>
       <section className="relative overflow-hidden bg-slate-950 text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/student-city-life.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-35" />
+        <img src="/images/student-city-life.png" alt="" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-35" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/45" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
           <div>
@@ -231,7 +231,7 @@ export default async function LifePage() {
               <article key={title} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                 <div className="relative h-48">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={image} alt="" className="h-full w-full object-cover" />
+                  <img src={image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                   <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md bg-slate-950/75 px-3 py-2 text-xs font-bold text-white backdrop-blur">
                     <Icon size={15} aria-hidden="true" />
                     {format}

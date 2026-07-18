@@ -40,6 +40,8 @@ export function ProvinceVisual({ src, alt, provinceName, topic, region }: Provin
       key={src}
       src={src}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className="h-full w-full object-cover"
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}

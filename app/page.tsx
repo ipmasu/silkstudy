@@ -5,6 +5,7 @@ import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { Award, BookOpen, Globe2, Rocket, ShieldCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
@@ -543,8 +544,14 @@ export default async function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="relative isolate overflow-hidden bg-slate-950 text-white">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={homepageHeroImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <Image
+          src={homepageHeroImage}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/64 to-slate-950/20" />
         <div className="relative mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_420px] lg:items-center lg:px-8">
           <div>
@@ -603,8 +610,13 @@ export default async function HomePage() {
               return (
                 <article key={city.slug} className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
                   <div className="relative h-56 overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={city.image} alt={cityCopy?.imageAlt ?? city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                    <Image
+                      src={city.image}
+                      alt={cityCopy?.imageAlt ?? city.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover transition duration-300 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
                   </div>
                   <div className="p-5">

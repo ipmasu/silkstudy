@@ -21,6 +21,8 @@ export function FallbackImage({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      loading="lazy"
+      decoding="async"
       {...props}
       src={currentSrc}
       alt={alt}

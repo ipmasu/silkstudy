@@ -34,6 +34,8 @@ export function UniversityLogo({ name, src, className = "", imageClassName = "" 
         <img
           src={src}
           alt={`${name} official mark`}
+          loading="lazy"
+          decoding="async"
           className={`h-full w-full object-contain ${imageClassName}`}
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
@@ -47,4 +49,3 @@ export function UniversityLogo({ name, src, className = "", imageClassName = "" 
     </div>
   );
 }
-

@@ -192,31 +192,38 @@ export function SiteFooter({ locale }: { locale: AppLocale }) {
   const localize = (href: string) => localizePath(href, locale);
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-white">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[2fr_1fr_1fr] lg:px-8">
-        <div>
-          <p className="text-lg font-bold">SilkStudy</p>
-          <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">{copy.intro}</p>
+    <>
+      <footer className="border-t border-slate-200 bg-slate-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[2fr_1fr_1fr] lg:px-8">
+          <div>
+            <p className="text-lg font-bold">SilkStudy</p>
+            <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">{copy.intro}</p>
+          </div>
+          <div>
+            <p className="font-semibold">{copy.explore}</p>
+            <ul className="mt-3 space-y-2 text-sm text-slate-300">
+              <li><Link href={localize("/universities")} className="hover:text-white">{copy.universities}</Link></li>
+              <li><Link href={localize("/provinces")} className="hover:text-white">{copy.map}</Link></li>
+              <li><Link href={localize("/cities")} className="hover:text-white">{copy.cities}</Link></li>
+              <li><Link href={localize("/life")} className="hover:text-white">{copy.life}</Link></li>
+              <li><Link href={localize("/community")} className="hover:text-white">{copy.community}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">{copy.start}</p>
+            <ul className="mt-3 space-y-2 text-sm text-slate-300">
+              <li><Link href={localize("/consultation")} className="hover:text-white">{copy.consultation}</Link></li>
+              <li><Link href={localize("/scholarships")} className="hover:text-white">{copy.scholarships}</Link></li>
+              <li><Link href={localize("/dashboard")} className="hover:text-white">{copy.dashboard}</Link></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <p className="font-semibold">{copy.explore}</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            <li><Link href={localize("/universities")} className="hover:text-white">{copy.universities}</Link></li>
-            <li><Link href={localize("/provinces")} className="hover:text-white">{copy.map}</Link></li>
-            <li><Link href={localize("/cities")} className="hover:text-white">{copy.cities}</Link></li>
-            <li><Link href={localize("/life")} className="hover:text-white">{copy.life}</Link></li>
-            <li><Link href={localize("/community")} className="hover:text-white">{copy.community}</Link></li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-semibold">{copy.start}</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            <li><Link href={localize("/consultation")} className="hover:text-white">{copy.consultation}</Link></li>
-            <li><Link href={localize("/scholarships")} className="hover:text-white">{copy.scholarships}</Link></li>
-            <li><Link href={localize("/dashboard")} className="hover:text-white">{copy.dashboard}</Link></li>
-          </ul>
-        </div>
+      </footer>
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/20 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur sm:hidden">
+        <Link href={localize("/consultation")} className="flex min-h-12 w-full items-center justify-center rounded-md bg-primary px-5 text-sm font-bold text-white shadow-sm">
+          {copy.consultation}
+        </Link>
       </div>
-    </footer>
+    </>
   );
 }

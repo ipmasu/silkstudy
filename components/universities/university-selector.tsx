@@ -386,7 +386,13 @@ function UniversityDecisionCard({ university, prefix }: { university: University
       <div className="grid md:grid-cols-[220px_1fr]">
         <div className="relative min-h-56 overflow-hidden bg-slate-100 md:min-h-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={schoolImage(university)} alt={university.name} className="h-full w-full object-cover" />
+          <img
+            src={schoolImage(university)}
+            alt={university.name}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="p-5">
           <h3 className="text-xl font-bold text-slate-950">🏛️ {university.chineseName} · {university.name}</h3>
