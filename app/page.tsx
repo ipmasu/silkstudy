@@ -370,12 +370,162 @@ const trustCards = [
   ["💰", "100%", "奖学金覆盖学费的机会"]
 ];
 
+type LocalizedCityCardCopy = {
+  name: string;
+  imageAlt: string;
+  badges: string[];
+  highlight: string;
+};
+
+type HomepageLocalizedCopy = {
+  citySectionEyebrow: string;
+  citySectionTitle: string;
+  citySectionBody: string;
+  viewAllCities: string;
+  cityCta: string;
+  trustEyebrow: string;
+  trustTitle: string;
+  trustBody: string;
+  trustCards: [string, string, string][];
+  testimonialMeta: string;
+  testimonialQuote: string;
+  finalEyebrow: string;
+  finalTitle: string;
+  finalBody: string;
+  cities: Record<string, LocalizedCityCardCopy>;
+};
+
+const localizedHomepageCopy: Record<"en" | "ru", HomepageLocalizedCopy> = {
+  en: {
+    citySectionEyebrow: "Featured Study Cities",
+    citySectionTitle: "Choose a city, and begin your China story.",
+    citySectionBody: "Your city decides what you eat every day, who you meet, where you go on weekends, and how you truly understand China.",
+    viewAllCities: "View All Cities ->",
+    cityCta: "Explore studying here ->",
+    trustEyebrow: "Why Students Worldwide Choose Us",
+    trustTitle: "Less anxiety. A clearer study-in-China decision.",
+    trustBody: "We bring together city life, university options, scholarships, and application guidance, helping students go from \"I want to study in China\" to \"I know what to do next.\"",
+    trustCards: [
+      ["🏛️", "280+", "partner universities"],
+      ["🌍", "30+", "students from 30+ countries"],
+      ["💰", "100%", "scholarship opportunities available"]
+    ],
+    testimonialMeta: "Russia · Central South University",
+    testimonialQuote: "Changsha is the city that understands me best. Here, I learned calligraphy, guitar, and skateboarding, and explored the villages of Hunan on a motorcycle.",
+    finalEyebrow: "Start Your China Journey",
+    finalTitle: "Ready to begin? Choose a city, then let us help you build the plan.",
+    finalBody: "We help you connect city life, university choices, scholarships, application timing, and visa preparation into one clear path.",
+    cities: {
+      changsha: {
+        name: "Changsha",
+        imageAlt: "Changsha skyline and student nightlife",
+        badges: ["🌶️ Food Capital", "🎭 City That Never Sleeps", "📺 UNESCO City of Media Arts"],
+        highlight: "At 2 AM, the city is just waking up."
+      },
+      chengdu: {
+        name: "Chengdu",
+        imageAlt: "Chengdu night city life",
+        badges: ["🐼 Home of Pandas", "🍲 Food Capital", "🍵 Teahouse Culture"],
+        highlight: "A city you'll never want to leave."
+      },
+      xian: {
+        name: "Xi'an",
+        imageAlt: "Xi'an ancient city night view",
+        badges: ["🏛️ 13-Dynasty Ancient Capital", "🥙 Carb Heaven", "🏮 Tang Paradise Night"],
+        highlight: "Put on a Hanfu, and travel back to Chang'an."
+      },
+      hangzhou: {
+        name: "Hangzhou",
+        imageAlt: "West Lake and Hangzhou city view",
+        badges: ["🌊 Paradise on Earth", "🍖 West Lake Fish in Vinegar", "🍵 Longjing Tea Homeland"],
+        highlight: "Bring your classroom to West Lake."
+      },
+      guangzhou: {
+        name: "Guangzhou",
+        imageAlt: "Pearl River night view and Guangzhou skyline",
+        badges: ["🏛️ Millennia-Old Trade Hub", "🥢 Eat in Guangzhou", "🌺 City of Flowers"],
+        highlight: "Food and opportunity, 365 days of discovery."
+      },
+      kunming: {
+        name: "Kunming",
+        imageAlt: "Kunming green lake park",
+        badges: ["🌺 Spring City of Flowers", "🍜 Crossing-the-Bridge Noodles", "🦚 Land of Peacocks"],
+        highlight: "Eternal spring, flowers that never fade."
+      }
+    }
+  },
+  ru: {
+    citySectionEyebrow: "Популярные города для учебы",
+    citySectionTitle: "Выберите город и начните свою историю в Китае.",
+    citySectionBody: "Город определяет, что вы едите каждый день, с кем знакомитесь, куда ездите по выходным и как по-настоящему понимаете Китай.",
+    viewAllCities: "Смотреть все города ->",
+    cityCta: "Учиться в этом городе ->",
+    trustEyebrow: "Почему студенты со всего мира выбирают нас",
+    trustTitle: "Меньше тревоги. Более ясное решение об учебе в Китае.",
+    trustBody: "Мы объединяем информацию о городах, университетах, стипендиях и подаче документов, помогая студентам перейти от \"я хочу учиться в Китае\" к \"я знаю, что делать дальше\".",
+    trustCards: [
+      ["🏛️", "280+", "университетов-партнеров"],
+      ["🌍", "30+", "студенты из 30+ стран"],
+      ["💰", "100%", "возможности получить стипендию"]
+    ],
+    testimonialMeta: "Россия · Центральный Южный университет",
+    testimonialQuote: "Чанша — город, который понимает меня лучше всех. Здесь я научилась каллиграфии, игре на гитаре и скейтбордингу, а еще исследовала деревни Хунани на мотоцикле.",
+    finalEyebrow: "Начните свой путь в Китай",
+    finalTitle: "Готовы начать? Выберите город, а мы поможем построить план.",
+    finalBody: "Мы связываем городскую жизнь, выбор университета, стипендии, сроки подачи и визовую подготовку в один понятный маршрут.",
+    cities: {
+      changsha: {
+        name: "Чанша",
+        imageAlt: "Небоскребы и ночная студенческая жизнь Чанши",
+        badges: ["🌶️ Гастрономическая столица", "🎭 Город, который не спит", "📺 Город медиаискусств ЮНЕСКО"],
+        highlight: "В 2 часа ночи город только просыпается."
+      },
+      chengdu: {
+        name: "Чэнду",
+        imageAlt: "Ночная городская жизнь Чэнду",
+        badges: ["🐼 Родина панд", "🍲 Гастрономическая столица", "🍵 Чайная культура"],
+        highlight: "Город, из которого не хочется уезжать."
+      },
+      xian: {
+        name: "Сиань",
+        imageAlt: "Ночной вид древнего города Сиань",
+        badges: ["🏛️ Древняя столица 13 династий", "🥙 Рай для любителей лапши и лепешек", "🏮 Ночь эпохи Тан"],
+        highlight: "Наденьте ханьфу и перенеситесь в древний Чанъань."
+      },
+      hangzhou: {
+        name: "Ханчжоу",
+        imageAlt: "Озеро Сиху и городской вид Ханчжоу",
+        badges: ["🌊 Рай на земле", "🍖 Рыба Сиху в уксусном соусе", "🍵 Родина чая Лунцзин"],
+        highlight: "Перенесите учебу к берегам озера Сиху."
+      },
+      guangzhou: {
+        name: "Гуанчжоу",
+        imageAlt: "Ночной вид Жемчужной реки и skyline Гуанчжоу",
+        badges: ["🏛️ Тысячелетний торговый центр", "🥢 Еда в Гуанчжоу", "🌺 Город цветов"],
+        highlight: "Еда и возможности — 365 дней открытий."
+      },
+      kunming: {
+        name: "Куньмин",
+        imageAlt: "Парк Зеленого озера в Куньмине",
+        badges: ["🌺 Весенний город цветов", "🍜 Лапша через мост", "🦚 Земля павлинов"],
+        highlight: "Вечная весна и цветы, которые не увядают."
+      }
+    }
+  }
+};
+
+function homepageCopyFor(locale: string) {
+  if (locale === "zh") return undefined;
+  return localizedHomepageCopy[locale === "ru" ? "ru" : "en"];
+}
+
 export default async function HomePage() {
   const locale = await getCurrentLocale();
   const c = getCopy(locale);
   const prefix = localePrefix(locale);
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
   const isZh = locale === "zh";
+  const localizedHome = homepageCopyFor(locale);
   const serviceSubtitle = isZh
     ? "选一座城市，住下来，慢慢探索。门槛比你想象的低，成本比你想象的小，我们来帮你搞定申请的一切。"
     : "Choose a city, settle in, and explore slowly. The threshold can be lower than you imagine, the cost can be smaller than you expect, and SilkStudy helps you turn interest into a real application plan.";
@@ -440,37 +590,41 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">🏙️ 热门留学城市</p>
-              <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">选一座城市，开始你的中国故事。</h2>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">城市决定你每天吃什么、和谁相遇、周末去哪里，也决定你如何真正理解中国。</p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">🏙️ {localizedHome?.citySectionEyebrow ?? "热门留学城市"}</p>
+              <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">{localizedHome?.citySectionTitle ?? "选一座城市，开始你的中国故事。"}</h2>
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">{localizedHome?.citySectionBody ?? "城市决定你每天吃什么、和谁相遇、周末去哪里，也决定你如何真正理解中国。"}</p>
             </div>
-            <ButtonLink href={localize("/cities")} variant="secondary">查看全部城市 →</ButtonLink>
+            <ButtonLink href={localize("/cities")} variant="secondary">{localizedHome?.viewAllCities ?? "查看全部城市 →"}</ButtonLink>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {featuredStudyCities.map((city) => (
-              <article key={city.slug} className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
-                <div className="relative h-56 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={city.image} alt={city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-2xl font-bold text-ink">{city.name}</h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {city.badges.map((badge, index) => (
-                      <span key={badge} className="inline-flex min-h-8 items-center rounded-md bg-slate-950/75 px-2.5 py-1 text-sm font-semibold text-white">
-                        {badge}
-                        {index < city.badges.length - 1 ? <span className="ml-2 text-white/60">|</span> : null}
-                      </span>
-                    ))}
+            {featuredStudyCities.map((city) => {
+              const cityCopy = localizedHome?.cities[city.slug];
+              const badges = cityCopy?.badges ?? city.badges;
+              return (
+                <article key={city.slug} className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
+                  <div className="relative h-56 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={city.image} alt={cityCopy?.imageAlt ?? city.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
                   </div>
-                  <p className="mt-4 text-base font-semibold leading-7 text-slate-700">{city.highlight}</p>
-                  <a href={localize(`/cities/${city.slug}`)} className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-white transition hover:bg-blue-700">
-                    {isZh ? "\u4e86\u89e3\u8fd9\u5ea7\u57ce\u5e02\u7559\u5b66 \u2192" : "Explore studying here \u2192"}
-                  </a>
-                </div>
-              </article>
-            ))}
+                  <div className="p-5">
+                    <h3 className="text-2xl font-bold text-ink">{cityCopy?.name ?? city.name}</h3>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {badges.map((badge, index) => (
+                        <span key={badge} className="inline-flex min-h-8 items-center rounded-md bg-slate-950/75 px-2.5 py-1 text-sm font-semibold text-white">
+                          {badge}
+                          {index < badges.length - 1 ? <span className="ml-2 text-white/60">|</span> : null}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-4 text-base font-semibold leading-7 text-slate-700">{cityCopy?.highlight ?? city.highlight}</p>
+                    <a href={localize(`/cities/${city.slug}`)} className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-white transition hover:bg-blue-700">
+                      {localizedHome?.cityCta ?? "了解这座城市留学 →"}
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -500,12 +654,12 @@ export default async function HomePage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">🤝 为什么全球学生选择我们？</p>
-            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">少一点信息焦虑，多一个清楚的中国留学决定。</h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">我们把城市生活、大学选择、奖学金机会和申请路径放在一起，帮助学生从“想去中国看看”走到“知道下一步怎么做”。</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">🌏 {localizedHome?.trustEyebrow ?? "为什么全球学生选择我们？"}</p>
+            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">{localizedHome?.trustTitle ?? "少一点信息焦虑，多一个清楚的中国留学决定。"}</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">{localizedHome?.trustBody ?? "我们把城市生活、大学选择、奖学金机会和申请路径放在一起，帮助学生从“想去中国看看”走到“知道下一步怎么做”。"}</p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {trustCards.map(([icon, value, label]) => (
+            {(localizedHome?.trustCards ?? trustCards).map(([icon, value, label]) => (
               <article key={label} className="rounded-lg border border-slate-200 bg-surface p-6">
                 <p className="text-3xl" aria-hidden="true">{icon}</p>
                 <p className="mt-4 text-4xl font-bold text-ink">{value}</p>
@@ -518,11 +672,11 @@ export default async function HomePage() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-2xl font-bold">A</div>
               <div>
                 <p className="font-bold">Alina</p>
-                <p className="text-sm text-slate-300">俄罗斯 · 中南大学</p>
+                <p className="text-sm text-slate-300">{localizedHome?.testimonialMeta ?? "俄罗斯 · 中南大学"}</p>
               </div>
             </div>
             <blockquote className="text-base leading-8 text-slate-100">
-              “长沙是最懂我的城市。我在这里学会了书法、吉他和滑板，还骑着摩托车探索了湖南的乡村。”
+              “{localizedHome?.testimonialQuote ?? "长沙是最懂我的城市。我在这里学会了书法、吉他和滑板，还骑着摩托车探索了湖南的乡村。"}”
             </blockquote>
           </div>
         </div>
@@ -531,9 +685,9 @@ export default async function HomePage() {
       <section className="bg-primary py-16 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎯 开始你的中国之旅</p>
-            <h2 className="mt-2 text-3xl font-bold">{isZh ? "已经准备好了？选一座城市，开始你的中国故事。" : c.finalTitle}</h2>
-            <p className="mt-3 max-w-2xl text-blue-100">{isZh ? "先看城市，再看奖学金；如果你需要人工建议，我们也可以帮你整理适合的学校和申请路径。" : c.finalBody}</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎓 {localizedHome?.finalEyebrow ?? "开始你的中国之旅"}</p>
+            <h2 className="mt-2 text-3xl font-bold">{localizedHome?.finalTitle ?? "已经准备好了？选一座城市，开始你的中国故事。"}</h2>
+            <p className="mt-3 max-w-2xl text-blue-100">{localizedHome?.finalBody ?? "先看城市，再看奖学金；如果你需要人工建议，我们也可以帮你整理适合的学校和申请路径。"}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u514d\u8d39\u54a8\u8be2 \u2192" : "Free consultation \u2192"}</ButtonLink>

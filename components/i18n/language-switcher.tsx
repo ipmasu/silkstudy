@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Languages } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { localizePath, supportedLocales, type AppLocale } from "@/lib/i18n/routing";
+import { localizePath, type AppLocale } from "@/lib/i18n/routing";
 
 const labels: Record<AppLocale, string> = {
   en: "EN",
@@ -20,6 +20,8 @@ const labels: Record<AppLocale, string> = {
   ru: "RU",
   tr: "TR"
 };
+
+const visibleLocales: AppLocale[] = ["en", "zh", "ru"];
 
 export function LanguageSwitcher({ locale, compact = false }: { locale: string; compact?: boolean }) {
   const pathname = usePathname();
@@ -38,7 +40,7 @@ export function LanguageSwitcher({ locale, compact = false }: { locale: string; 
           {labels[locale as AppLocale] ?? "EN"}
         </summary>
         <div className="absolute right-0 top-11 z-50 min-w-28 overflow-hidden rounded-md border border-slate-200 bg-white shadow-lg">
-          {supportedLocales.map((item) => (
+          {visibleLocales.map((item) => (
             <Link key={item} href={hrefFor(item)} className={`block px-4 py-2 text-sm font-semibold hover:bg-blue-50 hover:text-primary ${item === locale ? "bg-slate-50 text-primary" : "text-slate-600"}`}>
               {labels[item]}
             </Link>
@@ -50,7 +52,7 @@ export function LanguageSwitcher({ locale, compact = false }: { locale: string; 
 
   return (
     <div className="flex items-center rounded-md border border-slate-200 text-xs font-semibold text-slate-600">
-      {supportedLocales.map((item, index) => (
+      {visibleLocales.map((item, index) => (
         <Link
           key={item}
           href={hrefFor(item)}
