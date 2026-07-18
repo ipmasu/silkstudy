@@ -16,6 +16,7 @@ import { getCityVisualGallery } from "@/lib/city-visual-galleries";
 import { cityGuideDetails } from "@/lib/city-guide-details";
 import { getCityDestination } from "@/lib/city-destinations";
 import { getCityStudentStory } from "@/lib/city-student-stories";
+import { getCityStudentLifeGuide } from "@/lib/city-student-life-guides";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { breadcrumbJsonLd, buildMetadata, cityJsonLd } from "@/lib/seo";
@@ -85,6 +86,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const guideDetail = cityGuideDetails[city.slug];
   const experienceGuide = getCityExperienceGuide(city.slug);
   const foodTravelGuide = getCityFoodTravelGuide(city.slug);
+  const studentLifeGuide = getCityStudentLifeGuide(city.slug);
   const culturalInspiration = getCityCulturalInspiration(city.slug);
   const cityDeepDive = getCityDeepDive(city.slug);
   const studentStory = getCityStudentStory(city.slug);
@@ -423,6 +425,64 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                           ? "我们会把城市里的美食、街区、周末路线和学生真实感受继续写细，让它不只是目的地介绍，而是一份可以带着走的生活地图。"
                           : "We will keep turning food streets, neighborhoods, weekend routes, and student voices into a practical city map students can actually carry with them."}
                       </p>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            ) : null}
+
+            {studentLifeGuide ? (
+              <div className="mt-14">
+                <SectionHeading
+                  eyebrow={isZh ? "留学生生活指南" : "International student life"}
+                  title={isZh ? studentLifeGuide.zhTitle : studentLifeGuide.title}
+                  description={isZh ? studentLifeGuide.zhIntro : studentLifeGuide.intro}
+                />
+                <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_340px]">
+                  <div className="grid gap-5">
+                    <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                      <h3 className="text-2xl font-bold text-ink">{isZh ? "先看学生会住在哪里、在哪里吃饭和交朋友" : "Where students live, eat and make friends"}</h3>
+                      <div className="mt-5 grid gap-4 md:grid-cols-3">
+                        {studentLifeGuide.campusZones.map((zone) => (
+                          <article key={zone.name} className="rounded-lg bg-surface p-4">
+                            <p className="font-bold text-ink">{isZh ? zone.zhName : zone.name}</p>
+                            <p className="mt-2 text-sm leading-6 text-slate-600">{isZh ? zone.zhNote : zone.note}</p>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {studentLifeGuide.highlights.map((highlight) => (
+                        <article key={highlight.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                          <h3 className="text-xl font-bold text-ink">{isZh ? highlight.zhTitle : highlight.title}</h3>
+                          <div className="mt-4 grid gap-3">
+                            {(isZh ? highlight.zhItems : highlight.items).map((item) => (
+                              <p key={item} className="rounded-md bg-surface p-4 text-sm leading-6 text-slate-600">{item}</p>
+                            ))}
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                  <aside className="h-fit rounded-lg border border-slate-200 bg-slate-950 p-6 text-white lg:sticky lg:top-24">
+                    <p className="text-sm font-bold uppercase tracking-wide text-secondary">{isZh ? "生活判断" : "Life fit"}</p>
+                    <h3 className="mt-2 text-2xl font-bold">{isZh ? `${name}适合什么样的学生` : `Who ${city.name} fits`}</h3>
+                    <div className="mt-5 grid gap-4">
+                      {studentLifeGuide.practical.map((item) => (
+                        <div key={item.title} className="rounded-lg border border-white/10 bg-white/10 p-4">
+                          <p className="font-bold text-white">{isZh ? item.zhTitle : item.title}</p>
+                          <p className="mt-2 text-sm leading-6 text-slate-300">{isZh ? item.zhBody : item.body}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-5 rounded-lg bg-amber-400/15 p-4">
+                      <p className="text-xs font-bold uppercase tracking-wide text-amber-200">{isZh ? "预算感受" : "Budget feel"}</p>
+                      <p className="mt-2 text-sm leading-6 text-amber-50">{isZh ? studentLifeGuide.zhBudget : studentLifeGuide.budget}</p>
+                    </div>
+                    <div className="mt-6">
+                      <ButtonLink href={`${prefix}/consultation?city=${city.slug}`} variant="secondary">
+                        {isZh ? `咨询${name}留学方案` : `Ask about ${city.name}`}
+                      </ButtonLink>
                     </div>
                   </aside>
                 </div>
