@@ -40,7 +40,7 @@ export async function UniversityCard({ university }: { university: University })
           <p>{tuitionLabel}: {university.tuition}</p>
         </div>
         <div className="mt-5">
-          <ButtonLink href={`${prefix}/universities/${university.slug}`}>{locale === "zh" ? "查看详情" : locale === "vi" ? "Xem chi tiết" : "Apply"}</ButtonLink>
+          <ButtonLink href={`${prefix}/universities/${university.slug}`}>{locale === "zh" ? "查看项目与奖学金" : locale === "vi" ? "Xem chương trình & học bổng" : "View Programs & Scholarships"}</ButtonLink>
         </div>
       </div>
     </article>

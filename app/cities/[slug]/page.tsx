@@ -179,7 +179,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={`${prefix}/universities?city=${city.slug}`}>{isZh ? "查看本市学校" : "View Local Schools"}</ButtonLink>
-              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "获取城市建议" : "Get City Advice"}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation?city=${city.slug}`} variant="secondary">{isZh ? "获取免费留学方案" : "Get Your Free Study Plan"}</ButtonLink>
             </div>
           </div>
           <div className="overflow-hidden rounded-lg border border-white/10 bg-white/10">
@@ -237,7 +237,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               <p className="flex gap-3"><ShieldCheck size={18} className="mt-0.5 shrink-0 text-primary" /> {isZh ? "安全、住宿和交通信息会继续按学校校区补全。" : "Safety, housing, and transport will continue to be enriched by campus."}</p>
             </div>
             <div className="mt-6 border-t border-slate-200 pt-5">
-              <ButtonLink href={`${prefix}/consultation`}>{isZh ? "匹配城市和学校" : "Match City and Schools"}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation?city=${city.slug}`}>{isZh ? `获取${name}留学方案` : `Get a Study Plan for ${city.name}`}</ButtonLink>
             </div>
           </aside>
 
@@ -468,6 +468,21 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 <p className="mt-4 text-xs leading-6 text-slate-500">{isZh ? culturalInspiration.zhSourceNote : culturalInspiration.sourceNote}</p>
               </div>
             ) : null}
+
+            <div className="mt-14 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+              <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide text-red-600">{isZh ? "免费城市方案" : "Free city plan"}</p>
+                  <h2 className="mt-2 text-2xl font-bold text-ink">
+                    {isZh ? `想知道${name}适不适合你？` : `Want to know if ${city.name} fits you?`}
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-700">
+                    {isZh ? "把你的专业、预算、语言基础和奖学金目标告诉我们，我们帮你把城市、学校和申请时间线整理成一份可执行清单。" : "Share your major, budget, language background, and scholarship goal. We will connect the city, schools, and timeline into a practical shortlist."}
+                  </p>
+                </div>
+                <ButtonLink href={`${prefix}/consultation?city=${city.slug}`}>{isZh ? `获取${name}留学方案 →` : `Get a Study Plan for ${city.name} ->`}</ButtonLink>
+              </div>
+            </div>
 
             {nightlifeGuide ? (
               <div className="mt-14">
@@ -713,7 +728,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               {isZh ? "我们会结合预算、专业、城市偏好和申请时间线，帮你把城市和学校缩小到可执行清单。" : "We combine budget, major, city preference, and application timeline to narrow your city and school list into an actionable plan."}
             </p>
           </div>
-          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+          <ButtonLink href={`${prefix}/consultation?city=${city.slug}`} variant="secondary">{isZh ? `获取${name}留学方案 →` : `Get a Study Plan for ${city.name} ->`}</ButtonLink>
         </div>
       </section>
     </main>

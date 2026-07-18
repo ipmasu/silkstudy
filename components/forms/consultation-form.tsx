@@ -116,6 +116,16 @@ export function ConsultationForm({ locale = "en" }: { locale?: string }) {
   }
 
   return (
+    <>
+    <noscript>
+      <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+        {tx(
+          "This form needs JavaScript. If it does not load, email your name, country, target degree, major, and budget to maximasure@hotmail.com.",
+          "此表单需要浏览器开启 JavaScript。如果无法提交，请把姓名、国家、目标学历、专业和预算发送到 maximasure@hotmail.com。",
+          "Biểu mẫu này cần JavaScript. Nếu không tải được, hãy gửi tên, quốc gia, bậc học, ngành và ngân sách đến maximasure@hotmail.com."
+        )}
+      </div>
+    </noscript>
     <form onSubmit={handleSubmit} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -197,5 +207,6 @@ export function ConsultationForm({ locale = "en" }: { locale?: string }) {
         </div>
       ) : null}
     </form>
+    </>
   );
 }

@@ -342,7 +342,7 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
             <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
               <p className="text-xl font-bold">暂时没有完全匹配的大学</p>
               <p className="mt-2 text-slate-600">可以减少筛选条件，或提交咨询让我们帮你人工匹配。</p>
-              <Link href={`${prefix}/consultation`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">申请定制清单</Link>
+              <Link href={`${prefix}/consultation?source=universities-empty`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">获取免费留学方案</Link>
             </div>
           ) : (
             <>
@@ -407,8 +407,8 @@ function UniversityDecisionCard({ university, prefix }: { university: University
           </div>
           <p className="mt-4 text-sm leading-6 text-slate-600 line-clamp-2">{university.summary}</p>
           <p className="mt-4 text-sm font-semibold text-slate-700">🔬 优势专业：{fields.join("、")}</p>
-          <Link href={`${prefix}/consultation?school=${university.slug}`} className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-red-600 px-5 py-2 text-sm font-bold text-white hover:bg-red-700">
-            {isZh ? "\u514d\u8d39\u8bc4\u4f30\u5f55\u53d6\u7387" : "Free admission chance assessment"}
+          <Link href={`${prefix}/universities/${university.slug}`} className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-red-600 px-5 py-2 text-sm font-bold text-white hover:bg-red-700">
+            {isZh ? "\u67e5\u770b\u9879\u76ee\u4e0e\u5956\u5b66\u91d1" : "View Programs & Scholarships"}
           </Link>
         </div>
       </div>

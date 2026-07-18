@@ -257,7 +257,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
               <UniversityGateVisual name={university.name} chineseName={university.chineseName} gateUrl={cover?.url} gateAlt={cover?.alt} logoUrl={logo?.url} locale={locale} />
             </div>
             <div className="p-6">
-              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{tx("Book Consultation", "预约咨询", "Đặt lịch tư vấn")}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation?school=${university.slug}`} variant="secondary">{tx("Get Your Free Study Plan", "获取免费留学方案", "Nhận kế hoạch du học miễn phí")}</ButtonLink>
               <dl className="mt-6 space-y-4 text-sm">
                 <div>
                   <dt className="text-slate-400">{isZh ? "QS 排名" : "QS Ranking"}</dt>
@@ -608,10 +608,10 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
           </div>
 
           <aside className="h-fit rounded-lg border border-slate-200 p-6 lg:sticky lg:top-24">
-            <p className="text-lg font-bold text-ink">{tx(`Apply to ${university.name}`, `申请 ${displayName}`, `Đăng ký vào ${university.name}`)}</p>
+            <p className="text-lg font-bold text-ink">{tx(`Plan for ${university.name}`, `${displayName} 留学方案`, `Kế hoạch cho ${university.name}`)}</p>
             <p className="mt-3 text-sm leading-6 text-slate-600">{tx("Get a shortlist, scholarship review, document check, and application timeline.", "获取选校清单、奖学金评估、材料检查和申请时间线。", "Nhận danh sách trường, đánh giá học bổng, kiểm tra hồ sơ và lịch trình đăng ký.")}</p>
             <div className="mt-5 grid gap-3">
-              <ButtonLink href={`${prefix}/consultation`}>{tx("Apply Now", "立即咨询", "Tư vấn ngay")}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation?school=${university.slug}`}>{tx("Get Your Free Study Plan", "获取免费留学方案", "Nhận kế hoạch du học miễn phí")}</ButtonLink>
               {university.website !== "#" ? (
                 <a href={university.website} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-slate-200 px-4 text-sm font-semibold text-ink hover:border-primary hover:text-primary">
                   {tx("Official website", "学校官网", "Trang web chính thức")}

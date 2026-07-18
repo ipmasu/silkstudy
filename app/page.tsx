@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/common/button-link";
+import { GuideCaptureForm } from "@/components/forms/guide-capture-form";
 import { JsonLd } from "@/components/common/json-ld";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
@@ -562,7 +563,7 @@ export default async function HomePage() {
             <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{heroTitle}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{serviceSubtitle || heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/consultation")}>{isZh ? "\u514d\u8d39\u8bc4\u4f30\u4f60\u7684\u7559\u5b66\u65b9\u6848 \u2192" : "Get your free study plan \u2192"}</ButtonLink>
+              <ButtonLink href={localize("/consultation")}>{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
               <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "\u770b\u770b\u6709\u54ea\u4e9b\u57ce\u5e02 \u2192" : "See study cities \u2192"}</ButtonLink>
             </div>
           </div>
@@ -578,6 +579,14 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 rounded-lg bg-white/10 p-4">
+              <p className="text-sm font-semibold text-white">
+                {isZh ? "\u60f3\u77e5\u9053\u4f60\u80fd\u7533\u8bf7\u54ea\u4e9b\u5956\u5b66\u91d1\uff1f" : "Wondering which scholarships you qualify for?"}
+              </p>
+              <a href={localize("/consultation?topic=scholarship")} className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-white px-4 text-sm font-bold text-primary transition hover:bg-blue-50">
+                {isZh ? "\u514d\u8d39\u8bc4\u4f30\u5956\u5b66\u91d1\u673a\u4f1a \u2192" : "Check Scholarship Eligibility ->"}
+              </a>
+            </div>
           </aside>
         </div>
       </section>
@@ -663,6 +672,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <GuideCaptureForm locale={locale} />
+
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -695,15 +706,18 @@ export default async function HomePage() {
       </section>
 
       <section className="bg-primary py-16 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎓 {localizedHome?.finalEyebrow ?? "开始你的中国之旅"}</p>
-            <h2 className="mt-2 text-3xl font-bold">{localizedHome?.finalTitle ?? "已经准备好了？选一座城市，开始你的中国故事。"}</h2>
-            <p className="mt-3 max-w-2xl text-blue-100">{localizedHome?.finalBody ?? "先看城市，再看奖学金；如果你需要人工建议，我们也可以帮你整理适合的学校和申请路径。"}</p>
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎓 {localizedHome?.finalEyebrow ?? "Start Your China Journey"}</p>
+            <h2 className="mt-2 text-3xl font-bold">{isZh ? "\u51c6\u5907\u5f00\u59cb\u4f60\u7684\u4e2d\u56fd\u7559\u5b66\u65b9\u6848\u4e86\u5417\uff1f" : "Ready to Start Your China Journey?"}</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-blue-100">
+              {isZh ? "\u544a\u8bc9\u6211\u4eec\u4f60\u7684\u4e13\u4e1a\u3001\u9884\u7b97\u3001\u57ce\u5e02\u504f\u597d\u548c\u5956\u5b66\u91d1\u76ee\u6807\uff0c\u6211\u4eec\u5e2e\u4f60\u6574\u7406\u4e00\u4efd\u53ef\u6267\u884c\u7684\u4e2d\u56fd\u7559\u5b66\u65b9\u6848\u3002" : "Tell us your major, budget, city preference, and scholarship goals. We will help turn them into a practical China study plan."}
+            </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u514d\u8d39\u54a8\u8be2 \u2192" : "Free consultation \u2192"}</ButtonLink>
+          <div className="mt-8">
+            <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
           </div>
+          <p className="mt-4 text-sm text-blue-100">{isZh ? "\u65e0\u9700\u4ed8\u8d39\uff0c\u9996\u6b21\u8bc4\u4f30\u5b8c\u5168\u514d\u8d39\u3002" : "No commitment. 100% free first consultation."}</p>
         </div>
       </section>
     </main>

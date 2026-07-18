@@ -25,7 +25,7 @@ const footerCopy: Record<AppLocale, FooterCopy> = {
     life: "Stories and life guide",
     community: "Student and traveler community",
     start: "Start the journey",
-    consultation: "Free consultation",
+    consultation: "Get Your Free Study Plan",
     scholarships: "Scholarship matching",
     dashboard: "Study and travel planning"
   },
@@ -38,7 +38,7 @@ const footerCopy: Record<AppLocale, FooterCopy> = {
     life: "故事与生活指南",
     community: "留学生与旅行者社区",
     start: "开始旅程",
-    consultation: "免费咨询",
+    consultation: "获取免费留学方案",
     scholarships: "奖学金匹配",
     dashboard: "留学与旅行规划"
   },
@@ -168,7 +168,7 @@ const footerCopy: Record<AppLocale, FooterCopy> = {
     life: "Истории и гид по жизни",
     community: "Сообщество студентов и путешественников",
     start: "Начать путь",
-    consultation: "Бесплатная консультация",
+    consultation: "Получить бесплатный план учебы",
     scholarships: "Подбор стипендий",
     dashboard: "План учебы и поездки"
   },
@@ -181,7 +181,7 @@ const footerCopy: Record<AppLocale, FooterCopy> = {
     life: "Hikayeler ve yaşam rehberi",
     community: "Öğrenci ve gezgin topluluğu",
     start: "Yolculuğa başla",
-    consultation: "Ücretsiz danışmanlık",
+    consultation: "Ücretsiz eğitim planı al",
     scholarships: "Burs eşleştirme",
     dashboard: "Eğitim ve seyahat planı"
   }

@@ -27,7 +27,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
     globalCheckin: "Global Check-in",
     scholarships: "Scholarships",
     planJourney: "Plan Journey",
-    freeConsultation: "Free consultation",
+    freeConsultation: "Get Your Free Study Plan",
     mobilePlan: "Plan"
   },
   zh: {
@@ -40,7 +40,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
     globalCheckin: "全球打卡",
     scholarships: "奖学金",
     planJourney: "规划留学",
-    freeConsultation: "免费咨询",
+    freeConsultation: "获取免费留学方案",
     mobilePlan: "规划"
   },
   vi: {
@@ -170,7 +170,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
     globalCheckin: "Глобальный чек-ин",
     scholarships: "Стипендии",
     planJourney: "План обучения",
-    freeConsultation: "Бесплатная консультация",
+    freeConsultation: "Получить бесплатный план учебы",
     mobilePlan: "План"
   },
   tr: {
@@ -183,7 +183,7 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
     globalCheckin: "Küresel Check-in",
     scholarships: "Burslar",
     planJourney: "Planla",
-    freeConsultation: "Ücretsiz danışmanlık",
+    freeConsultation: "Ücretsiz eğitim planı al",
     mobilePlan: "Plan"
   }
 };

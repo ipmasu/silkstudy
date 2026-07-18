@@ -58,7 +58,7 @@ export default async function UniversitiesPage() {
               <a href="#university-results" className="inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700">
                 {isZh ? "开始选校" : "Start Selecting"}
               </a>
-              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation?source=universities-hero`} variant="secondary">{isZh ? "获取免费留学方案" : "Get Your Free Study Plan"}</ButtonLink>
             </div>
           </div>
           <div className="grid gap-4">
@@ -89,7 +89,7 @@ export default async function UniversitiesPage() {
                 : "Let us help you turn a shortlist into an application plan, from school matching to visa preparation."}
             </p>
           </div>
-          <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "免费咨询 →" : "Free consultation →"}</ButtonLink>
+          <ButtonLink href={`${prefix}/consultation?source=universities-bottom`} variant="secondary">{isZh ? "获取免费留学方案 →" : "Get Your Free Study Plan ->"}</ButtonLink>
         </div>
       </section>
     </main>
