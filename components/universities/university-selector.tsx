@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowDownAZ,
   Banknote,
@@ -60,12 +61,19 @@ const schoolTypes = [
 ];
 
 function tuitionMin(university: University) {
-  const numbers = university.tuition.match(/\$?([\d,]+)/g)?.map((item) => Number(item.replace(/[^\d]/g, ""))).filter(Boolean) ?? [];
+  const isCny = /cny|rmb|人民币/i.test(university.tuition);
+  const numbers = university.tuition.match(/\$?([\d,]+)/g)?.map((item) => {
+    const amount = Number(item.replace(/[^\d]/g, ""));
+    return isCny ? Math.round(amount / 7.2) : amount;
+  }).filter(Boolean) ?? [];
   return numbers.length ? Math.min(...numbers) : Number.POSITIVE_INFINITY;
 }
 
 function tuitionLabel(university: University) {
-  return university.tuition.replace("/year", "/年");
+  const label = university.tuition.replace("/year", "/年");
+  if (!/cny|rmb|人民币/i.test(university.tuition)) return label;
+  const min = tuitionMin(university);
+  return Number.isFinite(min) ? `${label} · approx. $${min.toLocaleString()}/年` : label;
 }
 
 function hasCsc(university: University) {
@@ -155,6 +163,10 @@ function sortUniversities(items: University[], sortMode: SortMode) {
 }
 
 export function UniversitySelector({ universities, cityOptions, majorOptions, prefix }: SelectorProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const paramsReady = useRef(false);
+  const skipNextSync = useRef(false);
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("all");
   const [ranking, setRanking] = useState<RankingFilter>("all");
@@ -168,6 +180,48 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
   const [quizBudget, setQuizBudget] = useState<TuitionFilter>("3000-5000");
   const [quizMajor, setQuizMajor] = useState("工程");
   const [quizCsc, setQuizCsc] = useState("yes");
+
+  useEffect(() => {
+    const query = searchParams.get("q") ?? "";
+    const cityParam = searchParams.get("city") ?? "all";
+    const rankingParam = searchParams.get("ranking") as RankingFilter | null;
+    const tuitionParam = searchParams.get("tuition") as TuitionFilter | null;
+    const cscParam = searchParams.get("csc") as CscFilter | null;
+    const sortParam = searchParams.get("sort") as SortMode | null;
+    const majorsParam = searchParams.get("majors");
+    const typesParam = searchParams.get("types");
+
+    setSearch(query);
+    setCity(cityOptions.some((item) => item.slug === cityParam) ? cityParam : "all");
+    setRanking(rankingParam && ["all", "top100", "top200", "top500", "unranked"].includes(rankingParam) ? rankingParam : "all");
+    setTuition(tuitionParam && ["all", "under3000", "3000-5000", "5000-7000", "over7000"].includes(tuitionParam) ? tuitionParam : "all");
+    setCsc(cscParam === "yes" ? "yes" : "all");
+    setSortMode(sortParam && ["ranking", "tuitionAsc", "tuitionDesc", "name"].includes(sortParam) ? sortParam : "ranking");
+    setMajorFilters(majorsParam ? majorsParam.split(",").filter((item) => majorFields.includes(item)) : []);
+    setTypeFilters(typesParam ? typesParam.split(",").filter((item) => schoolTypes.includes(item)) : []);
+    setVisibleCount(pageSize);
+    skipNextSync.current = true;
+    paramsReady.current = true;
+  }, [cityOptions, searchParams]);
+
+  useEffect(() => {
+    if (!paramsReady.current) return;
+    if (skipNextSync.current) {
+      skipNextSync.current = false;
+      return;
+    }
+    const params = new URLSearchParams();
+    if (search.trim()) params.set("q", search.trim());
+    if (city !== "all") params.set("city", city);
+    if (ranking !== "all") params.set("ranking", ranking);
+    if (tuition !== "all") params.set("tuition", tuition);
+    if (majorFilters.length) params.set("majors", majorFilters.join(","));
+    if (typeFilters.length) params.set("types", typeFilters.join(","));
+    if (csc !== "all") params.set("csc", csc);
+    if (sortMode !== "ranking") params.set("sort", sortMode);
+    const next = params.toString();
+    router.replace(next ? `?${next}` : window.location.pathname, { scroll: false });
+  }, [city, csc, majorFilters, ranking, router, search, sortMode, tuition, typeFilters]);
 
   const sortedCities = useMemo(() => {
     const order = new Map(hotCityOrder.map((slug, index) => [slug, index]));

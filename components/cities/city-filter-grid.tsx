@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap, Plus, WalletCards, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { GraduationCap, Plus, Search, WalletCards, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { CityFilterKey } from "@/lib/city-filter-tags";
 
 type CityCard = {
@@ -64,7 +65,10 @@ const cityBadges: Record<string, string[]> = {
   nanjing: ["🏛️ 六朝古都", "🍜 鸭血粉丝", "🌸 金陵文脉"],
   suzhou: ["🏯 江南园林", "🍜 苏式汤面", "🎋 东方威尼斯"],
   hangzhou: ["🌊 人间天堂", "🍖 西湖醋鱼", "🍵 龙井茶乡"],
-  nanning: ["🌳 中国绿城", "🍜 老友粉之乡", "🌏 东盟之窗"]
+  nanning: ["🌳 中国绿城", "🍜 老友粉之乡", "🌏 东盟之窗"],
+  yantai: ["🌊 海滨之城", "🍇 葡萄酒都", "🏝️ 蓬莱仙境"],
+  wenzhou: ["🌊 东海之滨", "💼 民营经济", "🍊 瓯越风味"],
+  shihezi: ["🌿 军垦新城", "🏔️ 天山脚下", "🌱 戈壁绿洲"]
 };
 
 const cityHighlights: Record<string, string> = {
@@ -83,7 +87,10 @@ const cityHighlights: Record<string, string> = {
   xiamen: "海风、校园和文艺街巷一起放慢脚步。",
   chongqing: "山城夜色像一部立体电影。",
   guilin: "把山水画搬进周末生活。",
-  nanning: "面向东盟的绿色中国入口。"
+  nanning: "面向东盟的绿色中国入口。",
+  yantai: "海风、葡萄酒和低压力海滨生活，让山东不只有青岛。",
+  wenzhou: "民营经济、东海海风和医学资源，构成一座务实又有活力的城市。",
+  shihezi: "在天山北麓读书，会看到绿洲、农业、医学和边疆建设的另一种中国。"
 };
 
 const homeImages: Record<string, string> = {
@@ -131,18 +138,48 @@ export function CityFilterGrid({
   isZh: boolean;
   prefix: string;
 }) {
+  const searchParams = useSearchParams();
   const [activeFilters, setActiveFilters] = useState<CityFilterKey[]>([]);
+  const [citySearch, setCitySearch] = useState("");
   const [selectedCities, setSelectedCities] = useState<CityCard[]>([]);
   const [budget, setBudget] = useState("<$500");
   const [climate, setClimate] = useState("四季如春");
   const [priority, setPriority] = useState("美食");
 
+  useEffect(() => {
+    const next = new Set<CityFilterKey>();
+    const budgetParam = searchParams.get("budget");
+    const climateParam = searchParams.get("climate");
+    const priorityParam = searchParams.get("priority");
+    if (budgetParam === "low") next.add("lowCost");
+    if (climateParam === "spring") next.add("climate");
+    if (climateParam === "warm") next.add("coastal");
+    if (priorityParam === "food") next.add("food");
+    if (priorityParam === "nightlife") next.add("nightlife");
+    if (priorityParam === "culture") next.add("culture");
+    if (priorityParam === "career") next.add("elite");
+    if (next.size) setActiveFilters([...next]);
+  }, [searchParams]);
+
   const filteredCities = useMemo(() => {
-    const result = activeFilters.length === 0
+    const query = citySearch.trim().toLowerCase();
+    const tagFiltered = activeFilters.length === 0
       ? cities
       : cities.filter((city) => activeFilters.every((filter) => city.filterTags.includes(filter)));
+    const result = !query
+      ? tagFiltered
+      : tagFiltered.filter((city) => [
+        city.name,
+        city.zhName,
+        city.provinceName,
+        city.zhProvinceName,
+        city.summary,
+        city.zhSummary,
+        ...city.lifestyleTags,
+        ...city.zhLifestyleTags
+      ].join(" ").toLowerCase().includes(query));
     return [...result].sort(sortCities);
-  }, [activeFilters, cities]);
+  }, [activeFilters, cities, citySearch]);
 
   const hotCities = useMemo(
     () => hotCitySlugs.map((slug) => filteredCities.find((city) => city.slug === slug)).filter((city): city is CityCard => Boolean(city)),
@@ -194,8 +231,16 @@ export function CityFilterGrid({
     document.getElementById("city-filter-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const clearFilters = () => setActiveFilters([]);
+  const clearFilters = () => {
+    setActiveFilters([]);
+    setCitySearch("");
+  };
   const compareHref = `${prefix}/cities/compare?cities=${selectedCities.map((city) => city.slug).join(",")}`;
+
+  const provinceHeading = (group: { provinceName: string; zhProvinceName: string }) => {
+    if (isZh) return group.zhProvinceName || group.provinceName;
+    return group.provinceName === group.zhProvinceName ? `${group.provinceName} Province` : group.provinceName;
+  };
 
   const renderCityCard = (city: CityCard, variant: "hot" | "normal") => {
     const selected = selectedCities.some((item) => item.slug === city.slug);
@@ -292,9 +337,9 @@ export function CityFilterGrid({
       </section>
 
       <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase text-red-600">City filters</p>
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase text-red-600">City filters</p>
             <h2 className="mt-2 text-2xl font-bold text-slate-950">按留学需求筛选城市</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">支持多选，例如“低生活成本 + 夜生活丰富”。</p>
           </div>
@@ -307,6 +352,15 @@ export function CityFilterGrid({
             ) : null}
           </div>
         </div>
+        <label className="relative mt-5 block">
+          <Search className="pointer-events-none absolute left-4 top-3.5 text-slate-400" size={18} />
+          <input
+            value={citySearch}
+            onChange={(event) => setCitySearch(event.target.value)}
+            placeholder={isZh ? "搜索城市名称、省份或标签..." : "Search city name, province, or tag..."}
+            className="min-h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-11 pr-4 text-sm outline-none transition focus:border-red-400 focus:bg-white"
+          />
+        </label>
         <div className="mt-5 flex flex-wrap gap-2">
           {filters.map((filter) => {
             const isActive = activeFilters.includes(filter.key);
@@ -371,7 +425,7 @@ export function CityFilterGrid({
               {provinceGroups.map((group) => (
                 <section key={group.slug} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
                   <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
-                    <h3 className="text-2xl font-bold text-slate-950">🏮 {isZh ? group.zhProvinceName : group.provinceName} · {group.provinceName}</h3>
+                    <h3 className="text-2xl font-bold text-slate-950">🏮 {provinceHeading(group)}</h3>
                     <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-600">{group.cities.length} 座城市</span>
                   </div>
                   <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
