@@ -4,6 +4,7 @@ import { BriefcaseBusiness, CloudSun, GraduationCap, Landmark, MapPin, MessageSq
 import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { FallbackImage } from "@/components/common/fallback-image";
+import { JsonLd } from "@/components/common/json-ld";
 import { SectionHeading } from "@/components/common/section-heading";
 import { UniversityCard } from "@/components/universities/university-card";
 import { getCityExperienceGuide } from "@/lib/city-experience-guides";
@@ -17,7 +18,7 @@ import { getCityDestination } from "@/lib/city-destinations";
 import { getCityStudentStory } from "@/lib/city-student-stories";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata, cityJsonLd } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return buildMetadata({
     title: `Study in ${city.name}`,
-    description: city.summary,
+    description: `Study in ${city.name}, China. Explore universities, living costs, scholarships, student life, culture, city guides, and free SilkStudy consultation.`,
     path: `/cities/${city.slug}`
   });
 }
@@ -135,6 +136,21 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main>
+      <JsonLd
+        data={cityJsonLd({
+          name: city.name,
+          province: city.provinceName,
+          description: city.summary,
+          path: `/cities/${city.slug}`
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Cities", path: "/cities" },
+          { name: city.name, path: `/cities/${city.slug}` }
+        ])}
+      />
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_420px] lg:px-8">
           <div>

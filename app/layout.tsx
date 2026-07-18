@@ -9,11 +9,22 @@ import "@/styles/globals.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.silkstudy.com"),
   title: {
     default: "SilkStudy",
     template: "%s | SilkStudy"
   },
-  description: "Explore Chinese universities, cities, majors, scholarships and study opportunities."
+  description: "Explore Chinese universities, cities, majors, scholarships and free study consultation for international students.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  }
 };
 
 export default async function RootLayout({

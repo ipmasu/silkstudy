@@ -13,6 +13,15 @@ import {
   type LucideIcon
 } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Study Planning Dashboard",
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 type ProgressCard = {
   title: string;

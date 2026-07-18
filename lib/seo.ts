@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
 
 const siteName = "SilkStudy";
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://silkstudy.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.silkstudy.com";
+const seoLocales = ["en", "zh", "ru"] as const;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, baseUrl).toString();
+}
+
+export function localizedSeoPath(path: string, locale: (typeof seoLocales)[number]) {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (locale === "en") return normalized;
+  return normalized === "/" ? `/${locale}` : `/${locale}${normalized}`;
+}
+
+export function seoLanguageAlternates(path: string) {
+  return {
+    "x-default": absoluteUrl(path),
+    ...Object.fromEntries(seoLocales.map((locale) => [locale, absoluteUrl(localizedSeoPath(path, locale))]))
+  };
 }
 
 export function buildMetadata({
@@ -28,7 +42,8 @@ export function buildMetadata({
     description,
     keywords,
     alternates: {
-      canonical: url
+      canonical: url,
+      languages: seoLanguageAlternates(path)
     },
     openGraph: {
       title,
@@ -60,7 +75,8 @@ export function organizationJsonLd() {
     "@type": "EducationalOrganization",
     name: siteName,
     url: absoluteUrl("/"),
-    description: "A global platform for exploring Chinese universities, cities, majors, scholarships, and study consultation services."
+    description: "Helping international students find Chinese universities, scholarships, cities, majors, and free study consultation.",
+    sameAs: []
   };
 }
 
@@ -72,8 +88,110 @@ export function websiteJsonLd() {
     url: absoluteUrl("/"),
     potentialAction: {
       "@type": "SearchAction",
-      target: `${absoluteUrl("/api/search")}?q={search_term_string}`,
+      target: `${absoluteUrl("/universities")}?q={search_term_string}`,
       "query-input": "required name=search_term_string"
     }
+  };
+}
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path)
+    }))
+  };
+}
+
+export function itemListJsonLd(items: { name: string; path: string; description?: string }[], name: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(item.path),
+      name: item.name,
+      description: item.description
+    }))
+  };
+}
+
+export function cityJsonLd({
+  name,
+  province,
+  description,
+  path
+}: {
+  name: string;
+  province: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "City",
+    name,
+    url: absoluteUrl(path),
+    description,
+    containedInPlace: {
+      "@type": "AdministrativeArea",
+      name: province,
+      addressCountry: "CN"
+    }
+  };
+}
+
+export function universityJsonLd({
+  name,
+  alternateName,
+  description,
+  path,
+  city,
+  province,
+  website
+}: {
+  name: string;
+  alternateName?: string;
+  description: string;
+  path: string;
+  city?: string;
+  province?: string;
+  website?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name,
+    alternateName,
+    url: absoluteUrl(path),
+    sameAs: website && website !== "#" ? [website] : undefined,
+    description,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: city,
+      addressRegion: province,
+      addressCountry: "CN"
+    }
+  };
+}
+
+export function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
   };
 }

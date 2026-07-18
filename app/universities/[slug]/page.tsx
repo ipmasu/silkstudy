@@ -18,6 +18,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
+import { JsonLd } from "@/components/common/json-ld";
 import { SectionHeading } from "@/components/common/section-heading";
 import { LiveUniversityReviews } from "@/components/reviews/live-university-reviews";
 import { UniversityLogo } from "@/components/universities/university-logo";
@@ -32,7 +33,7 @@ import { localizeUniversityContent } from "@/lib/i18n/university-content";
 import { getUniversityMedia } from "@/lib/media/university-media";
 import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getScholarshipDetails } from "@/lib/scholarship-details";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata, universityJsonLd } from "@/lib/seo";
 import type { University } from "@/lib/site-data";
 import type { Metadata } from "next";
 
@@ -43,8 +44,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!university) return {};
 
   return buildMetadata({
-    title: university.name,
-    description: university.summary,
+    title: `${university.name} International Students`,
+    description: `${university.name}${university.chineseName ? ` (${university.chineseName})` : ""} in ${university.location}. Compare programs, tuition, scholarships, application requirements, campus life, and free SilkStudy consultation.`,
     path: `/universities/${university.slug}`
   });
 }
@@ -196,6 +197,24 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
 
   return (
     <main>
+      <JsonLd
+        data={universityJsonLd({
+          name: sourceUniversity.name,
+          alternateName: sourceUniversity.chineseName,
+          description: sourceUniversity.summary,
+          path: `/universities/${sourceUniversity.slug}`,
+          city: sourceUniversity.location,
+          province: province?.name,
+          website: sourceUniversity.website
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Universities", path: "/universities" },
+          { name: sourceUniversity.name, path: `/universities/${sourceUniversity.slug}` }
+        ])}
+      />
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
           <div>

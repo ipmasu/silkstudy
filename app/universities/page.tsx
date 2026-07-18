@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
+import { JsonLd } from "@/components/common/json-ld";
 import { UniversitySelector } from "@/components/universities/university-selector";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { getAllUniversitiesView } from "@/lib/content/universities";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, itemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Chinese University Selector",
@@ -29,6 +30,16 @@ export default async function UniversitiesPage() {
 
   return (
     <main className="bg-[#fff8ef]">
+      <JsonLd
+        data={itemListJsonLd(
+          universities.slice(0, 100).map((university) => ({
+            name: university.name,
+            path: `/universities/${university.slug}`,
+            description: university.summary
+          })),
+          "Chinese universities for international students"
+        )}
+      />
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
           <div>

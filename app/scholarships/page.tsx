@@ -1,10 +1,11 @@
 import { Award, Banknote, FileSearch, Globe2, Landmark, School, ShieldCheck, Sparkles, type LucideIcon } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
+import { JsonLd } from "@/components/common/json-ld";
 import { SectionHeading } from "@/components/common/section-heading";
 import { ScholarshipMatcher } from "@/components/scholarships/scholarship-matcher";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
@@ -290,6 +291,22 @@ export default async function ScholarshipsPage() {
 
   return (
     <main className="bg-surface py-16">
+      <JsonLd
+        data={faqJsonLd([
+          {
+            question: "Can China scholarships cover full tuition?",
+            answer: "Yes. Chinese Government Scholarship, some provincial or municipal scholarships, and selected university scholarships can cover tuition. Some routes may also include accommodation, insurance, or living support."
+          },
+          {
+            question: "Which scholarship type should international students compare first?",
+            answer: "Students should compare national, provincial, municipal, university, and special scholarships against their degree level, major, language route, budget, city cost, and current official admissions notice."
+          },
+          {
+            question: "What must be verified before applying?",
+            answer: "Verify the current official notice, eligibility, deadline, CSCA or language requirements, award coverage, renewal rule, and whether the award can be combined with other support."
+          }
+        ])}
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <section className="grid gap-8 lg:grid-cols-[1fr_360px]">
           <div>

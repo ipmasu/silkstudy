@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
+import { JsonLd } from "@/components/common/json-ld";
 import { CityFilterGrid } from "@/components/cities/city-filter-grid";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { cityFilterOptions, getCityFilterTags } from "@/lib/city-filter-tags";
 import { getAllUniversitiesView } from "@/lib/content/universities";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, itemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "China Student City Selector",
@@ -30,6 +31,16 @@ export default async function CitiesPage() {
 
   return (
     <main className="bg-[#fff8ef]">
+      <JsonLd
+        data={itemListJsonLd(
+          cities.slice(0, 50).map((city) => ({
+            name: city.name,
+            path: `/cities/${city.slug}`,
+            description: city.summary
+          })),
+          "Chinese student cities"
+        )}
+      />
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
           <div>
@@ -76,4 +87,3 @@ export default async function CitiesPage() {
     </main>
   );
 }
-

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return buildMetadata({
     title: `Study in ${province.name}`,
-    description: province.travelSummary,
+    description: `Study in ${province.name}, China. Compare universities, cities, living costs, travel culture, majors, scholarships, and application planning with SilkStudy.`,
     path: `/provinces/${province.slug}`
   });
 }
