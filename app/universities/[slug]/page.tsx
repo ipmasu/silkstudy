@@ -33,6 +33,7 @@ import { localizeUniversityContent } from "@/lib/i18n/university-content";
 import { getUniversityMedia } from "@/lib/media/university-media";
 import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getScholarshipDetails } from "@/lib/scholarship-details";
+import { getUniversityAdmissionsGuide } from "@/lib/university-admissions-guides";
 import { breadcrumbJsonLd, buildMetadata, universityJsonLd } from "@/lib/seo";
 import type { University } from "@/lib/site-data";
 import type { Metadata } from "next";
@@ -194,6 +195,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
   const provinceName = province ? (isZh ? province.zhName : province.name) : university.provinceSlug;
   const signals = destinationSignals(university, city, isZh);
   const scholarshipDetails = getScholarshipDetails(sourceUniversity);
+  const admissionsGuide = getUniversityAdmissionsGuide(university.slug);
 
   return (
     <main>
@@ -365,6 +367,89 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
                       </dl>
                     </div>
                   </div>
+                </div>
+              </section>
+            ) : null}
+
+            {admissionsGuide ? (
+              <section>
+                <SectionHeading
+                  title={isZh ? "国际生招生档案" : "International admissions file"}
+                  description={isZh ? admissionsGuide.zhProfile : admissionsGuide.profile}
+                />
+                <div className="mt-6 grid gap-6">
+                  <div className="rounded-lg border border-slate-200 bg-white p-6">
+                    <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wide text-primary">{isZh ? "招生层次" : "Admission levels"}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {(isZh ? admissionsGuide.zhLevels : admissionsGuide.levels).map((item) => (
+                            <span key={item} className="rounded-md bg-surface px-3 py-2 text-sm font-semibold text-ink">{item}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="rounded-lg bg-amber-50 p-4">
+                        <p className="text-xs font-bold uppercase tracking-wide text-amber-700">{isZh ? "顾问提示" : "Counselor note"}</p>
+                        <p className="mt-2 text-sm leading-6 text-amber-900">{isZh ? admissionsGuide.zhCounselorNote : admissionsGuide.counselorNote}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {[
+                      [isZh ? "英文授课与国际项目" : "English-taught and international programs", isZh ? admissionsGuide.zhEnglishPrograms : admissionsGuide.englishPrograms],
+                      [isZh ? "常见申请材料" : "Common application materials", isZh ? admissionsGuide.zhApplicationMaterials : admissionsGuide.applicationMaterials],
+                      [isZh ? "语言与学术要求" : "Language and academic requirements", isZh ? admissionsGuide.zhLanguageRequirements : admissionsGuide.languageRequirements],
+                      [isZh ? "申请时间线" : "Application timeline", isZh ? admissionsGuide.zhTimeline : admissionsGuide.timeline]
+                    ].map(([title, items]) => (
+                      <article key={String(title)} className="rounded-lg border border-slate-200 bg-white p-5">
+                        <h3 className="text-xl font-bold text-ink">{title}</h3>
+                        <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                          {(items as string[]).map((item) => (
+                            <li key={item} className="flex gap-2">
+                              <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" aria-hidden="true" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-2">
+                    <article className="rounded-lg border border-slate-200 bg-white p-5">
+                      <h3 className="text-xl font-bold text-ink">{isZh ? "费用速览" : "Cost snapshot"}</h3>
+                      <dl className="mt-4 grid gap-3 text-sm">
+                        {Object.entries(isZh ? admissionsGuide.zhFees : admissionsGuide.fees).map(([label, value]) => (
+                          <div key={label} className="rounded-md bg-surface p-3">
+                            <dt className="capitalize text-slate-500">{label}</dt>
+                            <dd className="mt-1 font-semibold leading-6 text-ink">{value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </article>
+                    <article className="rounded-lg border border-slate-200 bg-white p-5">
+                      <h3 className="text-xl font-bold text-ink">{isZh ? "奖学金机会" : "Scholarship routes"}</h3>
+                      <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                        {(isZh ? admissionsGuide.zhScholarships : admissionsGuide.scholarships).map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <Sparkles size={16} className="mt-1 shrink-0 text-secondary" aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  </div>
+
+                  <article className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white">
+                    <p className="text-xs font-bold uppercase tracking-wide text-secondary">{isZh ? "留学生生活亮点" : "Student-life highlights"}</p>
+                    <div className="mt-4 grid gap-3 md:grid-cols-2">
+                      {(isZh ? admissionsGuide.zhLifeHighlights : admissionsGuide.lifeHighlights).map((item) => (
+                        <p key={item} className="rounded-lg border border-white/10 bg-white/10 p-4 text-sm leading-6 text-slate-100">{item}</p>
+                      ))}
+                    </div>
+                    <p className="mt-5 text-xs leading-6 text-slate-400">{admissionsGuide.sourceBatch}</p>
+                  </article>
                 </div>
               </section>
             ) : null}
