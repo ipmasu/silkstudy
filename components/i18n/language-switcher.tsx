@@ -42,7 +42,12 @@ export function LanguageSwitcher({ locale, compact = false }: { locale: string; 
         </summary>
         <div className="absolute right-0 top-11 z-50 min-w-28 overflow-hidden rounded-md border border-slate-200 bg-white shadow-lg">
           {visibleLocales.map((item) => (
-            <Link key={item} href={hrefFor(item)} className={`block px-4 py-2 text-sm font-semibold hover:bg-blue-50 hover:text-primary ${item === locale ? "bg-slate-50 text-primary" : "text-slate-600"}`}>
+            <Link
+              key={item}
+              href={hrefFor(item)}
+              onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+              className={`block px-4 py-2 text-sm font-semibold hover:bg-blue-50 hover:text-primary ${item === locale ? "bg-slate-50 text-primary" : "text-slate-600"}`}
+            >
               {labels[item]}
             </Link>
           ))}

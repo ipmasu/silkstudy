@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { GraduationCap, Menu } from "lucide-react";
 import { ButtonLink } from "@/components/common/button-link";
@@ -255,12 +257,22 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
             </summary>
             <nav className="absolute right-0 top-11 z-50 grid w-52 overflow-hidden rounded-md border border-slate-200 bg-white py-2 text-sm font-semibold text-slate-700 shadow-lg">
               {navItems.map((item) => (
-                <Link key={item.href} href={localize(item.href)} className="flex min-h-11 items-center px-4 py-2 hover:bg-blue-50 hover:text-primary">
+                <Link
+                  key={item.href}
+                  href={localize(item.href)}
+                  onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+                  className="flex min-h-11 items-center px-4 py-2 hover:bg-blue-50 hover:text-primary"
+                >
                   {copy[item.key]}
                 </Link>
               ))}
               {mobileExtraItems.map((item) => (
-                <Link key={item.href} href={localize(item.href)} className="flex min-h-11 items-center px-4 py-2 text-primary hover:bg-blue-50">
+                <Link
+                  key={item.href}
+                  href={localize(item.href)}
+                  onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+                  className="flex min-h-11 items-center px-4 py-2 text-primary hover:bg-blue-50"
+                >
                   {item.label[locale as keyof typeof item.label] ?? item.label.en}
                 </Link>
               ))}
