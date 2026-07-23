@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   CalendarDays,
   Camera,
@@ -33,6 +33,47 @@ type FilterKey = "all" | CommunityTopicKey;
 type CityFilter = "all" | CommunityCitySlug;
 
 const cityOptions = communityCities.map((city) => ({ value: city.slug, label: city.name }));
+const profileStorageKey = "silkstudy-community-profile";
+
+type EditableCommunityProfile = {
+  name: string;
+  avatar: string;
+  country: string;
+  currentCity: string;
+  targetCitySlug: CommunityCitySlug;
+  university: string;
+  major: string;
+  languages: string;
+  bio: string;
+};
+
+const defaultCommunityProfile: EditableCommunityProfile = {
+  name: sampleCommunityProfile.name,
+  avatar: sampleCommunityProfile.avatar,
+  country: sampleCommunityProfile.country,
+  currentCity: sampleCommunityProfile.city,
+  targetCitySlug: "changsha",
+  university: sampleCommunityProfile.university,
+  major: sampleCommunityProfile.major,
+  languages: sampleCommunityProfile.languages,
+  bio: sampleCommunityProfile.bio
+};
+
+function normalizeProfile(profile: EditableCommunityProfile): EditableCommunityProfile {
+  return {
+    name: profile.name.trim() || defaultCommunityProfile.name,
+    avatar: (profile.avatar.trim().slice(0, 2) || defaultCommunityProfile.avatar).toUpperCase(),
+    country: profile.country.trim() || defaultCommunityProfile.country,
+    currentCity: profile.currentCity.trim() || defaultCommunityProfile.currentCity,
+    targetCitySlug: communityCities.some((city) => city.slug === profile.targetCitySlug)
+      ? profile.targetCitySlug
+      : defaultCommunityProfile.targetCitySlug,
+    university: profile.university.trim() || "未填写大学",
+    major: profile.major.trim() || "未填写专业",
+    languages: profile.languages.trim() || "中文 / English",
+    bio: profile.bio.trim() || "我正在准备来中国学习，希望在这里认识朋友、交换经验，也记录自己的中国故事。"
+  };
+}
 
 function formatPostTime(value: string) {
   const date = new Date(value);
@@ -63,8 +104,26 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
   const [composerCity, setComposerCity] = useState<CommunityCitySlug>("changsha");
   const [imageName, setImageName] = useState("");
   const [authMode, setAuthMode] = useState<"login" | "register">("register");
+  const [profile, setProfile] = useState<EditableCommunityProfile>(defaultCommunityProfile);
+  const [profileDraft, setProfileDraft] = useState<EditableCommunityProfile>(defaultCommunityProfile);
+  const [profileSaved, setProfileSaved] = useState(false);
 
   const basePath = locale === "zh" ? "/zh" : "";
+  const targetCity =
+    communityCities.find((city) => city.slug === profile.targetCitySlug) ?? communityCities[0];
+
+  useEffect(() => {
+    try {
+      const savedProfile = window.localStorage.getItem(profileStorageKey);
+      if (!savedProfile) return;
+      const parsed = normalizeProfile(JSON.parse(savedProfile) as EditableCommunityProfile);
+      setProfile(parsed);
+      setProfileDraft(parsed);
+      setProfileSaved(true);
+    } catch {
+      window.localStorage.removeItem(profileStorageKey);
+    }
+  }, []);
 
   const visiblePosts = useMemo(() => {
     const filtered = posts.filter((post) => {
@@ -92,9 +151,9 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
     const city = communityCities.find((item) => item.slug === composerCity) ?? communityCities[0];
     const newPost: CommunityPost = {
       id: `local-${Date.now()}`,
-      authorName: sampleCommunityProfile.name,
-      avatar: sampleCommunityProfile.avatar,
-      country: sampleCommunityProfile.country,
+      authorName: profile.name,
+      avatar: profile.avatar,
+      country: profile.country,
       citySlug: city.slug,
       cityName: city.name,
       topic: composerTopic,
@@ -110,6 +169,14 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
     setActiveCity("all");
     setActiveTopic("all");
     setSortMode("latest");
+  }
+
+  function saveProfile() {
+    const nextProfile = normalizeProfile(profileDraft);
+    setProfile(nextProfile);
+    setProfileDraft(nextProfile);
+    setProfileSaved(true);
+    window.localStorage.setItem(profileStorageKey, JSON.stringify(nextProfile));
   }
 
   return (
@@ -142,14 +209,19 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
           <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur">
             <div className="flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-300 text-lg font-bold text-red-950">
-                {sampleCommunityProfile.avatar}
+                {profile.avatar}
               </span>
               <div>
-                <p className="font-semibold">{sampleCommunityProfile.name}</p>
-                <p className="text-sm text-slate-200">{sampleCommunityProfile.country} · {sampleCommunityProfile.city}</p>
+                <p className="font-semibold">{profile.name}</p>
+                <p className="text-sm text-slate-200">{profile.country} · {profile.currentCity}</p>
               </div>
             </div>
-            <p className="mt-4 leading-7 text-slate-100">{sampleCommunityProfile.bio}</p>
+            <p className="mt-4 leading-7 text-slate-100">{profile.bio}</p>
+            <div className="mt-4 rounded-xl bg-white/10 p-3 text-sm text-slate-100">
+              <p className="font-semibold text-amber-100">想去 {targetCity.name} · {targetCity.enName}</p>
+              <p className="mt-1">{profile.university} · {profile.major}</p>
+              <p className="mt-1">{profile.languages}</p>
+            </div>
             <div className="mt-5 grid grid-cols-3 gap-3 text-center text-sm">
               <div className="rounded-xl bg-white/10 p-3">
                 <p className="text-xl font-bold">30+</p>
@@ -208,9 +280,9 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
               <input className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400" placeholder="邮箱 Email" type="email" />
               <input className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400" placeholder="密码 Password" type="password" />
               {authMode === "register" ? (
-                <button className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700">
-                  <UserPlus size={18} /> 创建个人主页
-                </button>
+                <a href="#profile" className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700">
+                  <UserPlus size={18} /> 填写个人主页
+                </a>
               ) : (
                 <button className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700">
                   <LogIn size={18} /> 登录社区
@@ -222,13 +294,106 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
               <p>头像、昵称、国籍、城市、大学、专业、语言、简介、帖子和交换记录。</p>
             </div>
           </section>
+
+          <section id="profile" className="rounded-2xl border border-red-100 bg-white p-5 shadow-sm">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-bold">创建个人主页</h2>
+                <p className="mt-1 text-sm text-slate-500">让别人知道你是谁、来自哪里、想去中国哪座城市。</p>
+              </div>
+              <UserPlus size={20} className="text-red-600" />
+            </div>
+            <div className="mt-4 space-y-3">
+              <div className="grid grid-cols-[72px_1fr] gap-3">
+                <input
+                  value={profileDraft.avatar}
+                  onChange={(event) => setProfileDraft((current) => ({ ...current, avatar: event.target.value }))}
+                  className="min-h-11 rounded-xl border border-slate-200 px-3 text-center text-sm font-bold outline-none focus:border-red-400"
+                  placeholder="头像"
+                  maxLength={2}
+                />
+                <input
+                  value={profileDraft.name}
+                  onChange={(event) => setProfileDraft((current) => ({ ...current, name: event.target.value }))}
+                  className="min-h-11 rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                  placeholder="昵称 / Name"
+                />
+              </div>
+              <input
+                value={profileDraft.country}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, country: event.target.value }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                placeholder="国籍 / Country"
+              />
+              <input
+                value={profileDraft.currentCity}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, currentCity: event.target.value }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                placeholder="你目前在哪个城市"
+              />
+              <select
+                value={profileDraft.targetCitySlug}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, targetCitySlug: event.target.value as CommunityCitySlug }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm outline-none focus:border-red-400"
+              >
+                {cityOptions.map((city) => (
+                  <option key={city.value} value={city.value}>想去 {city.label}</option>
+                ))}
+              </select>
+              <input
+                value={profileDraft.university}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, university: event.target.value }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                placeholder="大学 / University"
+              />
+              <input
+                value={profileDraft.major}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, major: event.target.value }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                placeholder="专业 / Major"
+              />
+              <input
+                value={profileDraft.languages}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, languages: event.target.value }))}
+                className="min-h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-red-400"
+                placeholder="语言 / Languages"
+              />
+              <textarea
+                value={profileDraft.bio}
+                onChange={(event) => setProfileDraft((current) => ({ ...current, bio: event.target.value }))}
+                className="min-h-28 w-full resize-none rounded-xl border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-red-400"
+                placeholder="一句话介绍你自己，以及为什么想来中国。"
+              />
+              <button onClick={saveProfile} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700">
+                <UserPlus size={18} /> {profileSaved ? "更新个人主页" : "创建个人主页"}
+              </button>
+              <p className="text-xs leading-5 text-slate-500">
+                {profileSaved ? "个人主页已保存，本机刷新后仍会保留；你发帖时也会使用这份资料。" : "先创建资料，再用这个身份发帖、加入城市圈子。"}
+              </p>
+            </div>
+            <div className="mt-5 rounded-xl bg-slate-950 p-4 text-sm leading-6 text-white">
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-300 font-bold text-red-950">{profile.avatar}</span>
+                <div>
+                  <p className="font-semibold">{profile.name}</p>
+                  <p className="text-slate-300">{profile.country} · {profile.currentCity}</p>
+                </div>
+              </div>
+              <p className="mt-3 text-slate-100">{profile.bio}</p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold">
+                <span className="rounded-full bg-white/10 px-3 py-1">想去 {targetCity.name}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1">{profile.major}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1">{profile.languages}</span>
+              </div>
+            </div>
+          </section>
         </aside>
 
         <div id="feed" className="space-y-6">
           <section className="rounded-2xl border border-red-100 bg-white p-5 shadow-sm">
             <div className="flex items-start gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 font-bold text-white">
-                {sampleCommunityProfile.avatar}
+                {profile.avatar}
               </span>
               <div className="flex-1">
                 <textarea
@@ -435,4 +600,3 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
     </main>
   );
 }
-
