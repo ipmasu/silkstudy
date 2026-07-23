@@ -361,6 +361,7 @@ function scoreProfile(degree: string, major: string, budget: string, cityTier: s
 
 export function ScholarshipMatcher({ locale = "en" }: ScholarshipMatcherProps) {
   const c = copy(locale);
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [degree, setDegree] = useState("Master");
   const [major, setMajor] = useState("Engineering");
   const [budget, setBudget] = useState("Under $4,000/year");
@@ -430,6 +431,14 @@ export function ScholarshipMatcher({ locale = "en" }: ScholarshipMatcherProps) {
               </article>
             );
           })}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3 border-t border-slate-200 pt-5">
+          <a href={`${prefix}/scholarship-opportunities`} className="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-bold text-white hover:bg-blue-700">
+            {locale === "zh" ? "查看机会库" : "View Watchlist"}
+          </a>
+          <a href={`${prefix}/consultation?topic=scholarship-matcher`} className="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-200 px-4 text-sm font-bold text-ink hover:border-primary hover:text-primary">
+            {locale === "zh" ? "提交资料核验" : "Verify My Profile"}
+          </a>
         </div>
       </div>
     </div>

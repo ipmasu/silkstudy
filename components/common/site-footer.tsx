@@ -243,6 +243,7 @@ export function SiteFooter({ locale }: { locale: AppLocale }) {
             <ul className="mt-3 space-y-2 text-sm text-slate-300">
               <li><Link href={localize("/consultation")} className="hover:text-white">{copy.consultation}</Link></li>
               <li><Link href={localize("/scholarships")} className="hover:text-white">{copy.scholarships}</Link></li>
+              <li><Link href={localize("/scholarship-opportunities")} className="hover:text-white">{locale === "zh" ? "奖学金机会库" : "Scholarship watchlist"}</Link></li>
               <li><Link href={localize("/dashboard")} className="hover:text-white">{copy.dashboard}</Link></li>
             </ul>
           </div>

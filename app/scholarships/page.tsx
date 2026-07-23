@@ -315,6 +315,7 @@ export default async function ScholarshipsPage() {
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{c.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={`${prefix}/consultation`}>{c.consult}</ButtonLink>
+              <ButtonLink href={`${prefix}/scholarship-opportunities`} variant="secondary">{locale === "zh" ? "查看奖学金机会库" : "Scholarship Watchlist"}</ButtonLink>
               <ButtonLink href={`${prefix}/universities?scholarship=true`} variant="secondary">{c.schools}</ButtonLink>
             </div>
           </div>

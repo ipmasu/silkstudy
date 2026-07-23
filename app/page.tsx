@@ -584,9 +584,14 @@ export default async function HomePage() {
               <p className="text-sm font-semibold text-white">
                 {isZh ? "\u60f3\u77e5\u9053\u4f60\u80fd\u7533\u8bf7\u54ea\u4e9b\u5956\u5b66\u91d1\uff1f" : "Wondering which scholarships you qualify for?"}
               </p>
-              <a href={localize("/consultation?topic=scholarship")} className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-white px-4 text-sm font-bold text-primary transition hover:bg-blue-50">
-                {isZh ? "\u514d\u8d39\u8bc4\u4f30\u5956\u5b66\u91d1\u673a\u4f1a \u2192" : "Check Scholarship Eligibility ->"}
-              </a>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a href={localize("/scholarship-opportunities")} className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-4 text-sm font-bold text-primary transition hover:bg-blue-50">
+                  {isZh ? "查看奖学金机会库 →" : "View Scholarship Watchlist ->"}
+                </a>
+                <a href={localize("/consultation?topic=scholarship")} className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/30 px-4 text-sm font-bold text-white transition hover:bg-white/10">
+                  {isZh ? "\u514d\u8d39\u8bc4\u4f30 \u2192" : "Free Eligibility Check ->"}
+                </a>
+              </div>
             </div>
           </aside>
         </div>
