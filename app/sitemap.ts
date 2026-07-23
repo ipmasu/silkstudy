@@ -13,7 +13,7 @@ function safeLastModified() {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/universities", "/provinces", "/cities", "/life", "/community", "/majors", "/scholarships", "/why-china", "/consultation", "/culture", "/global-checkin"];
+  const staticRoutes = ["/", "/universities", "/provinces", "/china-map", "/cities", "/life", "/community", "/majors", "/scholarships", "/why-china", "/consultation", "/culture", "/global-checkin"];
   const catalogUniversities = getCatalogUniversities(universities);
   const provinceRoutes = provinceShowcases.map((province) => `/provinces/${province.slug}`);
   const cityRoutes = getCityDestinations(catalogUniversities).map((city) => `/cities/${city.slug}`);

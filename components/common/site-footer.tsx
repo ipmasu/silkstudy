@@ -232,7 +232,7 @@ export function SiteFooter({ locale }: { locale: AppLocale }) {
             <p className="font-semibold">{copy.explore}</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-300">
               <li><Link href={localize("/universities")} className="hover:text-white">{copy.universities}</Link></li>
-              <li><Link href={localize("/provinces")} className="hover:text-white">{copy.map}</Link></li>
+              <li><Link href={localize("/china-map")} className="hover:text-white">{copy.map}</Link></li>
               <li><Link href={localize("/cities")} className="hover:text-white">{copy.cities}</Link></li>
               <li><Link href={localize("/life")} className="hover:text-white">{copy.life}</Link></li>
               <li><Link href={localize("/community")} className="hover:text-white">{copy.community}</Link></li>
