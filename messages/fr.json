@@ -1,0 +1,37 @@
+{
+  "brand": "SilkStudy",
+  "navigation": {
+    "home": "Accueil",
+    "universities": "Universités",
+    "provinces": "Provinces",
+    "cities": "Villes",
+    "map": "Carte",
+    "majors": "Domaines d'études",
+    "scholarships": "Bourses",
+    "consultation": "Conseil",
+    "freeConsultation": "Conseil gratuit",
+    "exploreChina": "Explorer la Chine",
+    "studentLife": "Vie étudiante",
+    "life": "Histoires & vie",
+    "planJourney": "Planifier mon projet",
+    "community": "Communauté"
+  },
+  "homepage": {
+    "eyebrow": "Étudier en Chine. Vivre une histoire.",
+    "heroTitle": "Venez étudier en Chine et découvrir un monde plus vaste.",
+    "heroSubtitle": "Trouvez une université, découvrez une ville et commencez un parcours d'études, de voyages et de vie en Chine.",
+    "browseUniversities": "Voir les universités",
+    "exploreMap": "Explorer la carte",
+    "applyNow": "Commencer",
+    "mapEyebrow": "Carte interactive",
+    "mapTitle": "Explorer la Chine sur une carte interactive",
+    "mapDescription": "Survolez chaque destination pour découvrir ses images, ses universités, sa vie urbaine, sa culture et son parcours de candidature.",
+    "popularSchoolsEyebrow": "Universités populaires",
+    "popularSchoolsTitle": "Universités chinoises à découvrir",
+    "popularSchoolsDescription": "Comparez les classements, les frais de scolarité, les villes et les possibilités de bourses.",
+    "popularMajorsEyebrow": "Domaines populaires",
+    "popularMajorsTitle": "Trouver un programme par domaine",
+    "ctaTitle": "Prêt à construire votre projet d'études en Chine ?",
+    "ctaDescription": "Partagez votre niveau d'études, votre budget et votre ville préférée. Nos conseillers vous aideront à établir une liste d'options."
+  }
+}

@@ -16,7 +16,7 @@ const navItems = [
   { href: "/consultation", key: "planJourney" }
 ] as const;
 
-const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>> = {
+const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>>> = {
   en: {
     exploreChina: "Explore China",
     culture: "Culture",
@@ -188,8 +188,37 @@ const navigationCopy: Record<AppLocale, Record<(typeof navItems)[number]["key"] 
   }
 };
 
+const navigationOverrides: Partial<Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>>> = {
+  vi: {
+    exploreChina: "Khám phá Trung Quốc",
+    culture: "Văn hóa",
+    universities: "Trường đại học",
+    studentLife: "Thành phố",
+    life: "Đời sống",
+    community: "Cộng đồng",
+    globalCheckin: "Check-in toàn cầu",
+    scholarships: "Học bổng",
+    planJourney: "Lập kế hoạch",
+    freeConsultation: "Nhận kế hoạch du học miễn phí",
+    mobilePlan: "Kế hoạch"
+  },
+  fr: {
+    exploreChina: "Explorer la Chine",
+    culture: "Culture",
+    universities: "Universités",
+    studentLife: "Villes",
+    life: "Guide de vie",
+    community: "Communauté",
+    globalCheckin: "Check-in mondial",
+    scholarships: "Bourses",
+    planJourney: "Planifier",
+    freeConsultation: "Recevoir mon plan d'études gratuit",
+    mobilePlan: "Plan"
+  }
+};
+
 export function SiteHeader({ locale }: { locale: AppLocale }) {
-  const copy = navigationCopy[locale] ?? navigationCopy.en;
+  const copy = navigationOverrides[locale] ?? navigationCopy[locale] ?? navigationCopy.en!;
   const localize = (href: string) => localizePath(href, locale);
 
   return (

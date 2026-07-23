@@ -15,7 +15,7 @@ type FooterCopy = {
   dashboard: string;
 };
 
-const footerCopy: Record<AppLocale, FooterCopy> = {
+const footerCopy: Partial<Record<AppLocale, FooterCopy>> = {
   en: {
     intro: "Helping young people worldwide find the right Chinese university and a city where they want to live, travel, and grow.",
     explore: "Explore China",
@@ -187,8 +187,37 @@ const footerCopy: Record<AppLocale, FooterCopy> = {
   }
 };
 
+const footerOverrides: Partial<Record<AppLocale, FooterCopy>> = {
+  vi: {
+    intro: "Giúp người trẻ trên toàn thế giới tìm trường đại học Trung Quốc phù hợp và một thành phố để học tập, du lịch và trưởng thành.",
+    explore: "Khám phá Trung Quốc",
+    universities: "Danh sách trường",
+    map: "Bản đồ điểm đến Trung Quốc",
+    cities: "Thành phố và đời sống sinh viên",
+    life: "Câu chuyện và hướng dẫn đời sống",
+    community: "Cộng đồng sinh viên và du khách",
+    start: "Bắt đầu hành trình",
+    consultation: "Nhận kế hoạch du học miễn phí",
+    scholarships: "Ghép học bổng",
+    dashboard: "Kế hoạch học tập và du lịch"
+  },
+  fr: {
+    intro: "Aider les jeunes du monde entier à trouver la bonne université chinoise et une ville où étudier, voyager et grandir.",
+    explore: "Explorer la Chine",
+    universities: "Catalogue des universités",
+    map: "Carte des destinations en Chine",
+    cities: "Villes et vie étudiante",
+    life: "Histoires et guide de vie",
+    community: "Communauté d'étudiants et de voyageurs",
+    start: "Commencer le voyage",
+    consultation: "Recevoir mon plan d'études gratuit",
+    scholarships: "Recherche de bourses",
+    dashboard: "Planification des études et du voyage"
+  }
+};
+
 export function SiteFooter({ locale }: { locale: AppLocale }) {
-  const copy = footerCopy[locale] ?? footerCopy.en;
+  const copy = footerOverrides[locale] ?? footerCopy[locale] ?? footerCopy.en!;
   const localize = (href: string) => localizePath(href, locale);
 
   return (
