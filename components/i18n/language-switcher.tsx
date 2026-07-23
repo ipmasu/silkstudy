@@ -22,7 +22,7 @@ const labels: Record<AppLocale, string> = {
   tr: "TR"
 };
 
-const visibleLocales: AppLocale[] = ["en", "zh", "vi", "fr", "ru", "tr"];
+const visibleLocales: AppLocale[] = ["en", "zh", "vi", "th", "id", "fr", "ru", "tr"];
 
 export function LanguageSwitcher({ locale, compact = false }: { locale: string; compact?: boolean }) {
   const pathname = usePathname();
