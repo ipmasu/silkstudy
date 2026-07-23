@@ -217,6 +217,11 @@ const navigationOverrides: Partial<Record<AppLocale, Record<(typeof navItems)[nu
   }
 };
 
+const mobileExtraItems = [
+  { href: "/china-map", label: { en: "China Map", zh: "中国地图", vi: "Bản đồ Trung Quốc", fr: "Carte de Chine" } },
+  { href: "/scholarship-opportunities", label: { en: "Scholarship Watchlist", zh: "奖学金机会库", vi: "Danh sách học bổng", fr: "Bourses à vérifier" } }
+] as const;
+
 export function SiteHeader({ locale }: { locale: AppLocale }) {
   const copy = navigationOverrides[locale] ?? navigationCopy[locale] ?? navigationCopy.en!;
   const localize = (href: string) => localizePath(href, locale);
@@ -254,12 +259,14 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
                   {copy[item.key]}
                 </Link>
               ))}
+              {mobileExtraItems.map((item) => (
+                <Link key={item.href} href={localize(item.href)} className="flex min-h-11 items-center px-4 py-2 text-primary hover:bg-blue-50">
+                  {item.label[locale as keyof typeof item.label] ?? item.label.en}
+                </Link>
+              ))}
             </nav>
           </details>
         </div>
-        <Link href={localize("/consultation")} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-white shadow-sm sm:hidden">
-          {copy.freeConsultation}
-        </Link>
       </div>
     </header>
   );

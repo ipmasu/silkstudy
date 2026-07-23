@@ -219,7 +219,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      <nav className="sticky top-[101px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur sm:top-[73px]">
+      <nav className="sticky top-[65px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur sm:top-[73px]">
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-700 sm:px-6 lg:px-8">
           <a href="#city-overview" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "城市概览" : "Overview"}</a>
           <a href="#city-culture" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-slate-100 px-4 hover:bg-red-50 hover:text-red-700">{isZh ? "风物图像" : "Culture"}</a>

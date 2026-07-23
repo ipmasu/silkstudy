@@ -452,7 +452,7 @@ export function CityFilterGrid({
       </section>
 
       {selectedCities.length ? (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-amber-200 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur">
+        <div className="fixed inset-x-0 bottom-20 z-40 border-t border-amber-200 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur sm:bottom-0">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-700">
               <span>已选：</span>

@@ -249,6 +249,7 @@ export function SiteFooter({ locale }: { locale: AppLocale }) {
           </div>
         </div>
       </footer>
+      <div className="h-20 sm:hidden" aria-hidden="true" />
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/20 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur sm:hidden">
         <Link href={localize("/consultation")} className="flex min-h-12 w-full items-center justify-center rounded-md bg-primary px-5 text-sm font-bold text-white shadow-sm">
           {copy.consultation}

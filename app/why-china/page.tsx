@@ -60,8 +60,20 @@ const serviceSteps = [
 
 function DataTable({ rows, headers }: { rows: string[][]; headers: string[] }) {
   return (
-    <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white">
-      <table className="w-full min-w-[640px] text-left text-sm">
+    <div className="mt-6">
+      <div className="grid gap-3 md:hidden">
+        {rows.map((row) => (
+          <article key={row.join("-")} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            {row.map((cell, index) => (
+              <div key={`${headers[index]}-${cell}`} className="border-t border-slate-100 py-3 first:border-t-0 first:pt-0 last:pb-0">
+                <p className="text-xs font-bold uppercase tracking-wide text-primary">{headers[index]}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">{cell}</p>
+              </div>
+            ))}
+          </article>
+        ))}
+      </div>
+      <table className="hidden w-full text-left text-sm md:table">
         <thead className="bg-slate-950 text-white">
           <tr>
             {headers.map((header) => (
