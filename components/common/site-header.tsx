@@ -7,21 +7,38 @@ import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 import { localizePath, type AppLocale } from "@/lib/i18n/routing";
 
 const navItems = [
-  { href: "/provinces", key: "exploreChina" },
-  { href: "/culture", key: "culture" },
-  { href: "/universities", key: "universities" },
+  { href: "/", key: "home" },
+  { href: "/news", key: "news" },
   { href: "/cities", key: "studentLife" },
-  { href: "/life", key: "life" },
+  { href: "/universities", key: "universities" },
+  { href: "/scholarships", key: "scholarships" },
+  { href: "/provinces", key: "exploreChina" },
   { href: "/community", key: "community" },
-  { href: "/global-checkin", key: "globalCheckin" },
-  { href: "/why-china", key: "scholarships" },
   { href: "/consultation", key: "planJourney" }
 ] as const;
 
-type NavKey = (typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan";
+type NavKey = (typeof navItems)[number]["key"] | "culture" | "life" | "globalCheckin" | "freeConsultation" | "mobilePlan";
 
-const navigationCopy: Record<AppLocale, Record<NavKey, string>> = {
+const fallbackNavigationCopy: Record<NavKey, string> = {
+  home: "Home",
+  news: "Education News",
+  exploreChina: "Explore China Map",
+  culture: "Culture",
+  universities: "Universities",
+  studentLife: "Cities",
+  life: "Life Guide",
+  community: "Community",
+  globalCheckin: "Global Check-in",
+  scholarships: "Scholarships",
+  planJourney: "Plan Journey",
+  freeConsultation: "Get Your Free Study Plan",
+  mobilePlan: "Plan"
+};
+
+const navigationCopy: Record<AppLocale, Partial<Record<NavKey, string>>> = {
   en: {
+    home: "Home",
+    news: "Education News",
     exploreChina: "Explore China Map",
     culture: "Culture",
     universities: "Universities",
@@ -35,6 +52,8 @@ const navigationCopy: Record<AppLocale, Record<NavKey, string>> = {
     mobilePlan: "Plan"
   },
   zh: {
+    home: "首页",
+    news: "教育资讯",
     exploreChina: "探索中国地图",
     culture: "中国文化",
     universities: "大学目录",
@@ -212,6 +231,7 @@ const mobileExtraItems = [
 
 export function SiteHeader({ locale }: { locale: AppLocale }) {
   const copy = navigationCopy[locale] ?? navigationCopy.en;
+  const labelFor = (key: NavKey) => copy[key] ?? fallbackNavigationCopy[key];
   const localize = (href: string) => localizePath(href, locale);
 
   return (
@@ -226,13 +246,13 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
         <nav className="hidden items-center gap-4 text-sm font-medium text-slate-600 lg:gap-6 md:flex">
           {navItems.map((item) => (
             <Link key={item.href} href={localize(item.href)} className="hover:text-primary">
-              {copy[item.key]}
+              {labelFor(item.key)}
             </Link>
           ))}
         </nav>
         <div className="hidden items-center gap-3 sm:flex">
           <LanguageSwitcher locale={locale} />
-          <ButtonLink href={localize("/consultation")}>{copy.freeConsultation}</ButtonLink>
+          <ButtonLink href={localize("/consultation")}>{labelFor("freeConsultation")}</ButtonLink>
         </div>
         <div className="flex items-center gap-2 sm:hidden">
           <LanguageSwitcher locale={locale} compact />
@@ -249,7 +269,7 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
                   onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
                   className="flex min-h-11 items-center px-4 py-2 hover:bg-blue-50 hover:text-primary"
                 >
-                  {copy[item.key]}
+                  {labelFor(item.key)}
                 </Link>
               ))}
               {mobileExtraItems.map((item) => (
