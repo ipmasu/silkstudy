@@ -10,9 +10,9 @@ type Props = {
 };
 
 const budgetOptions = [
-  ["low", "Under $500", "500 美元以下"],
-  ["mid", "$500-$800", "500-800 美元"],
-  ["high", "Over $800", "800 美元以上"]
+  ["low", "Under $100", "低于100美元"],
+  ["mid", "$100-$200", "100-200美元"],
+  ["high", "Over $200", "高于200美元"]
 ];
 
 const climateOptions = [

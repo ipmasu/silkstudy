@@ -142,7 +142,7 @@ export function CityFilterGrid({
   const [activeFilters, setActiveFilters] = useState<CityFilterKey[]>([]);
   const [citySearch, setCitySearch] = useState("");
   const [selectedCities, setSelectedCities] = useState<CityCard[]>([]);
-  const [budget, setBudget] = useState("<$500");
+  const [budget, setBudget] = useState("<$100");
   const [climate, setClimate] = useState("四季如春");
   const [priority, setPriority] = useState("美食");
 
@@ -220,7 +220,7 @@ export function CityFilterGrid({
 
   const applyQuickRecommendation = () => {
     const next = new Set<CityFilterKey>();
-    if (budget === "<$500") next.add("lowCost");
+    if (budget === "<$100") next.add("lowCost");
     if (climate === "四季如春") next.add("climate");
     if (climate === "温暖湿润") next.add("coastal");
     if (priority === "美食") next.add("food");
@@ -326,7 +326,7 @@ export function CityFilterGrid({
             <div className="h-2 overflow-hidden rounded-full bg-white" aria-hidden="true">
               <div className="h-full w-full rounded-full bg-red-600" />
             </div>
-            <QuestionRow title="1. 你的月预算是多少？" value={budget} options={["<$500", "$500-800", "$800+"]} onChange={setBudget} />
+            <QuestionRow title="1. 你的月预算是多少？" value={budget} options={["<$100", "$100-200", "$200+"]} onChange={setBudget} />
             <QuestionRow title="2. 你喜欢什么样的气候？" value={climate} options={["四季分明", "温暖湿润", "四季如春"]} onChange={setClimate} />
             <QuestionRow title="3. 你最看重什么？" value={priority} options={["美食", "夜生活", "历史文化", "实习机会"]} onChange={setPriority} />
             <button onClick={applyQuickRecommendation} className="min-h-11 rounded-full bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">
