@@ -21,27 +21,24 @@ export function GuideCaptureForm({ locale = "en" }: { locale?: string }) {
     setState("submitting");
     setMessage("");
 
-    const response = await fetch("/api/consultations", {
+    const response = await fetch("/api/guide-request", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        firstName: "Guide",
-        lastName: "Reader",
-        country: "Unknown",
         email,
-        targetDegree: "",
-        notes: "Requested the free Study in China 2026 guide from the homepage."
+        locale
       })
     });
 
     if (!response.ok) {
+      const data = await response.json().catch(() => null);
       setState("error");
-      setMessage(isZh ? "\u6682\u65f6\u6ca1\u6709\u63d0\u4ea4\u6210\u529f\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002" : "We could not submit this right now. Please try again.");
+      setMessage(data?.message ?? (isZh ? "暂时没有发送成功，请稍后再试，或直接联系 SilkStudy。" : "We could not send the guide right now. Please try again or contact SilkStudy directly."));
       return;
     }
 
     setState("success");
-    setMessage(isZh ? "\u5df2\u6536\u5230\u3002\u6211\u4eec\u4f1a\u628a\u6307\u5357\u548c\u5956\u5b66\u91d1\u63d0\u9192\u53d1\u5230\u4f60\u7684\u90ae\u7bb1\u3002" : "Got it. We will send the guide and scholarship reminders to your email.");
+    setMessage(isZh ? "已发送。请检查你的邮箱，也可以查看垃圾邮件/促销邮件文件夹。" : "Sent. Please check your inbox, spam, or promotions folder.");
     setEmail("");
   }
 
