@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Globe2, GraduationCap, Newspaper, ShieldCheck, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/common/button-link";
 import { JsonLd } from "@/components/common/json-ld";
@@ -22,6 +23,13 @@ type Article = {
 };
 
 const zhArticles: Article[] = [
+  {
+    category: "头条",
+    title: "历史性突破！中国数学家王虹、邓煜双双斩获2026年菲尔兹奖",
+    summary: "中国籍数学家首次摘得菲尔兹奖，两位北大数学校友同时站上世界数学之巅。这不仅是个人荣誉，也是中国基础学科教育长期积累的高光时刻。",
+    date: "2026-07-24",
+    href: "/news/chinese-mathematicians-fields-medal-2026"
+  },
   {
     category: "中国留学",
     title: "为什么越来越多国际学生重新关注中国大学？",
@@ -46,6 +54,13 @@ const zhArticles: Article[] = [
 ];
 
 const enArticles: Article[] = [
+  {
+    category: "Top Story",
+    title: "Historic breakthrough: Chinese mathematicians win the 2026 Fields Medal",
+    summary: "Hong Wang and Yu Deng became the first Chinese nationals to receive the Fields Medal, marking a major moment for China's mathematics education and research ecosystem.",
+    date: "2026-07-24",
+    href: "/news/chinese-mathematicians-fields-medal-2026"
+  },
   {
     category: "Study in China",
     title: "Why international students are looking at Chinese universities again",
@@ -144,15 +159,22 @@ export default async function NewsPage() {
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-5 md:grid-cols-3">
           {articles.map((article, index) => (
-            <article key={article.title} className={`rounded-2xl border bg-white p-6 shadow-sm ${index === 0 ? "border-red-200 md:col-span-2" : "border-slate-200"}`}>
-              <p className="text-sm font-bold text-red-700">{article.category}</p>
-              <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-950">{article.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{article.summary}</p>
-              <div className="mt-6 flex items-center justify-between gap-4">
-                <span className="text-xs font-bold uppercase tracking-wide text-slate-400">{article.date}</span>
-                <Link href={localize(article.href)} className="inline-flex items-center gap-1 text-sm font-bold text-red-700 hover:text-red-800">
-                  {isZh ? "阅读相关内容" : "Read more"} <ArrowRight size={15} aria-hidden="true" />
-                </Link>
+            <article key={article.title} className={`overflow-hidden rounded-2xl border bg-white shadow-sm ${index === 0 ? "border-red-200 md:col-span-2" : "border-slate-200"}`}>
+              {index === 0 ? (
+                <div className="relative aspect-[16/9]">
+                  <Image src="/images/news/fields-medal-2026.png" alt={isZh ? "数学黑板前的学术讨论场景" : "Academic mathematics discussion at a chalkboard"} fill sizes="(max-width: 768px) 100vw, 66vw" className="object-cover" />
+                </div>
+              ) : null}
+              <div className="p-6">
+                <p className="text-sm font-bold text-red-700">{article.category}</p>
+                <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-950">{article.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{article.summary}</p>
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <span className="text-xs font-bold uppercase tracking-wide text-slate-400">{article.date}</span>
+                  <Link href={localize(article.href)} className="inline-flex items-center gap-1 text-sm font-bold text-red-700 hover:text-red-800">
+                    {isZh ? "阅读全文" : "Read more"} <ArrowRight size={15} aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
