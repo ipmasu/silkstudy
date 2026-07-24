@@ -2,8 +2,21 @@
 
 import { useMemo, useState } from "react";
 import chinaMap from "@svg-maps/china";
-import { ArrowRight, GraduationCap, MapPin, Mountain, Plane, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Camera,
+  CloudSun,
+  GraduationCap,
+  Landmark,
+  MapPin,
+  Mountain,
+  Plane,
+  Sparkles,
+  Utensils,
+  Users
+} from "lucide-react";
 import { ProvinceVisual } from "@/components/map/province-visual";
+import { getProvinceMapDisplay, getProvinceMapIntroduction } from "@/lib/province-map-introductions";
 import { provinceShowcases } from "@/lib/province-showcase";
 
 type SvgMapLocation = {
@@ -50,8 +63,6 @@ function getPathCenter(path: string) {
 
 export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
   const isZh = locale === "zh";
-  const isVi = locale === "vi";
-  const tx = (en: string, zh: string, vi: string) => isZh ? zh : isVi ? vi : en;
   const prefix = locale === "en" ? "" : `/${locale}`;
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
   const [activeSlug, setActiveSlug] = useState("beijing");
@@ -60,37 +71,69 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
     () => provinceShowcases.find((province) => province.slug === activeSlug) ?? provinceShowcases[0],
     [activeSlug]
   );
-  const openProvince = (slug: string) => {
-    window.location.href = localize(`/provinces/${slug}`);
+  const introduction = getProvinceMapIntroduction(activeProvince.slug);
+  const display = getProvinceMapDisplay(activeProvince.slug);
+
+  const selectProvince = (slug: string) => {
+    setActiveSlug(slug);
   };
 
-  const selectedLabel = activeProvince ? (isZh ? activeProvince.zhName : activeProvince.name) : "China";
-  const selectedRegion = activeProvince ? (isZh ? activeProvince.zhRegion : activeProvince.region) : "";
+  const selectedLabel = isZh ? display.zhName : activeProvince.name;
+  const selectedRegion = isZh ? display.zhRegion : activeProvince.region;
+  const selectedTags = isZh ? ["气候", "饮食", "历史人文", "景区", "留学生活"] : activeProvince.cultureTags;
+
+  const detailCards = [
+    {
+      Icon: CloudSun,
+      title: isZh ? "气候印象" : "Climate",
+      body: isZh ? introduction.zhClimate : introduction.climate
+    },
+    {
+      Icon: Utensils,
+      title: isZh ? "饮食性格" : "Food",
+      body: isZh ? introduction.zhFood : introduction.food
+    },
+    {
+      Icon: Landmark,
+      title: isZh ? "历史人文" : "History & Culture",
+      body: isZh ? introduction.zhCulture : introduction.culture
+    },
+    {
+      Icon: Camera,
+      title: isZh ? "景区与周末" : "Scenery",
+      body: isZh ? introduction.zhScenery : introduction.scenery
+    },
+    {
+      Icon: Users,
+      title: isZh ? "适合的学生" : "Student Fit",
+      body: isZh ? introduction.zhStudentFit : introduction.studentFit
+    }
+  ];
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_420px]">
-      <div className="relative min-h-[740px] overflow-hidden rounded-lg border border-slate-200 bg-[#EAF7FF] shadow-sm">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_440px]">
+      <div className="relative min-h-[560px] overflow-hidden rounded-lg border border-slate-200 bg-[#EAF7FF] shadow-sm sm:min-h-[740px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_56%,rgba(0,184,217,0.16),transparent_34%),linear-gradient(135deg,#F8FCFF_0%,#E8F7FF_48%,#FFFFFF_100%)]" />
-        <div className="absolute left-5 top-5 z-20 rounded-md border border-white/80 bg-white/95 px-4 py-3 shadow-sm backdrop-blur sm:left-8 sm:top-8">
+        <div className="absolute left-4 top-4 z-20 rounded-md border border-white/80 bg-white/95 px-4 py-3 shadow-sm backdrop-blur sm:left-8 sm:top-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-            {tx("Interactive China destination map", "中国目的地互动地图", "Bản đồ điểm đến Trung Quốc tương tác")}
+            {isZh ? "探索中国地图" : "Interactive China Map"}
           </p>
           <h3 className="mt-1 max-w-sm text-xl font-bold text-ink sm:text-2xl">
-            {tx("Hover provinces for images, culture, and schools", "悬停省份，查看图片、文化与代表学校", "Di chuột qua tỉnh để xem hình ảnh, văn hóa và trường tiêu biểu")}
+            {isZh ? "点击省份，查看气候、饮食、历史和留学生活" : "Click a province for climate, food, history, and student life"}
           </h3>
         </div>
         <div className="absolute right-5 top-5 z-20 hidden rounded-md border border-white/80 bg-white/95 px-4 py-3 text-sm font-semibold text-primary shadow-sm backdrop-blur sm:block">
-          {provinceShowcases.length} {tx("China destinations", "个中国目的地", "điểm đến Trung Quốc")}
+          {provinceShowcases.length} {isZh ? "个省级目的地" : "China destinations"}
         </div>
 
-        <div className="absolute inset-x-3 bottom-8 top-28 sm:inset-x-8">
+        <div className="absolute inset-x-3 bottom-8 top-32 sm:inset-x-8 sm:top-28">
           <div className="relative h-full overflow-hidden rounded-lg border border-slate-200 bg-white/80 shadow-2xl">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_54%,rgba(0,184,217,0.16),transparent_35%),linear-gradient(135deg,#F8FCFF_0%,#EAF7FF_50%,#FFFFFF_100%)]" />
             <svg
               viewBox={chinaMap.viewBox}
-              className="absolute inset-0 h-full w-full p-4 sm:p-8"
+              className="absolute inset-0 h-full w-full p-3 sm:p-8"
               role="img"
-              aria-label={isZh ? "包含省份、自治区、直辖市、港澳台的中国留学与旅行互动地图" : "Interactive China map for study and travel including provinces, autonomous regions, municipalities, Hong Kong, Macao, and Taiwan"}
+              aria-label={isZh ? "包含省份、自治区、直辖市、港澳台的中国互动地图" : "Interactive China map including provinces, autonomous regions, municipalities, Hong Kong, Macao, and Taiwan"}
             >
               <defs>
                 <linearGradient id="provinceBase" x1="0" x2="1" y1="0" y2="1">
@@ -108,7 +151,7 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
 
               {provinceShowcases.map((province) => {
                 const isActive = province.slug === activeProvince.slug;
-                const label = isZh ? province.zhName : province.name;
+                const label = isZh ? getProvinceMapDisplay(province.slug).zhName : province.name;
                 const isCompactRegion = province.slug === "hong-kong" || province.slug === "macao";
                 const provincePath = getMapPath(province.slug, province.viewBoxPath);
                 const labelPosition = getPathCenter(provincePath);
@@ -117,7 +160,7 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
                   <g key={province.slug}>
                     <path
                       d={provincePath}
-                      className="cursor-pointer transition duration-200 outline-none"
+                      className="cursor-pointer transition duration-200 outline-none hover:opacity-100 focus-visible:opacity-100"
                       fill={isActive ? "url(#provinceActive)" : "url(#provinceBase)"}
                       stroke="#FFFFFF"
                       strokeWidth={isCompactRegion ? 2.5 : isActive ? 5 : 3}
@@ -128,9 +171,12 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
                       aria-label={label}
                       onMouseEnter={() => setActiveSlug(province.slug)}
                       onFocus={() => setActiveSlug(province.slug)}
-                      onClick={() => openProvince(province.slug)}
+                      onClick={() => selectProvince(province.slug)}
                       onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") openProvince(province.slug);
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          selectProvince(province.slug);
+                        }
                       }}
                     />
                     {isActive ? (
@@ -154,7 +200,7 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
                         </text>
                       </>
                     ) : null}
-                    <title>{`${label} - ${isZh ? province.zhTravelTitle : province.travelTitle}`}</title>
+                    <title>{`${label} - ${isZh ? "点击查看省份介绍" : province.travelTitle}`}</title>
                   </g>
                 );
               })}
@@ -167,8 +213,8 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
             >
               Map data: @svg-maps/china
             </a>
-            <div className="absolute bottom-3 left-3 rounded bg-white/90 px-3 py-2 text-[11px] font-semibold text-slate-500 shadow-sm">
-              {tx("Illustrative map for study destination browsing with aligned hover content", "示意图用于留学目的地浏览，悬停区域与内容完全对应", "Bản đồ minh họa để khám phá điểm đến du học; nội dung thay đổi theo khu vực được chọn")}
+            <div className="absolute bottom-3 left-3 max-w-[70%] rounded bg-white/90 px-3 py-2 text-[11px] font-semibold text-slate-500 shadow-sm">
+              {isZh ? "点击地图上的省份，右侧会同步显示这个地方的学习与生活画像。" : "Click any province to update the study and life profile on the right."}
             </div>
           </div>
         </div>
@@ -179,14 +225,14 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
           <ProvinceVisual
             key={activeProvince.slug}
             src={activeProvince.image}
-            alt={isZh ? activeProvince.zhImageAlt : activeProvince.imageAlt}
+            alt={isZh ? `${selectedLabel}风物与城市印象` : activeProvince.imageAlt}
             provinceName={selectedLabel}
-            topic={isZh ? activeProvince.zhImageTopic : activeProvince.imageTopic}
+            topic={isZh ? "城市与风物" : activeProvince.imageTopic}
             region={selectedRegion}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
           <div className="absolute left-4 top-4 rounded-md border border-white/20 bg-slate-950/60 px-3 py-2 text-xs font-semibold text-white backdrop-blur">
-            {isZh ? `${selectedLabel}代表画面` : `${selectedLabel} visual anchor`}: {isZh ? activeProvince.zhImageTopic : activeProvince.imageTopic}
+            {isZh ? `${selectedLabel}代表画面` : `${selectedLabel} visual anchor`}: {isZh ? "城市与风物" : activeProvince.imageTopic}
           </div>
           <div className="absolute bottom-4 left-4 right-4 text-white">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-secondary">
@@ -195,7 +241,7 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
             </div>
             <h3 className="mt-2 text-3xl font-bold">{selectedLabel}</h3>
             <p className="mt-1 text-xs text-slate-200">
-              {tx("Image, culture tags, and schools follow the hovered destination", "画面、文化标签与学校均随当前悬停地区同步", "Hình ảnh, văn hóa và trường học thay đổi theo điểm đến")}
+              {isZh ? "省份画像会随地图选择实时更新" : "The province profile updates with your map selection"}
             </p>
           </div>
         </div>
@@ -216,25 +262,37 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
               <Mountain size={18} aria-hidden="true" />
             </span>
             <div>
-              <p className="text-lg font-bold text-ink">{isZh ? activeProvince.zhTravelTitle : activeProvince.travelTitle}</p>
+              <p className="text-lg font-bold text-ink">{isZh ? `${selectedLabel}省份速写` : activeProvince.travelTitle}</p>
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                {isZh ? activeProvince.zhTravelSummary : activeProvince.travelSummary}
+                {isZh ? introduction.zhStudentFit : activeProvince.travelSummary}
               </p>
             </div>
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2">
-            {(isZh ? activeProvince.zhCultureTags : activeProvince.cultureTags).map((tag) => (
+            {selectedTags.map((tag) => (
               <span key={tag} className="rounded-md bg-surface px-3 py-2 text-xs font-semibold text-slate-700">
                 {tag}
               </span>
             ))}
           </div>
 
+          <div className="mt-6 grid gap-3">
+            {detailCards.map(({ Icon, title, body }) => (
+              <div key={title} className="rounded-lg border border-slate-200 bg-slate-50/70 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-ink">
+                  <Icon size={16} className="text-primary" aria-hidden="true" />
+                  {title}
+                </div>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-6 border-t border-slate-200 pt-5">
             <div className="flex items-center gap-2 text-sm font-bold text-ink">
               <GraduationCap size={17} aria-hidden="true" />
-              {tx("Representative schools", "该地区代表性学校", "Trường đại học tiêu biểu")}
+              {isZh ? "代表性学校" : "Representative schools"}
             </div>
             <div className="mt-3 grid gap-3">
               {activeProvince.topSchools.map((school, index) => (
@@ -258,13 +316,13 @@ export function ChinaSvgMap({ locale = "en" }: { locale?: string }) {
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-3">
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <a
-              href={localize(`/universities?province=${activeProvince.slug}`)}
+              href={localize(`/provinces/${activeProvince.slug}`)}
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-white"
             >
               <MapPin size={16} aria-hidden="true" />
-              {tx("View schools", "看学校", "Xem trường")}
+              {isZh ? "查看省份详情" : "Province guide"}
             </a>
             <a
               href={localize("/consultation")}

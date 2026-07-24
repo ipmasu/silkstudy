@@ -18,9 +18,11 @@ const navItems = [
   { href: "/consultation", key: "planJourney" }
 ] as const;
 
-const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>>> = {
+type NavKey = (typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan";
+
+const navigationCopy: Record<AppLocale, Record<NavKey, string>> = {
   en: {
-    exploreChina: "Explore China",
+    exploreChina: "Explore China Map",
     culture: "Culture",
     universities: "Universities",
     studentLife: "Cities",
@@ -33,7 +35,7 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     mobilePlan: "Plan"
   },
   zh: {
-    exploreChina: "探索中国",
+    exploreChina: "探索中国地图",
     culture: "中国文化",
     universities: "大学目录",
     studentLife: "城市",
@@ -46,46 +48,59 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     mobilePlan: "规划"
   },
   vi: {
-    exploreChina: "Khám phá Trung Quốc",
+    exploreChina: "Bản đồ Trung Quốc",
     culture: "Văn hóa",
-    universities: "Trường đại học",
+    universities: "Đại học",
     studentLife: "Thành phố",
-    life: "Đời sống",
+    life: "Hướng dẫn sống",
     community: "Cộng đồng",
     globalCheckin: "Check-in toàn cầu",
     scholarships: "Học bổng",
     planJourney: "Lập kế hoạch",
-    freeConsultation: "Tư vấn miễn phí",
+    freeConsultation: "Nhận tư vấn miễn phí",
     mobilePlan: "Kế hoạch"
   },
+  fr: {
+    exploreChina: "Carte de Chine",
+    culture: "Culture",
+    universities: "Universités",
+    studentLife: "Villes",
+    life: "Guide de vie",
+    community: "Communauté",
+    globalCheckin: "Check-in mondial",
+    scholarships: "Bourses",
+    planJourney: "Planifier",
+    freeConsultation: "Recevoir mon plan gratuit",
+    mobilePlan: "Plan"
+  },
   ko: {
-    exploreChina: "중국 탐색",
-    culture: "중국 문화",
+    exploreChina: "중국 지도",
+    culture: "문화",
     universities: "대학",
     studentLife: "도시",
     life: "생활 가이드",
     community: "커뮤니티",
     globalCheckin: "글로벌 체크인",
     scholarships: "장학금",
-    planJourney: "유학 설계",
-    freeConsultation: "무료 상담",
-    mobilePlan: "상담"
+    planJourney: "유학 계획",
+    freeConsultation: "무료 유학 플랜",
+    mobilePlan: "계획"
   },
   th: {
-    exploreChina: "สำรวจจีน",
-    culture: "วัฒนธรรมจีน",
+    exploreChina: "แผนที่จีน",
+    culture: "วัฒนธรรม",
     universities: "มหาวิทยาลัย",
     studentLife: "เมือง",
     life: "คู่มือชีวิต",
     community: "ชุมชน",
     globalCheckin: "เช็กอินทั่วโลก",
     scholarships: "ทุนการศึกษา",
-    planJourney: "วางแผน",
-    freeConsultation: "ปรึกษาฟรี",
+    planJourney: "วางแผนเรียน",
+    freeConsultation: "รับแผนเรียนฟรี",
     mobilePlan: "แผน"
   },
   id: {
-    exploreChina: "Jelajahi Tiongkok",
+    exploreChina: "Peta Tiongkok",
     culture: "Budaya",
     universities: "Universitas",
     studentLife: "Kota",
@@ -98,7 +113,7 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     mobilePlan: "Rencana"
   },
   ms: {
-    exploreChina: "Terokai China",
+    exploreChina: "Peta China",
     culture: "Budaya",
     universities: "Universiti",
     studentLife: "Bandar",
@@ -111,46 +126,46 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     mobilePlan: "Rancang"
   },
   my: {
-    exploreChina: "တရုတ်ကို လေ့လာရန်",
-    culture: "တရုတ်ယဉ်ကျေးမှု",
-    universities: "တက္ကသိုလ်များ",
-    studentLife: "မြို့များ",
-    life: "နေထိုင်မှု လမ်းညွှန်",
-    community: "အသိုင်းအဝိုင်း",
-    globalCheckin: "ကမ္ဘာလုံးဆိုင်ရာ Check-in",
-    scholarships: "ပညာသင်ဆုများ",
-    planJourney: "လေ့လာရေး စီစဉ်ရန်",
-    freeConsultation: "အခမဲ့ တိုင်ပင်ရန်",
-    mobilePlan: "စီစဉ်ရန်"
+    exploreChina: "China Map",
+    culture: "Culture",
+    universities: "Universities",
+    studentLife: "Cities",
+    life: "Life Guide",
+    community: "Community",
+    globalCheckin: "Global Check-in",
+    scholarships: "Scholarships",
+    planJourney: "Plan Study",
+    freeConsultation: "Free study plan",
+    mobilePlan: "Plan"
   },
   km: {
-    exploreChina: "ស្វែងយល់ពីចិន",
-    culture: "វប្បធម៌ចិន",
-    universities: "សាកលវិទ្យាល័យ",
-    studentLife: "ទីក្រុង",
-    life: "មគ្គុទេសក៍ជីវិត",
-    community: "សហគមន៍",
-    globalCheckin: "Check-in ពិភពលោក",
-    scholarships: "អាហារូបករណ៍",
-    planJourney: "រៀបចំផែនការ",
-    freeConsultation: "ប្រឹក្សាឥតគិតថ្លៃ",
-    mobilePlan: "ផែនការ"
+    exploreChina: "China Map",
+    culture: "Culture",
+    universities: "Universities",
+    studentLife: "Cities",
+    life: "Life Guide",
+    community: "Community",
+    globalCheckin: "Global Check-in",
+    scholarships: "Scholarships",
+    planJourney: "Plan Study",
+    freeConsultation: "Free study plan",
+    mobilePlan: "Plan"
   },
   lo: {
-    exploreChina: "ສຳຫຼວດຈີນ",
-    culture: "ວັດທະນະທຳຈີນ",
-    universities: "ມະຫາວິທະຍາໄລ",
-    studentLife: "ເມືອງ",
-    life: "ຄູ່ມືຊີວິດ",
-    community: "ຊຸມຊົນ",
-    globalCheckin: "Check-in ທົ່ວໂລກ",
-    scholarships: "ທຶນການສຶກສາ",
-    planJourney: "ວາງແຜນການຮຽນ",
-    freeConsultation: "ປຶກສາຟຣີ",
-    mobilePlan: "ແຜນ"
+    exploreChina: "China Map",
+    culture: "Culture",
+    universities: "Universities",
+    studentLife: "Cities",
+    life: "Life Guide",
+    community: "Community",
+    globalCheckin: "Global Check-in",
+    scholarships: "Scholarships",
+    planJourney: "Plan Study",
+    freeConsultation: "Free study plan",
+    mobilePlan: "Plan"
   },
   tl: {
-    exploreChina: "Tuklasin ang Tsina",
+    exploreChina: "Mapa ng Tsina",
     culture: "Kultura",
     universities: "Mga Unibersidad",
     studentLife: "Mga Lungsod",
@@ -158,25 +173,25 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     community: "Komunidad",
     globalCheckin: "Global Check-in",
     scholarships: "Scholarships",
-    planJourney: "Planuhin ang Pag-aaral",
-    freeConsultation: "Libreng konsultasyon",
+    planJourney: "Planuhin",
+    freeConsultation: "Libreng study plan",
     mobilePlan: "Plano"
   },
   ru: {
-    exploreChina: "Открыть Китай",
+    exploreChina: "Карта Китая",
     culture: "Культура",
     universities: "Университеты",
     studentLife: "Города",
-    life: "Жизнь",
+    life: "Гид по жизни",
     community: "Сообщество",
-    globalCheckin: "Глобальный чек-ин",
+    globalCheckin: "Глобальный check-in",
     scholarships: "Стипендии",
     planJourney: "План обучения",
-    freeConsultation: "Получить бесплатный план учебы",
+    freeConsultation: "Бесплатный план",
     mobilePlan: "План"
   },
   tr: {
-    exploreChina: "Çin'i keşfet",
+    exploreChina: "Çin Haritası",
     culture: "Kültür",
     universities: "Üniversiteler",
     studentLife: "Şehirler",
@@ -185,36 +200,7 @@ const navigationCopy: Partial<Record<AppLocale, Record<(typeof navItems)[number]
     globalCheckin: "Küresel Check-in",
     scholarships: "Burslar",
     planJourney: "Planla",
-    freeConsultation: "Ücretsiz eğitim planı al",
-    mobilePlan: "Plan"
-  }
-};
-
-const navigationOverrides: Partial<Record<AppLocale, Record<(typeof navItems)[number]["key"] | "freeConsultation" | "mobilePlan", string>>> = {
-  vi: {
-    exploreChina: "Khám phá Trung Quốc",
-    culture: "Văn hóa",
-    universities: "Trường đại học",
-    studentLife: "Thành phố",
-    life: "Đời sống",
-    community: "Cộng đồng",
-    globalCheckin: "Check-in toàn cầu",
-    scholarships: "Học bổng",
-    planJourney: "Lập kế hoạch",
-    freeConsultation: "Nhận kế hoạch du học miễn phí",
-    mobilePlan: "Kế hoạch"
-  },
-  fr: {
-    exploreChina: "Explorer la Chine",
-    culture: "Culture",
-    universities: "Universités",
-    studentLife: "Villes",
-    life: "Guide de vie",
-    community: "Communauté",
-    globalCheckin: "Check-in mondial",
-    scholarships: "Bourses",
-    planJourney: "Planifier",
-    freeConsultation: "Recevoir mon plan d'études gratuit",
+    freeConsultation: "Ücretsiz eğitim planı",
     mobilePlan: "Plan"
   }
 };
@@ -225,7 +211,7 @@ const mobileExtraItems = [
 ] as const;
 
 export function SiteHeader({ locale }: { locale: AppLocale }) {
-  const copy = navigationOverrides[locale] ?? navigationCopy[locale] ?? navigationCopy.en!;
+  const copy = navigationCopy[locale] ?? navigationCopy.en;
   const localize = (href: string) => localizePath(href, locale);
 
   return (

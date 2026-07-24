@@ -1,43 +1,44 @@
 import Link from "next/link";
-import { MapPinned, Plane, School, Sparkles, type LucideIcon } from "lucide-react";
+import { Compass, MapPinned, School, Sparkles, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { FallbackImage } from "@/components/common/fallback-image";
 import { SectionHeading } from "@/components/common/section-heading";
+import { ChinaSvgMap } from "@/components/map/china-svg-map";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
+import { getProvinceMapDisplay, getProvinceMapIntroduction } from "@/lib/province-map-introductions";
 import { provinceShowcases } from "@/lib/province-showcase";
 import { buildMetadata } from "@/lib/seo";
-import { localeCopy } from "@/lib/i18n/copy";
 
 export const metadata: Metadata = buildMetadata({
-  title: "China Province Study Guide",
-  description: "Explore Chinese provinces by universities, cities, popular majors, scholarships, travel culture, and study-life context.",
+  title: "探索中国地图",
+  description: "通过交互式中国地图了解各省份的气候、饮食、历史人文、景区、大学资源和留学生活。",
   path: "/provinces"
 });
 
 const valueCards: { Icon: LucideIcon; titleEn: string; titleZh: string; descriptionEn: string; descriptionZh: string }[] = [
   {
-    Icon: Plane,
-    titleEn: "Travel appeal",
-    titleZh: "旅行吸引力",
-    descriptionEn: "Make the Great Wall, West Lake, Zhangjiajie, Guilin, Dunhuang, and Xiamen coast part of study decisions.",
-    descriptionZh: "把长城、西湖、张家界、桂林、敦煌、厦门海岸等目的地变成留学决策的一部分。"
+    Icon: Compass,
+    titleEn: "Understand the place first",
+    titleZh: "先理解地方，再选择学校",
+    descriptionEn: "Students can compare climate, food, culture, weekend routes, and city personality before choosing universities.",
+    descriptionZh: "留学生可以先比较气候、饮食、文化、周末线路和城市气质，再决定学校。"
   },
   {
     Icon: Sparkles,
-    titleEn: "Culture",
-    titleZh: "文化体验",
-    descriptionEn: "Show food, rhythm, city personality, local culture, and weekend life beyond rankings.",
-    descriptionZh: "让学生看到食物、节奏、城市性格、地方文化和周末生活，而不是只看排名。"
+    titleEn: "See China as many Chinas",
+    titleZh: "看到不止一种中国",
+    descriptionEn: "The map shows why Beijing, Yunnan, Guangdong, Sichuan, Xinjiang, and the coast feel completely different.",
+    descriptionZh: "地图会让学生明白：北京、云南、广东、四川、新疆和沿海地区，是完全不同的中国。"
   },
   {
     Icon: School,
-    titleEn: "School pathway",
-    titleZh: "学校路径",
-    descriptionEn: "Every destination links typical schools, the full directory filter, and application consultation.",
-    descriptionZh: "每个目的地都连接典型学校、完整目录筛选和申请咨询入口。"
+    titleEn: "Connect life with universities",
+    titleZh: "把生活体验和大学资源连起来",
+    descriptionEn: "Each region links representative schools, university filters, and consultation pathways for practical decisions.",
+    descriptionZh: "每个省份都连接代表学校、大学筛选和咨询入口，让感性兴趣变成真实申请路径。"
   }
 ];
 
@@ -56,7 +57,6 @@ function topMajorsForProvince(universities: Awaited<ReturnType<typeof getAllUniv
 export default async function ProvincesPage() {
   const locale = await getLocale();
   const isZh = locale === "zh";
-  const tx = (en: string, zh: string, vi: string) => localeCopy(locale, en, zh, vi);
   const prefix = locale === "en" ? "" : `/${locale}`;
   const universities = await getAllUniversitiesView();
 
@@ -74,29 +74,31 @@ export default async function ProvincesPage() {
   });
 
   return (
-    <main>
+    <main className="bg-[#f7fbff]">
       <section className="bg-slate-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">{tx("Province destination guide", "省份目的地指南", "Hướng dẫn điểm đến theo tỉnh")}</p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight">
-              {tx("Explore China by province, campus life, and travel culture.", "按省份探索中国留学、城市生活与旅行文化。", "Khám phá du học, đời sống và văn hóa du lịch Trung Quốc theo tỉnh.")}
+            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
+              {isZh ? "探索中国地图" : "Explore China Map"}
+            </p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
+              {isZh ? "点开一张地图，先读懂中国的气候、味道和人文。" : "Open the map and understand China's climates, flavors, and cultures first."}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
               {isZh
-                ? "SilkStudy 不只是学校目录。我们把高校、城市、文化、旅行、实习和生活成本放在同一个浏览路径里，让海外学生先理解一个地方，再选择学校和专业。"
-                : "SilkStudy is not only a university directory. It connects universities, cities, culture, travel, internships, and living cost so students can understand a destination before choosing a school."}
+                ? "中国不是一个单一答案。北方有雪，西南有山，东南有海，中部有江湖，西北有丝路。对留学生来说，选学校之前先理解省份，才能找到真正适合自己的生活半径。"
+                : "China is not one single answer. Snow in the north, mountains in the southwest, sea in the southeast, rivers in the center, and Silk Road landscapes in the northwest all shape student life."}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={`${prefix}/universities`}>{tx("Browse Universities", "浏览大学", "Xem các trường đại học")}</ButtonLink>
-              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{tx("Plan Study", "规划留学", "Lập kế hoạch du học")}</ButtonLink>
+              <ButtonLink href="#china-map">{isZh ? "打开地图" : "Open Map"}</ButtonLink>
+              <ButtonLink href={`${prefix}/consultation`} variant="secondary">{isZh ? "让我们帮你匹配" : "Get Matched"}</ButtonLink>
             </div>
           </div>
           <div className="grid gap-4">
             {[
               [isZh ? "省级目的地" : "Province-level destinations", destinations.length],
-              [isZh ? "目录学校" : "Catalog universities", universities.length],
-              [isZh ? "带旅行文化故事" : "With travel context", destinations.length]
+              [isZh ? "目录大学" : "Catalog universities", universities.length],
+              [isZh ? "地图可点击介绍" : "Clickable map profiles", destinations.length]
             ].map(([label, value]) => (
               <div key={label} className="rounded-lg border border-white/10 bg-white/10 p-5">
                 <p className="text-3xl font-bold">{value}</p>
@@ -107,31 +109,44 @@ export default async function ProvincesPage() {
         </div>
       </section>
 
+      <section id="china-map" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <SectionHeading
+          eyebrow={isZh ? "交互式地图" : "Interactive Map"}
+          title={isZh ? "点击每个省份，查看它适合怎样的留学生活。" : "Click each province to see what student life feels like there."}
+          description={isZh ? "每个省份都补充了气候、饮食、历史人文、景区和适合学生类型。你不用一次读完中国，可以先从地图上找到让你心动的地方。" : "Each province includes climate, food, culture, scenery, and student-fit notes so students can start from places that feel right."}
+        />
+        <div className="mt-8">
+          <ChinaSvgMap locale={locale} />
+        </div>
+      </section>
+
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow={isZh ? "中国目的地" : "China destinations"}
-            title={isZh ? "从地图进入真实的留学生活。" : "Enter real study life from the map."}
-            description={isZh ? "每个省份页面都会连接典型学校、城市体验、旅行文化、专业方向和咨询路径。" : "Each province page connects typical schools, city experience, travel culture, majors, and the consultation pathway."}
+            eyebrow={isZh ? "省份入口" : "Province Guides"}
+            title={isZh ? "从地图进入，也可以从卡片慢慢比较。" : "Enter from the map, or compare by cards."}
+            description={isZh ? "卡片保留代表画面、学校数量和热门专业方向，适合做第二轮筛选。" : "Cards keep representative images, school counts, and popular major signals for the second round of comparison."}
           />
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {destinations.map((province) => {
-              const name = isZh ? province.zhName : province.name;
-              const summary = isZh ? province.zhTravelSummary : province.travelSummary;
-              const title = isZh ? province.zhTravelTitle : province.travelTitle;
-              const tags = isZh ? province.zhCultureTags : province.cultureTags;
-              const imageTopic = isZh ? province.zhImageTopic : province.imageTopic;
+              const display = getProvinceMapDisplay(province.slug);
+              const introduction = getProvinceMapIntroduction(province.slug);
+              const name = isZh ? display.zhName : province.name;
+              const summary = isZh ? introduction.zhStudentFit : province.travelSummary;
+              const title = isZh ? "气候、风物与留学生活" : province.travelTitle;
+              const tags = isZh ? ["气候", "饮食", "历史人文"] : province.cultureTags;
+              const imageTopic = isZh ? "城市与风物" : province.imageTopic;
 
               return (
                 <Link key={province.slug} href={`${prefix}/provinces/${province.slug}`} className="group overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-primary hover:shadow-md">
                   <div className="relative h-44">
-                    <FallbackImage src={province.image} alt={isZh ? province.zhImageAlt : province.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" referrerPolicy="no-referrer" />
+                    <FallbackImage src={province.image} alt={isZh ? `${name}城市与风物印象` : province.imageAlt} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                     <div className="absolute left-4 top-4 rounded-md border border-white/20 bg-slate-950/55 px-2.5 py-1.5 text-xs font-semibold text-white backdrop-blur">
                       {isZh ? "代表画面" : "Visual"}: {imageTopic}
                     </div>
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-secondary">{isZh ? province.zhRegion : province.region}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-secondary">{isZh ? display.zhRegion : province.region}</p>
                       <h2 className="mt-1 text-2xl font-bold">{name}</h2>
                     </div>
                   </div>
@@ -168,7 +183,7 @@ export default async function ProvincesPage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p className="flex items-center gap-3 text-xl font-bold text-ink">
             <School className="text-primary" size={24} aria-hidden="true" />
-            {isZh ? "需要按预算、专业和城市气质比较省份？" : "Need help comparing provinces by budget, major, and lifestyle?"}
+            {isZh ? "不确定哪个省份更适合你的预算、专业和性格？" : "Not sure which province fits your budget, major, and personality?"}
           </p>
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={`${prefix}/consultation`}>{isZh ? "免费咨询" : "Free Consultation"}</ButtonLink>

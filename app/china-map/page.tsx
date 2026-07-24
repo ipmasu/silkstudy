@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
-import { ChinaSvgMap } from "@/components/map/china-svg-map";
 import { ButtonLink } from "@/components/common/button-link";
+import { ChinaSvgMap } from "@/components/map/china-svg-map";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Interactive China Map",
-  description: "Explore China by province through an interactive map with destination images, culture tags, and representative universities.",
+  description: "Explore China by province through an interactive map with climate, food, culture, scenery, and representative universities.",
   path: "/china-map"
 });
 
@@ -29,13 +29,13 @@ export default async function ChinaMapPage() {
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
                 {isZh
-                  ? "这个页面保留 SilkStudy 最早的中国互动地图界面：悬停省份可以查看目的地图片、文化标签和代表学校，点击后进入对应省份页面。"
-                  : "This page preserves SilkStudy's classic interactive China map: hover a province for destination images, culture tags, and representative schools, then click through to the province guide."}
+                  ? "这个页面保留 SilkStudy 的中国互动地图。点击每个省份，可以在页面内查看气候、饮食、历史人文、景区、适合学生和代表学校。"
+                  : "This page preserves SilkStudy's interactive China map. Click each province to see climate, food, culture, scenery, student fit, and representative schools."}
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <ButtonLink href={`${prefix}/provinces`}>
-                {isZh ? "查看省份列表" : "View Province List"}
+                {isZh ? "进入探索中国地图" : "Explore China Map"}
               </ButtonLink>
               <ButtonLink href={`${prefix}/consultation`} variant="secondary">
                 {isZh ? "规划留学" : "Plan Study"}

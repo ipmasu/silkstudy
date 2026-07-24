@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { localizePath, type AppLocale } from "@/lib/i18n/routing";
 
