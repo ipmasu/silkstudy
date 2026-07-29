@@ -7,11 +7,18 @@ import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "China Scholarship Matching",
   description: "Understand Chinese national, provincial, university, and special scholarship routes for international students, with compliant SilkStudy planning support.",
   path: "/scholarships"
-});
+}),
+    locale
+  });
+}
 
 type Copy = {
   eyebrow: string;

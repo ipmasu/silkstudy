@@ -5,11 +5,18 @@ import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { localePrefix } from "@/lib/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Study in China Advantages | SilkStudy",
   description: "Understand why studying in China can be more accessible than many students imagine: lower language thresholds, English-taught programs, scholarships, and one-to-one application guidance.",
   path: "/why-china"
-});
+}),
+    locale
+  });
+}
 
 const hskRows = [
   ["山东大学", "本科预科项目（一学期）", "HSK 3 级 180 分"],

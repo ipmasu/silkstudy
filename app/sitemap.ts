@@ -1,25 +1,23 @@
 import type { MetadataRoute } from "next";
-import { getCatalogUniversities } from "@/lib/catalog/international-university-directory";
 import { getCityDestinations } from "@/lib/city-destinations";
-import { slugifyMajor } from "@/lib/major-guides";
 import { provinceShowcases } from "@/lib/province-showcase";
 import { universities } from "@/lib/site-data";
 import { absoluteUrl, localizedSeoPath, seoLanguageAlternates } from "@/lib/seo";
+import type { AppLocale } from "@/lib/i18n/routing";
+import { communityCities } from "@/lib/community-experience-data";
 
-const sitemapLocales = ["en", "zh", "ru"] as const;
+const sitemapLocales: AppLocale[] = ["en", "zh", "vi", "fr", "ru"];
 
 function safeLastModified() {
   return new Date();
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/universities", "/provinces", "/china-map", "/cities", "/life", "/community", "/majors", "/scholarships", "/scholarship-opportunities", "/why-china", "/consultation", "/culture", "/global-checkin"];
-  const catalogUniversities = getCatalogUniversities(universities);
+  const staticRoutes = ["/", "/news", "/news/chinese-mathematicians-fields-medal-2026", "/universities", "/provinces", "/china-map", "/cities", "/life", "/community", "/majors", "/scholarships", "/scholarship-opportunities", "/why-china", "/consultation", "/contact", "/culture", "/global-checkin"];
   const provinceRoutes = provinceShowcases.map((province) => `/provinces/${province.slug}`);
-  const cityRoutes = getCityDestinations(catalogUniversities).map((city) => `/cities/${city.slug}`);
-  const universityRoutes = catalogUniversities.map((university) => `/universities/${university.slug}`);
-  const majorRoutes = Array.from(new Set(catalogUniversities.flatMap((university) => university.majors).map(slugifyMajor))).map((slug) => `/majors/${slug}`);
-  const allRoutes = [...staticRoutes, ...provinceRoutes, ...cityRoutes, ...universityRoutes, ...majorRoutes];
+  const cityRoutes = getCityDestinations(universities).map((city) => `/cities/${city.slug}`);
+  const communityCityRoutes = communityCities.map((city) => `/community/cities/${city.slug}`);
+  const allRoutes = [...staticRoutes, ...provinceRoutes, ...cityRoutes, ...communityCityRoutes];
   const lastModified = safeLastModified();
 
   return allRoutes.flatMap((route) => sitemapLocales.map((locale) => {

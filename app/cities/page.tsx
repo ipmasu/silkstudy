@@ -7,12 +7,20 @@ import { getCityDestinations } from "@/lib/city-destinations";
 import { cityFilterOptions, getCityFilterTags } from "@/lib/city-filter-tags";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { buildMetadata, itemListJsonLd } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "China Student City Selector",
   description: "Choose Chinese student cities by living cost, culture, nightlife, coast, university strength, food, climate, and student-life fit.",
   path: "/cities"
-});
+}),
+    locale
+  });
+}
 
 export default async function CitiesPage() {
   const locale = await getLocale();

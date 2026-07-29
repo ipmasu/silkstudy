@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CalendarDays,
   CheckCircle2,
@@ -19,12 +20,20 @@ import { ButtonLink } from "@/components/common/button-link";
 import { SectionHeading } from "@/components/common/section-heading";
 import { localeCopy } from "@/lib/i18n/copy";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Stories and Life in China",
   description: "Real student stories, peer support, pre-arrival care, culture calendar, and practical China life guides for international students.",
   path: "/life"
-});
+}),
+    locale
+  });
+}
 
 export default async function LifePage() {
   const locale = await getLocale();

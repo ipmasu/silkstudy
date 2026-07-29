@@ -11,6 +11,7 @@ import { displayMajor } from "@/lib/i18n/display";
 import { buildDefaultMajorGuide, getMajorGuide, slugifyMajor } from "@/lib/major-guides";
 import { provinceShowcases } from "@/lib/province-showcase";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import type { Metadata } from "next";
 
 type Params = Promise<{ slug: string }>;
@@ -48,6 +49,7 @@ async function getMajorFromCatalog(slug: string) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
+  const locale = await getCurrentLocale();
   const major = await getMajorFromCatalog(slug);
 
   if (!major) return {};
@@ -55,7 +57,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return buildMetadata({
     title: `${major} Programs in China`,
     description: `Compare Chinese universities offering ${major} programs, scholarships, tuition, city fit, and application guidance.`,
-    path: `/majors/${slug}`
+    path: `/majors/${slug}`,
+    locale
   });
 }
 

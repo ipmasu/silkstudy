@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { GlobalYouthCheckin } from "@/components/global-checkin/global-youth-checkin";
 import { isAppLocale, type AppLocale } from "@/lib/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "全球青年打卡 — SilkStudy",
   description: "在 SilkStudy 全球打卡地图上展示你自己，认识想来中国学习的同路人，点亮国家并进入社区。",
   path: "/global-checkin"
-});
+}),
+    locale
+  });
+}
 
 export default async function GlobalCheckinPage() {
   const locale = await getLocale();

@@ -3,12 +3,20 @@ import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { ChinaSvgMap } from "@/components/map/china-svg-map";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Interactive China Map",
   description: "Explore China by province through an interactive map with climate, food, culture, scenery, and representative universities.",
   path: "/china-map"
-});
+}),
+    locale
+  });
+}
 
 export default async function ChinaMapPage() {
   const locale = await getLocale();

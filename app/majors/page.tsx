@@ -8,13 +8,21 @@ import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { buildDefaultMajorGuide, getMajorGuide, slugifyMajor } from "@/lib/major-guides";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { localeCopy } from "@/lib/i18n/copy";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Popular Majors in China",
   description: "Explore popular study majors in China and compare universities, cities, scholarships, requirements, and career pathways.",
   path: "/majors"
-});
+}),
+    locale
+  });
+}
 
 const valueCards: { Icon: LucideIcon; titleEn: string; titleZh: string; descriptionEn: string; descriptionZh: string }[] = [
   {

@@ -12,6 +12,7 @@ import { getProvinceInsight } from "@/lib/province-insights";
 import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getProvinceTourismGuide } from "@/lib/province-tourism-guides";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { getTravelEditorialNotes } from "@/lib/travel-content-profiles";
 import type { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const locale = await getCurrentLocale();
   const province = getProvinceShowcase(slug);
 
   if (!province) return {};
@@ -26,7 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: `Study in ${province.name}`,
     description: `Study in ${province.name}, China. Compare universities, cities, living costs, travel culture, majors, scholarships, and application planning with SilkStudy.`,
-    path: `/provinces/${province.slug}`
+    path: `/provinces/${province.slug}`,
+    locale
   });
 }
 

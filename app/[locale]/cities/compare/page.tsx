@@ -1,2 +1,2 @@
-export { default, metadata } from "@/app/cities/compare/page";
+export { default, generateMetadata } from "@/app/cities/compare/page";
 

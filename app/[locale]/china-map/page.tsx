@@ -1,1 +1,1 @@
-export { default, metadata } from "@/app/china-map/page";
+export { default, generateMetadata } from "@/app/china-map/page";

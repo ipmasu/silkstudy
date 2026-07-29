@@ -10,7 +10,11 @@ import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Study in China with Scholarships | SilkStudy",
   description: "SilkStudy helps global young people find Chinese universities, scholarships, cities, majors, Chinese-language pathways, and free study consultation.",
   keywords: [
@@ -21,7 +25,10 @@ export const metadata: Metadata = buildMetadata({
     "CSC scholarship",
     "SilkStudy"
   ]
-});
+}),
+    locale
+  });
+}
 
 type LocaleCopy = {
   eyebrow: string;

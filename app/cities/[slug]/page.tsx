@@ -20,10 +20,12 @@ import { getCityStudentLifeGuide } from "@/lib/city-student-life-guides";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { breadcrumbJsonLd, buildMetadata, cityJsonLd } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const locale = await getCurrentLocale();
   const universities = await getAllUniversitiesView();
   const city = getCityDestination(slug, universities);
 
@@ -32,7 +34,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: `Study in ${city.name}`,
     description: `Study in ${city.name}, China. Explore universities, living costs, scholarships, student life, culture, city guides, and free SilkStudy consultation.`,
-    path: `/cities/${city.slug}`
+    path: `/cities/${city.slug}`,
+    locale
   });
 }
 

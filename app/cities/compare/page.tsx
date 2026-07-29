@@ -1,14 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "City Comparison — SilkStudy",
   description: "Compare Chinese student cities by living cost, university count, climate, culture, and student-life fit.",
   path: "/cities/compare"
-});
+}),
+    locale
+  });
+}
 
 type PageProps = {
   searchParams: Promise<{ cities?: string }>;

@@ -7,11 +7,18 @@ import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata } from "@/lib/seo";
 import { scholarshipOpportunities } from "@/lib/scholarship-opportunities";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "China Scholarship Opportunity Watchlist",
   description: "A SilkStudy watchlist of Chinese university scholarship opportunities to verify early, especially lower-cost and high-value routes many international students miss.",
   path: "/scholarship-opportunities"
-});
+}),
+    locale
+  });
+}
 
 export default async function ScholarshipOpportunitiesPage() {
   const locale = await getCurrentLocale();

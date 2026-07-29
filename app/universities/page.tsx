@@ -6,12 +6,20 @@ import { UniversitySelector } from "@/components/universities/university-selecto
 import { getCityDestinations } from "@/lib/city-destinations";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { buildMetadata, itemListJsonLd } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Chinese University Selector",
   description: "Search, filter, sort, and compare Chinese universities by city, QS ranking, tuition, major field, CSC scholarship, and university type.",
   path: "/universities"
-});
+}),
+    locale
+  });
+}
 
 export default async function UniversitiesPage() {
   const locale = await getLocale();

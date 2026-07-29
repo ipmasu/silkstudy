@@ -10,11 +10,18 @@ import { buildMetadata } from "@/lib/seo";
 
 const articlePath = "/news/chinese-mathematicians-fields-medal-2026";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "中国数学家王虹、邓煜斩获2026年菲尔兹奖",
   description: "中国数学家王虹、邓煜获得2026年菲尔兹奖，标志着中国基础学科教育与数学研究的一次历史性突破。",
   path: articlePath
-});
+}),
+    locale
+  });
+}
 
 const paragraphs = [
   "当地时间7月23日，2026年国际数学家大会在美国费城开幕。国际数学联盟公布第二十一届菲尔兹奖得主名单，中国青年数学家王虹与邓煜双双获奖。这是中国籍数学家首次摘得这一被誉为“数学界诺贝尔奖”的重要荣誉，也是一届诞生两位中国获奖者的历史性突破。",

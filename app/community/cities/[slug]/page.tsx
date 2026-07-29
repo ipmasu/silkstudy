@@ -10,6 +10,7 @@ import {
   type CommunityCitySlug
 } from "@/lib/community-experience-data";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
 type PageProps = {
   params: Promise<{ slug: CommunityCitySlug }>;
@@ -21,18 +22,21 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
+  const locale = await getCurrentLocale();
   const city = communityCities.find((item) => item.slug === slug);
   if (!city) {
     return buildMetadata({
       title: "City Circle — SilkStudy Community",
       description: "Join SilkStudy city circles for international students in China.",
-      path: "/community"
+      path: "/community",
+      locale
     });
   }
   return buildMetadata({
     title: `${city.name}圈子 — SilkStudy Community`,
     description: `Join the ${city.enName} city circle on SilkStudy. Read student posts, meet friends, and discover upcoming events.`,
-    path: `/community/cities/${city.slug}`
+    path: `/community/cities/${city.slug}`,
+    locale
   });
 }
 
@@ -159,4 +163,3 @@ export default async function CommunityCityPage({ params }: PageProps) {
     </main>
   );
 }
-

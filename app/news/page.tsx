@@ -8,11 +8,18 @@ import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "Education News",
   description: "China and global education news for international students: study in China, scholarships, admissions, policy updates, Chinese learning, and student stories.",
   path: "/news"
-});
+}),
+    locale
+  });
+}
 
 type Article = {
   category: string;

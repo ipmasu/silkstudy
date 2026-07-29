@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { supportedLocales, type AppLocale } from "@/lib/i18n/routing";
 
 const siteName = "SilkStudy";
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.silkstudy.com";
-const seoLocales = ["en", "zh", "ru"] as const;
+const seoLocales = supportedLocales;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, baseUrl).toString();
 }
 
-export function localizedSeoPath(path: string, locale: (typeof seoLocales)[number]) {
+export function localizedSeoPath(path: string, locale: AppLocale) {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   if (locale === "en") return normalized;
   return normalized === "/" ? `/${locale}` : `/${locale}${normalized}`;
@@ -26,15 +27,18 @@ export function buildMetadata({
   description,
   path = "/",
   keywords = [],
-  image = "/images/campus-hero.png"
+  image = "/images/campus-hero.png",
+  locale
 }: {
   title: string;
   description: string;
   path?: string;
   keywords?: string[];
   image?: string;
+  locale?: AppLocale;
 }): Metadata {
-  const url = absoluteUrl(path);
+  const canonicalPath = localizedSeoPath(path, locale ?? "en");
+  const url = absoluteUrl(canonicalPath);
   const imageUrl = absoluteUrl(image);
 
   return {

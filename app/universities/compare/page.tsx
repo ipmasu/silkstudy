@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "University Comparison — SilkStudy",
   description: "Compare selected Chinese universities by QS ranking, city, tuition, scholarship, type, and strong majors.",
   path: "/universities/compare"
-});
+}),
+    locale
+  });
+}
 
 type PageProps = {
   searchParams: Promise<{ schools?: string }>;

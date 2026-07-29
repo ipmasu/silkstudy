@@ -1,1 +1,1 @@
-export { default, metadata } from "@/app/global-checkin/page";
+export { default, generateMetadata } from "@/app/global-checkin/page";

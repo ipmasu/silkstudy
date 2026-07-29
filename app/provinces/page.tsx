@@ -11,12 +11,20 @@ import { displayMajor } from "@/lib/i18n/display";
 import { getProvinceMapDisplay, getProvinceMapIntroduction } from "@/lib/province-map-introductions";
 import { provinceShowcases } from "@/lib/province-showcase";
 import { buildMetadata } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export const metadata: Metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "探索中国地图",
   description: "通过交互式中国地图了解各省份的气候、饮食、历史人文、景区、大学资源和留学生活。",
   path: "/provinces"
-});
+}),
+    locale
+  });
+}
 
 const valueCards: { Icon: LucideIcon; titleEn: string; titleZh: string; descriptionEn: string; descriptionZh: string }[] = [
   {

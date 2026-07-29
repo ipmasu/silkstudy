@@ -35,11 +35,13 @@ import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getScholarshipDetails } from "@/lib/scholarship-details";
 import { getUniversityAdmissionsGuide } from "@/lib/university-admissions-guides";
 import { breadcrumbJsonLd, buildMetadata, universityJsonLd } from "@/lib/seo";
+import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import type { University } from "@/lib/site-data";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const locale = await getCurrentLocale();
   const university = await getUniversityCatalogView(slug);
 
   if (!university) return {};
@@ -47,7 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: `${university.name} International Students`,
     description: `${university.name}${university.chineseName ? ` (${university.chineseName})` : ""} in ${university.location}. Compare programs, tuition, scholarships, application requirements, campus life, and free SilkStudy consultation.`,
-    path: `/universities/${university.slug}`
+    path: `/universities/${university.slug}`,
+    locale
   });
 }
 

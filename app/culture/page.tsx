@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/common/button-link";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { localePrefix } from "@/lib/i18n/routing";
@@ -5,7 +6,11 @@ import { buildMetadata } from "@/lib/seo";
 import { BookOpenText, CalendarHeart, Coffee, Compass, Globe2, HeartHandshake, Languages, MessageCircleHeart, PenLine, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-export const metadata = buildMetadata({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+
+  return buildMetadata({
+    ...({
   title: "中国文化体验 — SilkStudy",
   description: "在申请大学之前，先爱上中国。了解中国的美食、节日、历史、艺术和青年文化——5000年的故事，正等着你的篇章。",
   path: "/culture",
@@ -18,7 +23,10 @@ export const metadata = buildMetadata({
     "international students in China"
   ],
   image: "/images/student-city-life.png"
-});
+}),
+    locale
+  });
+}
 
 const heroImage = "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2200&q=85";
 const sectionImages = [
