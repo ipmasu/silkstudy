@@ -150,13 +150,211 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceLabel: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:East_gate_of_Capital_Medical_University_%2820201106165430%29.jpg"
   },
+  "beijing-film-academy": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/b7fd5266d0160924ab18cfb6b95b22fae6cd7b899e50?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Beijing Film Academy",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20Film%20Academy"
+  },
+  "beijing-forestry-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf1d829e510ed8bc3eb135e4f7?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Beijing Forestry University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20Forestry%20University"
+  },
+  "beijing-international-studies-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/c8177f3e6709c93d70cfd6092768efdcd100bba1fe8d?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Beijing International Studies University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20International%20Studies%20University"
+  },
+  "beijing-university-of-chemical-technology": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/9345d688d43f8794a4c254de5c4719f41bd5ac6e8cb5?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Beijing University of Chemical Technology",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20University%20of%20Chemical%20Technology"
+  },
+  "beijing-university-of-technology": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/fd039245d688d43f87948c1af342c51b0ef41ad58d9d?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Beijing University of Technology",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20University%20of%20Technology"
+  },
+  "capital-normal-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/4a36acaf2edda3cc336591c10ce93901203f9249?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Capital Normal University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Capital%20Normal%20University"
+  },
+  "capital-university-of-economics-and-business": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/e1fe9925bc315c6034a8e6a247f8dc1349540923d96e?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Capital University of Economics and Business",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Capital%20University%20of%20Economics%20and%20Business"
+  },
+  "central-china-normal-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/f7246b600c338744ebf8b9f8df53cef9d72a61590ab8?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Central China Normal University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Central%20China%20Normal%20University"
+  },
+  "central-conservatory-of-music": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/b64543a98226cffc1e17d97b2d595d90f603728dbcf8?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Central Conservatory of Music",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Central%20Conservatory%20of%20Music"
+  },
+  "central-university-of-finance-and-economics": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/7aec54e736d12f2eb93840bbc19ec2628535e4ddc2e1?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Central University of Finance and Economics",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Central%20University%20of%20Finance%20and%20Economics"
+  },
+  "chang-an-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/29381f30e924b899b028b2b86b061d950a7bf61e?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Chang'an University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Chang'an%20University"
+  },
+  "changchun-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/8718367adab44aed2e732ad5e6419001a18b87d64df6?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Changchun University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Changchun%20University"
+  },
+  "changchun-university-of-chinese-medicine": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/4034970a304e251f95ca4199a9dfde177f3e6709f503?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Changchun University of Chinese Medicine",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Changchun%20University%20of%20Chinese%20Medicine"
+  },
+  "changchun-university-of-science-and-technology": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/d01373f082025aafa40fe6dfd1b6bc64034f78f0acd6?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Changchun University of Science and Technology",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Changchun%20University%20of%20Science%20and%20Technology"
+  },
+  "china-agricultural-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/0eb30f2442a7d933c895a342f317c61373f08202abf4?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Agricultural University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Agricultural%20University"
+  },
+  "china-conservatory-of-music": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970ac957948a9ecad1c8a7865d6b?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Conservatory of Music",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Conservatory%20of%20Music"
+  },
+  "china-foreign-affairs-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/b8389b504fc2d5628535ecee834d87ef76c6a7efc626?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Foreign Affairs University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Foreign%20Affairs%20University"
+  },
+  "china-medical-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/0df3d7ca7bcb0a46f21f3d15cc34e1246b600c3301dd?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Medical University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Medical%20University"
+  },
+  "china-pharmaceutical-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/6a600c338744ebf81a4c308208a1c02a6059252d094f?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Pharmaceutical University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Pharmaceutical%20University"
+  },
+  "china-three-gorges-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/6a63f6246b600c338744491d9410460fd9f9d62a0beb?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China Three Gorges University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20Three%20Gorges%20University"
+  },
+  "china-university-of-mining-and-technology": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/023b5bb5c9ea15ce36d3c3089f5b2df33a87e9501425?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China University of Mining and Technology",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20University%20of%20Mining%20and%20Technology"
+  },
+  "china-university-of-political-science-and-law": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/d000baa1cd11728b47109bb043a0d4cec3fdfc038657?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for China University of Political Science and Law",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/China%20University%20of%20Political%20Science%20and%20Law"
+  },
+  "chongqing-jiaotong-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/203fb80e7bec54e736d148c5b9638c504fc2d4623cef?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Chongqing Jiaotong University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Chongqing%20Jiaotong%20University"
+  },
+  "chongqing-medical-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/96dda144ad345982b2b7a688d3ad26adcbef76092e2d?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Chongqing Medical University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Chongqing%20Medical%20University"
+  },
+  "communication-university-of-china": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/72f082025aafa40f4bfb8e7bc838144f78f0f736b35b?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Communication University of China",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Communication%20University%20of%20China"
+  },
+  "dalian-jiaotong-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/cf1b9d16fdfaaf51f3debd7be20883eef01f3b29ccf9?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Dalian Jiaotong University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Dalian%20Jiaotong%20University"
+  },
+  "dalian-medical-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/4b90f603738da9773912d34b3e0def198618367a4504?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Dalian Medical University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Dalian%20Medical%20University"
+  },
+  "dalian-polytechnic-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/c75c10385343fbf2b211481bdf22dd8065380cd721cc?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Dalian Polytechnic University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Dalian%20Polytechnic%20University"
+  },
+  "dalian-university-of-foreign-languages": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/241f95cad1c8a786c91708174d52de3d70cf3bc7fa2d?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Dalian University of Foreign Languages",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Dalian%20University%20of%20Foreign%20Languages"
+  },
+  "donghua-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/7af40ad162d9f2d3572cf2c383b79d13632762d066d1?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Donghua University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Donghua%20University"
+  },
+  "shanghai-university": {
+    gateImage: "https://bkimg.cdn.bcebos.com/pic/bf096b63f6246b600c331cc97fa40d4c510fd9f90443?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
+    gateAlt: "Baidu Baike image for Shanghai University",
+    sourceLabel: "Baidu Baike",
+    sourceUrl: "https://wapbaike.baidu.com/item/Shanghai%20University"
+  },
+  "renmin-university-of-china": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/RenminUniversitypic1.jpg?width=1200",
+    gateAlt: "Campus of Renmin University of China",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:RenminUniversitypic1.jpg"
+  },
+  "minzu-university-of-china": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/South_gate_of_Minzu_University_of_China%2C_Fengtai_Campus_%2820230911142308%29.jpg?width=1200",
+    gateAlt: "South Gate of Minzu University of China Fengtai Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:South_gate_of_Minzu_University_of_China%2C_Fengtai_Campus_%2820230911142308%29.jpg"
+  },
   "university-of-science-and-technology-of-china": {
     gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate_of_University_of_Science_and_Technology_of_China_%28180405%29.jpg?width=1200",
     gateAlt: "Gate of University of Science and Technology of China",
     sourceLabel: "Wikimedia Commons · CC BY-SA 4.0",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Gate_of_University_of_Science_and_Technology_of_China_%28180405%29.jpg"
   },
-  "xian-jiaotong-university": {
+  "xi-an-jiaotong-university": {
     gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/XJTU_Main_Gate.JPG?width=1200",
     gateAlt: "Main Gate of Xi'an Jiaotong University",
     sourceLabel: "Wikimedia Commons · CC BY-SA 3.0",
@@ -276,7 +474,7 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceLabel: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6_-_%E6%99%AE%E6%B4%B1%E6%A0%A1%E5%8C%BA_-_2024-10-07_01.jpg"
   },
-  "yunnan-minzu-university": {
+  "yunnan-university-of-nationalities": {
     gateImage: "https://upload.wikimedia.org/wikipedia/commons/3/31/The_main_gate_of_Yunnan_Nationalities_University_%28Chenggong_Campus%29.jpg",
     gateAlt: "Chenggong Campus gate of Yunnan Minzu University",
     sourceLabel: "Wikimedia Commons",
