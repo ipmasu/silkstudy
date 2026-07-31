@@ -96,6 +96,60 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceLabel: "Wikimedia Commons · CC BY-SA 4.0",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:East_gate_of_Beijing_Normal_University_%2820200921153346%29.jpg"
   },
+  "beijing-foreign-studies-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Librarybfsu.jpg?width=1200",
+    gateAlt: "Library of Beijing Foreign Studies University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Librarybfsu.jpg"
+  },
+  "beijing-institute-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Lake_of_Beijing_Institute_of_Technology_Liangxiang_Campus.jpg?width=1200",
+    gateAlt: "Liangxiang Campus lake at Beijing Institute of Technology",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lake_of_Beijing_Institute_of_Technology_Liangxiang_Campus.jpg"
+  },
+  "beijing-jiaotong-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Librery_Jiaoda.JPG?width=1200",
+    gateAlt: "Library of Beijing Jiaotong University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Librery_Jiaoda.JPG"
+  },
+  "beijing-language-and-culture-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/South_gate_of_BLCU_%2820230206132105%29.jpg?width=1200",
+    gateAlt: "South Gate of Beijing Language and Culture University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:South_gate_of_BLCU_%2820230206132105%29.jpg"
+  },
+  "beijing-university-of-posts-and-telecommunications": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/BUPT_Shahe_Campus_%2820231202143149%29.jpg?width=1200",
+    gateAlt: "Shahe Campus of Beijing University of Posts and Telecommunications",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:BUPT_Shahe_Campus_%2820231202143149%29.jpg"
+  },
+  "beijing-sport-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Main_gate_of_Beijing_Sport_University_%2820220801123406%29.jpg?width=1200",
+    gateAlt: "Main Gate of Beijing Sport University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Main_gate_of_Beijing_Sport_University_%2820220801123406%29.jpg"
+  },
+  "beijing-technology-and-business-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Library_of_Beijing_Technology_and_Business_University.jpg?width=1200",
+    gateAlt: "Library of Beijing Technology and Business University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Library_of_Beijing_Technology_and_Business_University.jpg"
+  },
+  "beijing-university-of-chinese-medicine": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Beijing_University_of_Chinese_Medicine_%2820210914135137%29.jpg?width=1200",
+    gateAlt: "Campus of Beijing University of Chinese Medicine",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Beijing_University_of_Chinese_Medicine_%2820210914135137%29.jpg"
+  },
+  "capital-medical-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/East_gate_of_Capital_Medical_University_%2820201106165430%29.jpg?width=1200",
+    gateAlt: "East Gate of Capital Medical University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:East_gate_of_Capital_Medical_University_%2820201106165430%29.jpg"
+  },
   "university-of-science-and-technology-of-china": {
     gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate_of_University_of_Science_and_Technology_of_China_%28180405%29.jpg?width=1200",
     gateAlt: "Gate of University of Science and Technology of China",
@@ -125,6 +179,66 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     gateAlt: "Entrance of Shandong University",
     sourceLabel: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Entrance_of_Shandong_University.jpg"
+  },
+  "east-china-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/East_China_Normal_University_-_Minhang_campus_2.jpg?width=1200",
+    gateAlt: "Minhang Campus of East China Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:East_China_Normal_University_-_Minhang_campus_2.jpg"
+  },
+  "chongqing-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing_University_Main_Entrance.jpg?width=1200",
+    gateAlt: "Main Entrance of Chongqing University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Chongqing_University_Main_Entrance.jpg"
+  },
+  "chongqing-university-of-posts-and-telecommunications": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Tengfei_Gate_Chongqing_University_of_Posts_and_Telecommunications.jpg?width=1200",
+    gateAlt: "Tengfei Gate of Chongqing University of Posts and Telecommunications",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Tengfei_Gate_Chongqing_University_of_Posts_and_Telecommunications.jpg"
+  },
+  "dalian-university-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Dalian_University_of_Technology.jpg?width=1200",
+    gateAlt: "Campus of Dalian University of Technology",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Dalian_University_of_Technology.jpg"
+  },
+  "fuzhou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/20240404_%E7%A6%8F%E5%B7%9E%E5%A4%A7%E5%AD%A6%E6%80%A1%E5%B1%B1%E6%A0%A1%E5%8C%BA.jpg?width=1200",
+    gateAlt: "Yishan Campus of Fuzhou University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:20240404_%E7%A6%8F%E5%B7%9E%E5%A4%A7%E5%AD%A6%E6%80%A1%E5%B1%B1%E6%A0%A1%E5%8C%BA.jpg"
+  },
+  "guangxi-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Guangxi_University.JPG?width=1200",
+    gateAlt: "Campus view of Guangxi University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Guangxi_University.JPG"
+  },
+  "hangzhou-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Exit_C_of_Cangqian_Campus%2C_Hangzhou_Normal_University_Station%2C_202410.jpg?width=1200",
+    gateAlt: "Cangqian Campus area of Hangzhou Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Exit_C_of_Cangqian_Campus%2C_Hangzhou_Normal_University_Station%2C_202410.jpg"
+  },
+  "china-academy-of-art": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Exit_D_of_Xiangshan_Campus%2C_CAA_of_Hangzhou_Metro_Line_6_20241220.jpg?width=1200",
+    gateAlt: "Xiangshan Campus area of China Academy of Art",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Exit_D_of_Xiangshan_Campus%2C_CAA_of_Hangzhou_Metro_Line_6_20241220.jpg"
+  },
+  "hunan-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/20231002_Hunan_Daxue.jpg?width=1200",
+    gateAlt: "Hunan University campus in Changsha",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:20231002_Hunan_Daxue.jpg"
+  },
+  "hunan-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Hunan_Normal_University_16.JPG?width=1200",
+    gateAlt: "Campus of Hunan Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Hunan_Normal_University_16.JPG"
   },
   "central-south-university": {
     gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Hall_of_Information%2C_New_Campus%2C_Central_South_University%2C_China%2C_Sep_2020.jpg?width=1200",
