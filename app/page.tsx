@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/common/json-ld";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
-import { Award, BookOpen, Globe2, Rocket, ShieldCheck } from "lucide-react";
+import { Award, BookOpen, Globe2, HeartHandshake, MapPinned, Rocket, ShieldCheck, Train } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -70,14 +70,16 @@ const copy: Record<string, LocaleCopy> = {
     searchPlaceholder: "Search university, major, city, or scholarship route",
     stats: [["Scholarship routes", "national, provincial, city, university, and special"], ["Catalog schools", "Chinese universities for international students"], ["Languages", "built for students who want China and Chinese language"]],
     missionTitle: "Why this site exists",
-    missionBody: "We want more young people to understand today's China directly: its universities, cities, high-speed development, technology, culture, and daily life. Study abroad is not only a degree. It is a bridge for mutual trust, language learning, and long-term cooperation.",
-    reasonsTitle: "Scholarships can open the door to China.",
-    reasonsBody: "Some scholarships can waive tuition and may include accommodation or living support. More importantly, studying here lets students share the dividend of China's fast, high-quality development while learning Chinese and building real exchange.",
+    missionBody: "We want more young people to understand today's China directly: its universities, friendly people, safe cities, high-speed rail, technology, culture, landscapes, and daily life. Study abroad is not only a degree. It is a bridge for mutual trust, language learning, and long-term cooperation.",
+    reasonsTitle: "Why China is worth choosing now.",
+    reasonsBody: "China gives international students a rare combination: generous scholarships, a safe and welcoming society, fast-growing industries, open international connections, vast landscapes, and one of the world's most convenient transport networks. One study-abroad destination can become many very different life experiences.",
     reasons: [
       { icon: Award, title: "Rich scholarships", body: "CSC, provincial, municipal, university, and special scholarships may reduce or fully cover study costs." },
-      { icon: Rocket, title: "Fast high-quality development", body: "China is a living classroom for AI, new energy, e-commerce, smart manufacturing, infrastructure, and modern services." },
-      { icon: BookOpen, title: "Chinese language advantage", body: "Learning Chinese in China gives students language, culture, and career advantages that are hard to copy elsewhere." },
-      { icon: ShieldCheck, title: "Stable study life", body: "Well-managed campuses, public transport, and city services help families feel safer about sending students abroad." }
+      { icon: HeartHandshake, title: "Friendly, everyday warmth", body: "Many students are surprised by how welcoming classmates, teachers, local families, and city communities can be." },
+      { icon: ShieldCheck, title: "A safe study environment", body: "Stable cities, well-managed campuses, and mature public services help students and families feel more at ease." },
+      { icon: Rocket, title: "Fast high-quality development", body: "China is a living classroom for AI, robotics, new energy, e-commerce, smart manufacturing, infrastructure, and modern services." },
+      { icon: MapPinned, title: "One country, many landscapes", body: "Snow cities, deserts, grasslands, mountains, river towns, megacities, and tropical coasts can all become weekend or holiday journeys." },
+      { icon: Train, title: "High-speed mobility", body: "High-speed rail, metro systems, mobile payments, and delivery networks make it easier for students to study, travel, and live independently." }
     ],
     scholarshipTitle: "The scholarship attraction is real",
     scholarshipBody: "For many families, the decisive point is simple: a strong Chinese university plus a scholarship can be more realistic than an expensive self-funded route elsewhere.",
@@ -102,14 +104,16 @@ const copy: Record<string, LocaleCopy> = {
     searchPlaceholder: "搜索大学、专业、城市或奖学金方向",
     stats: [["奖学金类型", "国家、省市、学校、专项多层次"], ["学校目录", "面向国际学生的中国高校"], ["目标学生", "想来中国，也愿意学习中文的年轻人"]],
     missionTitle: "我们做这个网站的目的",
-    missionBody: "我们希望让更多国家的年轻人直接了解今天的中国：大学、城市、高铁、科技、文化和真实生活。留学不只是拿文凭，更是增进中国与各国之间理解、信任、语言学习和长期合作的桥梁。",
-    reasonsTitle: "中国留学可以做到免学费，也有机会获得生活补助。",
-    reasonsBody: "国家、省市、学校和专项奖学金非常丰富，部分项目可覆盖学费、住宿甚至生活支持。对学生来说，这不仅是降低留学成本，更是亲身来到中国、学习中文、享受中国高速高质量发展红利的机会。",
+    missionBody: "我们希望让更多国家的年轻人直接了解今天的中国：友好的人民、安全的城市、开放的社会、高铁网络、前沿产业、辽阔山河、大学资源和真实生活。留学不只是拿文凭，更是增进中国与各国之间理解、信任、语言学习和长期合作的桥梁。",
+    reasonsTitle: "为什么现在值得来中国留学？",
+    reasonsBody: "中国给国际学生的吸引力不是单一的：奖学金丰富，社会安全，人民友好，人工智能、机器人、新能源、电子商务等产业发展迅猛，国家开放而充满机会；同时中国幅员辽阔，从雪国北方到热带海岸，从高原山川到江南水乡，一个国家就能见识非常差异化的地貌与生活方式。发达的高铁和城市交通，也让学习、旅行和探索变得更容易。",
     reasons: [
       { icon: Award, title: "奖学金丰富", body: "CSC、省市、学校和专项奖学金，部分项目可大幅降低成本，甚至覆盖学费和生活支持。" },
-      { icon: Rocket, title: "高速高质量发展", body: "中国是理解人工智能、新能源、电商、智能制造、基础设施和现代服务业的真实课堂。" },
-      { icon: BookOpen, title: "中文能力红利", body: "在中国学习中文，不只是语言学习，也是在获得文化理解、就业和合作优势。" },
-      { icon: ShieldCheck, title: "稳定安全的生活", body: "成熟交通、校园管理和城市服务，让家长和学生更安心地选择中国。" }
+      { icon: HeartHandshake, title: "中国人民友好", body: "很多留学生真正留下来的理由，往往来自同学、老师、邻居和城市里普通人的善意与热情。" },
+      { icon: ShieldCheck, title: "国家特别安全", body: "稳定的社会环境、成熟的校园管理和城市公共服务，让学生能更安心地学习和生活。" },
+      { icon: Rocket, title: "前沿产业迅猛发展", body: "人工智能、机器人、新能源、电子商务、智能制造和数字经济，都是可以亲眼观察、亲身参与的真实课堂。" },
+      { icon: MapPinned, title: "一个国家，多种风景", body: "中国足够辽阔：雪国、沙漠、草原、高原、江南水乡、山城、海岛和超大城市，都能成为留学生活的一部分。" },
+      { icon: Train, title: "高铁交通发达", body: "高铁、地铁、移动支付和城市服务网络，让学生更容易跨城市探索中国，也更容易独立生活。" }
     ],
     scholarshipTitle: "奖学金就是最大的吸引力之一",
     scholarshipBody: "对很多家庭来说，关键很直接：一所不错的中国大学，加上高覆盖奖学金，可能比去其他国家高额自费更现实。",
@@ -543,9 +547,7 @@ export default async function HomePage() {
   const heroSubtitle = isZh
     ? "选一座城市，住下来，慢慢探索。学习、旅行、交朋友——参与正在发生的未来。"
     : c.subtitle;
-  const missionBody = isZh
-    ? "在中国留学，你得到的不仅是一个学位——还有高铁上的移动课堂、夜市里的文化课，以及一个正在改变世界的国家的第一手体验。"
-    : c.missionBody;
+  const missionBody = c.missionBody;
 
   return (
     <main>
