@@ -151,16 +151,16 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceUrl: "https://commons.wikimedia.org/wiki/File:East_gate_of_Capital_Medical_University_%2820201106165430%29.jpg"
   },
   "beijing-film-academy": {
-    gateImage: "https://bkimg.cdn.bcebos.com/pic/b7fd5266d0160924ab18cfb6b95b22fae6cd7b899e50?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
-    gateAlt: "Baidu Baike image for Beijing Film Academy",
-    sourceLabel: "Baidu Baike",
-    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20Film%20Academy"
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20Beijing%20Film%20Academy%20(20220728152655).jpg?width=1200",
+    gateAlt: "Gate of Beijing Film Academy",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Gate_of_Beijing_Film_Academy_(20220728152655).jpg"
   },
   "beijing-forestry-university": {
-    gateImage: "https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf1d829e510ed8bc3eb135e4f7?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
-    gateAlt: "Baidu Baike image for Beijing Forestry University",
-    sourceLabel: "Baidu Baike",
-    sourceUrl: "https://wapbaike.baidu.com/item/Beijing%20Forestry%20University"
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Beijing%20Forestry%20University%20(53670020).jpeg?width=1200",
+    gateAlt: "Campus of Beijing Forestry University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Beijing_Forestry_University_(53670020).jpeg"
   },
   "beijing-international-studies-university": {
     gateImage: "https://bkimg.cdn.bcebos.com/pic/c8177f3e6709c93d70cfd6092768efdcd100bba1fe8d?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
@@ -235,10 +235,10 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceUrl: "https://wapbaike.baidu.com/item/Changchun%20University%20of%20Science%20and%20Technology"
   },
   "china-agricultural-university": {
-    gateImage: "https://bkimg.cdn.bcebos.com/pic/0eb30f2442a7d933c895a342f317c61373f08202abf4?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
-    gateAlt: "Baidu Baike image for China Agricultural University",
-    sourceLabel: "Baidu Baike",
-    sourceUrl: "https://wapbaike.baidu.com/item/China%20Agricultural%20University"
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E8%A5%BF%E6%A0%A1%E5%8C%BA%E4%B8%BB%E6%A5%BC.JPG?width=1200",
+    gateAlt: "West Campus main building of China Agricultural University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E8%A5%BF%E6%A0%A1%E5%8C%BA%E4%B8%BB%E6%A5%BC.JPG"
   },
   "china-conservatory-of-music": {
     gateImage: "https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970ac957948a9ecad1c8a7865d6b?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
@@ -331,10 +331,118 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     sourceUrl: "https://wapbaike.baidu.com/item/Donghua%20University"
   },
   "shanghai-university": {
-    gateImage: "https://bkimg.cdn.bcebos.com/pic/bf096b63f6246b600c331cc97fa40d4c510fd9f90443?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70",
-    gateAlt: "Baidu Baike image for Shanghai University",
-    sourceLabel: "Baidu Baike",
-    sourceUrl: "https://wapbaike.baidu.com/item/Shanghai%20University"
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/SHU%20library%20in%20Baoshan.jpg?width=1200",
+    gateAlt: "Library at Shanghai University Baoshan Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:SHU_library_in_Baoshan.jpg"
+  },
+  "shanghai-international-studies-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/SISU's%20library%20building%20in%20Songjiang%20campus.jpg?width=1200",
+    gateAlt: "Library building at Shanghai International Studies University Songjiang Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:SISU's_library_building_in_Songjiang_campus.jpg"
+  },
+  "shanghai-maritime-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Maritime%20University.jpg?width=1200",
+    gateAlt: "Campus of Shanghai Maritime University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Shanghai_Maritime_University.jpg"
+  },
+  "shanghai-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Normal%20University%20(Xuhui%20Campus).jpg?width=1200",
+    gateAlt: "Xuhui Campus of Shanghai Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Shanghai_Normal_University_(Xuhui_Campus).jpg"
+  },
+  "shenzhen-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Shenzhen%20University%20Library%20(Huidian%20building).jpg?width=1200",
+    gateAlt: "Huidian Library building at Shenzhen University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Shenzhen_University_Library_(Huidian_building).jpg"
+  },
+  "jilin-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20panorama%20of%20Nanling%20Campus%20of%20Jilin%20University.jpg?width=1200",
+    gateAlt: "Panorama of Nanling Campus of Jilin University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:A_panorama_of_Nanling_Campus_of_Jilin_University.jpg"
+  },
+  "lanzhou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/LZU%20Library.jpg?width=1200",
+    gateAlt: "Library of Lanzhou University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:LZU_Library.jpg"
+  },
+  "southwest-jiaotong-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Lake%20in%20Jiuli%20Campus%20of%20SWJTU.jpg?width=1200",
+    gateAlt: "Lake at Jiuli Campus of Southwest Jiaotong University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Lake_in_Jiuli_Campus_of_SWJTU.jpg"
+  },
+  "changsha-university-of-science-and-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Changsha%20University%20of%20Science%20and%20Technology15.jpg?width=1200",
+    gateAlt: "Campus of Changsha University of Science and Technology",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Changsha_University_of_Science_and_Technology15.jpg"
+  },
+  "east-china-university-of-political-science-and-law": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20ECUPL%2C%20Changning%20Campus-20221120.jpg?width=1200",
+    gateAlt: "Gate of East China University of Political Science and Law Changning Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Gate_of_ECUPL,_Changning_Campus-20221120.jpg"
+  },
+  "east-china-university-of-science-and-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Library%20at%20Fengxian%2C%20ECUST.jpg?width=1200",
+    gateAlt: "Library at East China University of Science and Technology Fengxian Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Library_at_Fengxian,_ECUST.jpg"
+  },
+  "shanghai-university-of-finance-and-economics": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Guoding%20Road%20Campus%20Exit%20of%20Shanghai%20University%20of%20Finance%20and%20Economics%20Station%20in%20Shanghai%202025.jpg?width=1200",
+    gateAlt: "Guoding Road Campus area of Shanghai University of Finance and Economics",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Guoding_Road_Campus_Exit_of_Shanghai_University_of_Finance_and_Economics_Station_in_Shanghai_2025.jpg"
+  },
+  "ningbo-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Ningbo%20University%202018-04-09%2001.jpg?width=1200",
+    gateAlt: "Campus of Ningbo University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Ningbo_University_2018-04-09_01.jpg"
+  },
+  "north-china-electric-power-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%8D%8E%E5%8C%97%E7%94%B5%E5%8A%9B%E5%A4%A7%E5%AD%A6%E6%98%8C%E5%B9%B3%E5%A4%9C%E6%99%AF2017.jpg?width=1200",
+    gateAlt: "Night view of North China Electric Power University Changping Campus",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:%E5%8D%8E%E5%8C%97%E7%94%B5%E5%8A%9B%E5%A4%A7%E5%AD%A6%E6%98%8C%E5%B9%B3%E5%A4%9C%E6%99%AF2017.jpg"
+  },
+  "northeast-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Northeast%20normal%20university%20new%20campus%20buildings%202011%2007%2027.jpg?width=1200",
+    gateAlt: "New campus buildings of Northeast Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Northeast_normal_university_new_campus_buildings_2011_07_27.jpg"
+  },
+  "northeastern-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Northeastern%20University%20South%20Lake%20Campus%20Gate%20in%20Shenyang%2001.jpg?width=1200",
+    gateAlt: "South Lake Campus gate of Northeastern University in Shenyang",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Northeastern_University_South_Lake_Campus_Gate_in_Shenyang_01.jpg"
+  },
+  "shaanxi-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Snu%20entrance.JPG?width=1200",
+    gateAlt: "Entrance of Shaanxi Normal University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Snu_entrance.JPG"
+  },
+  "henan-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B2%B3%E5%8D%97%E5%A4%A7%E5%AD%A6%E7%A4%BC%E5%A0%822020.jpg?width=1200",
+    gateAlt: "Auditorium of Henan University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:%E6%B2%B3%E5%8D%97%E5%A4%A7%E5%AD%A6%E7%A4%BC%E5%A0%822020.jpg"
+  },
+  "hainan-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Hainan%20University%20-%2005.jpg?width=1200",
+    gateAlt: "Campus of Hainan University",
+    sourceLabel: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Hainan_University_-_05.jpg"
   },
   "renmin-university-of-china": {
     gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/RenminUniversitypic1.jpg?width=1200",
