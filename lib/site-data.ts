@@ -3,6 +3,18 @@ export type University = {
   name: string;
   chineseName: string;
   qsRanking: number;
+  chinaRanking?: {
+    rank: string;
+    overallRank?: number;
+    category: string;
+    score?: number;
+    source: string;
+    sourceUrl: string;
+    year: number;
+    nameCn: string;
+    nameEn: string;
+    note?: string;
+  };
   tuition: string;
   location: string;
   citySlug: string;

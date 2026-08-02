@@ -6,6 +6,7 @@ import { ButtonLink } from "@/components/common/button-link";
 import { FallbackImage } from "@/components/common/fallback-image";
 import { SectionHeading } from "@/components/common/section-heading";
 import { UniversityCard } from "@/components/universities/university-card";
+import { getChinaRankingSortValue } from "@/lib/china-university-rankings";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { getProvinceInsight } from "@/lib/province-insights";
@@ -57,7 +58,7 @@ export default async function ProvincePage({ params }: { params: Promise<{ slug:
   const allUniversities = await getAllUniversitiesView();
   const provinceUniversities = allUniversities
     .filter((university) => university.provinceSlug === province.slug)
-    .sort((a, b) => a.qsRanking - b.qsRanking || a.name.localeCompare(b.name));
+    .sort((a, b) => getChinaRankingSortValue(a) - getChinaRankingSortValue(b) || a.name.localeCompare(b.name));
   const cityNames = [...new Set(provinceUniversities.map((university) => university.location).filter(Boolean))];
   const majors = topMajors(provinceUniversities);
   const name = isZh ? province.zhName : province.name;

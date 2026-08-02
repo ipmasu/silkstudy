@@ -17,6 +17,7 @@ import { cityGuideDetails } from "@/lib/city-guide-details";
 import { getCityDestination } from "@/lib/city-destinations";
 import { getCityStudentStory } from "@/lib/city-student-stories";
 import { getCityStudentLifeGuide } from "@/lib/city-student-life-guides";
+import { getChinaRankingSortValue } from "@/lib/china-university-rankings";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { breadcrumbJsonLd, buildMetadata, cityJsonLd } from "@/lib/seo";
@@ -81,7 +82,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
   const cityUniversities = allUniversities
     .filter((university) => university.citySlug === city.slug)
-    .sort((a, b) => a.qsRanking - b.qsRanking || a.name.localeCompare(b.name));
+    .sort((a, b) => getChinaRankingSortValue(a) - getChinaRankingSortValue(b) || a.name.localeCompare(b.name));
   const majors = topMajors(cityUniversities);
   const name = isZh ? city.zhName : city.name;
   const provinceName = isZh ? city.zhProvinceName : city.provinceName;

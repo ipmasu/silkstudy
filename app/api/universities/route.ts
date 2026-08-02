@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCatalogUniversities } from "@/lib/catalog/international-university-directory";
+import { getChinaRankingSortValue, getChinaUniversityRanking } from "@/lib/china-university-rankings";
 import { universities } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
@@ -14,7 +15,10 @@ export function GET(request: Request) {
   const page = Math.max(1, Number(searchParams.get("page") ?? 1) || 1);
   const pageSize = Math.min(100, Math.max(1, Number(searchParams.get("pageSize") ?? 24) || 24));
 
-  const catalogUniversities = getCatalogUniversities(universities);
+  const catalogUniversities = getCatalogUniversities(universities).map((university) => ({
+    ...university,
+    chinaRanking: getChinaUniversityRanking(university.slug)
+  }));
   const filtered = catalogUniversities.filter((university) => {
     const queryMatch =
       !query ||
@@ -31,7 +35,7 @@ export function GET(request: Request) {
   }).sort((a, b) => {
     if (sort === "name") return a.name.localeCompare(b.name);
     if (sort === "tuition") return a.tuition.localeCompare(b.tuition);
-    return a.qsRanking - b.qsRanking || a.name.localeCompare(b.name);
+    return getChinaRankingSortValue(a) - getChinaRankingSortValue(b) || a.name.localeCompare(b.name);
   });
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));

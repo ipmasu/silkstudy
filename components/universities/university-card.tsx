@@ -13,7 +13,9 @@ export async function UniversityCard({ university }: { university: University })
   const cover = media.find((item) => item.type === "COVER");
   const logo = media.find((item) => item.type === "LOGO");
   const hasVerifiedRanking = university.qsRanking > 0 && university.qsRanking < 900;
+  const chinaRanking = university.chinaRanking;
   const tuitionLabel = locale === "zh" ? "学费" : locale === "vi" ? "Học phí" : "Tuition";
+  const chinaRankingLabel = locale === "zh" ? "中国排名" : locale === "vi" ? "Xếp hạng Trung Quốc" : "China ranking";
 
   return (
     <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
@@ -31,8 +33,9 @@ export async function UniversityCard({ university }: { university: University })
         <div className="mt-5 grid gap-3 text-sm text-slate-600">
           <p className="flex items-center gap-2">
             <Trophy size={16} aria-hidden="true" />
-            {hasVerifiedRanking ? `QS Ranking #${university.qsRanking}` : (locale === "zh" ? "排名待核验" : locale === "vi" ? "Xếp hạng đang xác minh" : "Ranking to verify")}
+            {chinaRanking ? `${chinaRankingLabel}: ${chinaRanking.rank}` : (hasVerifiedRanking ? `QS Ranking #${university.qsRanking}` : (locale === "zh" ? "排名待核验" : locale === "vi" ? "Xếp hạng đang xác minh" : "Ranking to verify"))}
           </p>
+          {hasVerifiedRanking ? <p className="text-xs text-slate-500">QS #{university.qsRanking}</p> : null}
           <p className="flex items-center gap-2">
             <MapPin size={16} aria-hidden="true" />
             {university.location}

@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     ...({
   title: "University Comparison — SilkStudy",
-  description: "Compare selected Chinese universities by QS ranking, city, tuition, scholarship, type, and strong majors.",
+  description: "Compare selected Chinese universities by China ranking, city, tuition, scholarship, type, and strong majors.",
   path: "/universities/compare"
 }),
     locale
@@ -82,7 +82,7 @@ export default async function UniversityComparePage({ searchParams }: PageProps)
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                <CompareRow label="QS排名" values={universities.map((university) => university.qsRanking > 0 && university.qsRanking < 900 ? `QS #${university.qsRanking}` : "未排名")} />
+                <CompareRow label="软科中国排名" values={universities.map((university) => university.chinaRanking ? `软科 ${university.chinaRanking.rank}` : "排名待核验")} />
                 <CompareRow label="所在城市" values={universities.map((university) => university.location)} />
                 <CompareRow label="学费区间" values={universities.map((university) => university.tuition)} />
                 <CompareRow label="学费最低值" values={universities.map((university) => tuitionMin(university.tuition) ? `$${tuitionMin(university.tuition).toLocaleString()}/year` : "待核验")} />
@@ -118,4 +118,3 @@ function CompareRow({ label, values }: { label: string; values: string[] }) {
     </tr>
   );
 }
-

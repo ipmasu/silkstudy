@@ -5,6 +5,7 @@ import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { SectionHeading } from "@/components/common/section-heading";
 import { UniversityCard } from "@/components/universities/university-card";
+import { getChinaRankingSortValue } from "@/lib/china-university-rankings";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { getAllUniversitiesView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
@@ -74,7 +75,7 @@ export default async function MajorPage({ params }: { params: Params }) {
   const universities = await getAllUniversitiesView();
   const relatedUniversities = universities
     .filter((university) => university.majors.includes(major))
-    .sort((a, b) => a.qsRanking - b.qsRanking || a.name.localeCompare(b.name));
+    .sort((a, b) => getChinaRankingSortValue(a) - getChinaRankingSortValue(b) || a.name.localeCompare(b.name));
   const guide = getMajorGuide(major) ?? buildDefaultMajorGuide(major);
   const display = displayMajor(major, locale);
   const cityDestinations = getCityDestinations(universities);

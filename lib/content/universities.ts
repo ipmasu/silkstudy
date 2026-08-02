@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getCatalogUniversities, getCatalogUniversityBySlug } from "@/lib/catalog/international-university-directory";
+import { getChinaUniversityRanking } from "@/lib/china-university-rankings";
 import { getUniversity, universities, type University } from "@/lib/site-data";
 
 type DbUniversity = Awaited<ReturnType<typeof fetchDbUniversity>>;
@@ -94,26 +95,35 @@ function dbUniversityToViewModel(university: NonNullable<DbUniversity>): Univers
   };
 }
 
+function withChinaRanking(university: University): University {
+  return {
+    ...university,
+    chinaRanking: getChinaUniversityRanking(university.slug)
+  };
+}
+
 export async function getUniversityView(slug: string) {
   try {
     const university = await fetchDbUniversity(slug);
-    if (university) return dbUniversityToViewModel(university);
+    if (university) return withChinaRanking(dbUniversityToViewModel(university));
   } catch {
     // Static content keeps the public site available before DATABASE_URL is configured.
   }
 
-  return getUniversity(slug);
+  const staticUniversity = getUniversity(slug);
+  return staticUniversity ? withChinaRanking(staticUniversity) : undefined;
 }
 
 export async function getUniversityCatalogView(slug: string) {
   const curated = await getUniversityView(slug);
   if (curated) return curated;
 
-  return getCatalogUniversityBySlug(slug, universities);
+  const catalogUniversity = getCatalogUniversityBySlug(slug, universities);
+  return catalogUniversity ? withChinaRanking(catalogUniversity) : undefined;
 }
 
 export async function getFeaturedUniversitiesView() {
-  if (!hasDatabaseUrl) return universities;
+  if (!hasDatabaseUrl) return universities.map(withChinaRanking);
 
   try {
     const dbUniversities = await prisma.university.findMany({
@@ -149,20 +159,20 @@ export async function getFeaturedUniversitiesView() {
     });
 
     if (dbUniversities.length > 0) {
-      const dbViews = dbUniversities.map(dbUniversityToViewModel);
+      const dbViews = dbUniversities.map(dbUniversityToViewModel).map(withChinaRanking);
       const dbSlugs = new Set(dbViews.map((university) => university.slug));
       const staticComplements = universities.filter((university) => !dbSlugs.has(university.slug));
 
-      return [...dbViews, ...staticComplements];
+      return [...dbViews, ...staticComplements.map(withChinaRanking)];
     }
   } catch {
     // Static fallback is intentional for first-run development.
   }
 
-  return universities;
+  return universities.map(withChinaRanking);
 }
 
 export async function getAllUniversitiesView() {
   const featured = await getFeaturedUniversitiesView();
-  return getCatalogUniversities(featured);
+  return getCatalogUniversities(featured).map(withChinaRanking);
 }

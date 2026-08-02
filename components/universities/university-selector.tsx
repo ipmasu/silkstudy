@@ -123,11 +123,19 @@ function universityFields(university: University) {
   return university.majors.slice(0, 4);
 }
 
+function chinaRankValue(university: University) {
+  const rank = university.chinaRanking;
+  if (!rank) return Number.POSITIVE_INFINITY;
+  if (rank.overallRank) return rank.overallRank;
+  const numeric = rank.rank.match(/\d+/)?.[0];
+  return numeric ? Number(numeric) : Number.POSITIVE_INFINITY;
+}
+
 function rankingMatch(university: University, filter: RankingFilter) {
-  const rank = university.qsRanking;
+  const rank = chinaRankValue(university);
   if (filter === "all") return true;
-  if (filter === "unranked") return !rank || rank >= 900;
-  if (!rank || rank >= 900) return false;
+  if (filter === "unranked") return !Number.isFinite(rank);
+  if (!Number.isFinite(rank)) return false;
   if (filter === "top100") return rank <= 100;
   if (filter === "top200") return rank <= 200;
   return rank <= 500;
@@ -156,8 +164,8 @@ function sortUniversities(items: University[], sortMode: SortMode) {
     if (sortMode === "tuitionAsc") return tuitionMin(a) - tuitionMin(b);
     if (sortMode === "tuitionDesc") return tuitionMin(b) - tuitionMin(a);
     if (sortMode === "name") return a.name.localeCompare(b.name);
-    const aRank = a.qsRanking > 0 && a.qsRanking < 900 ? a.qsRanking : 9999;
-    const bRank = b.qsRanking > 0 && b.qsRanking < 900 ? b.qsRanking : 9999;
+    const aRank = chinaRankValue(a);
+    const bRank = chinaRankValue(b);
     return aRank - bRank || a.name.localeCompare(b.name);
   });
 }
@@ -431,7 +439,7 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
 function UniversityDecisionCard({ university, prefix }: { university: University; prefix: string }) {
   const type = inferSchoolType(university);
   const fields = universityFields(university).slice(0, 5);
-  const ranked = university.qsRanking > 0 && university.qsRanking < 900;
+  const chinaRanking = university.chinaRanking;
   const csc = hasCsc(university);
   const isZh = prefix === "/zh";
 
@@ -451,7 +459,7 @@ function UniversityDecisionCard({ university, prefix }: { university: University
         <div className="p-5">
           <h3 className="text-xl font-bold text-slate-950">🏛️ {university.chineseName} · {university.name}</h3>
           <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold">
-            <span className="rounded-full bg-amber-50 px-3 py-1 text-amber-800"><Star size={15} className="mr-1 inline" />{ranked ? `QS #${university.qsRanking}` : "未排名"}</span>
+            <span className="rounded-full bg-amber-50 px-3 py-1 text-amber-800"><Star size={15} className="mr-1 inline" />{chinaRanking ? `软科 ${chinaRanking.rank}` : "排名待核验"}</span>
             <span className="rounded-full bg-blue-50 px-3 py-1 text-blue-700"><MapPin size={15} className="mr-1 inline" />{university.location}</span>
             <span className="rounded-full bg-purple-50 px-3 py-1 text-purple-700"><GraduationCap size={15} className="mr-1 inline" />{type}</span>
             <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-700"><Banknote size={15} className="mr-1 inline" />{tuitionLabel(university)}</span>

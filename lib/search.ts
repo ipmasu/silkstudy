@@ -1,4 +1,5 @@
 import { getCatalogUniversities } from "@/lib/catalog/international-university-directory";
+import { getChinaUniversityRanking } from "@/lib/china-university-rankings";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { displayMajor } from "@/lib/i18n/display";
 import { provinceShowcases } from "@/lib/province-showcase";
@@ -45,7 +46,10 @@ export function searchSite(query: string, limit = 8, locale = "en"): SearchResul
   const normalizedQuery = normalize(query);
   if (normalizedQuery.length < 2) return [];
 
-  const catalogUniversities = getCatalogUniversities(universities);
+  const catalogUniversities = getCatalogUniversities(universities).map((university) => ({
+    ...university,
+    chinaRanking: getChinaUniversityRanking(university.slug)
+  }));
   const cityDestinations = getCityDestinations(catalogUniversities);
   const catalogMajors = [...new Set([...majors, ...catalogUniversities.flatMap((university) => university.majors)])];
 
@@ -59,7 +63,7 @@ export function searchSite(query: string, limit = 8, locale = "en"): SearchResul
       const cityName = city ? (locale === "zh" ? city.zhName : city.name) : university.location;
       const provinceName = province ? (locale === "zh" ? province.zhName : province.name) : "";
       const majorNames = university.majors.map((major) => displayMajor(major, locale));
-      const ranking = university.qsRanking > 0 && university.qsRanking < 900 ? `QS #${university.qsRanking}` : (locale === "zh" ? "排名待核验" : "Ranking to verify");
+      const ranking = university.chinaRanking ? `软科 ${university.chinaRanking.rank}` : (locale === "zh" ? "排名待核验" : "Ranking to verify");
 
       return {
         id: `university-${university.slug}`,

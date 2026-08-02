@@ -60,7 +60,7 @@ function isVerifiedRanking(university: University) {
 
 function getDataStatus(university: University) {
   const checks = [
-    isVerifiedRanking(university),
+    Boolean(university.chinaRanking),
     university.foundedYear > 0,
     university.website !== "#",
     !university.tuition.toLowerCase().includes("contact"),
@@ -190,6 +190,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
   const videos = media.filter((item) => item.type === "VIDEO");
   const travelNotes = await getPublishedUniversityTravelNotes(university.slug);
   const verifiedRanking = isVerifiedRanking(university);
+  const chinaRanking = university.chinaRanking;
   const dataStatus = getDataStatus(university);
   const isBaselineRecord = dataStatus.score < 3;
   const displayName = isZh && university.chineseName !== university.name ? university.chineseName : university.name;
@@ -240,7 +241,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
                 {cityName}, {provinceName}
               </span>
               <span className="rounded-md border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold text-slate-100">
-                {verifiedRanking ? `QS #${university.qsRanking}` : (isZh ? "排名待核验" : "Ranking to verify")}
+                {chinaRanking ? `软科中国排名 ${chinaRanking.rank}` : (isZh ? "排名待核验" : "Ranking to verify")}
               </span>
             </div>
             {isBaselineRecord ? (
@@ -265,8 +266,10 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
               <ButtonLink href={`${prefix}/consultation?school=${university.slug}`} variant="secondary">{tx("Get Your Free Study Plan", "获取免费留学方案", "Nhận kế hoạch du học miễn phí")}</ButtonLink>
               <dl className="mt-6 space-y-4 text-sm">
                 <div>
-                  <dt className="text-slate-400">{isZh ? "QS 排名" : "QS Ranking"}</dt>
-                  <dd className="mt-1 text-xl font-bold">{verifiedRanking ? `#${university.qsRanking}` : (isZh ? "待核验" : "To verify")}</dd>
+                  <dt className="text-slate-400">{isZh ? "软科中国排名" : "China ranking"}</dt>
+                  <dd className="mt-1 text-xl font-bold">{chinaRanking ? chinaRanking.rank : (isZh ? "待核验" : "To verify")}</dd>
+                  {chinaRanking?.note ? <p className="mt-1 text-xs text-slate-400">{chinaRanking.note}</p> : null}
+                  {verifiedRanking ? <p className="mt-1 text-xs text-slate-400">QS #{university.qsRanking}</p> : null}
                 </div>
                 <div>
                   <dt className="text-slate-400">{tx("Location", "城市", "Địa điểm")}</dt>
