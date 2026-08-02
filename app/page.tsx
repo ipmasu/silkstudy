@@ -722,8 +722,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-primary py-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="bg-primary pb-8 pt-16 text-white">
+        <div className="mx-auto flex min-h-[320px] max-w-7xl flex-col px-4 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-blue-100">🎓 {localizedHome?.finalEyebrow ?? "Start Your China Journey"}</p>
             <h2 className="mt-2 text-3xl font-bold">{isZh ? "\u51c6\u5907\u5f00\u59cb\u4f60\u7684\u4e2d\u56fd\u7559\u5b66\u65b9\u6848\u4e86\u5417\uff1f" : "Ready to Start Your China Journey?"}</h2>
@@ -735,7 +735,7 @@ export default async function HomePage() {
             <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
           </div>
           <p className="mt-4 text-sm text-blue-100">{isZh ? "\u65e0\u9700\u4ed8\u8d39\uff0c\u9996\u6b21\u8bc4\u4f30\u5b8c\u5168\u514d\u8d39\u3002" : "No commitment. 100% free first consultation."}</p>
-          <div className="mt-10 flex justify-start">
+          <div className="mt-auto flex justify-start pt-12">
             <a
               href="https://masuip.com"
               target="_blank"
