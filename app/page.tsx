@@ -735,6 +735,16 @@ export default async function HomePage() {
             <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
           </div>
           <p className="mt-4 text-sm text-blue-100">{isZh ? "\u65e0\u9700\u4ed8\u8d39\uff0c\u9996\u6b21\u8bc4\u4f30\u5b8c\u5168\u514d\u8d39\u3002" : "No commitment. 100% free first consultation."}</p>
+          <div className="mt-10 flex justify-start">
+            <a
+              href="https://masuip.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-md border border-white/20 bg-white/10 px-3 py-2 text-left text-xs font-medium leading-5 text-blue-50 transition hover:border-white/40 hover:bg-white/15 hover:text-white"
+            >
+              {isZh ? "友情链接：支持全球青少年科创与专利申请 · masuip.com" : "Partner link: Youth innovation and patent support · masuip.com"}
+            </a>
+          </div>
         </div>
       </section>
     </main>
