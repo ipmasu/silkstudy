@@ -605,6 +605,1092 @@ export const universityVisualOverrides: Record<string, UniversityVisualOverride>
     gateAlt: "Main Gate of Northeast Forestry University",
     sourceLabel: "Wikimedia Commons · CC BY-SA 4.0",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Main_gate_of_Northeast_Forestry_University.jpg"
+  },
+  "anhui-agricultural-university": {
+    gateImage: "https://www.ahau.edu.cn/images/2022.03.27.jpg",
+    gateAlt: "Official website image for Anhui Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ahau.edu.cn/"
+  },
+  "anhui-medical-university": {
+    gateImage: "https://www.ahmu.edu.cn/_upload/article/images/17/9c/920a72fd4f8dbdcd5137a561cf52/d181734d-bcdd-41b6-837e-243d90bc038f.jpeg",
+    gateAlt: "Official website image for Anhui Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ahmu.edu.cn/"
+  },
+  "beihua-university": {
+    gateImage: "https://www.beihua.edu.cn/images/gcbanner.jpg",
+    gateAlt: "Official website image for Beihua University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.beihua.edu.cn/"
+  },
+  "chengdu-university-of-traditional-chinese-medicine": {
+    gateImage: "https://www.cdutcm.edu.cn/__local/4/EC/2C/18852D33608AACA8F9A3ADB5846_F2E1D2D0_1A0E4.jpg",
+    gateAlt: "Official website image for Chengdu University of Traditional Chinese Medicine",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.cdutcm.edu.cn/"
+  },
+  "china-university-of-geosciences-beijing": {
+    gateImage: "https://en.cugb.edu.cn/r/cms/en/blue/images/bgq1.jpg",
+    gateAlt: "Official website image for China University of Geosciences Beijing",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.cugb.edu.cn/"
+  },
+  "china-university-of-geosciences-wuhan": {
+    gateImage: "https://en.cug.edu.cn/images/banner9.jpg",
+    gateAlt: "Official website image for China University of Geosciences Wuhan",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.cug.edu.cn/"
+  },
+  "china-university-of-petroleum-beijing": {
+    gateImage: "https://www.cup.edu.cn/overseas/images/2026-01/d40e7dcfc3f34e9c9f062733389739ae.jpg",
+    gateAlt: "Official website image for China University of Petroleum Beijing",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.cup.edu.cn/overseas/"
+  },
+  "dalian-maritime-university": {
+    gateImage: "https://english.dlmu.edu.cn/English2024/images/banner11.jpg",
+    gateAlt: "Official website image for Dalian Maritime University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.dlmu.edu.cn/"
+  },
+  "fujian-agriculture-and-forestry-university": {
+    gateImage: "https://www.fafu.edu.cn/_upload/article/images/31/25/b71911ed424c9dd12ec24796f51d/2af32811-344b-4c1a-a946-7b4fba6cdac9.jpg",
+    gateAlt: "Official website image for Fujian Agriculture and Forestry University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.fafu.edu.cn/"
+  },
+  "fujian-medical-university": {
+    gateImage: "https://www.fjmu.edu.cn/_upload/article/images/44/49/fcc33531495e9f411cf3e87ee452/61532637-a8b4-4d5c-a0ca-48f4f78164a8.jpg",
+    gateAlt: "Official website image for Fujian Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.fjmu.edu.cn/"
+  },
+  "fujian-normal-university": {
+    gateImage: "https://www.fjnu.edu.cn/_upload/article/images/f6/6d/7506f9874598be9aa8b38a5f5c56/8f595b47-6583-4c57-aaa3-09525e97e5a3.jpg",
+    gateAlt: "Official website image for Fujian Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.fjnu.edu.cn/"
+  },
+  "guangdong-university-of-finance-and-economics": {
+    gateImage: "https://english.gdufe.edu.cn/_upload/article/images/10/96/4c0649d44afb820e67f62d7084c5/30a3afbe-0dbb-43bc-bfd9-4d510ee4550c_s.jpg",
+    gateAlt: "Official website image for Guangdong University of Finance and Economics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.gdufe.edu.cn/"
+  },
+  "guangxi-medical-university": {
+    gateImage: "https://www.gxmu.edu.cn/x_banner/W020260701750176719443.jpg",
+    gateAlt: "Official website image for Guangxi Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.gxmu.edu.cn/"
+  },
+  "guangxi-normal-university": {
+    gateImage: "https://www.gxnu.edu.cn/_upload/article/images/14/82/9fefdcc04a1dbc610a421887c1a7/efb4dbf0-c985-4949-ab7c-685c4c9b8919.jpg",
+    gateAlt: "Official website image for Guangxi Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.gxnu.edu.cn/"
+  },
+  "guangzhou-university-of-chinese-medicine": {
+    gateImage: "https://www.gzucm.edu.cn/__local/A/C9/01/B13FB3BABDE47411664B11D380C_171D8E61_6552B.jpg",
+    gateAlt: "Official website image for Guangzhou University of Chinese Medicine",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.gzucm.edu.cn/"
+  },
+  "guilin-university-of-electronic-technology": {
+    gateImage: "https://www.guet.edu.cn/_upload/article/images/d9/00/699a74b443d3972914a5d23cc8dd/71c19aff-586c-4b19-9ca2-0fa8f43f63ca.jpg",
+    gateAlt: "Official website image for Guilin University of Electronic Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.guet.edu.cn/"
+  },
+  "harbin-medical-university": {
+    gateImage: "https://www.hrbmu.edu.cn/new/images/banner.jpg",
+    gateAlt: "Official website image for Harbin Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hrbmu.edu.cn/"
+  },
+  "harbin-university-of-science-and-technology": {
+    gateImage: "https://www.hrbust.edu.cn/images/21/11/11/180mkghe1w/banner5.jpg",
+    gateAlt: "Official website image for Harbin University of Science and Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hrbust.edu.cn/"
+  },
+  "hebei-medical-university": {
+    gateImage: "https://www.hebmu.edu.cn/resources/40/202604/1776755034150039120.jpg",
+    gateAlt: "Official website image for Hebei Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hebmu.edu.cn/"
+  },
+  "hebei-normal-university": {
+    gateImage: "https://news.hebtu.edu.cn/resources/40/202607/5F7C2DEE2C744AA89B9B2EA04A236546.jpg",
+    gateAlt: "Official website image for Hebei Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hebtu.edu.cn/"
+  },
+  "hebei-university": {
+    gateImage: "https://www.hbu.edu.cn/images/2026.07.07-xiaoshu.jpg",
+    gateAlt: "Official website image for Hebei University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hbu.edu.cn/"
+  },
+  "heilongjiang-university": {
+    gateImage: "https://www.hlju.edu.cn/__local/9/52/10/9ACB97AE8BE7B37370754ECC0DB_32D97795_16042.jpg",
+    gateAlt: "Official website image for Heilongjiang University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hlju.edu.cn/"
+  },
+  "henan-university-of-chinese-medicine": {
+    gateImage: "https://www.hactcm.edu.cn/images/ershijiesizhongquanhuiBANNER.jpg",
+    gateAlt: "Official website image for Henan University of Chinese Medicine",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hactcm.edu.cn/"
+  },
+  "henan-university-of-technology": {
+    gateImage: "https://www.haut.edu.cn/images/e-bg1.jpg",
+    gateAlt: "Official website image for Henan University of Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.haut.edu.cn/"
+  },
+  "hohai-university": {
+    gateImage: "https://ie.hhu.edu.cn/_upload/article/images/ae/7d/ae04a9034c82b06c2541333d3917/c9f4704e-ea7b-4991-bca8-dac940e7b3cf.jpg",
+    gateAlt: "Official website image for Hohai University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://ie.hhu.edu.cn/"
+  },
+  "huazhong-agricultural-university": {
+    gateImage: "https://www.hzau.edu.cn/images/2026zhaosheng.jpg",
+    gateAlt: "Official website image for Huazhong Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hzau.edu.cn/"
+  },
+  "hubei-university": {
+    gateImage: "https://www.hubu.edu.cn/images/20160027.jpg",
+    gateAlt: "Official website image for Hubei University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.hubu.edu.cn/"
+  },
+  "inner-mongolia-agricultural-university": {
+    gateImage: "https://www.imau.edu.cn/__local/F/7F/A9/E45016A64E3A30F9C10462711A2_A9874A84_22216.jpg",
+    gateAlt: "Official website image for Inner Mongolia Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.imau.edu.cn/"
+  },
+  "inner-mongolia-normal-university": {
+    gateImage: "https://www.imnu.edu.cn/images/20251210.jpg",
+    gateAlt: "Official website image for Inner Mongolia Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.imnu.edu.cn/"
+  },
+  "inner-mongolia-university": {
+    gateImage: "https://www.imu.edu.cn/images/202509182024226666.jpg",
+    gateAlt: "Official website image for Inner Mongolia University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.imu.edu.cn/"
+  },
+  "jiangnan-university": {
+    gateImage: "https://english.jiangnan.edu.cn/__local/3/91/8F/1A069A925E9BA9595F48D5F211B_8D4FEDDA_15DBB.jpg",
+    gateAlt: "Official website image for Jiangnan University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.jiangnan.edu.cn/"
+  },
+  "jiangsu-university-of-science-and-technology": {
+    gateImage: "https://www.just.edu.cn/_upload/article/images/ff/6b/2ae23c8844e3a26a4e924b1b1eee/545caafd-d585-4225-b7ed-a0e207aaeeef.jpg",
+    gateAlt: "Official website image for Jiangsu University of Science and Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.just.edu.cn/"
+  },
+  "jiangxi-agricultural-university": {
+    gateImage: "https://www.jxau.edu.cn/__local/E/65/5C/8EAA220526BEE33F3C95354F3AD_781B5DE7_1DF16.jpg",
+    gateAlt: "Official website image for Jiangxi Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.jxau.edu.cn/"
+  },
+  "jiangxi-normal-university": {
+    gateImage: "https://www.jxnu.edu.cn/_upload/article/images/ff/04/2feac1c94095bc9ea923f9396812/73122089-a456-40e0-9770-dfe473e8b443.jpg",
+    gateAlt: "Official website image for Jiangxi Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.jxnu.edu.cn/"
+  },
+  "jiangxi-university-of-finance-and-economics": {
+    gateImage: "https://www.jxufe.edu.cn/uploadfile/188/202607/00ae7e180c.jpg",
+    gateAlt: "Official website image for Jiangxi University of Finance and Economics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.jxufe.edu.cn/"
+  },
+  "jilin-agricultural-university": {
+    gateImage: "https://www.jlau.edu.cn/__local/2/F1/0D/313DD2635B7EB379CFF8D70849D_20B5384D_10DC133.jpg",
+    gateAlt: "Official website image for Jilin Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.jlau.edu.cn/"
+  },
+  "jilin-normal-university": {
+    gateImage: "https://www.jlnu.edu.cn/images/banner1.jpg",
+    gateAlt: "Official website image for Jilin Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.jlnu.edu.cn/"
+  },
+  "jinan-university": {
+    gateImage: "https://english.jnu.edu.cn/_upload/article/images/d3/a9/059235894812a6ccdd1871b08b8c/e836b474-275c-4eb5-b614-a9567996b987.jpg",
+    gateAlt: "Official website image for Jinan University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.jnu.edu.cn/"
+  },
+  "kunming-medical-university": {
+    gateImage: "https://www.kmmu.edu.cn/temple/jxpgbg.jpg",
+    gateAlt: "Official website image for Kunming Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.kmmu.edu.cn/"
+  },
+  "lanzhou-jiaotong-university": {
+    gateImage: "https://www.lzjtu.edu.cn/__local/5/AE/0B/34F68F0A6867F65D947816E6FBF_E75BF3B9_1596D.jpg",
+    gateAlt: "Official website image for Lanzhou Jiaotong University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lzjtu.edu.cn/"
+  },
+  "lanzhou-university-of-technology": {
+    gateImage: "https://www.lut.edu.cn/__local/E/06/E9/DC8597F8D6E412C091679354C88_AA262288_58B46.jpg",
+    gateAlt: "Official website image for Lanzhou University of Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lut.edu.cn/"
+  },
+  "liaoning-normal-university": {
+    gateImage: "https://www.lnnu.edu.cn/__local/D/53/B9/850CEB42C0610862E068761E058_5B6994A7_1054F1.jpg",
+    gateAlt: "Official website image for Liaoning Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lnnu.edu.cn/"
+  },
+  "liaoning-shihua-university": {
+    gateImage: "https://www.lnpu.edu.cn/__local/F/88/58/81B639E3F29543EC7D01B01E408_3FCE30B4_666D6.jpg",
+    gateAlt: "Official website image for Liaoning Shihua University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lnpu.edu.cn/"
+  },
+  "liaoning-technical-university": {
+    gateImage: "https://www.lntu.edu.cn/__local/6/61/42/1846A2DE8C9119F862631A66530_6BD17530_9153.jpg",
+    gateAlt: "Official website image for Liaoning Technical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lntu.edu.cn/"
+  },
+  "liaoning-university": {
+    gateImage: "https://ie.lnu.edu.cn/images/banner2.jpg",
+    gateAlt: "Official website image for Liaoning University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://ie.lnu.edu.cn/"
+  },
+  "liaoning-university-of-technology": {
+    gateImage: "https://www.lnut.edu.cn/images/20ddd.jpg",
+    gateAlt: "Official website image for Liaoning University of Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.lnut.edu.cn/"
+  },
+  "ludong-university": {
+    gateImage: "https://www.ldu.edu.cn/images/banner21111.jpg",
+    gateAlt: "Official website image for Ludong University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ldu.edu.cn/"
+  },
+  "nanchang-hangkong-university": {
+    gateImage: "https://www.nchu.edu.cn/upload/main/advertisement/banner-xiaoqing-70.jpg",
+    gateAlt: "Official website image for Nanchang Hangkong University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.nchu.edu.cn/"
+  },
+  "nanjing-agricultural-university": {
+    gateImage: "https://coieen.njau.edu.cn/__local/C/13/67/4309B8C201DE596E3DF890566B1_8534B9DD_3C6C0.jpg",
+    gateAlt: "Official website image for Nanjing Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://coieen.njau.edu.cn/"
+  },
+  "nanjing-university-of-aeronautics-and-astronautics": {
+    gateImage: "https://cie.nuaa.edu.cn/_upload/article/images/14/7a/4dfca8e04e1e879bc3a39f478629/bb92c868-41ed-48f9-8749-cfe2f4b25261.jpg",
+    gateAlt: "Official website image for Nanjing University of Aeronautics and Astronautics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://cie.nuaa.edu.cn/"
+  },
+  "nanjing-university-of-chinese-medicine": {
+    gateImage: "https://english.njucm.edu.cn/_upload/tpl/01/bd/445/template445/images/01.jpg",
+    gateAlt: "Official website image for Nanjing University of Chinese Medicine",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.njucm.edu.cn/"
+  },
+  "ningxia-university": {
+    gateImage: "https://www.nxu.edu.cn/images/index_banner005.jpg",
+    gateAlt: "Official website image for Ningxia University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.nxu.edu.cn/"
+  },
+  "northeast-agricultural-university": {
+    gateImage: "https://www.neau.edu.cn/__local/4/02/7E/E86FCCAE14AB92570A889224E82_0FF3AD81_78179.jpg",
+    gateAlt: "Official website image for Northeast Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.neau.edu.cn/"
+  },
+  "northeast-dianli-university": {
+    gateImage: "https://www.neepu.edu.cn/images/2017050802_05.jpg",
+    gateAlt: "Official website image for Northeast Dianli University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.neepu.edu.cn/"
+  },
+  "northwest-aandf-university": {
+    gateImage: "https://en.nwafu.edu.cn/images/2021-03/e79fe966bc824ce78f3dfbac9981db40.jpg",
+    gateAlt: "Official website image for Northwest A&F University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.nwafu.edu.cn/"
+  },
+  "northwestern-polytechnical-university": {
+    gateImage: "https://en.nwpu.edu.cn/__local/9/B6/FF/DA58A7F4B309679AFA1ED17AA25_AEBD9339_18D5D.jpg",
+    gateAlt: "Official website image for Northwestern Polytechnical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.nwpu.edu.cn/"
+  },
+  "northwest-normal-university": {
+    gateImage: "https://www.nwnu.edu.cn/_upload/article/images/45/57/d699634d4c7c8bba426c318c027c/a19a9fff-1485-4d88-9841-cb2a7bcc50ee.jpg",
+    gateAlt: "Official website image for Northwest Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.nwnu.edu.cn/"
+  },
+  "northwest-university": {
+    gateImage: "https://english.nwu.edu.cn/images/banner1.jpg",
+    gateAlt: "Official website image for Northwest University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.nwu.edu.cn/"
+  },
+  "qingdao-university-of-science-and-technology": {
+    gateImage: "https://en.qust.edu.cn/__local/0/12/25/383A67CD5B156734636410719AF_9AFAC38F_11A39.jpg",
+    gateAlt: "Official website image for Qingdao University of Science and Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.qust.edu.cn/"
+  },
+  "qinghai-university": {
+    gateImage: "https://www.qhu.edu.cn/images/2026-06/ea222706dde147a7b45624d6867af729.jpg",
+    gateAlt: "Official website image for Qinghai University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.qhu.edu.cn/"
+  },
+  "shandong-normal-university": {
+    gateImage: "https://www.sdnu.edu.cn/__local/5/9D/B5/17228C41334F8BEA74B1082358D_93B139E0_46744.jpg",
+    gateAlt: "Official website image for Shandong Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.sdnu.edu.cn/"
+  },
+  "shandong-university-of-science-and-technology": {
+    gateImage: "https://www.sdust.edu.cn/__local/3/05/F8/4256172B38995980B68462A70B9_39C3246A_1F5D2.jpg",
+    gateAlt: "Official website image for Shandong University of Science and Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.sdust.edu.cn/"
+  },
+  "shanghai-university-of-political-science-and-law": {
+    gateImage: "https://iso.shupl.edu.cn/_upload/article/images/cd/a5/5924fad24735b0818bfc5f4cdcbb/7c1cbc75-f63e-44a1-a4a6-eb0da1ff724f_s.jpg",
+    gateAlt: "Official website image for Shanghai University of Political Science and Law",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://iso.shupl.edu.cn/english/"
+  },
+  "shantou-university": {
+    gateImage: "https://www.stu.edu.cn/images/welcomepage/w1.jpg",
+    gateAlt: "Official website image for Shantou University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.stu.edu.cn/"
+  },
+  "shanxi-university": {
+    gateImage: "https://www.sxu.edu.cn/images/2025-04/493c9912e6ab44fb9d774787789dbb40.jpg",
+    gateAlt: "Official website image for Shanxi University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.sxu.edu.cn/"
+  },
+  "shenyang-jianzhu-university": {
+    gateImage: "https://www.sjzu.edu.cn/__local/D/9D/AE/3E25C7DB4C1809A3ABA11283C2E_6EC11368_26B0B.jpg",
+    gateAlt: "Official website image for Shenyang Jianzhu University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.sjzu.edu.cn/"
+  },
+  "shenyang-normal-university": {
+    gateImage: "https://www.synu.edu.cn/_upload/article/images/ec/11/d43ec39c4efea11bfc924ec0fcff/bb6d26a0-55ef-402a-b021-85bbe8e7691e.jpg",
+    gateAlt: "Official website image for Shenyang Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.synu.edu.cn/"
+  },
+  "shihezi-university": {
+    gateImage: "https://www.shzu.edu.cn/_upload/article/images/89/cd/0216216b4577aaa5f3d2c31fefe3/d838d74c-1b72-4361-8597-ff3a8cfdc51c.jpg",
+    gateAlt: "Official website image for Shihezi University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.shzu.edu.cn/"
+  },
+  "sichuan-international-studies-university": {
+    gateImage: "https://www.sisu.edu.cn/images/2026-04/62c980f207d04a069a79b1adb98a3a83.jpg",
+    gateAlt: "Official website image for Sichuan International Studies University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.sisu.edu.cn/"
+  },
+  "soochow-university": {
+    gateImage: "https://eng.suda.edu.cn/eng/images/linkBg.jpg",
+    gateAlt: "Official website image for Soochow University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://eng.suda.edu.cn/"
+  },
+  "south-china-agricultural-university": {
+    gateImage: "https://english.scau.edu.cn/_upload/tpl/00/47/71/template71/htmlRes/2024_vid.jpg",
+    gateAlt: "Official website image for South China Agricultural University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.scau.edu.cn/"
+  },
+  "south-china-normal-university": {
+    gateImage: "https://statics.scnu.edu.cn/pics/scnuportal_en/2025/1023/20251023070842470.jpg",
+    gateAlt: "Official website image for South China Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.scnu.edu.cn/"
+  },
+  "southern-medical-university": {
+    gateImage: "https://www.smu.edu.cn/english/images/banner.jpg",
+    gateAlt: "Official website image for Southern Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://portal.smu.edu.cn/en/"
+  },
+  "southwest-university-of-finance-and-economics": {
+    gateImage: "https://e.swufe.edu.cn/__local/2/B7/72/2D3D8A0F8C698CFC8B993C32990_DC35DB4D_1F90E.jpg",
+    gateAlt: "Official website image for Southwest University of Finance and Economics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://e.swufe.edu.cn/"
+  },
+  "southwestern-university-of-finance-and-economics": {
+    gateImage: "https://e.swufe.edu.cn/__local/2/B7/72/2D3D8A0F8C698CFC8B993C32990_DC35DB4D_1F90E.jpg",
+    gateAlt: "Official website image for Southwestern University of Finance and Economics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://e.swufe.edu.cn/"
+  },
+  "the-central-academy-of-drama": {
+    gateImage: "https://en.chntheatre.edu.cn/uploads/webp/en1webp.jpg",
+    gateAlt: "Official website image for The Central Academy of Drama",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.chntheatre.edu.cn/"
+  },
+  "tianjin-university-of-science-and-technology": {
+    gateImage: "https://www.tust.edu.cn/images/2024-05/4b3023d5bba741dd8fc8b18965003a50.jpg",
+    gateAlt: "Official website image for Tianjin University of Science and Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.tust.edu.cn/"
+  },
+  "tianjin-university-of-technology": {
+    gateImage: "https://www.tjut.edu.cn/images/2ligongbanner.jpg",
+    gateAlt: "Official website image for Tianjin University of Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.tjut.edu.cn/"
+  },
+  "tianjin-university-of-traditional-chinese-medicine": {
+    gateImage: "https://www.tjutcm.edu.cn/img/banner_n05.jpg",
+    gateAlt: "Official website image for Tianjin University of Traditional Chinese Medicine",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.tjutcm.edu.cn/"
+  },
+  "tianjin-normal-university": {
+    gateImage: "https://www.tjnu.edu.cn/images/26/03/13/thm94rczpa/zhegnjiguantoutu.jpg",
+    gateAlt: "Official website image for Tianjin Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.tjnu.edu.cn/"
+  },
+  "university-of-chinese-academy-of-sciences": {
+    gateImage: "https://english.ucas.ac.cn/images/2025/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250914101824_18_446.jpg",
+    gateAlt: "Official website image for University of Chinese Academy of Sciences",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.ucas.ac.cn/"
+  },
+  "university-of-electronic-science-and-technology-of-china": {
+    gateImage: "https://en.uestc.edu.cn/images/banner120901.jpg",
+    gateAlt: "Official website image for University of Electronic Science and Technology of China",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.uestc.edu.cn/"
+  },
+  "university-of-international-business-and-economics": {
+    gateImage: "https://english.uibe.edu.cn/images/2026-06/b4e8e11cb6884a60ab63e32e85404577.jpg",
+    gateAlt: "Official website image for University of International Business and Economics",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.uibe.edu.cn/"
+  },
+  "university-of-science-and-technology-liaoning": {
+    gateImage: "https://www.ustl.edu.cn/__local/D/5B/B7/54B80F880484EEDD871F697B1F0_F3E6D764_3EECE.jpg",
+    gateAlt: "Official website image for University of Science and Technology Liaoning",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ustl.edu.cn/"
+  },
+  "wenzhou-kean-university": {
+    gateImage: "https://www.wku.edu.cn/sites/main.prod.dpmgr.wku.edu.cn/files/2024-09/cq1c0690.jpg",
+    gateAlt: "Official website image for Wenzhou-Kean University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.wku.edu.cn/en"
+  },
+  "wuhan-textile-university": {
+    gateImage: "https://www.wtu.edu.cn/images/20260618_xiazhi.jpg",
+    gateAlt: "Official website image for Wuhan Textile University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.wtu.edu.cn/"
+  },
+  "wuyi-university": {
+    gateImage: "https://www.wyu.edu.cn/2023ym/images/e-bg1.jpg",
+    gateAlt: "Official website image for Wuyi University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.wyu.edu.cn/"
+  },
+  "xiamen-university-of-technology": {
+    gateImage: "https://www.xmut.edu.cn/images/banner1.jpg",
+    gateAlt: "Official website image for Xiamen University of Technology",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xmut.edu.cn/"
+  },
+  "xi-an-international-studies-university": {
+    gateImage: "https://www.xisu.edu.cn/__local/D/8D/55/E5A189A9054139BA73C4C6519F4_C5DC4902_C303.jpg",
+    gateAlt: "Official website image for Xi'an International Studies University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xisu.edu.cn/"
+  },
+  "xiangtan-university": {
+    gateImage: "https://www.xtu.edu.cn/__local/E/22/F3/C9CA40DCC6A6F464DED2CBFBB99_F5120DAF_1DBDF.jpg",
+    gateAlt: "Official website image for Xiangtan University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xtu.edu.cn/"
+  },
+  "xidian-university": {
+    gateImage: "https://en.xidian.edu.cn/__local/F/49/B9/D618A18033E4E775E52AFBD92A7_CEC55AC4_48E81.jpeg",
+    gateAlt: "Official website image for Xidian University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://en.xidian.edu.cn/"
+  },
+  "xinjiang-medical-university": {
+    gateImage: "https://www.xjmu.edu.cn/__local/1/41/D5/B8AD4F4C46800155B70AC53400A_6E7D28E3_1CA95.jpg",
+    gateAlt: "Official website image for Xinjiang Medical University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xjmu.edu.cn/"
+  },
+  "xinjiang-normal-university": {
+    gateImage: "https://www.xjnu.edu.cn/__local/2/97/4F/FCD260F4BBA76F0F534C9CE32FD_3FB503E9_2B3BE.jpg",
+    gateAlt: "Official website image for Xinjiang Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xjnu.edu.cn/"
+  },
+  "xinjiang-university": {
+    gateImage: "https://www.xju.edu.cn/__local/2/EE/C9/95B9C669DDB31E91E8CF2401854_2A750F7F_216FE.jpg",
+    gateAlt: "Official website image for Xinjiang University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.xju.edu.cn/"
+  },
+  "yanshan-university": {
+    gateImage: "https://www.ysu.edu.cn/images/20260703.jpg",
+    gateAlt: "Official website image for Yanshan University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ysu.edu.cn/"
+  },
+  "yantai-university": {
+    gateImage: "https://www.ytu.edu.cn/images/2026zhengjiguan.jpg",
+    gateAlt: "Official website image for Yantai University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ytu.edu.cn/"
+  },
+  "zhejiang-normal-university": {
+    gateImage: "https://www.zjnu.edu.cn/_upload/article/images/73/e3/c101f2ac4c4985d632ae2bb33856/06a312d6-4688-4ff7-a1fe-38099b8008db.jpg",
+    gateAlt: "Official website image for Zhejiang Normal University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.zjnu.edu.cn/"
+  },
+  "zhejiang-ocean-university": {
+    gateImage: "https://www.zjou.edu.cn/index-random-img/20250313.jpg",
+    gateAlt: "Official website image for Zhejiang Ocean University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.zjou.edu.cn/"
+  },
+  "zhejiang-sci-tech-university": {
+    gateImage: "https://www.zstu.edu.cn/__local/5/79/77/0F6D1FA066CE093AC44DBEC3A2D_37FD0C55_E2A51.jpg?e=.jpg",
+    gateAlt: "Official website image for Zhejiang Sci-Tech University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.zstu.edu.cn/"
+  },
+  "zhengzhou-university": {
+    gateImage: "https://english.zzu.edu.cn/img/attachement/jpg/site16/20251212/17655067241681.jpg",
+    gateAlt: "Official website image for Zhengzhou University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://english.zzu.edu.cn/"
+  },
+  "anhui-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20AHNU.jpg?width=1200",
+    gateAlt: "Anhui Normal University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20AHNU.jpg"
+  },
+  "anhui-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Anhui%20University%20South%20Gate.jpg?width=1200",
+    gateAlt: "Anhui University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Anhui%20University%20South%20Gate.jpg"
+  },
+  "anshan-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Anshan%20Normal%20University%20teaching%20buildings.jpg?width=1200",
+    gateAlt: "Anshan Normal University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Anshan%20Normal%20University%20teaching%20buildings.jpg"
+  },
+  "central-academy-of-fine-arts": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/East%20gate%20of%20CAFA%20%2820231207160608%29.jpg?width=1200",
+    gateAlt: "Central Academy of Fine Arts campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/East%20gate%20of%20CAFA%20%2820231207160608%29.jpg"
+  },
+  "china-youth-university-of-political-studies": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/China%20Youth%20University%20of%20Political%20Studies%20%2820220808154321%29.jpg?width=1200",
+    gateAlt: "China Youth University of Political Studies campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/China%20Youth%20University%20of%20Political%20Studies%20%2820220808154321%29.jpg"
+  },
+  "guangdong-university-of-foreign-studies": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Guangwai.jpg?width=1200",
+    gateAlt: "Guangdong University of Foreign Studies campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Guangwai.jpg"
+  },
+  "guizhou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Guizhou%20Univ-North%20Campus-Library.jpg?width=1200",
+    gateAlt: "Guizhou University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Guizhou%20Univ-North%20Campus-Library.jpg"
+  },
+  "hainan-normal-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Hainan%20Normal%20University%2C%20Haikou%20Campus%20-%2001.jpg?width=1200",
+    gateAlt: "Hainan Normal University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Hainan%20Normal%20University%2C%20Haikou%20Campus%20-%2001.jpg"
+  },
+  "hebei-university-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20HEBUT%20%28Beichen%29%202.jpg?width=1200",
+    gateAlt: "Hebei University of Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20HEBUT%20%28Beichen%29%202.jpg"
+  },
+  "hefei-university-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/HFUT.jpg?width=1200",
+    gateAlt: "Hefei University of Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/HFUT.jpg"
+  },
+  "hubei-university-of-chinese-medicine": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Hubei%20TCM%20University.jpg?width=1200",
+    gateAlt: "Hubei University of Chinese Medicine campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Hubei%20TCM%20University.jpg"
+  },
+  "jiangsu-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Jiangsu%20University%20Mengxi%20Campus%202013-04.JPG?width=1200",
+    gateAlt: "Jiangsu University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Jiangsu%20University%20Mengxi%20Campus%202013-04.JPG"
+  },
+  "jiangxi-university-of-traditional-chinese-medicine": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B1%9F%E8%A5%BF%E4%B8%AD%E5%8C%BB%E5%AD%A6%E9%99%A2%E6%A0%A1%E9%97%A8%20-%20panoramio.jpg?width=1200",
+    gateAlt: "Jiangxi University of Traditional Chinese Medicine campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B1%9F%E8%A5%BF%E4%B8%AD%E5%8C%BB%E5%AD%A6%E9%99%A2%E6%A0%A1%E9%97%A8%20-%20panoramio.jpg"
+  },
+  "nanjing-university-of-information-science-and-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/NUIST%20Main%20Entrance%20Gate%20on%20EAST.jpg?width=1200",
+    gateAlt: "Nanjing University of Information Science and Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/NUIST%20Main%20Entrance%20Gate%20on%20EAST.jpg"
+  },
+  "nanjing-university-of-the-arts": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%8D%97%E8%89%BA%E5%9B%BE%E4%B9%A6%E9%A6%861.jpg?width=1200",
+    gateAlt: "Nanjing University of the Arts campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%8D%97%E8%89%BA%E5%9B%BE%E4%B9%A6%E9%A6%861.jpg"
+  },
+  "ocean-university-of-china": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E6%8A%80%E4%B8%AD%E5%BF%83%E6%A5%BC%E5%8F%8A%E6%95%99%E5%AD%A6%E6%A5%BC.jpg?width=1200",
+    gateAlt: "Ocean University of China campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E6%8A%80%E4%B8%AD%E5%BF%83%E6%A5%BC%E5%8F%8A%E6%95%99%E5%AD%A6%E6%A5%BC.jpg"
+  },
+  "qingdao-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Qingdao%20University.jpg?width=1200",
+    gateAlt: "Qingdao University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Qingdao%20University.jpg"
+  },
+  "shanghai-conservatory-of-music": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Conservatory%20of%20Music.jpg?width=1200",
+    gateAlt: "Shanghai Conservatory of Music campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Conservatory%20of%20Music.jpg"
+  },
+  "shanghai-ocean-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20Shanghai%20Ocean%20University%2C%20Pudong%20%28Lingang%20Campus%29.jpg?width=1200",
+    gateAlt: "Shanghai Ocean University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20Shanghai%20Ocean%20University%2C%20Pudong%20%28Lingang%20Campus%29.jpg"
+  },
+  "shanghai-university-of-international-business-and-economics": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Campus%20photo%20of%20SUIBE%2001.jpg?width=1200",
+    gateAlt: "Shanghai University of International Business and Economics campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Campus%20photo%20of%20SUIBE%2001.jpg"
+  },
+  "shanghai-university-of-sport": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%9C%C2%B7%E4%B8%8A%E6%B5%B7%E4%BD%93%E8%82%B2%E5%AD%A6%E9%99%A2%C2%B7%E8%88%AA%E6%8B%8D.jpg?width=1200",
+    gateAlt: "Shanghai University of Sport campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%9C%C2%B7%E4%B8%8A%E6%B5%B7%E4%BD%93%E8%82%B2%E5%AD%A6%E9%99%A2%C2%B7%E8%88%AA%E6%8B%8D.jpg"
+  },
+  "shenyang-ligong-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Campus%20in%20spring.jpg?width=1200",
+    gateAlt: "Shenyang Ligong University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Campus%20in%20spring.jpg"
+  },
+  "southwest-university-of-political-science-and-law": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Southwest%20University%20of%20Political%20Science%20%26%20Law.jpg?width=1200",
+    gateAlt: "Southwest University of Political Science and Law campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Southwest%20University%20of%20Political%20Science%20%26%20Law.jpg"
+  },
+  "taiyuan-university-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Taiyuan%20University%20of%20Technology%20Yingxi%20Campus.jpg?width=1200",
+    gateAlt: "Taiyuan University of Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Taiyuan%20University%20of%20Technology%20Yingxi%20Campus.jpg"
+  },
+  "tianjin-foreign-studies-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/TFLU4.jpg?width=1200",
+    gateAlt: "Tianjin Foreign Studies University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/TFLU4.jpg"
+  },
+  "tianjin-medical-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/2014%E5%B9%B46%E6%9C%88%E5%A4%A9%E6%B4%A5%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%9B%AD.jpg?width=1200",
+    gateAlt: "Tianjin Medical University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/2014%E5%B9%B46%E6%9C%88%E5%A4%A9%E6%B4%A5%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%9B%AD.jpg"
+  },
+  "tianjin-university-of-finance-and-economics": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/TUFE%E5%A4%A7%E9%97%A81.jpg?width=1200",
+    gateAlt: "Tianjin University of Finance and Economics campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/TUFE%E5%A4%A7%E9%97%A81.jpg"
+  },
+  "tongji-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Tongjidaxue%20Tushuguan.JPG?width=1200",
+    gateAlt: "Tongji University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Tongjidaxue%20Tushuguan.JPG"
+  },
+  "university-of-science-and-technology-beijing": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/USTB%20west%20gate.jpg?width=1200",
+    gateAlt: "University of Science and Technology Beijing campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/USTB%20west%20gate.jpg"
+  },
+  "university-of-shanghai-for-science-and-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%8A%E6%B5%B7%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A64.jpg?width=1200",
+    gateAlt: "University of Shanghai for Science and Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%B8%8A%E6%B5%B7%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A64.jpg"
+  },
+  "wenzhou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/University%20town%20sign.JPG?width=1200",
+    gateAlt: "Wenzhou University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/University%20town%20sign.JPG"
+  },
+  "xi-an-shiyou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E8%A5%BF%E5%AE%89%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6%E9%84%A0%E9%82%91%E6%A0%A1%E5%8C%BA%E4%B8%9C%E5%A4%A7%E9%97%A8%2001.jpg?width=1200",
+    gateAlt: "Xi'an Shiyou University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E8%A5%BF%E5%AE%89%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6%E9%84%A0%E9%82%91%E6%A0%A1%E5%8C%BA%E4%B8%9C%E5%A4%A7%E9%97%A8%2001.jpg"
+  },
+  "yanbian-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%BB%B6%E8%BE%B9%E5%A4%A7%E5%AD%A6%E6%B1%82%E7%9C%9F%E6%A5%BC%202.jpg?width=1200",
+    gateAlt: "Yanbian University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%BB%B6%E8%BE%B9%E5%A4%A7%E5%AD%A6%E6%B1%82%E7%9C%9F%E6%A5%BC%202.jpg"
+  },
+  "yangzhou-university": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Yangzhou%20University.jpg?width=1200",
+    gateAlt: "Yangzhou University campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Yangzhou%20University.jpg"
+  },
+  "yunnan-university-of-finance-and-economics": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%BA%91%E5%8D%97%E8%B4%A2%E7%BB%8F%E5%A4%A7%E5%AD%A6%E9%80%B8%E5%A4%AB%E6%A5%BC.JPG?width=1200",
+    gateAlt: "Yunnan University of Finance and Economics campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/%E4%BA%91%E5%8D%97%E8%B4%A2%E7%BB%8F%E5%A4%A7%E5%AD%A6%E9%80%B8%E5%A4%AB%E6%A5%BC.JPG"
+  },
+  "zhejiang-university-of-technology": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Headquarters%20ZJUT.jpg?width=1200",
+    gateAlt: "Zhejiang University of Technology campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Headquarters%20ZJUT.jpg"
+  },
+  "zhongnan-university-of-economics-and-law": {
+    gateImage: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20South%20Lake%20Campus%20of%20Zhongnan%20University%20of%20Economics%20and%20Law.jpg?width=1200",
+    gateAlt: "Zhongnan University of Economics and Law campus or representative image",
+    sourceLabel: "Wikidata / Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20South%20Lake%20Campus%20of%20Zhongnan%20University%20of%20Economics%20and%20Law.jpg"
+  },
+  "bohai-university": {
+    gateImage: "https://img2.baidu.com/it/u=3442755675,237012497&fm=253&fmt=auto&app=138&f=JPEG?w=973&h=500",
+    gateAlt: "Bohai University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E6%B8%A4%E6%B5%B7%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "capital-institute-of-physical-education": {
+    gateImage: "https://img1.baidu.com/it/u=224184501,3795950304&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=800",
+    gateAlt: "Capital Institute of Physical Education representative image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Capital%20Institute%20of%20Physical%20Education%20campus"
+  },
+  "china-university-of-petroleum-huadong": {
+    gateImage: "https://img2.baidu.com/it/u=2105085442,1829811854&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800",
+    gateAlt: "China University of Petroleum Huadong campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6%E5%8D%8E%E4%B8%9C%20%E6%A0%A1%E5%9B%AD"
+  },
+  "fujian-university-of-technology": {
+    gateImage: "https://img0.baidu.com/it/u=1166729885,4061120554&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500",
+    gateAlt: "Fujian University of Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Fujian%20University%20of%20Technology%20campus"
+  },
+  "gannan-normal-university": {
+    gateImage: "https://img1.baidu.com/it/u=1370640950,1985578875&fm=253&fmt=auto&app=138&f=JPEG?w=759&h=500",
+    gateAlt: "Gannan Normal University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Gannan%20Normal%20University%20campus"
+  },
+  "guangxi-teachers-education-university": {
+    gateImage: "https://img2.baidu.com/it/u=1222486572,833193514&fm=253&fmt=auto&app=120&f=JPEG?w=1140&h=800",
+    gateAlt: "Guangxi teacher education campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E5%B9%BF%E8%A5%BF%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2%20%E6%A0%A1%E5%9B%AD"
+  },
+  "guangxi-university-for-nationalities": {
+    gateImage: "https://img1.baidu.com/it/u=1580626880,2808997572&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500",
+    gateAlt: "Guangxi University for Nationalities campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Guangxi%20University%20for%20Nationalities%20campus"
+  },
+  "guangzhou-medical-university": {
+    gateImage: "https://img0.baidu.com/it/u=2177761269,3794675304&fm=253&fmt=auto&app=120&f=JPEG?w=1102&h=800",
+    gateAlt: "Guangzhou Medical University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Guangzhou%20Medical%20University%20campus"
+  },
+  "guizhou-minzu-university": {
+    gateImage: "https://img2.baidu.com/it/u=1641499193,541725375&fm=253&fmt=auto&app=138&f=JPEG?w=995&h=500",
+    gateAlt: "Guizhou Minzu University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Guizhou%20Minzu%20University%20campus"
+  },
+  "guizhou-normal-university": {
+    gateImage: "https://img2.baidu.com/it/u=1867522599,2664401250&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=818",
+    gateAlt: "Guizhou Normal University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Guizhou%20Normal%20University%20campus"
+  },
+  "hebei-university-of-economics-and-business": {
+    gateImage: "https://img0.baidu.com/it/u=719128574,1131137459&fm=253&fmt=auto&app=138&f=JPEG?w=1682&h=500",
+    gateAlt: "Hebei University of Economics and Business campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Hebei%20University%20of%20Economics%20and%20Business%20campus"
+  },
+  "hefei-university": {
+    gateImage: "https://img2.baidu.com/it/u=610875928,1838063816&fm=253&fmt=auto&app=120&f=JPEG?w=1195&h=800",
+    gateAlt: "Hefei University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Hefei%20University%20campus"
+  },
+  "heihe-university": {
+    gateImage: "https://img0.baidu.com/it/u=921891687,120554342&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+    gateAlt: "Heihe University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Heihe%20University%20campus"
+  },
+  "heilongjiang-university-of-chinese-medicine": {
+    gateImage: "https://img0.baidu.com/it/u=4199042079,328976450&fm=253&fmt=auto&app=138&f=JPEG?w=1051&h=500",
+    gateAlt: "Heilongjiang University of Chinese Medicine campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Heilongjiang%20University%20of%20Chinese%20Medicine%20campus"
+  },
+  "huangshan-university": {
+    gateImage: "https://img0.baidu.com/it/u=2811275544,1412395732&fm=253&fmt=auto&app=120&f=JPEG?w=1328&h=800",
+    gateAlt: "Huangshan University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Huangshan%20University%20campus"
+  },
+  "inner-mongolia-university-for-nationalities": {
+    gateImage: "https://img1.baidu.com/it/u=839909598,691860855&fm=253&fmt=auto&app=138&f=JPEG?w=782&h=500",
+    gateAlt: "Inner Mongolia University for Nationalities campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Inner%20Mongolia%20University%20for%20Nationalities%20campus"
+  },
+  "inner-mongolia-university-of-technology": {
+    gateImage: "https://img1.baidu.com/it/u=1404375610,1181650633&fm=253&fmt=auto&app=120&f=JPEG?w=1271&h=800",
+    gateAlt: "Inner Mongolia University of Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Inner%20Mongolia%20University%20of%20Technology%20campus"
+  },
+  "jingdezhen-ceramic-institute": {
+    gateImage: "https://img2.baidu.com/it/u=3328686731,480139231&fm=253&fmt=auto&app=120&f=JPEG?w=1025&h=669",
+    gateAlt: "Jingdezhen Ceramic Institute representative image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E6%99%AF%E5%BE%B7%E9%95%87%E9%99%B6%E7%93%B7%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "liaoning-medical-university": {
+    gateImage: "https://img1.baidu.com/it/u=3546617515,1319800852&fm=253&fmt=auto&app=120&f=JPEG?w=1197&h=644",
+    gateAlt: "Liaoning Medical University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E9%94%A6%E5%B7%9E%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "liaoning-university-of-traditional-chinese-medicine": {
+    gateImage: "https://img0.baidu.com/it/u=2448264679,2916987665&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=508",
+    gateAlt: "Liaoning University of Traditional Chinese Medicine representative image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Liaoning%20University%20of%20Traditional%20Chinese%20Medicine%20campus"
+  },
+  "lu-xun-academy-of-fine-arts": {
+    gateImage: "https://img0.baidu.com/it/u=1033383660,1550202235&fm=253&fmt=auto&app=120&f=JPEG?w=1026&h=436",
+    gateAlt: "Lu Xun Academy of Fine Arts representative image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E9%B2%81%E8%BF%85%E7%BE%8E%E6%9C%AF%E5%AD%A6%E9%99%A2%20%E6%A0%A1%E5%9B%AD"
+  },
+  "mudanjiang-normal-university": {
+    gateImage: "https://img1.baidu.com/it/u=1236662762,1969358798&fm=253&fmt=auto&app=120&f=JPEG?w=1238&h=800",
+    gateAlt: "Mudanjiang Normal University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Mudanjiang%20Normal%20University%20campus"
+  },
+  "nanchang-university": {
+    gateImage: "https://www.ncu.edu.cn/images/zhengjiguan1920x980.jpg",
+    gateAlt: "Official website image for Nanchang University",
+    sourceLabel: "Official university website",
+    sourceUrl: "https://www.ncu.edu.cn/"
+  },
+  "nanjing-university-of-science-and-technology": {
+    gateImage: "https://img0.baidu.com/it/u=2061485897,4008882203&fm=253&fmt=auto&app=138&f=JPEG?w=818&h=500",
+    gateAlt: "Nanjing University of Science and Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Nanjing%20University%20of%20Science%20and%20Technology%20campus"
+  },
+  "ningbo-university-of-technology": {
+    gateImage: "https://img1.baidu.com/it/u=3497815125,3483760352&fm=253&fmt=auto&app=138&f=JPEG?w=948&h=400",
+    gateAlt: "Ningbo University of Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Ningbo%20University%20of%20Technology%20campus"
+  },
+  "ningxia-medical-university": {
+    gateImage: "https://img0.baidu.com/it/u=3507457012,39419090&fm=253&fmt=auto&app=138&f=JPEG?w=760&h=475",
+    gateAlt: "Ningxia Medical University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Ningxia%20Medical%20University%20campus"
+  },
+  "qinghai-nationalities-university": {
+    gateImage: "https://img2.baidu.com/it/u=450420152,1033998844&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500",
+    gateAlt: "Qinghai Nationalities University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Qinghai%20Nationalities%20University%20campus"
+  },
+  "qiqihar-university": {
+    gateImage: "https://img2.baidu.com/it/u=831171072,2537555280&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800",
+    gateAlt: "Qiqihar University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E9%BD%90%E9%BD%90%E5%93%88%E5%B0%94%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "shaanxi-university-of-chinese-medicine": {
+    gateImage: "https://img1.baidu.com/it/u=3301076324,1189122920&fm=253&fmt=auto&app=120&f=JPEG?w=1212&h=800",
+    gateAlt: "Shaanxi University of Chinese Medicine campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Shaanxi%20University%20of%20Chinese%20Medicine%20campus"
+  },
+  "shandong-university-of-technology": {
+    gateImage: "https://img1.baidu.com/it/u=2519320310,2995087401&fm=253&fmt=auto&app=120&f=JPEG?w=1199&h=800",
+    gateAlt: "Shandong University of Technology representative image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E5%B1%B1%E4%B8%9C%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "shanghai-university-of-traditional-chinese-medicine": {
+    gateImage: "https://img0.baidu.com/it/u=280286671,1440163454&fm=253&fmt=auto&app=120&f=JPEG?w=1648&h=800",
+    gateAlt: "Shanghai University of Traditional Chinese Medicine campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "shenyang-aerospace-university": {
+    gateImage: "https://img1.baidu.com/it/u=1617481326,1134813621&fm=253&fmt=auto&app=138&f=JPEG?w=753&h=500",
+    gateAlt: "Shenyang Aerospace University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Shenyang%20Aerospace%20University%20campus"
+  },
+  "shenyang-university-of-technology": {
+    gateImage: "https://img1.baidu.com/it/u=703775692,2283222468&fm=253&fmt=auto&app=120&f=JPEG?w=1205&h=800",
+    gateAlt: "Shenyang University of Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Shenyang%20University%20of%20Technology%20campus"
+  },
+  "southwest-university": {
+    gateImage: "https://img1.baidu.com/it/u=1710619828,1755054123&fm=253&fmt=auto&app=138&f=JPEG?w=1067&h=800",
+    gateAlt: "Southwest University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E8%A5%BF%E5%8D%97%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "the-graduate-school-of-the-chinese-academy-of-agricultural-sciences": {
+    gateImage: "https://img1.baidu.com/it/u=4291868094,3292468692&fm=253&fmt=auto&app=120&f=JPEG?w=750&h=500",
+    gateAlt: "Graduate School of Chinese Academy of Agricultural Sciences campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E7%A7%91%E5%AD%A6%E9%99%A2%E7%A0%94%E7%A9%B6%E7%94%9F%E9%99%A2%20%E6%A0%A1%E5%9B%AD"
+  },
+  "tianjin-polytechnic-university": {
+    gateImage: "https://img0.baidu.com/it/u=969229057,4227290144&fm=253&fmt=auto&app=120&f=JPEG?w=667&h=500",
+    gateAlt: "Tianjin Polytechnic University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Tianjin%20Polytechnic%20University%20campus"
+  },
+  "tianjin-university-of-technology-and-education": {
+    gateImage: "https://img0.baidu.com/it/u=2090247153,2349768429&fm=253&fmt=auto&app=120&f=JPEG?w=1256&h=800",
+    gateAlt: "Tianjin University of Technology and Education campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Tianjin%20University%20of%20Technology%20and%20Education%20campus"
+  },
+  "university-of-jinan": {
+    gateImage: "https://img0.baidu.com/it/u=904533943,583072374&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500",
+    gateAlt: "University of Jinan campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E6%B5%8E%E5%8D%97%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "wenzhou-medical-university": {
+    gateImage: "https://img1.baidu.com/it/u=738395579,1184083124&fm=253&fmt=auto&app=138&f=JPEG?w=751&h=500",
+    gateAlt: "Wenzhou Medical University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Wenzhou%20Medical%20University%20campus"
+  },
+  "wuhan-institute-of-physical-education": {
+    gateImage: "https://img0.baidu.com/it/u=2297989225,3475235092&fm=253&fmt=auto&app=138&f=JPEG?w=608&h=323",
+    gateAlt: "Wuhan Institute of Physical Education campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Wuhan%20Institute%20of%20Physical%20Education%20campus"
+  },
+  "wuhan-university-of-technology": {
+    gateImage: "https://img1.baidu.com/it/u=1682614300,3459613881&fm=253&fmt=auto&app=138&f=JPEG?w=755&h=500",
+    gateAlt: "Wuhan University of Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=%E6%AD%A6%E6%B1%89%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%20%E6%A0%A1%E5%9B%AD"
+  },
+  "yangtze-university": {
+    gateImage: "https://img1.baidu.com/it/u=4257114264,3932120920&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+    gateAlt: "Yangtze University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Yangtze%20University%20campus"
+  },
+  "zhejiang-gongshang-university": {
+    gateImage: "https://img1.baidu.com/it/u=340418204,4222462509&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500",
+    gateAlt: "Zhejiang Gongshang University campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Zhejiang%20Gongshang%20University%20campus"
+  },
+  "zhejiang-university-of-science-and-technology": {
+    gateImage: "https://img1.baidu.com/it/u=1341345093,3109099376&fm=253&fmt=auto&app=120&f=JPEG?w=1404&h=800",
+    gateAlt: "Zhejiang University of Science and Technology campus image from Baidu image results",
+    sourceLabel: "Baidu Image Search",
+    sourceUrl: "https://image.baidu.com/search/index?tn=baiduimage&word=Zhejiang%20University%20of%20Science%20and%20Technology%20campus"
   }
 };
 
