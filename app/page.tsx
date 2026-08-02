@@ -740,9 +740,9 @@ export default async function HomePage() {
               href="https://masuip.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-md border border-white/20 bg-white/10 px-3 py-2 text-left text-xs font-medium leading-5 text-blue-50 transition hover:border-white/40 hover:bg-white/15 hover:text-white"
+              className="inline-flex max-w-xl items-center rounded-lg border border-white/35 bg-white/15 px-5 py-4 text-left text-base font-bold leading-6 text-white shadow-lg shadow-slate-950/15 backdrop-blur transition hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/20"
             >
-              {isZh ? "友情链接：支持全球青少年科创与专利申请 · masuip.com" : "Partner link: Youth innovation and patent support · masuip.com"}
+              {isZh ? "友情链接：支持全球青少年科创与专利申请 · masuip.com →" : "Partner link: Youth innovation and patent support · masuip.com →"}
             </a>
           </div>
         </div>
