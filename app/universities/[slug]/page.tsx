@@ -33,7 +33,7 @@ import { localizeUniversityContent } from "@/lib/i18n/university-content";
 import { getUniversityMedia } from "@/lib/media/university-media";
 import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getScholarshipDetails } from "@/lib/scholarship-details";
-import { getUniversityAdmissionsGuide } from "@/lib/university-admissions-guides";
+import { getEnhancedUniversityAdmissionsGuide } from "@/lib/top-china-graduate-admissions-guides";
 import { breadcrumbJsonLd, buildMetadata, universityJsonLd } from "@/lib/seo";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import type { University } from "@/lib/site-data";
@@ -199,7 +199,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
   const provinceName = province ? (isZh ? province.zhName : province.name) : university.provinceSlug;
   const signals = destinationSignals(university, city, isZh);
   const scholarshipDetails = getScholarshipDetails(sourceUniversity);
-  const admissionsGuide = getUniversityAdmissionsGuide(university.slug);
+  const admissionsGuide = getEnhancedUniversityAdmissionsGuide(university.slug);
 
   return (
     <main>
@@ -380,7 +380,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
             {admissionsGuide ? (
               <section>
                 <SectionHeading
-                  title={isZh ? "国际生招生档案" : "International admissions file"}
+                  title={isZh ? "国际学生硕博招生简章" : "International graduate admissions file"}
                   description={isZh ? admissionsGuide.zhProfile : admissionsGuide.profile}
                 />
                 <div className="mt-6 grid gap-6">
