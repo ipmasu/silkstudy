@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { getCatalogUniversities, getCatalogUniversityBySlug } from "@/lib/catalog/international-university-directory";
 import { getChinaUniversityRanking } from "@/lib/china-university-rankings";
+import { scopePublicUniversityCatalog } from "@/lib/public-university-catalog-scope";
 import { getUniversity, universities, type University } from "@/lib/site-data";
 
 type DbUniversity = Awaited<ReturnType<typeof fetchDbUniversity>>;
@@ -115,6 +116,12 @@ export async function getUniversityView(slug: string) {
 }
 
 export async function getUniversityCatalogView(slug: string) {
+  const featured = await getFeaturedUniversitiesView();
+  const publicCatalog = scopePublicUniversityCatalog(getCatalogUniversities(featured).map(withChinaRanking));
+  const publicSlugs = new Set(publicCatalog.map((university) => university.slug));
+
+  if (!publicSlugs.has(slug)) return undefined;
+
   const curated = await getUniversityView(slug);
   if (curated) return curated;
 
@@ -174,5 +181,5 @@ export async function getFeaturedUniversitiesView() {
 
 export async function getAllUniversitiesView() {
   const featured = await getFeaturedUniversitiesView();
-  return getCatalogUniversities(featured).map(withChinaRanking);
+  return scopePublicUniversityCatalog(getCatalogUniversities(featured).map(withChinaRanking));
 }

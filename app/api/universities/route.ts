@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCatalogUniversities } from "@/lib/catalog/international-university-directory";
 import { getChinaRankingSortValue, getChinaUniversityRanking } from "@/lib/china-university-rankings";
+import { scopePublicUniversityCatalog } from "@/lib/public-university-catalog-scope";
 import { universities } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
@@ -15,10 +16,12 @@ export function GET(request: Request) {
   const page = Math.max(1, Number(searchParams.get("page") ?? 1) || 1);
   const pageSize = Math.min(100, Math.max(1, Number(searchParams.get("pageSize") ?? 24) || 24));
 
-  const catalogUniversities = getCatalogUniversities(universities).map((university) => ({
-    ...university,
-    chinaRanking: getChinaUniversityRanking(university.slug)
-  }));
+  const catalogUniversities = scopePublicUniversityCatalog(
+    getCatalogUniversities(universities).map((university) => ({
+      ...university,
+      chinaRanking: getChinaUniversityRanking(university.slug)
+    }))
+  );
   const filtered = catalogUniversities.filter((university) => {
     const queryMatch =
       !query ||

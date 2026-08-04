@@ -2,6 +2,7 @@ import { getCatalogUniversities } from "@/lib/catalog/international-university-d
 import { getChinaUniversityRanking } from "@/lib/china-university-rankings";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { displayMajor } from "@/lib/i18n/display";
+import { scopePublicUniversityCatalog } from "@/lib/public-university-catalog-scope";
 import { provinceShowcases } from "@/lib/province-showcase";
 import { majors, universities } from "@/lib/site-data";
 
@@ -46,10 +47,12 @@ export function searchSite(query: string, limit = 8, locale = "en"): SearchResul
   const normalizedQuery = normalize(query);
   if (normalizedQuery.length < 2) return [];
 
-  const catalogUniversities = getCatalogUniversities(universities).map((university) => ({
-    ...university,
-    chinaRanking: getChinaUniversityRanking(university.slug)
-  }));
+  const catalogUniversities = scopePublicUniversityCatalog(
+    getCatalogUniversities(universities).map((university) => ({
+      ...university,
+      chinaRanking: getChinaUniversityRanking(university.slug)
+    }))
+  );
   const cityDestinations = getCityDestinations(catalogUniversities);
   const catalogMajors = [...new Set([...majors, ...catalogUniversities.flatMap((university) => university.majors)])];
 
