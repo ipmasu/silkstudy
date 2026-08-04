@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLocale } from "next-intl/server";
 import { getAllUniversitiesView } from "@/lib/content/universities";
+import { localeFromParams, type LocaleParams } from "@/lib/i18n/static-locale";
 import { buildMetadata } from "@/lib/seo";
-import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getCurrentLocale();
+export const revalidate = 86400;
+
+export async function generateMetadata({ params }: { params: LocaleParams }): Promise<Metadata> {
+  const locale = await localeFromParams(params);
 
   return buildMetadata({
     ...({
@@ -19,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 type PageProps = {
+  params: LocaleParams;
   searchParams: Promise<{ schools?: string }>;
 };
 
@@ -45,12 +47,12 @@ function inferSchoolType(name: string, chineseName: string) {
   return "综合性大学";
 }
 
-export default async function UniversityComparePage({ searchParams }: PageProps) {
-  const locale = await getLocale();
+export default async function UniversityComparePage({ params, searchParams }: PageProps) {
+  const locale = await localeFromParams(params);
   const isZh = locale === "zh";
   const prefix = locale === "en" ? "" : `/${locale}`;
-  const params = await searchParams;
-  const slugs = (params.schools ?? "").split(",").map((item) => item.trim()).filter(Boolean);
+  const queryParams = await searchParams;
+  const slugs = (queryParams.schools ?? "").split(",").map((item) => item.trim()).filter(Boolean);
   const allUniversities = await getAllUniversitiesView();
   const universities = slugs.map((slug) => allUniversities.find((item) => item.slug === slug)).filter((item): item is NonNullable<typeof item> => Boolean(item));
 

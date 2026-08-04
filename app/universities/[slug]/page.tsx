@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { getLocale } from "next-intl/server";
 import {
   Banknote,
   BriefcaseBusiness,
@@ -29,19 +28,29 @@ import { getPublishedUniversityTravelNotes } from "@/lib/content/university-trav
 import { getAllUniversitiesView, getUniversityCatalogView } from "@/lib/content/universities";
 import { displayMajor } from "@/lib/i18n/display";
 import { localeCopy } from "@/lib/i18n/copy";
+import { localeFromParams } from "@/lib/i18n/static-locale";
 import { localizeUniversityContent } from "@/lib/i18n/university-content";
 import { getUniversityMedia } from "@/lib/media/university-media";
 import { getProvinceShowcase } from "@/lib/province-showcase";
 import { getScholarshipDetails } from "@/lib/scholarship-details";
 import { getEnhancedUniversityAdmissionsGuide } from "@/lib/top-china-graduate-admissions-guides";
 import { breadcrumbJsonLd, buildMetadata, universityJsonLd } from "@/lib/seo";
-import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import type { University } from "@/lib/site-data";
 import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const locale = await getCurrentLocale();
+type UniversityPageParams = Promise<{ locale?: string; slug: string }>;
+
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  const allUniversities = await getAllUniversitiesView();
+  return allUniversities.map((university) => ({ slug: university.slug }));
+}
+
+export async function generateMetadata({ params }: { params: UniversityPageParams }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const locale = await localeFromParams(resolvedParams);
   const university = await getUniversityCatalogView(slug);
 
   if (!university) return {};
@@ -169,9 +178,10 @@ function destinationSignals(university: University, city: ReturnType<typeof getC
   ];
 }
 
-export default async function UniversityPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const locale = await getLocale();
+export default async function UniversityPage({ params }: { params: UniversityPageParams }) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const locale = await localeFromParams(resolvedParams);
   const isZh = locale === "zh";
   const tx = (en: string, zh: string, vi: string) => localeCopy(locale, en, zh, vi);
   const prefix = locale === "en" ? "" : `/${locale}`;

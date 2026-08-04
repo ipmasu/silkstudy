@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import { ButtonLink } from "@/components/common/button-link";
 import { JsonLd } from "@/components/common/json-ld";
 import { UniversitySelector } from "@/components/universities/university-selector";
 import { getCityDestinations } from "@/lib/city-destinations";
 import { getAllUniversitiesView } from "@/lib/content/universities";
+import { localeFromParams, type LocaleParams } from "@/lib/i18n/static-locale";
 import { buildMetadata, itemListJsonLd } from "@/lib/seo";
-import { getCurrentLocale } from "@/lib/i18n/server-locale";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getCurrentLocale();
+type UniversitiesPageProps = {
+  params: LocaleParams;
+};
+
+export const revalidate = 86400;
+
+export async function generateMetadata({ params }: UniversitiesPageProps): Promise<Metadata> {
+  const locale = await localeFromParams(params);
 
   return buildMetadata({
     ...({
@@ -21,8 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function UniversitiesPage() {
-  const locale = await getLocale();
+export default async function UniversitiesPage({ params }: UniversitiesPageProps) {
+  const locale = await localeFromParams(params);
   const isZh = locale === "zh";
   const prefix = locale === "en" ? "" : `/${locale}`;
   const universities = await getAllUniversitiesView();
