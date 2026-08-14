@@ -700,6 +700,10 @@ p {
   color: var(--gold-2);
 }
 
+.finale-wechat {
+  margin-top: 34px;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
