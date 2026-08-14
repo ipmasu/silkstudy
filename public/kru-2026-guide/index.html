@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>北碧皇家大学 | 交互式介绍</title>
+  <meta name="description" content="北碧皇家大学招生与校园介绍交互式网页">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span>KRU</span>
+      <strong>北碧皇家大学</strong>
+    </a>
+    <nav class="top-nav" aria-label="页面导航">
+      <a href="#overview">学校概况</a>
+      <a href="#programs">专业设置</a>
+      <a href="#admission">招生费用</a>
+      <a href="#campus">校园交流</a>
+      <a href="#career">毕业就业</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media">
+        <img src="assets/ppt-media/image17.jpg" alt="北碧皇家大学校园建筑">
+      </div>
+      <div class="hero-copy">
+        <p class="kicker">Kanchanaburi Rajabhat University · 2026</p>
+        <h1>在泰国北碧，进入一所连接地方教育、国际交流与职业未来的国立大学。</h1>
+        <p class="lead">这份介绍将原 PPT 重构为可阅读、可切换、可查看细节的互动页面，覆盖学校概况、专业层次、招生计划、校园生活与毕业就业路径。</p>
+        <div class="hero-actions">
+          <a href="#programs" class="button primary">浏览专业</a>
+          <a href="#admission" class="button secondary">查看招生</a>
+        </div>
+      </div>
+      <aside class="hero-stat">
+        <span>1973</span>
+        <p>由北碧师范学院发展而来，服务地方教育与人才培养。</p>
+      </aside>
+    </section>
+
+    <section class="contents" aria-label="目录">
+      <a href="#overview"><span>01</span>学校概况</a>
+      <a href="#programs"><span>02</span>学校专业设置</a>
+      <a href="#admission"><span>03</span>招生计划与费用</a>
+      <a href="#campus"><span>04</span>校园生活与国际交流</a>
+      <a href="#career"><span>05</span>毕业与就业</a>
+    </section>
+
+    <section id="overview" class="section overview">
+      <div class="section-heading">
+        <p>01 · 学校概况</p>
+        <h2>北碧府的自然纵深，给大学生活一层更开阔的底色。</h2>
+      </div>
+      <div class="overview-grid">
+        <article class="text-panel">
+          <h3>地理位置与环境</h3>
+          <p>北碧皇家大学坐落于泰国北碧府。北碧府位于曼谷西北约 128 公里，是泰国面积较大的府之一，山地、森林、河流、瀑布与国家公园共同构成鲜明的自然环境。</p>
+          <p>这里也因二战时期“死亡铁路”等历史遗迹而成为重要旅游地区，兼具自然资源、历史记忆与区域发展潜力。</p>
+        </article>
+        <figure class="image-feature" data-lightbox="assets/ppt-media/image1.jpg">
+          <img src="assets/ppt-media/image1.jpg" alt="北碧皇家大学校门标识">
+          <figcaption>校园入口与学校标识</figcaption>
+        </figure>
+        <article class="text-panel dark">
+          <h3>办学规模</h3>
+          <p>学校为泰国北碧府国立高等院校，设有师范学院、人文与社会学院、科学与技术学院、工业技术学院、管理学院等五个学院。</p>
+          <p>目前覆盖 40 多个本科专业，并设有硕士与博士培养方向，形成从本科到研究生教育的完整路径。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="programs" class="section programs">
+      <div class="section-heading split">
+        <div>
+          <p>02 · 学校专业设置</p>
+          <h2>从本科到博士，专业体系覆盖教育、技术、管理与人文领域。</h2>
+        </div>
+        <div class="segmented" role="tablist" aria-label="专业层次">
+          <button class="active" data-tab="undergraduate" role="tab">本科</button>
+          <button data-tab="joint" role="tab">本硕</button>
+          <button data-tab="master" role="tab">硕士</button>
+          <button data-tab="doctor" role="tab">博士</button>
+        </div>
+      </div>
+
+      <div class="program-stage active" id="undergraduate">
+        <div class="program-copy">
+          <span>40+ 本科专业</span>
+          <h3>选择面广，适合建立跨学科基础。</h3>
+          <p>包括计算机科学、经济学、体育运动学、食品科学、财务管理、信息管理、旅游、法律、音乐新闻管理、旅游英语、英语、数学、学前教育、新闻传播学、社会学等。</p>
+        </div>
+        <ul class="program-points">
+          <li><strong>师资与设施</strong><span>教师具备专业知识与教学经验，校园设施支持学习与实践。</span></li>
+          <li><strong>就业与升学</strong><span>毕业生可进入相关领域工作，优秀学生也可继续攻读硕士、博士。</span></li>
+          <li><strong>专业覆盖</strong><span>学科门类丰富，满足不同背景学生的学习需求。</span></li>
+        </ul>
+      </div>
+
+      <div class="program-stage" id="joint">
+        <div class="program-copy">
+          <span>本硕连读路径</span>
+          <h3>更连续的学习周期，更早进入研究与实践。</h3>
+          <p>计算机科学、经济学、教育学、体育运动学、食品科学、财务管理、法律学、理工学等 20 多个方向可形成本硕培养路径。</p>
+        </div>
+        <ul class="program-points">
+          <li><strong>科研项目</strong><span>学生可参与项目训练，提升研究能力。</span></li>
+          <li><strong>企业实践</strong><span>通过合作项目积累实际工作经验。</span></li>
+          <li><strong>国际视野</strong><span>在多元文化环境中拓宽学术与职业认知。</span></li>
+        </ul>
+      </div>
+
+      <div class="program-stage" id="master">
+        <div class="program-copy">
+          <span>2 年制硕士</span>
+          <h3>面向专业进阶与研究能力提升。</h3>
+          <p>设有教育管理、课程与学习管理、会计学、工商管理、体育教育、计算机科学等硕士专业，兼顾学术研究与实践应用。</p>
+        </div>
+        <ul class="program-points">
+          <li><strong>研究训练</strong><span>参与科研项目，形成问题意识与研究方法。</span></li>
+          <li><strong>实践合作</strong><span>与企业或机构合作开展项目，链接真实场景。</span></li>
+          <li><strong>文化交流</strong><span>通过国际交流活动建立跨文化沟通能力。</span></li>
+        </ul>
+      </div>
+
+      <div class="program-stage" id="doctor">
+        <div class="program-copy">
+          <span>3 年制博士</span>
+          <h3>培养具备国际视野、创新能力与领导力的高层次人才。</h3>
+          <p>提供教育管理、教育课程与教学论、体育教育、计算机科学等博士方向，鼓励学生开展前沿学术研究，并与国内外科研机构合作。</p>
+        </div>
+        <ul class="program-points">
+          <li><strong>学术创新</strong><span>围绕学科前沿开展研究，推动专业发展。</span></li>
+          <li><strong>联合研究</strong><span>与科研机构合作，增强研究深度与影响力。</span></li>
+          <li><strong>职业去向</strong><span>可在高校、科研机构等从事教学、科研和管理工作。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="admission" class="section admission">
+      <div class="section-heading">
+        <p>03 · 招生计划与费用</p>
+        <h2>不同学历层次对应不同申请材料与培养周期。</h2>
+      </div>
+      <div class="admission-grid">
+        <button class="ad-card active" data-admission="bachelor">
+          <span>本科</span>
+          <strong>4 年</strong>
+          <small>40 人 / 专业</small>
+        </button>
+        <button class="ad-card" data-admission="master">
+          <span>硕士</span>
+          <strong>2 年</strong>
+          <small>30 人 / 专业</small>
+        </button>
+        <button class="ad-card" data-admission="joint">
+          <span>本硕</span>
+          <strong>5 年</strong>
+          <small>40 人 / 专业</small>
+        </button>
+        <button class="ad-card" data-admission="doctor">
+          <span>博士</span>
+          <strong>3 年</strong>
+          <small>25 人 / 专业</small>
+        </button>
+      </div>
+      <div class="admission-detail" aria-live="polite">
+        <div>
+          <p class="eyebrow" id="adTarget">招生对象</p>
+          <h3 id="adTitle">国内应往届高中毕业生及同等学历者</h3>
+          <p id="adCost">住宿费约 600-1500 元人民币/人/月；餐费约 10-20 元人民币/餐。实际费用以泰铢与当期汇率为准。</p>
+        </div>
+        <ul id="adDocs">
+          <li>申请表</li>
+          <li>照片</li>
+          <li>护照</li>
+          <li>高中毕业证和成绩单</li>
+          <li>英语成绩单</li>
+          <li>申请费</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="campus" class="section campus">
+      <div class="section-heading split">
+        <div>
+          <p>04 · 校园生活与国际交流</p>
+          <h2>课堂之外，校园设施、社团活动与中泰合作共同塑造学习体验。</h2>
+        </div>
+      </div>
+      <div class="campus-layout">
+        <div class="campus-copy">
+          <article>
+            <h3>学习设施</h3>
+            <p>图书馆藏书丰富，实验室设备完善，为不同专业学生提供学习资源与实践条件。</p>
+          </article>
+          <article>
+            <h3>生活设施</h3>
+            <p>学生宿舍、食堂、超市等生活配套便利，支持学生在校内形成稳定的学习生活节奏。</p>
+          </article>
+          <article>
+            <h3>社团活动</h3>
+            <p>学生社团涵盖学术、文艺、体育等领域，定期活动帮助学生锻炼组织能力与团队协作能力。</p>
+          </article>
+        </div>
+        <div class="photo-grid">
+          <figure data-lightbox="assets/ppt-media/image12.jpg"><img src="assets/ppt-media/image12.jpg" alt="校园图书馆学习空间"></figure>
+          <figure data-lightbox="assets/ppt-media/image13.jpg"><img src="assets/ppt-media/image13.jpg" alt="学生宿舍空间"></figure>
+          <figure data-lightbox="assets/ppt-media/image14.jpg"><img src="assets/ppt-media/image14.jpg" alt="学生社团活动"></figure>
+          <figure data-lightbox="assets/ppt-media/image11.jpg"><img src="assets/ppt-media/image11.jpg" alt="校园体育场"></figure>
+        </div>
+      </div>
+
+      <div class="exchange">
+        <h3>国际交流合作</h3>
+        <div class="exchange-strip">
+          <figure data-lightbox="assets/ppt-media/image23.jpg"><img src="assets/ppt-media/image23.jpg" alt="合作签约仪式"></figure>
+          <figure data-lightbox="assets/ppt-media/image24.jpg"><img src="assets/ppt-media/image24.jpg" alt="高校合作交流"></figure>
+          <figure data-lightbox="assets/ppt-media/image27.jpg"><img src="assets/ppt-media/image27.jpg" alt="合作交流合影"></figure>
+          <figure data-lightbox="assets/ppt-media/image28.jpg"><img src="assets/ppt-media/image28.jpg" alt="国际交流合影"></figure>
+        </div>
+        <p>学校积极组织国际交流活动，合作院校与交流案例包括百色学院、浙江师范大学、贵州财经大学、辽宁科技大学、四川外国语大学、重庆电子科技职业大学、淮北师范大学等。</p>
+      </div>
+    </section>
+
+    <section id="career" class="section career">
+      <div class="section-heading">
+        <p>05 · 毕业与就业</p>
+        <h2>毕业要求清晰，就业方向面向中泰合作与跨文化市场。</h2>
+      </div>
+      <div class="career-grid">
+        <article class="requirement">
+          <span>01</span>
+          <h3>学分要求</h3>
+          <p>学生需修满规定学分，成绩合格，方可毕业。</p>
+        </article>
+        <article class="requirement">
+          <span>02</span>
+          <h3>论文与答辩</h3>
+          <p>硕士和博士学生需完成学位论文并通过答辩。</p>
+        </article>
+        <article class="requirement">
+          <span>03</span>
+          <h3>实习与实践</h3>
+          <p>部分专业学生需完成实习和实践任务，积累实际工作经验。</p>
+        </article>
+      </div>
+
+      <div class="documents">
+        <div>
+          <p class="eyebrow">毕业材料</p>
+          <h3>泰文、英文两个版本的毕业证书、学位证书及成绩单，共 6 份毕业材料。</h3>
+        </div>
+        <div class="doc-images">
+          <figure data-lightbox="assets/ppt-media/image34.jpg"><img src="assets/ppt-media/image34.jpg" alt="毕业证书样本"></figure>
+          <figure data-lightbox="assets/ppt-media/image35.jpg"><img src="assets/ppt-media/image35.jpg" alt="学位证书样本"></figure>
+          <figure data-lightbox="assets/ppt-media/image36.jpg"><img src="assets/ppt-media/image36.jpg" alt="成绩单样本"></figure>
+        </div>
+      </div>
+
+      <div class="career-story">
+        <figure data-lightbox="assets/ppt-media/image9.jpg">
+          <img src="assets/ppt-media/image9.jpg" alt="北碧自然景观">
+        </figure>
+        <div>
+          <h3>就业前景与人才需求</h3>
+          <p>中泰合作项目、基础设施建设与中资企业在泰发展，为具备中泰文化理解、语言能力与跨文化沟通能力的毕业生创造岗位机会。</p>
+          <p>毕业生可进入中资企业、泰资企业或跨国公司，从事国际贸易、跨境电商、金融、旅游等领域工作，也可结合泰国创业支持政策探索自主创业。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale">
+      <p>北碧皇家大学 · 2026</p>
+      <h2>面向泰国学习生活，也面向更大的中泰合作未来。</h2>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" aria-label="关闭预览">×</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
