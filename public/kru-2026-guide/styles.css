@@ -217,6 +217,46 @@ button {
   color: #fffaf0;
 }
 
+.wechat-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  max-width: min(100%, 430px);
+  margin-top: 24px;
+  padding: 12px 16px 12px 12px;
+  color: #fffaf0;
+  background: rgba(255, 250, 240, 0.13);
+  border: 1px solid rgba(255, 250, 240, 0.22);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.wechat-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.wechat-card strong,
+.wechat-card span {
+  display: block;
+}
+
+.wechat-card strong {
+  margin-bottom: 8px;
+  color: var(--gold-2);
+  font-size: 16px;
+}
+
+.wechat-card span {
+  max-width: 260px;
+  color: rgba(255, 250, 240, 0.78);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .hero-stat {
   position: absolute;
   left: clamp(20px, 4vw, 58px);
@@ -748,6 +788,16 @@ p {
 
   .hero h1 {
     font-size: 38px;
+  }
+
+  .wechat-card {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .wechat-card img {
+    width: 82px;
+    height: 82px;
   }
 
   .contents,
