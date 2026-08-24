@@ -409,7 +409,7 @@ export function CityFilterGrid({
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-600">
                 {isZh ? "告诉我们专业、预算、语言基础和奖学金目标，我们会把城市、学校和申请时间线整理成一份免费方案。" : "Share your major, budget, language background, and scholarship goal. We will turn the city list into a free study plan."}
               </p>
-              <Link href={`${prefix}/consultation?source=city-match`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white hover:bg-red-700">
+              <Link href={`${prefix}/free-study-plan`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white hover:bg-red-700">
                 {isZh ? "获取免费留学方案 →" : "Get Your Free Study Plan ->"}
               </Link>
             </div>
@@ -445,7 +445,7 @@ export function CityFilterGrid({
           <a href="#city-filter-results" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-white px-6 py-3 font-bold text-red-700 hover:bg-amber-50">
             开始探索
           </a>
-          <Link href={`${prefix}/consultation?source=cities-bottom`} className="ml-3 mt-6 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-6 py-3 font-bold text-white hover:bg-slate-800">
+          <Link href={`${prefix}/free-study-plan`} className="ml-3 mt-6 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-6 py-3 font-bold text-white hover:bg-slate-800">
             {isZh ? "获取免费留学方案 →" : "Get Your Free Study Plan ->"}
           </Link>
         </div>

@@ -34,6 +34,7 @@ type CityFilter = "all" | CommunityCitySlug;
 
 const cityOptions = communityCities.map((city) => ({ value: city.slug, label: city.name }));
 const profileStorageKey = "silkstudy-community-profile";
+const postsStorageKey = "silkstudy-community-posts";
 
 type EditableCommunityProfile = {
   name: string;
@@ -107,6 +108,7 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
   const [profile, setProfile] = useState<EditableCommunityProfile>(defaultCommunityProfile);
   const [profileDraft, setProfileDraft] = useState<EditableCommunityProfile>(defaultCommunityProfile);
   const [profileSaved, setProfileSaved] = useState(false);
+  const [postsLoaded, setPostsLoaded] = useState(false);
 
   const basePath = locale === "zh" ? "/zh" : "";
   const targetCity =
@@ -115,15 +117,35 @@ export function SilkStudyCommunity({ locale }: { locale: string }) {
   useEffect(() => {
     try {
       const savedProfile = window.localStorage.getItem(profileStorageKey);
-      if (!savedProfile) return;
-      const parsed = normalizeProfile(JSON.parse(savedProfile) as EditableCommunityProfile);
-      setProfile(parsed);
-      setProfileDraft(parsed);
-      setProfileSaved(true);
+      if (savedProfile) {
+        const parsed = normalizeProfile(JSON.parse(savedProfile) as EditableCommunityProfile);
+        setProfile(parsed);
+        setProfileDraft(parsed);
+        setProfileSaved(true);
+      }
     } catch {
       window.localStorage.removeItem(profileStorageKey);
     }
+
+    try {
+      const savedPosts = window.localStorage.getItem(postsStorageKey);
+      if (savedPosts) {
+        const parsedPosts = JSON.parse(savedPosts);
+        if (Array.isArray(parsedPosts)) {
+          setPosts(parsedPosts as CommunityPost[]);
+        }
+      }
+    } catch {
+      window.localStorage.removeItem(postsStorageKey);
+    } finally {
+      setPostsLoaded(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!postsLoaded) return;
+    window.localStorage.setItem(postsStorageKey, JSON.stringify(posts.slice(0, 80)));
+  }, [posts, postsLoaded]);
 
   const visiblePosts = useMemo(() => {
     const filtered = posts.filter((post) => {

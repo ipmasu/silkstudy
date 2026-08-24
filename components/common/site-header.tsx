@@ -14,7 +14,7 @@ const navItems = [
   { href: "/scholarships", key: "scholarships" },
   { href: "/provinces", key: "exploreChina" },
   { href: "/community", key: "community" },
-  { href: "/consultation", key: "planJourney" }
+  { href: "/free-study-plan", key: "planJourney" }
 ] as const;
 
 type NavKey = (typeof navItems)[number]["key"] | "culture" | "life" | "globalCheckin" | "freeConsultation" | "mobilePlan";
@@ -252,7 +252,7 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
         </nav>
         <div className="hidden items-center gap-3 sm:flex">
           <LanguageSwitcher locale={locale} />
-          <ButtonLink href={localize("/consultation")}>{labelFor("freeConsultation")}</ButtonLink>
+          <ButtonLink href={localize("/free-study-plan")}>{labelFor("freeConsultation")}</ButtonLink>
         </div>
         <div className="flex items-center gap-2 sm:hidden">
           <LanguageSwitcher locale={locale} compact />

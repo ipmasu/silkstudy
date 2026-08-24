@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { notifyAdminAboutConsultation } from "@/lib/email/admin-notifications";
+import { addFallbackConsultation } from "@/lib/consultation-fallback-store";
 import { consultationSchema } from "@/lib/validators/consultation";
 import { serverErrorResponse } from "@/lib/api/responses";
 
@@ -77,6 +78,9 @@ export async function POST(request: Request) {
       email: data.email,
       reason: crmWarning
     });
+    if (notification.delivered) {
+      addFallbackConsultation(data, crmWarning);
+    }
   }
 
   if (!consultation && !notification.delivered) {

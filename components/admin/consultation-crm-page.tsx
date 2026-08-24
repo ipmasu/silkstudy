@@ -25,6 +25,7 @@ type CrmState = {
   leads: LeadRecord[];
   message?: string;
   source: "api" | "fallback";
+  fallbackCount?: number;
 };
 
 const statuses = ["NEW", "CONTACTED", "APPLIED", "CONVERTED", "LOST"];
@@ -75,7 +76,9 @@ export function ConsultationCrmPage({ fallbackLeads }: { fallbackLeads: LeadReco
       setState({
         status: "ready",
         leads: results,
-        source: "api"
+        message: data?.databaseWarning,
+        source: "api",
+        fallbackCount: typeof data?.fallbackCount === "number" ? data.fallbackCount : 0
       });
       setStatusDrafts(Object.fromEntries(results.filter((lead) => lead.id).map((lead) => [lead.id, lead.status])));
     } catch {
@@ -161,7 +164,8 @@ export function ConsultationCrmPage({ fallbackLeads }: { fallbackLeads: LeadReco
             </span>
           </div>
           {state.status === "loading" ? <div className="p-6 text-sm text-slate-600">Loading CRM data...</div> : null}
-          {state.status === "error" && state.message ? <div className="border-b border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">{state.message}</div> : null}
+          {state.message ? <div className="border-b border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">{state.message}</div> : null}
+          {state.fallbackCount ? <div className="border-b border-blue-100 bg-blue-50 p-4 text-sm text-blue-800">{state.fallbackCount} email backup lead(s) are included. Save actions are disabled until they are written to the database.</div> : null}
           <div className="overflow-x-auto">
             <table className="w-full min-w-[1320px] border-collapse text-left text-sm">
               <thead className="bg-white text-slate-500">
@@ -174,7 +178,7 @@ export function ConsultationCrmPage({ fallbackLeads }: { fallbackLeads: LeadReco
               <tbody className="divide-y divide-slate-200">
                 {state.leads.map((lead, index) => {
                   const key = lead.id ?? `fallback-${index}`;
-                  const live = Boolean(lead.id);
+                  const live = Boolean(lead.id) && !lead.id?.startsWith("email-backup-");
 
                   return (
                     <tr key={key} className="align-top text-ink">

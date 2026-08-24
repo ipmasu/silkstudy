@@ -404,7 +404,7 @@ export function UniversitySelector({ universities, cityOptions, majorOptions, pr
             <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
               <p className="text-xl font-bold">暂时没有完全匹配的大学</p>
               <p className="mt-2 text-slate-600">可以减少筛选条件，或提交咨询让我们帮你人工匹配。</p>
-              <Link href={`${prefix}/consultation?source=universities-empty`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">获取免费留学方案</Link>
+              <Link href={`${prefix}/free-study-plan`} className="mt-5 inline-flex min-h-11 items-center rounded-full bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">获取免费留学方案</Link>
             </div>
           ) : (
             <>
