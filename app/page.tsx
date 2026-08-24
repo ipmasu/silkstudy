@@ -2,6 +2,7 @@ import { ButtonLink } from "@/components/common/button-link";
 import { HomeCityQuickMatch } from "@/components/cities/home-city-quick-match";
 import { GuideCaptureForm } from "@/components/forms/guide-capture-form";
 import { JsonLd } from "@/components/common/json-ld";
+import { VisitorStatsModule } from "@/components/common/visitor-stats-module";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -656,6 +657,8 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+
+      <VisitorStatsModule locale={locale} />
 
       <section className="bg-[#fff8ef] py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
