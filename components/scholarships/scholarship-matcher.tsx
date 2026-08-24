@@ -436,7 +436,7 @@ export function ScholarshipMatcher({ locale = "en" }: ScholarshipMatcherProps) {
           <a href={`${prefix}/scholarship-opportunities`} className="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-bold text-white hover:bg-blue-700">
             {locale === "zh" ? "查看机会库" : "View Watchlist"}
           </a>
-          <a href={`${prefix}/consultation?topic=scholarship-matcher`} className="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-200 px-4 text-sm font-bold text-ink hover:border-primary hover:text-primary">
+          <a href={`${prefix}/scholarship-assessment`} className="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-200 px-4 text-sm font-bold text-ink hover:border-primary hover:text-primary">
             {locale === "zh" ? "提交资料核验" : "Verify My Profile"}
           </a>
         </div>

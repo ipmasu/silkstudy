@@ -573,7 +573,7 @@ export default async function HomePage() {
             <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{heroTitle}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{serviceSubtitle || heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/consultation")}>{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
+              <ButtonLink href={localize("/scholarship-assessment")}>{isZh ? "免费评估奖学金机会 →" : "Free Scholarship Assessment ->"}</ButtonLink>
               <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "\u770b\u770b\u6709\u54ea\u4e9b\u57ce\u5e02 \u2192" : "See study cities \u2192"}</ButtonLink>
             </div>
           </div>
@@ -597,7 +597,7 @@ export default async function HomePage() {
                 <a href={localize("/scholarship-opportunities")} className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-4 text-sm font-bold text-primary transition hover:bg-blue-50">
                   {isZh ? "查看奖学金机会库 →" : "View Scholarship Watchlist ->"}
                 </a>
-                <a href={localize("/consultation?topic=scholarship")} className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/30 px-4 text-sm font-bold text-white transition hover:bg-white/10">
+                <a href={localize("/scholarship-assessment")} className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/30 px-4 text-sm font-bold text-white transition hover:bg-white/10">
                   {isZh ? "\u514d\u8d39\u8bc4\u4f30 \u2192" : "Free Eligibility Check ->"}
                 </a>
               </div>
@@ -732,7 +732,7 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="mt-8">
-            <ButtonLink href={localize("/consultation")} variant="secondary">{isZh ? "\u83b7\u53d6\u514d\u8d39\u7559\u5b66\u65b9\u6848 \u2192" : "Get Your Free Study Plan ->"}</ButtonLink>
+            <ButtonLink href={localize("/scholarship-assessment")} variant="secondary">{isZh ? "免费评估奖学金机会 →" : "Free Scholarship Assessment ->"}</ButtonLink>
           </div>
           <p className="mt-4 text-sm text-blue-100">{isZh ? "\u65e0\u9700\u4ed8\u8d39\uff0c\u9996\u6b21\u8bc4\u4f30\u5b8c\u5168\u514d\u8d39\u3002" : "No commitment. 100% free first consultation."}</p>
           <div className="mt-auto flex justify-start pt-12">

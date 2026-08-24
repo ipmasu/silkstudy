@@ -157,7 +157,7 @@ export default async function ScholarshipsPage() {
             <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">{c.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">{c.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={`${prefix}/consultation?topic=scholarship`}>{c.primaryCta}</ButtonLink>
+              <ButtonLink href={`${prefix}/scholarship-assessment`}>{c.primaryCta}</ButtonLink>
               <ButtonLink href={`${prefix}/scholarship-opportunities`} variant="secondary">{c.secondaryCta}</ButtonLink>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default async function ScholarshipsPage() {
               <p className="mt-3 text-sm leading-7 text-slate-700">{c.promiseBody}</p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <ButtonLink href={`${prefix}/consultation?topic=scholarship`}>{c.primaryCta}</ButtonLink>
+              <ButtonLink href={`${prefix}/scholarship-assessment`}>{c.primaryCta}</ButtonLink>
               <ButtonLink href={`${prefix}/universities`} variant="secondary">{isZh ? "浏览大学" : "Browse Universities"}</ButtonLink>
             </div>
           </div>
