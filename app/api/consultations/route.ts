@@ -23,8 +23,21 @@ export async function POST(request: Request) {
 
   const data = parsed.data;
 
+  const notification = await notifyAdminAboutConsultation(data);
+  if (!notification.delivered) {
+    console.warn("Consultation email notification was not delivered", {
+      reason: notification.reason,
+      provider: notification.provider,
+      to: notification.preview?.to
+    });
+  }
+
+  let consultation: { id: string; status: string; createdAt: Date } | null = null;
+  let crmWarning: string | undefined;
+  let noteWarning: string | undefined;
+
   try {
-    const consultation = await prisma.consultation.create({
+    consultation = await prisma.consultation.create({
       data: {
         firstName: data.firstName,
         lastName: data.lastName,
@@ -35,12 +48,7 @@ export async function POST(request: Request) {
         targetMajor: data.targetMajor || null,
         budgetUsd: typeof data.budgetUsd === "number" ? data.budgetUsd : null,
         preferredCity: data.preferredCity || null,
-        notes: data.notes || null,
-        crmNotes: {
-          create: {
-            content: "Lead submitted from website consultation funnel."
-          }
-        }
+        notes: data.notes || null
       },
       select: {
         id: true,
@@ -49,27 +57,42 @@ export async function POST(request: Request) {
       }
     });
 
-    const notification = await notifyAdminAboutConsultation(data);
-    if (!notification.delivered) {
-      console.warn("Consultation email notification was not delivered", {
+    try {
+      await prisma.cRMNote.create({
+        data: {
+          consultationId: consultation.id,
+          content: "Lead submitted from website consultation funnel."
+        }
+      });
+    } catch (error) {
+      noteWarning = error instanceof Error ? error.message : "CRM note save failed";
+      console.warn("Consultation was saved but CRM note save failed", {
         leadId: consultation.id,
-        reason: notification.reason,
-        provider: notification.provider,
-        to: notification.preview?.to
+        reason: noteWarning
       });
     }
-
-    return NextResponse.json(
-      {
-        message: "Consultation request received.",
-        consultation,
-        notification
-      },
-      { status: 201 }
-    );
   } catch (error) {
-    return serverErrorResponse(error);
+    crmWarning = error instanceof Error ? error.message : "CRM save failed";
+    console.error("Consultation CRM save failed", {
+      email: data.email,
+      reason: crmWarning
+    });
   }
+
+  if (!consultation && !notification.delivered) {
+    return serverErrorResponse(new Error(crmWarning || notification.reason || "Consultation delivery failed"));
+  }
+
+  return NextResponse.json(
+    {
+      message: "Consultation request received.",
+      consultation,
+      crmWarning,
+      noteWarning,
+      notification
+    },
+    { status: 201 }
+  );
 }
 
 export async function GET() {
