@@ -14,6 +14,7 @@ const navItems = [
   { href: "/scholarships", key: "scholarships" },
   { href: "/provinces", key: "exploreChina" },
   { href: "/community", key: "community" },
+  { href: "/global-checkin", key: "globalCheckin" },
   { href: "/free-study-plan", key: "planJourney" }
 ] as const;
 
