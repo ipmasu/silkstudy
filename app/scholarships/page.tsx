@@ -52,24 +52,25 @@ const copies: Record<string, Copy> = {
     primaryCta: "免费评估我的奖学金机会",
     secondaryCta: "查看奖学金机会库",
     resourceTitle: "我们的资源优势",
-    resourceBody: "SilkStudy 持续整理国家级、省市级、学校级和专项奖学金信息，并结合学校当年招生简章、国际学生办公室通知和实际申请窗口，为学生筛选当前最值得核验的奖学金路线。我们与多所中国高校及相关教育资源保持长期沟通，能够帮助学生更准确理解学校要求、项目特点、奖学金名额和申请节奏，减少信息差。",
+    resourceBody: "SilkStudy 以“尽可能全量覆盖”的方式持续整理国家级、省市级、学校级和专项奖学金信息，并结合学校当年招生简章、国际学生办公室通知和实际申请窗口，为学生筛选当前最值得核验的奖学金路线。我们与多所中国高校及相关教育资源保持长期沟通，能够帮助学生更准确理解学校要求、项目特点、奖学金名额、未招满机会和申请节奏，减少信息差。",
     complianceTitle: "合规边界",
     complianceBody: "我们不能替代学校审核，也不承诺任何不合规录取。所有录取、奖学金金额、覆盖范围、名额和截止日期，都必须以学校及相关主管部门当年官方通知和最终审核结果为准。",
     principleTitle: "核心原则",
     principleBody: "尽量让每一个孩子用最少的钱，读中国尽可能好的大学。不是盲目追最贵城市或最热门学校，而是把学校质量、录取概率、奖学金覆盖、城市成本和专业适配放在一起判断。",
     layersTitle: "中国奖学金的四层机会",
-    layersDescription: "不要只盯一个奖学金名称。真正的机会常常来自多层级、多学校、多城市的组合筛选。",
+    layersDescription: "不要只盯一个奖学金名称。真正的机会常常来自多层级、多学校、多城市、多专业的组合筛选。",
     layers: [
       { title: "国家级奖学金", body: "包括中国政府奖学金等路径，部分项目可能覆盖学费、住宿、保险及生活费。竞争强，需要提前准备和严格核验。", icon: Landmark },
       { title: "省市级奖学金", body: "很多省市为了吸引国际学生，会设置区域奖学金、学费减免或一次性奖励，适合与低生活成本城市一起比较。", icon: Banknote },
       { title: "学校级奖学金", body: "很多高校有校长奖学金、国际学生奖学金、新生奖学金或优秀生奖学金，是许多学生最现实的降本路径。", icon: School },
-      { title: "专项奖学金", body: "特定国家、专业、中文学习者、合作项目、未招满名额和区域交流项目，都可能隐藏着高性价比机会。", icon: Sparkles }
+      { title: "专项与空缺机会", body: "特定国家、专业、中文学习者、合作项目、未招满名额和区域交流项目，都可能隐藏着高性价比机会。", icon: Sparkles }
     ],
     truthTitle: "很多学生不知道的事实",
     truthItems: [
       "奖学金不只属于成绩最顶尖的人，很多学生至少值得做一次匹配评估。",
       "即使不一定获得全额奖学金，也常常有机会获得学费减免、新生奖励、住宿支持或地方补助。",
       "中国有大量值得申请的好学校，不是只有少数名校才值得来。",
+      "很多外国学生不知道，一些学校或专业在当年招生季可能仍有值得核验的名额和奖学金空间。",
       "同样的奖学金金额，在低成本城市可能带来完全不同的生活质量。",
       "学校、专业、城市、国籍和申请时间匹配得越准确，总成本越可能下降。"
     ],
@@ -91,24 +92,25 @@ const copies: Record<string, Copy> = {
     primaryCta: "Assess My Scholarship Fit",
     secondaryCta: "View Scholarship Watchlist",
     resourceTitle: "Our resource advantage",
-    resourceBody: "SilkStudy continuously organizes national, provincial, municipal, university, and special scholarship information, then checks it against current admission guides, university international office notices, and real application windows. We also maintain long-term communication with Chinese universities and education resources, helping students understand requirements, program fit, quotas, and timing more accurately.",
+    resourceBody: "SilkStudy works toward broad coverage of national, provincial, municipal, university, and special scholarship information, then checks it against current admission guides, university international office notices, and real application windows. We also maintain long-term communication with Chinese universities and education resources, helping students understand requirements, program fit, quotas, unfilled opportunities, and timing more accurately.",
     complianceTitle: "Compliance boundary",
     complianceBody: "We cannot replace university review, and we do not promise any non-compliant admission. Admission results, scholarship amounts, coverage, quotas, and deadlines must always follow the current official notices and final review decisions of each school and relevant authority.",
     principleTitle: "Core principle",
     principleBody: "Help each student spend as little as realistically possible while aiming for the best suitable Chinese university. The smart route compares school quality, admission probability, scholarship coverage, city cost, and major fit together.",
     layersTitle: "Four layers of scholarship opportunity",
-    layersDescription: "Do not look at only one award name. Real opportunity often comes from multi-layer, multi-school, and multi-city comparison.",
+    layersDescription: "Do not look at only one award name. Real opportunity often comes from multi-layer, multi-school, multi-city, and multi-major comparison.",
     layers: [
       { title: "National scholarships", body: "Routes such as Chinese Government Scholarship may cover tuition, housing, insurance, and living allowance for selected students.", icon: Landmark },
       { title: "Provincial and city scholarships", body: "Many regions offer tuition reductions, one-time awards, or living support to attract international students.", icon: Banknote },
       { title: "University scholarships", body: "President, freshman, international student, and merit scholarships are often the most practical cost-reduction route.", icon: School },
-      { title: "Special scholarships", body: "Country-specific, major-specific, Chinese-language, partnership, and unfilled-quota routes may hide strong opportunities.", icon: Sparkles }
+      { title: "Special and unfilled routes", body: "Country-specific, major-specific, Chinese-language, partnership, and unfilled-quota routes may hide strong opportunities.", icon: Sparkles }
     ],
     truthTitle: "What many students do not know",
     truthItems: [
       "Scholarships are not only for the very top students; many applicants deserve at least one serious assessment.",
       "Even when full funding is not realistic, tuition reduction, freshman awards, housing support, or local subsidies may still be possible.",
       "China has many worthwhile universities beyond the few famous names.",
+      "Some schools or majors may still have scholarship space worth verifying during a given admission cycle.",
       "The same scholarship amount can mean a very different life in a lower-cost city.",
       "The more accurately school, major, city, nationality, and timing match, the more total cost may fall."
     ],
@@ -128,6 +130,51 @@ const copies: Record<string, Copy> = {
 function getCopy(locale: string) {
   return copies[locale] ?? copies.en;
 }
+
+const opportunityAngles: { icon: LucideIcon; zhTitle: string; enTitle: string; zhBody: string; enBody: string }[] = [
+  {
+    icon: Landmark,
+    zhTitle: "国家级路线",
+    enTitle: "National routes",
+    zhBody: "适合条件较强、材料完整、时间规划较早的学生，优先核验覆盖范围和申请窗口。",
+    enBody: "Best for stronger profiles with complete documents and early timing; coverage and windows must be verified first."
+  },
+  {
+    icon: Banknote,
+    zhTitle: "省市级路线",
+    enTitle: "Provincial and city routes",
+    zhBody: "很多地方希望吸引国际学生，结合低生活成本城市时，整体性价比可能很高。",
+    enBody: "Many regions want international students; combined with lower-cost cities, total value can be strong."
+  },
+  {
+    icon: School,
+    zhTitle: "学校级路线",
+    enTitle: "University routes",
+    zhBody: "校级奖学金通常更贴近真实录取，是许多本科、中文和普通硕博申请者的第一突破口。",
+    enBody: "University scholarships are often closest to real admission decisions and practical for many applicants."
+  },
+  {
+    icon: Sparkles,
+    zhTitle: "未招满与专项",
+    enTitle: "Unfilled and special routes",
+    zhBody: "某些国家、专业、合作项目或当年未满额方向，可能比热门项目更值得尽快核验。",
+    enBody: "Some country, major, partnership, or unfilled-cycle routes may be more realistic than popular programs."
+  },
+  {
+    icon: GraduationCap,
+    zhTitle: "专业适配",
+    enTitle: "Major fit",
+    zhBody: "人工智能、工程、医学、商科、中文等专业的奖学金逻辑不同，不能用一套模板判断。",
+    enBody: "AI, engineering, medicine, business, and Chinese-language routes follow different scholarship logic."
+  },
+  {
+    icon: FileSearch,
+    zhTitle: "材料与时间",
+    enTitle: "Documents and timing",
+    zhBody: "同一个学生，提前准备语言、成绩、护照、体检和推荐材料，结果可能完全不同。",
+    enBody: "The same student can get very different results with earlier language, transcript, passport, health, and reference preparation."
+  }
+];
 
 export default async function ScholarshipsPage() {
   const locale = await getCurrentLocale();
@@ -193,6 +240,34 @@ export default async function ScholarshipsPage() {
                 <p className="mt-2 text-sm leading-6 text-slate-700">{body}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-amber-100 bg-white p-6 shadow-sm">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-red-700">{isZh ? "机会地图" : "Opportunity map"}</p>
+              <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">
+                {isZh ? "我们不是只帮学生找一个奖项，而是帮他找一组可执行路线。" : "We do not look for one award only. We build an executable route set."}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-slate-700">
+                {isZh
+                  ? "很多学生真正错过的不是能力，而是信息：不知道哪些学校值得申请，不知道哪些城市成本更低，不知道哪些专业或项目仍有奖学金空间。我们会把这些变量放在一起判断。"
+                  : "Many students miss opportunities not because they lack ability, but because they lack information: which schools to apply to, which cities cost less, and which majors or programs may still have scholarship space."}
+              </p>
+              <div className="mt-6">
+                <ButtonLink href={`${prefix}/free-study-plan`}>{isZh ? "获取免费来华留学方案" : "Get a Free China Study Plan"}</ButtonLink>
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {opportunityAngles.map(({ icon: Icon, zhTitle, enTitle, zhBody, enBody }) => (
+                <article key={enTitle} className="rounded-xl border border-slate-200 bg-[#fff8ef] p-4">
+                  <Icon size={22} className="text-red-600" aria-hidden="true" />
+                  <h3 className="mt-3 font-bold text-slate-950">{isZh ? zhTitle : enTitle}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{isZh ? zhBody : enBody}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

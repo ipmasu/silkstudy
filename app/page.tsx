@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/common/json-ld";
 import { localePrefix } from "@/lib/i18n/routing";
 import { getCurrentLocale } from "@/lib/i18n/server-locale";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
-import { Award, BookOpen, Globe2, HeartHandshake, MapPinned, Rocket, ShieldCheck, Train } from "lucide-react";
+import { Award, BookOpen, Globe2, GraduationCap, HeartHandshake, MapPinned, Rocket, ShieldCheck, Train, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -533,6 +533,46 @@ function homepageCopyFor(locale: string) {
   return localizedHomepageCopy[locale === "ru" ? "ru" : "en"];
 }
 
+const chinaAdvantageHighlights: { icon: LucideIcon; zh: string; en: string }[] = [
+  { icon: Award, zh: "奖学金丰富，部分路线可覆盖学费、住宿或生活费", en: "Rich scholarships may cover tuition, housing, or living support" },
+  { icon: ShieldCheck, zh: "社会安全稳定，校园管理成熟，家长更安心", en: "Safe, stable cities and mature campus support" },
+  { icon: Rocket, zh: "AI、机器人、新能源、电商等产业发展迅猛", en: "Fast growth in AI, robotics, new energy, and e-commerce" },
+  { icon: Train, zh: "高铁和城市交通发达，学习和旅行都更方便", en: "High-speed rail and city transit make study and travel easier" }
+];
+
+const audienceCards: { icon: LucideIcon; zhTitle: string; enTitle: string; zhBody: string; enBody: string; href: string; zhCta: string; enCta: string }[] = [
+  {
+    icon: GraduationCap,
+    zhTitle: "我是学生",
+    enTitle: "I am a student",
+    zhBody: "想知道自己能不能免学费、拿补助、读什么学校？先提交资料，我们帮你做路线判断。",
+    enBody: "Want to know whether tuition waiver, stipend, or a better-fit school is possible? Start with your profile.",
+    href: "/free-study-plan",
+    zhCta: "获取免费方案",
+    enCta: "Get a free plan"
+  },
+  {
+    icon: ShieldCheck,
+    zhTitle: "我是家长",
+    enTitle: "I am a parent",
+    zhBody: "重点看安全、成本、学校质量和后续发展。我们会把预算、城市和奖学金说清楚。",
+    enBody: "Focus on safety, cost, school quality, and future development. We make the route understandable.",
+    href: "/scholarships",
+    zhCta: "了解奖学金",
+    enCta: "Understand scholarships"
+  },
+  {
+    icon: Users,
+    zhTitle: "我是代理/合作伙伴",
+    enTitle: "I am an agent",
+    zhBody: "如果你手里有学生资源，我们可以一起把中国高校、奖学金和真实申请方案带给更多学生。",
+    enBody: "If you work with students, we can bring Chinese universities, scholarships, and real plans to more families together.",
+    href: "/contact",
+    zhCta: "洽谈合作",
+    enCta: "Discuss cooperation"
+  }
+];
+
 export default async function HomePage() {
   const locale = await getCurrentLocale();
   const c = getCopy(locale);
@@ -617,6 +657,34 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="bg-[#fff8ef] py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">{isZh ? "先选你的身份" : "Choose your path"}</p>
+            <h2 className="mt-3 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              {isZh ? "不同的人，进入中国留学的方式不同。" : "Different people need different China study routes."}
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              {isZh ? "学生关心能不能申请到好学校，家长关心安全和成本，代理伙伴关心项目是否真实稳定。SilkStudy 把这几件事放在同一张路线图里。" : "Students care about school fit, parents care about safety and cost, and partners care whether the route is real and stable. SilkStudy connects them in one plan."}
+            </p>
+          </div>
+          <div className="mt-9 grid gap-5 md:grid-cols-3">
+            {audienceCards.map(({ icon: Icon, zhTitle, enTitle, zhBody, enBody, href, zhCta, enCta }) => (
+              <article key={enTitle} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-red-50 text-red-600">
+                  <Icon size={22} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 text-xl font-bold text-ink">{isZh ? zhTitle : enTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{isZh ? zhBody : enBody}</p>
+                <a href={localize(href)} className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-slate-950 px-4 text-sm font-bold text-white transition hover:bg-red-700">
+                  {isZh ? zhCta : enCta} →
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <HomeCityQuickMatch locale={locale} prefix={locale === "en" ? "" : `/${locale}`} />
 
       <section className="bg-white py-20">
@@ -674,6 +742,14 @@ export default async function HomePage() {
             <h2 className="mt-4 text-5xl font-bold leading-tight tracking-tight text-ink lg:text-6xl">{c.reasonsTitle}</h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">{missionBody}</p>
             <p className="mt-5 text-base leading-7 text-slate-600">{c.reasonsBody}</p>
+            <div className="mt-7 grid gap-3">
+              {chinaAdvantageHighlights.map(({ icon: Icon, zh, en }) => (
+                <p key={en} className="flex rounded-lg border border-red-100 bg-white p-4 text-sm font-bold leading-6 text-slate-800 shadow-sm">
+                  <Icon size={18} className="mr-3 mt-1 shrink-0 text-red-600" aria-hidden="true" />
+                  {isZh ? zh : en}
+                </p>
+              ))}
+            </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {c.reasons.map(({ icon: Icon, title, body }) => (
