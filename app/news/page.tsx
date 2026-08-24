@@ -27,6 +27,7 @@ type Article = {
   summary: string;
   date: string;
   href: string;
+  source?: string;
 };
 
 const zhArticles: Article[] = [
@@ -36,6 +37,54 @@ const zhArticles: Article[] = [
     summary: "中国籍数学家首次摘得菲尔兹奖，两位北大数学校友同时站上世界数学之巅。这不仅是个人荣誉，也是中国基础学科教育长期积累的高光时刻。",
     date: "2026-07-24",
     href: "/news/chinese-mathematicians-fields-medal-2026"
+  },
+  {
+    category: "中国教育开放",
+    title: "中国继续扩大高水平教育对外开放，鼓励高水平理工类中外合作",
+    summary: "从近期教育规划信号看，中国将继续建设具有全球影响力的教育品牌，欢迎高水平外国理工类大学在华开展合作办学，并加强与欧洲、北美、周边国家、一带一路和全球南方伙伴的教育合作。",
+    date: "2026-07-06",
+    href: "https://www.chinadaily.com.cn/a/202607/06/WS6a4afd37a310986e2b463a36.html",
+    source: "China Daily"
+  },
+  {
+    category: "中国-东盟",
+    title: "2026中国-东盟教育交流周在贵阳开幕，区域教育合作继续升温",
+    summary: "本届交流周在开幕期间设置35项活动，全年还将举办60项常态化主题活动。对东盟学生来说，中国西南地区正在成为教育交流、职业教育和产业人才合作的重要入口。",
+    date: "2026-07-29",
+    href: "https://www.eguizhou.gov.cn/2026-07/29/c_1201151.htm",
+    source: "eGuizhou"
+  },
+  {
+    category: "跨境教育",
+    title: "中国释放跨境教育政策延续信号，强调高质量国际合作",
+    summary: "英国文化教育协会观察指出，中国在6月继续释放跨境教育政策稳定和延续的信号。对国际学生和合作机构而言，这意味着中国仍把高质量国际教育合作作为长期方向。",
+    date: "2026-06-11",
+    href: "https://opportunities-insight.britishcouncil.org/short-articles/news/china-reaffirms-policy-continuity-transnational-education",
+    source: "British Council"
+  },
+  {
+    category: "全球留学",
+    title: "美国学生签证政策收紧：国际学生最长停留期限将被限制为4年",
+    summary: "美国国土安全部宣布新规，将改变长期以来按学习身份持续停留的做法。对全球学生来说，签证确定性正在成为选择留学目的地时越来越重要的因素。",
+    date: "2026-07-16",
+    href: "https://apnews.com/article/trump-student-visa-international-02a22ed8b883096b78c3745fce7892a3",
+    source: "AP News"
+  },
+  {
+    category: "全球留学",
+    title: "NAFSA预测：美国2026秋季或减少11.1万名国际学生",
+    summary: "NAFSA与JB International的研究预计，美国国际学生减少可能带来34亿美元经济损失和近4万个就业岗位影响。全球学生流向正在出现新的再平衡机会。",
+    date: "2026-08-11",
+    href: "https://www.nafsa.org/fall2026outlook",
+    source: "NAFSA"
+  },
+  {
+    category: "国际合作",
+    title: "美国国防部要求30所大学审查与外国高校合作，学术合作不确定性上升",
+    summary: "AP报道称，美国国防部要求30所大学审查与外国机构的合作关系，重点涉及中国等国家。这提醒学生和高校：国际科研与教育合作正在更深地受到政策环境影响。",
+    date: "2026-08-18",
+    href: "https://apnews.com/article/pentagon-audit-china-harvard-mit-738832f9f20186dc5f9ef1aa39914636",
+    source: "AP News"
   },
   {
     category: "中国留学",
@@ -67,6 +116,54 @@ const enArticles: Article[] = [
     summary: "Hong Wang and Yu Deng became the first Chinese nationals to receive the Fields Medal, marking a major moment for China's mathematics education and research ecosystem.",
     date: "2026-07-24",
     href: "/news/chinese-mathematicians-fields-medal-2026"
+  },
+  {
+    category: "China Education",
+    title: "China signals continued high-level education opening and international cooperation",
+    summary: "Recent policy signals point to globally recognized Chinese education brands, more high-quality foreign science and engineering cooperation in China, and stronger links with Europe, North America, neighboring countries, BRI partners, and the Global South.",
+    date: "2026-07-06",
+    href: "https://www.chinadaily.com.cn/a/202607/06/WS6a4afd37a310986e2b463a36.html",
+    source: "China Daily"
+  },
+  {
+    category: "China-ASEAN",
+    title: "2026 China-ASEAN Education Cooperation Week opens in Guiyang",
+    summary: "The event launched with 35 opening-period activities and 60 year-round thematic activities, showing how Southwest China is becoming a major education, TVET, and talent cooperation gateway for ASEAN students.",
+    date: "2026-07-29",
+    href: "https://www.eguizhou.gov.cn/2026-07/29/c_1201151.htm",
+    source: "eGuizhou"
+  },
+  {
+    category: "Transnational Education",
+    title: "China reaffirms policy continuity on transnational education",
+    summary: "The British Council observed that China continued to signal stability and continuity for high-quality transnational education cooperation in June, an important signal for institutions and mobile students.",
+    date: "2026-06-11",
+    href: "https://opportunities-insight.britishcouncil.org/short-articles/news/china-reaffirms-policy-continuity-transnational-education",
+    source: "British Council"
+  },
+  {
+    category: "Global Mobility",
+    title: "U.S. student visa rule adds four-year stay cap for international students",
+    summary: "The U.S. Department of Homeland Security finalized a rule limiting international student stays to four years unless students obtain further approval, making visa certainty a bigger factor in study-destination decisions.",
+    date: "2026-07-16",
+    href: "https://apnews.com/article/trump-student-visa-international-02a22ed8b883096b78c3745fce7892a3",
+    source: "AP News"
+  },
+  {
+    category: "Global Mobility",
+    title: "NAFSA projects 111,000 fewer international students in the U.S. this fall",
+    summary: "NAFSA and JB International projected that international student declines could cost the U.S. economy $3.4 billion and nearly 40,000 jobs, suggesting a global rebalance in student flows.",
+    date: "2026-08-11",
+    href: "https://www.nafsa.org/fall2026outlook",
+    source: "NAFSA"
+  },
+  {
+    category: "Academic Cooperation",
+    title: "Pentagon orders 30 U.S. universities to audit foreign academic partnerships",
+    summary: "AP reported that the U.S. Department of Defense ordered 30 universities to review foreign partnerships, especially involving Chinese institutions. For students, policy risk is becoming part of the study-abroad calculation.",
+    date: "2026-08-18",
+    href: "https://apnews.com/article/pentagon-audit-china-harvard-mit-738832f9f20186dc5f9ef1aa39914636",
+    source: "AP News"
   },
   {
     category: "Study in China",
@@ -116,6 +213,8 @@ export default async function NewsPage() {
   const articles = isZh ? zhArticles : enArticles;
   const categories = isZh ? zhCategories : enCategories;
   const localize = (href: string) => href === "/" ? prefix || "/" : `${prefix}${href}`;
+  const articleHref = (href: string) => href.startsWith("http") ? href : localize(href);
+  const isExternal = (href: string) => href.startsWith("http");
 
   return (
     <main className="bg-[#fff8ef]">
@@ -177,10 +276,16 @@ export default async function NewsPage() {
                 <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-950">{article.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{article.summary}</p>
                 <div className="mt-6 flex items-center justify-between gap-4">
-                  <span className="text-xs font-bold uppercase tracking-wide text-slate-400">{article.date}</span>
-                  <Link href={localize(article.href)} className="inline-flex items-center gap-1 text-sm font-bold text-red-700 hover:text-red-800">
-                    {isZh ? "阅读全文" : "Read more"} <ArrowRight size={15} aria-hidden="true" />
-                  </Link>
+                  <span className="text-xs font-bold uppercase tracking-wide text-slate-400">{article.date}{article.source ? ` · ${article.source}` : ""}</span>
+                  {isExternal(article.href) ? (
+                    <a href={articleHref(article.href)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-red-700 hover:text-red-800">
+                      {isZh ? "查看来源" : "View source"} <ArrowRight size={15} aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <Link href={articleHref(article.href)} className="inline-flex items-center gap-1 text-sm font-bold text-red-700 hover:text-red-800">
+                      {isZh ? "阅读全文" : "Read more"} <ArrowRight size={15} aria-hidden="true" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </article>
@@ -221,7 +326,7 @@ export default async function NewsPage() {
               ? "把你的国家、成绩、专业、语言、预算和目标城市告诉我们，我们会帮你把资讯变成可执行的学校与奖学金路线。"
               : "Share your country, grades, major, language, budget, and target city. We turn information into a practical school and scholarship route."}
           </p>
-          <Link href={localize("/consultation?source=news")} className="mt-6 inline-flex min-h-11 items-center rounded-full bg-white px-6 py-3 text-sm font-bold text-red-700 hover:bg-amber-50">
+          <Link href={localize("/free-study-plan")} className="mt-6 inline-flex min-h-11 items-center rounded-full bg-white px-6 py-3 text-sm font-bold text-red-700 hover:bg-amber-50">
             {isZh ? "获取免费留学方案" : "Get a free study plan"}
           </Link>
         </section>
