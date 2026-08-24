@@ -573,7 +573,7 @@ export default async function HomePage() {
             <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">{heroTitle}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">{serviceSubtitle || heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={localize("/scholarship-assessment")}>{isZh ? "免费评估奖学金机会 →" : "Free Scholarship Assessment ->"}</ButtonLink>
+              <ButtonLink href={localize("/free-study-plan")}>{isZh ? "获取免费来华留学方案 →" : "Get a Free China Study Plan ->"}</ButtonLink>
               <ButtonLink href={localize("/cities")} variant="secondary">{isZh ? "\u770b\u770b\u6709\u54ea\u4e9b\u57ce\u5e02 \u2192" : "See study cities \u2192"}</ButtonLink>
             </div>
           </div>
@@ -732,7 +732,7 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="mt-8">
-            <ButtonLink href={localize("/scholarship-assessment")} variant="secondary">{isZh ? "免费评估奖学金机会 →" : "Free Scholarship Assessment ->"}</ButtonLink>
+            <ButtonLink href={localize("/free-study-plan")} variant="secondary">{isZh ? "获取免费来华留学方案 →" : "Get a Free China Study Plan ->"}</ButtonLink>
           </div>
           <p className="mt-4 text-sm text-blue-100">{isZh ? "\u65e0\u9700\u4ed8\u8d39\uff0c\u9996\u6b21\u8bc4\u4f30\u5b8c\u5168\u514d\u8d39\u3002" : "No commitment. 100% free first consultation."}</p>
           <div className="mt-auto flex justify-start pt-12">
