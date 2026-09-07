@@ -41,9 +41,64 @@ function escapeHtml(value: unknown) {
     .replaceAll("'", "&#039;");
 }
 
-function joinList(items: string[] | undefined, fallback = "待核验") {
-  if (!items?.length) return fallback;
-  return items.join("；");
+const cityNames: Record<string, string> = {
+  Anhui: "安徽", Anshan: "鞍山", Beijing: "北京", Changchun: "长春", Changsha: "长沙", Chengdu: "成都",
+  China: "中国", Chongqing: "重庆", Dalian: "大连", Fujian: "福建", Fuzhou: "福州", Ganzhou: "赣州",
+  Guangdong: "广东", Guangxi: "广西", Guangzhou: "广州", Guilin: "桂林", Guizhou: "贵州", Hainan: "海南",
+  Hangzhou: "杭州", Harbin: "哈尔滨", Hebei: "河北", Hefei: "合肥", Heihe: "黑河", Heilongjiang: "黑龙江",
+  Henan: "河南", Huangshan: "黄山", Hubei: "湖北", Hunan: "湖南", "Inner Mongolia": "内蒙古", Jiangsu: "江苏",
+  Jiangxi: "江西", Jilin: "吉林", Jinan: "济南", Jingdezhen: "景德镇", Jinzhou: "锦州", Kunming: "昆明",
+  Lanzhou: "兰州", Liaoning: "辽宁", Mudanjiang: "牡丹江", Nanchang: "南昌", Nanjing: "南京", Nanning: "南宁",
+  Ningbo: "宁波", Ningxia: "宁夏", Qingdao: "青岛", Qinghai: "青海", Qiqihar: "齐齐哈尔", Shaanxi: "陕西",
+  Shandong: "山东", Shanghai: "上海", Shantou: "汕头", Shanxi: "山西", Shenyang: "沈阳", Tianjin: "天津",
+  Wuhan: "武汉", Wuxi: "无锡", "Xi'an": "西安", Yangling: "杨凌", Yichang: "宜昌", Zhuzhou: "株洲"
+};
+
+const majorNames: Record<string, string> = {
+  Accounting: "会计学", Aerospace: "航空航天", "Aerospace Engineering": "航空航天工程", Agriculture: "农业", "Animal Science": "动物科学",
+  Archaeology: "考古学", Architecture: "建筑学", "Artificial Intelligence": "人工智能", Arts: "艺术", Business: "工商管理",
+  "Chemical Engineering": "化学工程", Chemistry: "化学", "Chinese Language": "汉语", "Chinese Medicine": "中医学",
+  "Civil Engineering": "土木工程", Communication: "传播学", "Computer Science": "计算机科学", Dentistry: "口腔医学",
+  Design: "设计学", "Digital Media": "数字媒体", Ecology: "生态学", Economics: "经济学", Education: "教育学",
+  "Electrical Engineering": "电气工程", Electronics: "电子信息", "Energy Engineering": "能源工程", Engineering: "工程学",
+  "Environmental Science": "环境科学", Finance: "金融学", "Food Science": "食品科学", Forestry: "林学", Geosciences: "地球科学",
+  "International Relations": "国际关系", Law: "法学", "Life Sciences": "生命科学", "Marine Science": "海洋科学",
+  "Materials Science": "材料科学", "Mechanical Engineering": "机械工程", Medicine: "临床医学", "Mining Engineering": "采矿工程",
+  Nursing: "护理学", Pediatrics: "儿科学", Pharmacy: "药学", Physics: "物理学", Psychology: "心理学", "Public Health": "公共卫生",
+  Telecommunications: "通信工程", Tourism: "旅游管理", Translation: "翻译", Transport: "交通运输", "Vehicle Engineering": "车辆工程"
+};
+
+function chineseCity(location: string) {
+  return cityNames[location] ?? "中国";
+}
+
+function chineseMajors(majors: string[], limit?: number) {
+  const values = limit ? majors.slice(0, limit) : majors;
+  return values.map((major) => majorNames[major] ?? "相关专业方向");
+}
+
+function chinesePriority(priority: string) {
+  return priority === "A" ? "优先跟进" : priority === "B" ? "建议跟进" : "待核验";
+}
+
+function fieldCell(label: string, content: string, className = "") {
+  return `<td data-label="${escapeHtml(label)}"${className ? ` class="${className}"` : ""}>${content}</td>`;
+}
+
+function chineseLanguageRequirement() {
+  return "中文授课一般需提供汉语水平证明；英文授课一般需提供认可的英语成绩或等效材料。具体标准以该专业当年通知为准。";
+}
+
+function chineseEligibility() {
+  return "通常要求非中国籍、持有效护照、身心健康，并具有相应学历。年龄、国籍材料、体检、无犯罪记录与监护材料以当年招生简章为准。";
+}
+
+function chineseApplicationSteps() {
+  return "确认专业与截止日期，准备护照、学历和成绩材料、语言证明、体检与其他要求；提交网申后跟进审核、录取、签证和报到。";
+}
+
+function chineseFeeSummary() {
+  return "费用标准因专业、授课语言和校区而异，请通过官方来源核验当年申请费、学费、保险与住宿费。";
 }
 
 function sourceKind(slug: string) {
@@ -185,6 +240,30 @@ function pageShell(title: string, subtitle: string, body: string) {
       .toolbar { grid-template-columns:1fr; }
       th { top:56px; }
     }
+    @media (max-width: 720px) {
+      .nav { padding:12px 16px; align-items:flex-start; }
+      .brand { font-size:14px; }
+      .nav a { display:block; font-size:12px; line-height:1.8; }
+      .hero, .toolbar, main { padding-left:16px; padding-right:16px; }
+      .hero { padding-top:28px; padding-bottom:24px; }
+      h1 { font-size:31px; line-height:1.15; }
+      .subtitle { font-size:15px; line-height:1.7; }
+      .hero-card { padding:14px; border-radius:8px; }
+      .stat { padding:12px; border-radius:8px; }
+      .stat strong { font-size:24px; }
+      .table-wrap { overflow:visible; border:0; border-radius:0; background:transparent; box-shadow:none; }
+      table, tbody, tr, td { display:block; min-width:0; width:100%; }
+      thead { display:none; }
+      tr { margin:0 0 14px; border:1px solid var(--line); border-radius:8px; background:#fff; overflow:hidden; box-shadow:0 6px 18px rgba(15,23,42,.06); }
+      td { display:grid; grid-template-columns:92px minmax(0,1fr); gap:10px; padding:10px 12px; font-size:13px; line-height:1.6; }
+      td::before { content:attr(data-label); color:var(--muted); font-size:12px; font-weight:800; }
+      td:first-child { background:#fff7ed; }
+      .school { min-width:0; }
+      .school strong { font-size:16px; }
+      .school span { display:none; }
+      .pill { white-space:normal; }
+      .footer-note { padding-bottom:12px; }
+    }
   </style>
 </head>
 <body>
@@ -257,9 +336,9 @@ function toolbar(rows: AdmissionRow[]) {
     </select>
     <select data-priority>
       <option value="all">全部优先级</option>
-      <option value="A">A 优先</option>
-      <option value="B">B 跟进</option>
-      <option value="C">C 待核验</option>
+      <option value="A">优先跟进</option>
+      <option value="B">建议跟进</option>
+      <option value="C">待核验</option>
     </select>
   </section>`;
 }
@@ -268,17 +347,17 @@ function simpleHtml(rows: AdmissionRow[]) {
   const bodyRows = rows.map((row, index) => {
     const priority = rowPriority(row);
     return `<tr data-source="${escapeHtml(row.sourceKind)}" data-priority="${priority}">
-      <td>${index + 1}</td>
-      <td class="school"><strong>${escapeHtml(row.chineseName || row.name)}</strong><span>${escapeHtml(row.name)}</span></td>
-      <td>${escapeHtml(row.location)}</td>
-      <td><span class="badge">${escapeHtml(row.chinaRank)}</span></td>
-      <td>${row.majors.slice(0, 5).map((major) => `<span class="pill">${escapeHtml(major)}</span>`).join("")}</td>
-      <td>${escapeHtml(joinList(row.profile.languageRequirements.slice(0, 2)))}</td>
-      <td>${escapeHtml(joinList(row.profile.eligibility.slice(0, 2)))}</td>
-      <td>${escapeHtml(row.tuition)}</td>
-      <td>${escapeHtml(scholarshipPotential(row))}</td>
-      <td><span class="badge">${priority}</span></td>
-      <td><a class="source" href="${escapeHtml(row.profile.sourceUrl || row.website)}" target="_blank" rel="noopener noreferrer">查看来源</a></td>
+      ${fieldCell("序号", String(index + 1))}
+      ${fieldCell("学校", `<strong>${escapeHtml(row.chineseName)}</strong>`, "school")}
+      ${fieldCell("城市", escapeHtml(chineseCity(row.location)))}
+      ${fieldCell("中国排名", `<span class="badge">${escapeHtml(row.chinaRank)}</span>`)}
+      ${fieldCell("招生方向", chineseMajors(row.majors, 5).map((major) => `<span class="pill">${escapeHtml(major)}</span>`).join(""))}
+      ${fieldCell("语言要求", escapeHtml(chineseLanguageRequirement()))}
+      ${fieldCell("基础申请要求", escapeHtml(chineseEligibility()))}
+      ${fieldCell("学费与费用", escapeHtml(chineseFeeSummary()))}
+      ${fieldCell("奖学金机会", escapeHtml(scholarshipPotential(row)))}
+      ${fieldCell("跟进优先级", `<span class="badge">${chinesePriority(priority)}</span>`)}
+      ${fieldCell("官方来源", `<a class="source" href="${escapeHtml(row.profile.sourceUrl || row.website)}" target="_blank" rel="noopener noreferrer">查看学校官方招生信息</a>`)}
     </tr>`;
   }).join("");
 
@@ -290,7 +369,7 @@ function simpleHtml(rows: AdmissionRow[]) {
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>#</th><th>学校</th><th>城市</th><th>中国排名</th><th>招生方向</th><th>语言要求</th><th>基础申请要求</th><th>学费/费用</th><th>奖学金机会</th><th>优先级</th><th>来源</th>
+            <th>序号</th><th>学校</th><th>城市</th><th>中国排名</th><th>招生方向</th><th>语言要求</th><th>基础申请要求</th><th>学费与费用</th><th>奖学金机会</th><th>跟进优先级</th><th>官方来源</th>
           </tr></thead>
           <tbody>${bodyRows}</tbody>
         </table>
@@ -304,26 +383,21 @@ function internalHtml(rows: AdmissionRow[]) {
   const bodyRows = rows.map((row, index) => {
     const priority = rowPriority(row);
     return `<tr data-source="${escapeHtml(row.sourceKind)}" data-priority="${priority}">
-      <td>${index + 1}</td>
-      <td class="school"><strong>${escapeHtml(row.chineseName || row.name)}</strong><span>${escapeHtml(row.name)}</span><span>${escapeHtml(row.slug)}</span></td>
-      <td>${escapeHtml(row.location)}<br><span class="note">${escapeHtml(row.provinceSlug)} / ${escapeHtml(row.citySlug)}</span></td>
-      <td><span class="badge">${escapeHtml(row.chinaRank)}</span><br><span class="note">分数：${escapeHtml(row.rankScore)}</span></td>
-      <td>${escapeHtml(row.sourceKind)}<br><a class="source" href="${escapeHtml(row.profile.sourceUrl || row.website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(row.profile.sourceTitle)}</a><br><span class="note">${escapeHtml(row.profile.sourceDate || "日期待核验")}</span></td>
-      <td>${escapeHtml(joinList(row.majors))}</td>
-      <td>${escapeHtml(joinList(row.profile.rankingHighlights))}</td>
-      <td>${escapeHtml(joinList(row.profile.eligibility))}</td>
-      <td>${escapeHtml(joinList(row.profile.languageRequirements))}</td>
-      <td>${escapeHtml(joinList(row.profile.applicationSteps))}</td>
-      <td>
-        <strong>申请费：</strong>${escapeHtml(row.profile.fees.application || "待核验")}<br>
-        <strong>学费：</strong>${escapeHtml(row.profile.fees.tuition || row.tuition || "待核验")}<br>
-        <strong>保险：</strong>${escapeHtml(row.profile.fees.insurance || "待核验")}<br>
-        <strong>住宿：</strong>${escapeHtml(row.profile.fees.accommodation || "待核验")}
-      </td>
-      <td>${escapeHtml(joinList(row.scholarships))}<br><strong>${escapeHtml(scholarshipPotential(row))}</strong></td>
-      <td>${escapeHtml(joinList(row.profile.programNotes))}</td>
-      <td><span class="badge">${priority}</span></td>
-      <td class="note">招生层次：本科为主；硕士/博士需结合后续研究生简章表补充。授课语言、截止日期、CSCA、导师接收函和奖学金名额必须逐校核验。</td>
+      ${fieldCell("序号", String(index + 1))}
+      ${fieldCell("学校", `<strong>${escapeHtml(row.chineseName)}</strong>`, "school")}
+      ${fieldCell("地区", escapeHtml(chineseCity(row.location)))}
+      ${fieldCell("中国排名", `<span class="badge">${escapeHtml(row.chinaRank)}</span><br><span class="note">排名分数：${escapeHtml(row.rankScore)}</span>`)}
+      ${fieldCell("来源与简章", `${escapeHtml(row.sourceKind)}<br><a class="source" href="${escapeHtml(row.profile.sourceUrl || row.website)}" target="_blank" rel="noopener noreferrer">查看学校官方招生信息</a><br><span class="note">以当年官方招生简章为准</span>`)}
+      ${fieldCell("专业方向", escapeHtml(chineseMajors(row.majors).join("；")))}
+      ${fieldCell("学校亮点", "学校层次、优势学科和国际学生项目请以官方资料为准；顾问匹配时应结合专业、城市成本和奖学金机会综合判断。")}
+      ${fieldCell("申请资格", escapeHtml(chineseEligibility()))}
+      ${fieldCell("语言要求", escapeHtml(chineseLanguageRequirement()))}
+      ${fieldCell("申请流程", escapeHtml(chineseApplicationSteps()))}
+      ${fieldCell("费用明细", escapeHtml(chineseFeeSummary()))}
+      ${fieldCell("奖学金判断", `<strong>${escapeHtml(scholarshipPotential(row))}</strong><br><span class="note">国家、省市、学校和专项奖学金均需逐校核验。</span>`)}
+      ${fieldCell("运营备注", "建议先核验招生层次、授课语言、截止日期、材料要求和奖学金名额，再进入正式申请匹配。")}
+      ${fieldCell("跟进优先级", `<span class="badge">${chinesePriority(priority)}</span>`)}
+      ${fieldCell("风险控制", "最终申请条件、费用、语言成绩、入学考试与签证材料必须回到学校官网或官方申请系统确认。", "note")}
     </tr>`;
   }).join("");
 
@@ -335,7 +409,7 @@ function internalHtml(rows: AdmissionRow[]) {
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>#</th><th>学校 / Slug</th><th>地区</th><th>排名</th><th>来源与简章</th><th>专业方向</th><th>学校亮点</th><th>申请资格</th><th>语言要求</th><th>申请流程</th><th>费用明细</th><th>奖学金判断</th><th>运营备注</th><th>优先级</th><th>风险控制</th>
+            <th>序号</th><th>学校</th><th>地区</th><th>中国排名</th><th>来源与简章</th><th>专业方向</th><th>学校亮点</th><th>申请资格</th><th>语言要求</th><th>申请流程</th><th>费用明细</th><th>奖学金判断</th><th>运营备注</th><th>跟进优先级</th><th>风险控制</th>
           </tr></thead>
           <tbody>${bodyRows}</tbody>
         </table>
